@@ -35,9 +35,14 @@ and special purpose programming languages.
      Eiffel
      </strong>
      <br>
+     ewg -
+	<a href="http://ewg.sourceforge.net/"
+                >http://ewg.sourceforge.net/</a>
+<!--
      jegl -
 	<a href="http://jegl.sourceforge.net/"
                 >http://jegl.sourceforge.net/</a>
+-->
 </li>
 <li> <strong>
      Erlang
@@ -122,8 +127,8 @@ and special purpose programming languages.
      </strong>
      <br>
      SDL4Freepascal -
-	<a href="http://www.grulic.org.ar/~dmoisset/sdl4fp/english.html"
-                >http://www.grulic.org.ar/~dmoisset/sdl4fp/english.html</a>
+	<a href="http://sdl4fp.sourceforge.net/"
+                >http://sdl4fp.sourceforge.net/</a>
      <br>
      JEDI-SDL -
 	<a href="http://www.delphi-jedi.org/Jedi:TEAM_SDL_HOME"

@@ -38,9 +38,71 @@ You can also browse the CVS repository online at:
 <blockquote>
   <p><font color="#414141"><strong>
     Source snapshot version 1.2 (
-Fri Sep  5
+Tue Jan 13
   )</p>
   <p><a href="cvs/SDL-1.2.tar.gz">SDL-1.2.tar.gz</a>
+  </p>
+  <p>Changes for Tue Jan 13: <br>
+     <ul>
+	<LI> 1.2.7: Updated Visual C++ 7 projects with new API files
+	<LI> 1.2.7: Fixed mouse cursor visibility and focus events on MacOS X (thanks Max!)
+	<LI> 1.2.7: Added Altivec detection support for MacOS X (thanks Max!)
+	<LI> 1.2.7: Added support for /dev/joy* on Free/Net/OpenBSD (thanks Christian!)
+	<LI> 1.2.7: Fixed problems with CD-ROM audio playback on MacOS X 10.1
+	<LI> 1.2.7: Added dynamic GL library loading to MacOS Carbon support (thanks Anders!)
+     </ul>
+  </p>
+  <p>Changes for Sun Jan 4: <br>
+     <ul>
+	<LI> 1.2.7: Updated copyright information for 2004 (Happy New Year!)
+	<LI> 1.2.7: Added the ability to hide the cursor in the DirectFB driver (thanks Pete!)
+	<LI> 1.2.7: Added minor cleanup for Embedded Visual C++ 3.0 (thanks Andy!)
+	<LI> 1.2.7: Fixed high CPU usage with ALSA audio driver (thanks Michel!)
+	<LI> 1.2.7: Added function to create RWops from const memory: SDL_RWFromConstMem()
+	<LI> 1.2.7: Fixed YUV surface creation when video surface is OpenGL, but target is not
+     </ul>
+  </p>
+  <p>Changes for Tue Dec 16: <br>
+     <ul>
+	<LI> 1.2.7: Fixed compiling with ALSA 1.0 (thanks Stephane!)
+	<LI> 1.2.7: Added YUV overlay support on BeOS (thanks Andrew!)
+     </ul>
+  </p>
+  <p>Changes for Sat Dec 13: <br>
+     <ul>
+	<LI> 1.2.7: Fixed "dist" make target for newer versions of automake
+	<LI> 1.2.7: Fixed sound skipping on Tru64 (thanks Hayashi)
+	<LI> 1.2.7: Lots of non-critical QNX improvements (thanks Mike!)
+     </ul>
+  </p>
+  </p>
+  <p>Changes for Mon Nov 24: <br>
+     <ul>
+	<LI> 1.2.7: Updated Visual C++ project with CPU feature API
+	<LI> 1.2.7: Simplified CPU feature code and added SDL_HasRDTSC()
+	<LI> 1.2.7: Fixed configure.in problem with Cygwin32
+     </ul>
+  </p>
+  <p>Changes for Tue Nov 18: <br>
+     <ul>
+	<LI> 1.2.7: Fixed MacOS X libtool framework support (thanks Max!)
+	<LI> 1.2.7: Added SDL_HasMMX(), SDL_Has3DNow(), SDL_HasSSE() in SDL_cpuinfo.h
+	<LI> 1.2.7: Fixed illegal instruction crash using 3DNow on Intel processors
+	<LI> 1.2.7: Fixed asm issues with mmx.h and gcc 3.3 (thanks Stephane!)
+	<LI> 1.2.7: Updated libtool support so Mingw32 builds work.
+	<LI> 1.2.7: MGA CRTC2 support for DirectFB target (thanks Thomas!)
+	<LI> 1.2.7: Disable screen saver in Windows DIB video driver
+	<LI> 1.2.7: Added Atari CD-ROM support (thanks Patrice!)
+     </ul>
+  </p>
+  <p>Changes for Sun Sep 21: <br>
+     <ul>
+	<LI> 1.2.7: Fixed crash calling app defined window proc (thanks Scott!)
+	<LI> 1.2.7: Fixed NAS include file detection (thanks Stephane!)
+	<LI> 1.2.7: Fixed long long constant warnings in GCC 3.3.1 (thanks Stephane!)
+	<LI> 1.2.7: Added configure.in support for K*BSD (thanks Robert!)
+	<LI> 1.2.7: Added QNX package and audio fixes (thanks Mike!)
+     </ul>
   </p>
   <p>Changes for Fri Sep 5: <br>
      <ul>

@@ -68,6 +68,12 @@ Runtime Libraries:
      <a href="release/SDL-1.2.6-win32.zip">
                       SDL-1.2.6-win32.zip</a><br>
   </p>
+  <p><font color="#414141"><strong>
+    BeOS:
+     </strong></font><br>
+     <a href="http://libpak.neoni.net/downloads.php?fileverid=45"
+                     >LibPak sdl for users package</a> (BeOS 5.0)
+  </p>
 <!-- Not available yet
   <p><font color="#414141"><strong>
     BeOS:
@@ -114,14 +120,12 @@ Runtime Libraries:
      <a href="release/SDL_x86-1.2.6-x86-public.qpr">
                       SDL_x86-1.2.6-x86-public.qpr</a><br>
   </p>
-<!-- Not available yet
   <p><font color="#414141"><strong>
     AmigaOS:
      </strong></font><br>
-     <a href="release/SDL-1.2.6-Amiga68k.lha"
-                     >SDL-1.2.6-Amiga68k.lha</a>
+     <a href="release/SDL-1.2.6-amiga.zip"
+                     >SDL-1.2.6-amiga.zip</a>
   </p>
--->
 </blockquote>
 </p>
 
@@ -150,6 +154,12 @@ Development Libraries:
      <a href="release/SDL-devel-1.2.6-mingw32.tar.gz"
                      >SDL-devel-1.2.6-mingw32.tar.gz</a><br>
   </p>
+  <p><font color="#414141"><strong>
+    BeOS:
+     </strong></font><br>
+     <a href="http://libpak.neoni.net/downloads.php?fileverid=46"
+                     >LibPak sdl for deveelopers package</a> (BeOS 5.0)
+  </p>
 <!-- Not available yet
   <p><font color="#414141"><strong>
     BeOS:
@@ -176,14 +186,12 @@ Development Libraries:
      <a href="release/SDL_x86-1.2.6-x86-public.qpr">
                       SDL_x86-1.2.6-x86-public.qpr</a><br>
   </p>
-<!-- Not available yet
   <p><font color="#414141"><strong>
     AmigaOS:
      </strong></font><br>
-     <a href="release/SDL-devel-1.2.6-Amiga.lha"
-                     >SDL-devel-1.2.6-Amiga.lha</a>
+     <a href="release/SDL-devel-1.2.6-amiga.zip"
+                     >SDL-devel-1.2.6-amiga.zip</a>
   </p>
--->
 </blockquote>
 </p>
 <?PHP

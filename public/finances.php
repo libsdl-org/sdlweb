@@ -7,11 +7,11 @@ SDL Finances
 </strong></font></h1>
 
 <p><font color="#414141"><strong>
-Thomas Nicholson
-has made a generous donation toward SDL development! (<a href="#note">*</a>)<br>
+Hans-Peter Gygax, the <a href="http://www.eternal-lands.com">Eternal Lands Development Team</a>, and Lars Brubaker
 <!--
-have made generous donations toward SDL development! (<a href="#note">*</a>)<br>
+has made a generous donation toward SDL development! (<a href="#note">*</a>)<br>
 -->
+have made generous donations toward SDL development! (<a href="#note">*</a>)<br>
 Thank you everybody for showing your support and furthering SDL!
 </strong></font>
 </p>
@@ -83,11 +83,31 @@ Current Finances:
     <td>Thomas Nicholson</td>
     <td>$48.25</td>
     <td>$1160.95</td>
+<tr><td>Donation:</td>
+    <td>Sep 9, 2003</td>
+    <td>Arthur Dodd</td>
+    <td>$19.12</td>
+    <td>$1180.07</td>
+<tr><td>Donation:</td>
+    <td>Nov 14, 2003</td>
+    <td>Hans-Peter Gygax</td>
+    <td>$18.92</td>
+    <td>$1198.99</td>
+<tr><td>Donation:</td>
+    <td>Dec 11, 2003</td>
+    <td>Eternal Lands Development Team</td>
+    <td>$23.97</td>
+    <td>$1222.96</td>
+<tr><td>Donation:</td>
+    <td>Jan 4, 2004</td>
+    <td>Lars Brubaker</td>
+    <td>$19.12</td>
+    <td>$1242.08</td>
 <tr><td>Total:</td>
     <td></td>
     <td></td>
     <td></td>
-    <td>$1160.95</td>
+    <td>$1242.08</td>
 <tr>
 </table>
 </font>
