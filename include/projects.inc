@@ -915,7 +915,7 @@
 				$query .= " order by name";
 
 			if ($perpage!="all") 
-				$query .= " limit $perpage,$start";
+				$query .= " limit $perpage offset $start";
 
 
 			$result = pg_exec($DBconnection, $query)

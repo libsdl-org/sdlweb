@@ -254,7 +254,7 @@ EOT;
 
 			//--- fetch news ---//
 
-			$query = "select * from news order by id desc limit $step,$start";
+			$query = "select * from news order by id desc limit $step offset $start";
 			$result = pg_exec($DBconnection, $query)
 					or die ("Could not execute query !");
 
