@@ -964,7 +964,7 @@
 
 				for ($j=0; $j < $numberos; $j++) {
 					$shortname = pg_result($status, $j, "shortname");
-					print "<IMG alt=\" $shortname \" src=\"images/$shortname.gif\" width=32 height=32>";
+					print "<IMG alt=\" $shortname \" src=\"images/platforms/$shortname.gif\" width=32 height=32>";
 					print "<IMG alt=\"\" src=\"images/sep.gif\" width=4 height=32>";
 				}
 				if ($numberos) print "<BR>\n";
