@@ -15,6 +15,12 @@ have contributed online tutorials on using various parts of SDL.
 <p><font color="#414141"><strong>
 <ul>
 <li>
+<a href="http://iki.fi/sol/gp/"
+        >Sol's Graphics for Beginners</a>
+<br>
+Covers: Setting up SDL with Visual C++ 6.0, basic graphics programming
+</li>
+<li>
 <a href="http://pgdc.purdue.org/sdltutorial/sdl_setup.html"
         >SDL Setup Guide 1.1</a>
 <br>

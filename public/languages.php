@@ -81,6 +81,10 @@ and special purpose programming languages.
      JSDL -
 	<a href="http://jsdl.sourceforge.net/"
                 >http://jsdl.sourceforge.net/</a>
+     <br>
+     sdljava -
+	<a href="http://sdljava.sourceforge.net"
+                >http://sdljava.sourceforge.net</a>
 </li>
 <li> <strong>
      Lisp

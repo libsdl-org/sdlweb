@@ -7,7 +7,7 @@ SDL Finances
 </strong></font></h1>
 
 <p><font color="#414141"><strong>
-Stephan Meisinger and Nexxeo Productions
+<a href="http://www.nosubstancesoftware.com">No Substance Software</a> and Christopher Lindblom
 have made generous donations toward SDL development! (<a href="#note">*</a>)<br>
 <!--
 has made a generous donation toward SDL development! (<a href="#note">*</a>)<br>
@@ -178,11 +178,21 @@ Current Finances:
     <td>Nexxeo Productions</td>
     <td>$4.55</td>
     <td>$997.52</td>
+<tr><td>Donation:</td>
+    <td>Dec 24, 2004</td>
+    <td><a href="http://www.nosubstancesoftware.com">No Substance Software</a></td>
+    <td>$28.53</td>
+    <td>$1026.05</td>
+<tr><td>Donation:</td>
+    <td>Jan 7, 2005</td>
+    <td>Christopher Lindblom</td>
+    <td>$9.31</td>
+    <td>$1035.36</td>
 <tr><td>Total:</td>
     <td></td>
     <td></td>
     <td></td>
-    <td>$997.52</td>
+    <td>$1035.36</td>
 <tr>
 </table>
 </font>
