@@ -37,9 +37,19 @@ You can also browse the CVS repository online at:
 <blockquote>
   <p><font color="#414141"><strong>
     Source snapshot version 1.2 (
-Sun Feb 15
+Tue Feb 17
   )</p>
   <p><a href="cvs/SDL-1.2.tar.gz">SDL-1.2.tar.gz</a></p>
+  <p>Changes for Tue Feb 17:</p>
+     <ul>
+	<LI> 1.2.7: Added a test program for dynamically loading OpenGL
+     </ul>
+  <p>Changes for Sun Feb 15:</p>
+     <ul>
+	<LI> 1.2.7: Increased sensitivity of the Windows joystick driver
+	<LI> 1.2.7: Fixed Quartz video window sizing (thanks Max!)
+	<LI> 1.2.7: Added support for SDL_VIDEO_WINDOW_POS and SDL_VIDEO_CENTERED on Windows
+     </ul>
   <p>Changes for Sun Feb 15:</p>
      <ul>
 	<LI> 1.2.7: Added fullscreen toggle support in testwm for Windows, etc.
