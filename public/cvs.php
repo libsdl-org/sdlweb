@@ -38,15 +38,26 @@ You can also browse the CVS repository online at:
 <blockquote>
   <p><font color="#414141"><strong>
     Source snapshot version 1.2 (
-Fri Feb 13
+Sun Feb 15
   )</p>
   <p><a href="cvs/SDL-1.2.tar.gz">SDL-1.2.tar.gz</a>
+  </p>
+  <p>Changes for Sun Feb 15: <br>
+     <ul>
+	<LI> 1.2.7: Added fullscreen toggle support in testwm for Windows, etc.
+	<LI> 1.2.7: Fixed mouse focus events after resetting video mode on Windows
+	<LI> 1.2.7: Removed debugging print statements in DirectX driver
+	<LI> 1.2.7: Re-added Objective-C export symbols for SDL_QuartzWindow
+	<LI> 1.2.7: Added colorkey blit tests to testvidinfo (thanks Mike!)
+	<LI> 1.2.7: Added video hardware acceleration support on QNX (thanks Mike!)
+	<LI> 1.2.7: Fixed video crash on some Atari systems (thanks Patrice!)
+	<LI> 1.2.7: SDL no longer sets a fatal signal handler for SIGPIPE
+     </ul>
   </p>
   <p>Changes for Fri Feb 13: <br>
      <ul>
 	<LI> 1.2.7: Fixed typos in DirectFB video driver
 	<LI> 1.2.7: Fixed modifier key state on MacOS X (thanks Max!)
-	<LI> 1.2.7: Removed debugging print statements in DirectX driver
      </ul>
   </p>
   <p>Changes for Thu Feb 12: <br>

@@ -1,0 +1,21 @@
+body
+{
+	margin: 0px;
+/*	font-family: Verdana, Tahoma, Arial, Helvetica, sans-serif; */
+}
+
+input, textarea { font-family: Verdana, Tahoma, Arial, Helvetica, sans-serif; }
+
+ul.menu
+{
+	margin-top: 0px;
+	margin-left: 0px;
+	padding-left: 2em;
+	list-style-image: url(images/bullet.png);
+	list-style-position: outside;
+	font-family: Verdana, Tahoma, Arial, Helvetica, sans-serif;
+	font-weight: bold;
+	font-size: small;
+}
+
+img { border: 0px; }
