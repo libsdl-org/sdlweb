@@ -7,8 +7,8 @@ SDL Finances
 </strong></font></h1>
 
 <p><font color="#414141"><strong>
-Jesse Pavel
-has made a generous donation toward SDL development! (<a href="#note">*</a>)<br>
+Keith Kitchin and Jeremy Horvath
+have made generous donations toward SDL development! (<a href="#note">*</a>)<br>
 Thank you everybody for showing your support and furthering SDL!
 </strong></font>
 </p>
@@ -63,11 +63,21 @@ Current Finances:
     <td>Jesse Pavel</td>
     <td>$150.00</td>
     <td>$616.90</td>
+<tr><td>Donation:</td>
+    <td>Aug 25, 2003</td>
+    <td>Keith Kitchin</td>
+    <td>$95.80</td>
+    <td>$712.70</td>
+<tr><td>Donation:</td>
+    <td>Aug 25, 2003</td>
+    <td>Jeremy Horvath</td>
+    <td>$400.00</td>
+    <td>$1112.70</td>
 <tr><td>Total:</td>
     <td></td>
     <td></td>
     <td></td>
-    <td>$616.90</td>
+    <td>$1112.70</td>
 <tr>
 </table>
 </font>
