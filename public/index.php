@@ -59,7 +59,7 @@ EOT;
 </STRONG></FONT>
 </P>
 <FONT color="#414141" size=4><STRONG>
-Simple DirectMedia Layer supports Linux, Windows, BeOS, MacOS Classic, MacOS X, FreeBSD, OpenBSD, BSD/OS, Solaris, and IRIX.  There is also code, but no official support, for Windows CE, AmigaOS, Dreamcast, Atari, QNX, NetBSD, AIX, OSF/Tru64, and SymbianOS.
+Simple DirectMedia Layer supports Linux, Windows, BeOS, MacOS Classic, MacOS X, FreeBSD, OpenBSD, BSD/OS, Solaris, IRIX, and QNX.  There is also code, but no official support, for Windows CE, AmigaOS, Dreamcast, Atari, NetBSD, AIX, OSF/Tru64, and SymbianOS.
 <P>
 <FONT color="#414141" size=4><STRONG>
 </STRONG></FONT>

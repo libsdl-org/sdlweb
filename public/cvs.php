@@ -38,9 +38,16 @@ You can also browse the CVS repository online at:
 <blockquote>
   <p><font color="#414141"><strong>
     Source snapshot version 1.2 (
-Sat Aug 23
+Sat Aug 30
   )</p>
   <p><a href="cvs/SDL-1.2.tar.gz">SDL-1.2.tar.gz</a>
+  </p>
+  <p>Changes for Sat Aug 30: <br>
+     <ul>
+	<LI> 1.2.6: Updated Visual C++, CodeWarrior, and MPW projects
+	<LI> 1.2.6: Fixed video bugs using the Nano-X video driver
+	<LI> 1.2.6: Fixed some bugs in the Atari audio driver (thanks Patrice!)
+     </ul>
   </p>
   <p>Changes for Sat Aug 23: <br>
      <ul>

@@ -7,8 +7,11 @@ SDL Finances
 </strong></font></h1>
 
 <p><font color="#414141"><strong>
-Keith Kitchin and Jeremy Horvath
+Thomas Nicholson
+has made a generous donation toward SDL development! (<a href="#note">*</a>)<br>
+<!--
 have made generous donations toward SDL development! (<a href="#note">*</a>)<br>
+-->
 Thank you everybody for showing your support and furthering SDL!
 </strong></font>
 </p>
@@ -75,11 +78,16 @@ Current Finances:
     <td>Jeremy Horvath</td>
     <td>$400.00</td>
     <td>$1112.70</td>
+<tr><td>Donation:</td>
+    <td>Aug 31, 2003</td>
+    <td>Thomas Nicholson</td>
+    <td>$48.25</td>
+    <td>$1160.95</td>
 <tr><td>Total:</td>
     <td></td>
     <td></td>
     <td></td>
-    <td>$1112.70</td>
+    <td>$1160.95</td>
 <tr>
 </table>
 </font>
