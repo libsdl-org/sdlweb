@@ -22,7 +22,7 @@ EOT;
 	}
 
 	//------------ database connection ------------//
-	$DBconnection = pg_Connect("dbname=sdlweb user=sdlweb")
+	$DBconnection = pg_connect("dbname=sdlweb user=sdlweb")
 		or die ("Could not connect to the database !");
 
 	//------------ cookies functions --------------//
