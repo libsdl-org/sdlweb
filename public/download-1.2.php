@@ -99,15 +99,15 @@ Runtime Libraries:
   <p><font color="#414141"><strong>
     IRIX:
      </strong></font><br>
-     <a href="http://ftp.mayn.de/pub/irix/games/SDL/SDL-1.2.8_IRIX_N32_mips3.tar
+     <a href="http://ftp.mayn.de/pub/irix/games/SDL/SDL-1.2.8_IRIX_N32_mips3.tardist"
                      >SDL-1.2.8_IRIX_N32_mips3.tardist</a><br>
   </p>
   <p><font color="#414141"><strong>
     OpenBSD:
      </strong></font><br>
-     <a href="ftp://ftp.openbsd.org/pub/OpenBSD/2.9/packages/i386/sdl-1.2.8-oss.
+     <a href="ftp://ftp.openbsd.org/pub/OpenBSD/2.9/packages/i386/sdl-1.2.8-oss.tgz"
                      >sdl-1.2.8-oss.tgz</a> (i386)<br>
-     <a href="ftp://ftp.openbsd.org/pub/OpenBSD/2.9/packages/powerpc/sdl-1.2.8-o
+     <a href="ftp://ftp.openbsd.org/pub/OpenBSD/2.9/packages/powerpc/sdl-1.2.8-oss.tgz"
                      >sdl-1.2.8-oss.tgz</a> (powerpc)<br>
      <br>
   </p>
@@ -177,7 +177,7 @@ Development Libraries:
     MacOS X:
      </strong></font><br>
      <a href="release/SDL-devel-1.2.8.pkg.tar.gz"
-                     >SDL-devel-1.2.8.pkg.tar.gz</a> (Project Builder + XCode)<b
+                     >SDL-devel-1.2.8.pkg.tar.gz</a> (Project Builder + XCode)<br>
   </p>
 <!-- Not available yet
   <p><font color="#414141"><strong>
