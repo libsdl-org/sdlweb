@@ -24,6 +24,8 @@ Special thanks go out to:
 </li>
 <li>Gaëtan de Menten for writing the PHP and SQL behind the SDL website
 </li>
+<li>Tim Jones for the new look of the SDL website
+</li>
 <li>Martin Donlon for his work on the SDL Documentation Project
 </li>
 <li>Ryan Gordon for helping everybody out and keeping the dream alive. :)
@@ -68,12 +70,25 @@ Special thanks go out to:
 </li>
 <li>Stephane Peter, for the AAlib front-end and multi-threaded timer idea.
 </li>
-<li>Jon Atkins for great SDL_net and SDL_mixer documentation
+<li>Jon Atkins for SDL_image, SDL_mixer and SDL_net documentation
 </li>
 <li>Peter Wiklund, for the 1998 winning SDL logo,
   and Arto Hamara, Steven Wong, and Kent Mein for other logo entries.
 </li>
+<li>Arne Claus, for the 2004 winning SDL logo,
+  and Shandy Brown, Jac, Alex Lyman, Mikkel Gjoel, #Guy, Jonas Hartmann,
+  Daniel Liljeberg,  Ronald Sowa, DocD, Pekka Jaervinen, Patrick Avella,
+  Erkki Kontilla, Levon Gavalian, Hal Emerich, David Wiktorsson,
+  S. Schury and F. Hufsky, Ciska de Ruyver, Shredweat, Tyler Montbriand,
+  Martin Andersson, Merlyn Wysard, Fernando Ibanez, David Miller,
+  Andre Bommele, lovesby.com, Francisco Camenforte Torres, and David Igreja
+  for other logo entries.
+</li>
+<li>Bob Pendleton and David Olofson for being long time contributors to
+  the SDL mailing list.
+</li>
 <li>Everybody at Loki Software, Inc. for their great contributions!
+</li>
 </ul>
 </p>
 <?PHP
