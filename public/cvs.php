@@ -38,9 +38,36 @@ You can also browse the CVS repository online at:
 <blockquote>
   <p><font color="#414141"><strong>
     Source snapshot version 1.2 (
-Tue Jan 13
+Fri Feb 13
   )</p>
   <p><a href="cvs/SDL-1.2.tar.gz">SDL-1.2.tar.gz</a>
+  </p>
+  <p>Changes for Fri Feb 13: <br>
+     <ul>
+	<LI> 1.2.7: Fixed typos in DirectFB video driver
+	<LI> 1.2.7: Fixed modifier key state on MacOS X (thanks Max!)
+	<LI> 1.2.7: Removed debugging print statements in DirectX driver
+     </ul>
+  </p>
+  <p>Changes for Thu Feb 12: <br>
+     <ul>
+	<LI> 1.2.7: Use sigaction instead of signal to preserve handler flags (thanks Matthew!)
+	<LI> 1.2.7: Added support for remote XVideo (thanks Frederic!)
+	<LI> 1.2.7: Try to use higher refresh rate by default in DirectX driver (thanks Dmitry!)
+	<LI> 1.2.7: Fixed ring 0 video flip busy wait on some versions of Windows (thanks Dmitry!)
+	<LI> 1.2.7: Fixed static linking on MacOS X (thanks Max!)
+	<LI> 1.2.7: Detect new XFree86 mode switch key on german keyboards (thanks Jens!)
+     </ul>
+  </p>
+  <p>Changes for Tue Feb 10: <br>
+     <ul>
+	<LI> 1.2.7: Fixed typos in the HTML documentation 
+	<LI> 1.2.7: Various Atari video driver improvements (thanks Patrice!)
+	<LI> 1.2.7: Fixed compiling with broken Linux 2.6 headers
+	<LI> 1.2.7: Added SDL_HasMMXExt(), SDL_Has3DNowExt(), and SDL_HasSSE2()
+	<LI> 1.2.7: Added Altivec detection support Linux/PPC
+	<LI> 1.2.7: Updated aclocal macros for new version of automake
+     </ul>
   </p>
   <p>Changes for Tue Jan 13: <br>
      <ul>
