@@ -108,11 +108,16 @@ Current Finances:
     <td>Phoenix Kokido</td>
     <td>$48.25</td>
     <td>$1290.33</td>
+<tr><td>Expense:</td>
+    <td>Feb 22, 2004</td>
+    <td>VMware Workstation 4</td>
+    <td><font color="red">$299.00</font></td>
+    <td>$991.33</td>
 <tr><td>Total:</td>
     <td></td>
     <td></td>
     <td></td>
-    <td>$1290.33</td>
+    <td>$991.33</td>
 <tr>
 </table>
 </font>
