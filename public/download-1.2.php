@@ -100,8 +100,6 @@ Runtime Libraries:
      <a href="http://ftp.mayn.de/pub/irix/games/SDL/SDL-1.2.7_IRIX_N32_mips3.tardist"
                      >SDL-1.2.7_IRIX_N32_mips3.tardist</a><br>
   </p>
--->
-<!-- Not available yet
   <p><font color="#414141"><strong>
     OpenBSD:
      </strong></font><br>
@@ -111,12 +109,14 @@ Runtime Libraries:
                      >sdl-1.2.7-oss.tgz</a> (powerpc)<br>
      <br>
   </p>
+-->
   <p><font color="#414141"><strong>
     QNX:
      </strong></font><br>
      <a href="release/SDL_x86-1.2.7-x86-public.qpr">
                       SDL_x86-1.2.7-x86-public.qpr</a><br>
   </p>
+<!-- Not available yet
   <p><font color="#414141"><strong>
     AmigaOS:
      </strong></font><br>
@@ -177,13 +177,13 @@ Development Libraries:
      <a href="release/SDL-devel-1.2.7.pkg.tar.gz"
                      >SDL-devel-1.2.7.pkg.tar.gz</a> (Project Builder + XCode)<br>
   </p>
-<!-- Not available yet
   <p><font color="#414141"><strong>
     QNX:
      </strong></font><br>
      <a href="release/SDL_x86-1.2.7-x86-public.qpr">
                       SDL_x86-1.2.7-x86-public.qpr</a><br>
   </p>
+<!-- Not available yet
   <p><font color="#414141"><strong>
     AmigaOS:
      </strong></font><br>
