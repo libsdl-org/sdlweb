@@ -7,6 +7,21 @@ Articles relating to SDL
 </strong></font></h1>
 
 <blockquote>
+     O'Reilly Network - August 2003<br>
+     <b><a href="http://linux.oreillynet.com/pub/a/linux/2003/08/07/sdl_anim.html">Animation in SDL: Hardware Surfaces</a></b>
+</blockquote>
+
+<blockquote>
+     O'Reilly Network - May 2003<br>
+     <b><a href="http://linux.oreillynet.com/pub/a/linux/2003/05/15/sdl_anim.html">Animation in SDL</a></b>
+</blockquote>
+
+<blockquote>
+     GameProgrammer.com - August 2002<br>
+     <b><a href="http://gameprogrammer.com/sdl.html">Why Use SDL?</a></b>
+</blockquote>
+
+<blockquote>
      OSNews - August 2002<br>
      <b><a href="http://www.osnews.com/story.php?news_id=1549">Interview with Bill Kendrick of NewBreedSoftware</a></b>
 </blockquote>
