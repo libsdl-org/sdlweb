@@ -31,13 +31,13 @@
 		default:
 			// Stupid Internet Explorer...
 			if (eregi("MSIE.[56]", $_ENV["HTTP_USER_AGENT"])) {
-				$logo = "SDL_logo-indexed.png";
+				$logo = "SDL_logo.gif";
 			} else {
 				$logo = "SDL_logo.png";
 			}
 			echo <<<EOT
 		<!-- Intro -->
-		<img src="images/$logo" alt="SDL" width="450" height="266">
+		<img src="images/$logo" alt="SDL" width="457" height="266">
 		<br><br>
 		<font face="Verdana">
 		Simple DirectMedia Layer is a cross-platform multimedia library designed to provide level access to audio, keyboard, mouse, joystick, 3D hardware via OpenGL, and 2D video framebuffer. It is used by MPEG playback software, emulators, and many popular games, including the award winning Linux port of "Civilization: Call To Power."<p>
