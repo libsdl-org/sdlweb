@@ -964,13 +964,13 @@
 
 				for ($j=0; $j < $numberos; $j++) {
 					$shortname = pg_result($status, $j, "shortname");
-					print "<IMG alt=\" $shortname \" src=\"images/platforms/$shortname.gif\" width=32 height=32>";
+					print "<IMG alt=\" $shortname \" src=\"images/platforms/$shortname.png\" width=32 height=32>";
 					print "<IMG alt=\"\" src=\"images/sep.gif\" width=4 height=32>";
 				}
 				if ($numberos) print "<BR>\n";
 				for ($j=0; $j < $numberos; $j++) {
 					$rating = pg_result($status, $j, "status");
-					print "<IMG alt=\" $ratingstring[$rating] \" src=\"images/$rating-small.gif\" width=32 height=4>";
+					print "<IMG alt=\" $ratingstring[$rating] \" src=\"images/$rating-small.png\" width=32 height=4>";
 					print "<IMG alt=\"\" src=\"images/sep-small.gif\" width=4 height=4>";
 				}
 				if ($numberos) print "<BR>\n";
