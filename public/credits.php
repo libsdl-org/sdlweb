@@ -20,7 +20,10 @@ Special thanks go out to:
 </li>
 <li>Scott Call, for making a home for SDL on the 'Net... Thanks! :)
 </li>
-<li>The Linux Fund, C Magazine, and Gareth Noyce for financial contributions
+<li>The Linux Fund, C Magazine, Educational Technology Resources Inc.,
+  Gareth Noyce, Jesse Pavel, Keith Kitchin, Jeremy Horvath, Thomas Nicholson,
+  Hans-Peter Gygax, the Eternal Lands Development Team, Lars Brubaker,
+  and Phoenix Kokido for financial contributions
 </li>
 <li>Gaëtan de Menten for writing the PHP and SQL behind the SDL website
 </li>
