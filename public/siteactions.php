@@ -1,19 +1,21 @@
-<DL>
-<DT><FONT color="#414141" size=4>&nbsp;&nbsp;&nbsp;<STRONG>Site Actions</STRONG></FONT> 
+	<!-- Site Actions -->
+	<img src="/images/siteactions.png" width="180" height="32" alt="Site Actions"><br>
+	<ul class="menu">
 <?PHP
 	if ($userid==0) { 	// not logged in yet -- getting user login & pass 
-		print "<DD><A href=\"/index.php?action=showloginform\"><FONT color=\"#414141\"><STRONG>Login</STRONG></FONT></A>";
-		print "<DD><A href=\"/users.php?action=createuser\"><FONT color=\"#414141\"><STRONG>New Account</STRONG></FONT></A>";
+		print "<li><a href=\"/index.php?action=showloginform\">Login</a></li>";
+		print "<li><a href=\"/users.php?action=createuser\">New Account</a></li>";
 	} else {
-		print "<DD><FONT color=\"#414141\"><STRONG>Login:</STRONG></FONT> <I>$userlogin</I></DD>";
-		print "<DD><A href=\"/users.php?action=edituser&id=$userid\"><FONT color=\"#414141\"><STRONG>Edit Account</STRONG></FONT></A>";
+		print "<li>Login: <i>$userlogin</i><br>";
+		print "<li><a href=\"/users.php?action=edituser&id=$userid\">Edit Account</a></li>";
 		if ($userprivileges[manageoses])
-			print "<DD><A href=\"/oses.php\"><FONT color=\"#414141\"><STRONG>Manage OSes</STRONG></FONT></A>";
+			print "<li><a href=\"/oses.php\">Manage OSes</a></li>";
 		if ($userprivileges[manageusers])
-			print "<DD><A href=\"/users.php\"><FONT color=\"#414141\"><STRONG>Manage Users</STRONG></FONT></A>";
+			print "<li><a href=\"/users.php\">Manage Users</a></li>";
 		if ($userprivileges[managegroups])
-			print "<DD><A href=\"/groups.php\"><FONT color=\"#414141\"><STRONG>Manage Groups</STRONG></FONT></A>";
-		print "<DD><A href=\"/index.php?action=logout\"><FONT color=\"#414141\"><STRONG>Logout</STRONG></FONT></A>";
+			print "<li><a href=\"/groups.php\">Manage Groups</a></li>";
+		print "<li><a href=\"/index.php?action=logout\">Logout</a></li>";
 	}
 ?>
-</DL>
+	</ul>
+	<!-- End Site Actions -->
