@@ -14,9 +14,11 @@ Thank you everybody for showing your support and furthering SDL!
 </p>
 
 <p><font color="#414141"><strong>
-If you want to make a non-tax-deductable donation to SDL development,
-please send e-mail to Sam Lantinga at:
+If you want to make a non-tax-deductable donation by check or money order
+to SDL development, please send e-mail to Sam Lantinga at:
 <a href="mailto:slouken@libsdl.org">slouken@libsdl.org</a>.
+<br>
+You can also make a contribution using <a href="http://www.paypal.com">PayPal</a> to slouken@libsdl.org
 </strong></font>
 </p>
 
