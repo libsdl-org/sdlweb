@@ -55,6 +55,7 @@ INPUT, TEXTAREA { font-family: Verdana, Tahoma, Arial, Helvetica, sans-serif; }
 	<img src="/images/bullet.gif"><a href="/index.php">About</a><br>
 	<img src="/images/bullet.gif"><a href="/news.php">News</a><br>
 	<img src="/images/bullet.gif"><a href="/license.php">Licensing</a><br>
+	<img src="/images/bullet.gif"><a href="http://www.cafepress.com/libsdl">Merchandise</a><br>
 	<img src="/images/bullet.gif"><a href="/credits.php">Credits</a><br>
 	<img src="/images/bullet.gif"><a href="mailto:slouken@libsdl.org">Feedback</a><br>
 	<br>

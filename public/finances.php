@@ -7,11 +7,11 @@ SDL Finances
 </strong></font></h1>
 
 <p><font color="#414141"><strong>
-Hans-Peter Gygax, the <a href="http://www.eternal-lands.com">Eternal Lands Development Team</a>, and Lars Brubaker
-<!--
+Phoenix Kokido
 has made a generous donation toward SDL development! (<a href="#note">*</a>)<br>
--->
+<!--
 have made generous donations toward SDL development! (<a href="#note">*</a>)<br>
+-->
 Thank you everybody for showing your support and furthering SDL!
 </strong></font>
 </p>
@@ -103,11 +103,16 @@ Current Finances:
     <td>Lars Brubaker</td>
     <td>$19.12</td>
     <td>$1242.08</td>
+<tr><td>Donation:</td>
+    <td>Jan 30, 2004</td>
+    <td>Phoenix Kokido</td>
+    <td>$48.25</td>
+    <td>$1290.33</td>
 <tr><td>Total:</td>
     <td></td>
     <td></td>
     <td></td>
-    <td>$1242.08</td>
+    <td>$1290.33</td>
 <tr>
 </table>
 </font>
