@@ -29,6 +29,8 @@ Special thanks go out to:
 </li>
 <li>Tim Jones for the new look of the SDL website
 </li>
+<li>Marco Kraus for setting up SDL merchandise
+</li>
 <li>Martin Donlon for his work on the SDL Documentation Project
 </li>
 <li>Ryan Gordon for helping everybody out and keeping the dream alive. :)
