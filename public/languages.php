@@ -1,6 +1,6 @@
 <?PHP
- include ("../include/login.inc");
- include ("header.inc");
+ include ("../include/login.inc.php");
+ include ("header.inc.php");
 ?>
 <h1><font color="#414141"><strong>
 SDL Language Bindings
@@ -190,5 +190,5 @@ and special purpose programming languages.
      </font></p>
 </blockquote>
 <?PHP
- include ("footer.inc");
+ include ("footer.inc.php");
 ?>

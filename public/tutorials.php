@@ -1,6 +1,6 @@
 <?PHP
- include ("../include/login.inc");
- include ("header.inc");
+ include ("../include/login.inc.php");
+ include ("header.inc.php");
 ?>
 <h1><font color="#414141"><strong>
 SDL Tutorials
@@ -73,5 +73,5 @@ Covers: SDL graphics and events, SDL_image, SDL_mixer, SDL_net
 </ul>
 </p>
 <?PHP
- include ("footer.inc");
+ include ("footer.inc.php");
 ?>

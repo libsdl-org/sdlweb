@@ -1,17 +1,17 @@
 <?PHP
- include ("../include/login.inc");
- include ("header.inc");
+ include ("../include/login.inc.php");
+ include ("header.inc.php");
 ?>
 <h1><font color="#414141"><strong>
 SDL Finances
 </strong></font></h1>
 
 <p><font color="#414141"><strong>
-David Finch, Patrizio Mazzucco, and Peter Campbell
+Stephan Meisinger and Nexxeo Productions
+have made generous donations toward SDL development! (<a href="#note">*</a>)<br>
 <!--
 has made a generous donation toward SDL development! (<a href="#note">*</a>)<br>
 -->
-have made generous donations toward SDL development! (<a href="#note">*</a>)<br>
 Thank you everybody for showing your support and furthering SDL!
 </strong></font>
 </p>
@@ -148,11 +148,41 @@ Current Finances:
     <td>Anonymous</td>
     <td>$11.22</td>
     <td>$1272.12</td>
+<tr><td>Donation:</td>
+    <td>Jul 23, 2004</td>
+    <td>Jesse Jordan</td>
+    <td>$5.49</td>
+    <td>$1277.61</td>
+<tr><td>Expense:</td>
+    <td>Aug 21, 2004</td>
+    <td>Windows XP</td>
+    <td><font color="red">$179.99</font></td>
+    <td>$1097.62</td>
+<tr><td>Donation:</td>
+    <td>Oct 13, 2004</td>
+    <td>Paul Miüller</td>
+    <td>$18.92</td>
+    <td>$1116.54</td>
+<tr><td>Expense:</td>
+    <td>Nov 21, 2004</td>
+    <td>DVD drive</td>
+    <td><font color="red">$129.99</font></td>
+    <td>$986.55</td>
+<tr><td>Donation:</td>
+    <td>Nov 25, 2004</td>
+    <td>Stephan Meisinger</td>
+    <td>$6.42</td>
+    <td>$992.97</td>
+<tr><td>Donation:</td>
+    <td>Dec 17, 2004</td>
+    <td>Nexxeo Productions</td>
+    <td>$4.55</td>
+    <td>$997.52</td>
 <tr><td>Total:</td>
     <td></td>
     <td></td>
     <td></td>
-    <td>$1272.12</td>
+    <td>$997.52</td>
 <tr>
 </table>
 </font>
@@ -166,5 +196,5 @@ SDL development.
 </strong></font>
 </p>
 <?PHP
- include ("footer.inc");
+ include ("footer.inc.php");
 ?>

@@ -1,6 +1,6 @@
 <?PHP
-	include ("../include/login.inc");
-	include ("header.inc");
+	include ("../include/login.inc.php");
+	include ("header.inc.php");
 
 	BeginContent("Groups");
 
@@ -232,5 +232,5 @@
 
 	CloseContent();
 
-	include ("footer.inc");
+	include ("footer.inc.php");
 ?>

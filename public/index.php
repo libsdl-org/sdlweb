@@ -1,11 +1,11 @@
 <?PHP
-	include ("../include/login.inc");
+	include ("../include/login.inc.php");
 
 //-------------------------------------------------------------------------------------------------
 	if ($wrong_login_or_password)
 		$action = "showloginform";
 
-	include ("header.inc");
+	include ("header.inc.php");
 
 	//---------------------------------------------------------------------------------------------
 	switch ($action) {
@@ -49,5 +49,5 @@
 EOT;
 	}
 	
-	include ("footer.inc");
+	include ("footer.inc.php");
 ?>

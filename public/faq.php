@@ -1,7 +1,7 @@
 <?PHP
-	include ("../include/login.inc");
+	include ("../include/login.inc.php");
 	if (!$printer_friendly)
-		include ("header.inc");
+		include ("header.inc.php");
 
 	$title = "Frequently Asked Questions";
 	if ( $category ) {
@@ -482,5 +482,5 @@
 	CloseContent();
 
 	if (!$printer_friendly)
-		include ("footer.inc");
+		include ("footer.inc.php");
 ?>

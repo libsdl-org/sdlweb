@@ -64,6 +64,7 @@
 	<li><a href="/tutorials.php">Tutorials</a></li>
 	<li><a href="/articles.php">Articles</a></li>
 	<li><a href="/books.php">Books</a></li>
+	<li><a href="http://www.libsdl.org/cgi/docwiki.cgi/">Doc Wiki</a></li>
 	<li><a href="http://sdldoc.csn.ul.ie/">Doc Project</a></li>
 	<li><a href="/faq.php">FAQs</a></li>
 	<li><a href="/opengl/index.php">OpenGL</a></li>

@@ -1,10 +1,22 @@
 <?PHP
- include ("../include/login.inc");
- include ("header.inc");
+ include ("../include/login.inc.php");
+ include ("header.inc.php");
 ?>
 <h1><font color="#414141"><strong>
 Articles relating to SDL
 </strong></font></h1>
+
+<blockquote>
+     NewsForge - December 2004<br>
+     <b><a href="http://www.newsforge.com/article.pl?sid=04/12/04/0156233">Getting stressed by the season?  Try Blob Wars</a></b>
+</blockquote>
+
+
+<blockquote>
+     Ask Slashdot - April 2004<br>
+     <b><a href="http://slashdot.org/askslashdot/01/04/03/1747256.shtml">Game Programming w/ the Simple Directmedia Layer?</a></b>
+</blockquote>
+
 
 <blockquote>
      O'Reilly Network - August 2003<br>
@@ -66,11 +78,6 @@ Articles relating to SDL
 <blockquote>
      Ask Slashdot - August 2001<br>
      <b><a href="http://slashdot.org/article.pl?sid=01/08/10/1736243">Ask Sam Lantinga About SDL On PS2 And More</a></b>
-</blockquote>
-
-<blockquote>
-     Ask Slashdot - April 2001<br>
-     <b><a href="http://slashdot.org/askslashdot/01/04/03/1747256.shtml">Game Programming w/ the Simple Directmedia Layer?</a></b>
 </blockquote>
 
 <!--
@@ -142,5 +149,5 @@ This is the audio portion of the presentation that goes with the
 </blockquote>
 -->
 <?PHP
- include ("footer.inc");
+ include ("footer.inc.php");
 ?>

@@ -1,6 +1,6 @@
 <?PHP
-	include ("../include/login.inc");
-	include ("header.inc");
+	include ("../include/login.inc.php");
+	include ("header.inc.php");
 
 	BeginContent("Users");
 
@@ -70,7 +70,7 @@
 
 			$mail_login = $newlogin;
 			$mail_password = $newpass1;
-			include("../include/mail-newuser.inc");
+			include("../include/mail-newuser.inc.php");
 			mail("$newemail", $subject, $body, "from: $from");
 
 			//--- mail webmaster ---//
@@ -157,7 +157,7 @@
 
 			$mail_login = $login;
 			$mail_password = $newpass1;
-			include("../include/mail-changedpassword.inc");
+			include("../include/mail-changedpassword.inc.php");
 			mail("$email", $subject, $body, "from: $from");
 
 			print "<I>Updated !</I><BR>\n";
@@ -362,5 +362,5 @@
 
 	CloseContent();
 
-	include ("footer.inc");
+	include ("footer.inc.php");
 ?>

@@ -1,6 +1,6 @@
 <?PHP
-include ("../include/login.inc");
-include ("header.inc");
+include ("../include/login.inc.php");
+include ("header.inc.php");
 
 //-------------------------------------------------------------------------------------------------
 function show_motd() {
@@ -333,7 +333,7 @@ EOT;
 	
 		print "</BLOCKQUOTE>\n";
 	
-		include ("../include/jokes.inc");
+		include ("../include/jokes.inc.php");
 
 		//-------------------------------------------------------------------------------------------------
 
@@ -421,6 +421,6 @@ EOT;
 EOT;
 }
 
-include ("footer.inc");
+include ("footer.inc.php");
 
 ?>

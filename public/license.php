@@ -1,6 +1,6 @@
 <?PHP
- include ("../include/login.inc");
- include ("header.inc");
+ include ("../include/login.inc.php");
+ include ("header.inc.php");
 ?>
 <h1><font color="#414141"><strong>
 Licensing the Simple DirectMedia Layer library
@@ -56,5 +56,5 @@ However, this does technically violate the LGPL, so be cautioned.
      </font></p>
 </blockquote>
 <?PHP
- include ("footer.inc");
+ include ("footer.inc.php");
 ?>

@@ -1,6 +1,6 @@
 <?PHP
- include ("../include/login.inc");
- include ("header.inc");
+ include ("../include/login.inc.php");
+ include ("header.inc.php");
 ?>
 <h1><font color="#414141"><strong>
 SDL Introduction
@@ -28,5 +28,5 @@ Thanks to the many people who have contributed to the SDL documentation!
 </ul>
 </p>
 <?PHP
- include ("footer.inc");
+ include ("footer.inc.php");
 ?>

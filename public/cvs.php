@@ -1,6 +1,6 @@
 <?PHP
- include ("../include/login.inc");
- include ("header.inc");
+ include ("../include/login.inc.php");
+ include ("header.inc.php");
 ?>
 <h1><font color="#414141"><strong>
 SDL CVS snapshots
@@ -37,9 +37,65 @@ You can also browse the CVS repository online at:
 <blockquote>
   <p><font color="#414141"><strong>
     Source snapshot version 1.2 (
-Fri Apr 23
+Tue Dec 14
   )</p>
   <p><a href="cvs/SDL-1.2.tar.gz">SDL-1.2.tar.gz</a></p>
+  <p>Changes for Tue Dec 14:</p>
+     <ul>
+	<LI> 1.2.8: Fixed pitch vs width bug in SDL_SaveBMP() (thanks Jonathan!)
+     </ul>
+  <p>Changes for Sun Dec 12:</p>
+     <ul>
+	<LI> 1.2.8: Build ALSA support when building RPM files
+	<LI> 1.2.8: Added support for MacOS X Xcode environment (thanks Eric!)
+	<LI> 1.2.8: Fixed compiling SDL under Linux 2.6.9 (thanks Stephane!)
+	<LI> 1.2.8: Added m68k assembly routines for endianness conversion
+	<LI> 1.2.8: Added OSMesa support to the Atari port (thanks Patrice!)
+	<LI> 1.2.8: Fixed MacOS X mouse coordinate inversion (thanks Eric!)
+     </ul>
+  <p>Changes for Fri Nov 12:</p>
+     <ul>
+	<LI> 1.2.8: Fixed Win32 window centering when resettting video mode (thanks Gautier!)
+	<LI> 1.2.8: Fixed DirectInput intitialization with SDL_WINDOWID (thanks Trevor!)
+	<LI> 1.2.8: Fixed NSWindow release count bug on MacOS X (thanks Bob!)
+	<LI> 1.2.8: Video modes are sorted by width first, then by height
+	<LI> 1.2.8: Improved Atari audio drivers (thanks Patrice!)
+	<LI> 1.2.8: Improved OSS audio support, contributed by OpenSound.com
+	<LI> 1.2.8: Added MacOS X menu options for SDL apps built without a nib (thanks Max!)
+	<LI> 1.2.8: aRts audio driver has been renamed "arts" instead of "artsc"
+	<LI> 1.2.8: Added thread support on RISC OS (thanks Alan!)
+	<LI> 1.2.8: Added support for UTF-8 window titles on MacOS X (thanks Tomas!)
+	<LI> 1.2.8: Set XV_AUTOPAINT_COLORKEY property for X11 YUV support (thanks Christian!)
+     </ul>
+  <p>Changes for Sat Aug 21:</p>
+     <ul>
+	<LI> 1.2.8: Updated libtool support to libtool 1.5.8
+	<LI> 1.2.8: Fixed problem compiling without nasm with new versions of gcc
+	<LI> 1.2.8: Check for malloc() returning NULL in a few places
+	<LI> 1.2.8: Added 4/6 channel surround sound support on ALSA (not 3D audio)
+	<LI> 1.2.8: Added SDL_FB_BROKEN_MODES environment variable
+	<LI> 1.2.8: Fixed memory corruption when allocating large surfaces (fails now)
+	<LI> 1.2.8: Show correct joystick names on Windows (thanks Eckhard!)
+	<LI> 1.2.8: Added a CoreAudio driver for MacOS X (thanks Max!)
+	<LI> 1.2.8: Added support for right handed modifier keys on Panther (thanks Eric!)
+	<LI> 1.2.8: Finally fixed OpenGL coordinate inversion on MacOS X (thanks Eric!)
+	<LI> 1.2.8: Worked around a crash in aRts audio detection (thanks Yves!)
+	<LI> 1.2.8: Lots more Atari video fixes (thanks Patrice!)
+	<LI> 1.2.8: Allow UTF-8 strings in X11 window captions
+	<LI> 1.2.8: Fixed basic type collision on Tru64 (thanks Hayashi!)
+	<LI> 1.2.8: Improved keyboard and mouse handling on BeOS (thanks Marcin!)
+	<LI> 1.2.8: Added missing window manager and OpenGL functions on BeOS
+	<LI> 1.2.8: Fixed resuming CD-ROM playback on Windows (thanks Andreas!)
+	<LI> 1.2.8: Fixed compiling on IRIX 5.3
+	<LI> 1.2.8: Fixed crash if software stretch is used on hardware surfaces
+	<LI> 1.2.8: Fixed crash on exit in framebuffer console driver
+	<LI> 1.2.8: Added support for logical joysticks on Linux
+	<LI> 1.2.8: Added OpenGL accum buffer support on MacOS X (thanks Christian!)
+	<LI> 1.2.8: Fixed pixmap leak in X11 cursor code (thanks Paul!)
+	<LI> 1.2.8: Fixed compilation problems with newer versions of gcc
+	<LI> 1.2.8: Updated QNX support for QNX6 (thanks Mike!)
+	<LI> 1.2.8: Fixed testdyngl crash on Windows (thanks Damien!)
+     </ul>
   <p>Changes for Fri Apr 23:</p>
      <ul>
 	<LI> 1.2.8: Compile most of the blitter assembly on Opteron
@@ -50,7 +106,7 @@ Fri Apr 23
 	<LI> 1.2.8: IRIX uses libGL.so, not libGL.so.1
 	<LI> 1.2.8: Fixed typo in fatal signal handling code
 	<LI> 1.2.8: Fix potential deadlock in MacOS X joystick code
-	<LI> 1.2.8: Build FSAA code on all versions of MacOS X
+	<LI> 1.2.8: Build FSAA code on all versions of MacOS X (thanks tigital!)
 	<LI> 1.2.8: Avoid using kernel headers for byte swapping macros
      </ul>
   <p>Changes for Tue Feb 17:</p>
@@ -981,5 +1037,5 @@ Fri Apr 23
 </blockquote>
 <hr>
 <?PHP
- include ("footer.inc");
+ include ("footer.inc.php");
 ?>
