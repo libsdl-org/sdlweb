@@ -19,3 +19,10 @@ ul.menu
 }
 
 img { border: 0px; }
+
+body
+{
+      margin: 0px;
+      background: #B0D7FA url('/images/barbg.png') top left repeat-y;
+/*    font-family: Verdana, Tahoma, Arial, Helvetica, sans-serif; */
+}

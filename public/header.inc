@@ -38,11 +38,11 @@
 <!-- End Top Bar -->
 
 <!-- Main -->
-<table cellpadding="0" cellspacing="0" border="0" width="100%" bgcolor="#B0D7FA">
+<table cellpadding="0" cellspacing="0" border="0" width="100%">
 <tr>
 
 	<!-- Side Bar-->
-	<td background="/images/barbg.png" valign="top">
+	<td valign="top">
 
 	<!-- Main -->
 	<img src="/images/main.png" width="180" height="31" alt="Main"><br>
