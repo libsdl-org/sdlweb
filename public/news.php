@@ -106,11 +106,11 @@ EOT;
 	$mayremovenews	= ($userprivileges[removenews]) || ($userid==$row[userid]);
 
 	if ($mayeditnews && $mayremovenews)
-		print "<A href=\"$PHP_SELF?action=editnews&id=$row[id]\" border=0><img src=\"images/editnews.gif\" border=0></A><A href=\"$PHP_SELF?action=removenews&id=$row[id]\" border=0><img src=\"images/deletenews.gif\" border=0></A><BR>\n";
+		print "<A href=\"$PHP_SELF?action=editnews&id=$row[id]\" border=0><img src=\"images/editnews.png\" border=0></A><A href=\"$PHP_SELF?action=removenews&id=$row[id]\" border=0><img src=\"images/deletenews.png\" border=0></A><BR>\n";
 	else if ($mayeditnews)
-		print "<A href=\"$PHP_SELF?action=editnews&id=$row[id]\" border=0><img src=\"images/editnews.gif\" border=0></A><BR>\n";
+		print "<A href=\"$PHP_SELF?action=editnews&id=$row[id]\" border=0><img src=\"images/editnews.png\" border=0></A><BR>\n";
 	else if ($mayremovenews)
-		print "<A href=\"$PHP_SELF?action=removenews&id=$row[id]\" border=0><img src=\"images/deletenews.gif\" border=0></A><BR>\n";
+		print "<A href=\"$PHP_SELF?action=removenews&id=$row[id]\" border=0><img src=\"images/deletenews.png\" border=0></A><BR>\n";
 
 	//---------------------------------------------------------------------------------------------
 echo <<<EOT
@@ -165,7 +165,7 @@ echo <<<EOT
 			<!-- Next / Prev Buttons -->
 			<table cellpadding="0" cellspacing="0" border="0" width="100%" align="center">
 			<tr>
-				<td align="left" background="images/newsbarbg.gif">
+				<td align="left" background="images/newsbarbg.png">
 EOT;
 
 //-------------------------------------------------------------------------------------------------
@@ -178,19 +178,19 @@ EOT;
 				if ($prev<0)		// this can only happend if the user went manually to a start not dividable by step 
 					$prev = 0;
 
-				print "<A href=\"$PHP_SELF?start=$prev\" border=0><img src=\"images/prev.gif\" border=0></A>";
+				print "<A href=\"$PHP_SELF?start=$prev\" border=0><img src=\"images/prev.png\" border=0></A>";
 			}
 
 //-------------------------------------------------------------------------------------------------				
 echo <<<EOT
 				</td>
-				<td align="right" background="images/newsbarbg.gif">
+				<td align="right" background="images/newsbarbg.png">
 EOT;
 				
 //-------------------------------------------------------------------------------------------------
 			//--- show the "next page" link if needed ---//
 			if ($next<$total)
-				print "<A href=\"$PHP_SELF?start=$next\" border=0><img src=\"images/next.gif\" border=0></A>";
+				print "<A href=\"$PHP_SELF?start=$next\" border=0><img src=\"images/next.png\" border=0></A>";
 
 //-------------------------------------------------------------------------------------------------
 echo <<<EOT

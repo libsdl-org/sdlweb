@@ -237,7 +237,7 @@ EOT;
 echo <<<EOT
 
 		<!-- Intro -->
-		<img src="/images/SDL_logo.gif" alt="SDL Logo">
+		<img src="/images/SDL_logo.png" alt="SDL Logo">
 		<br><br>
 		<font face="Verdana">
 		Simple DirectMedia Layer is a cross-platform multimedia library designed to provide level access to audio, keyboard, mouse, joystick, 3D hardware via OpenGL, and 2D video framebuffer. It is used by MPEG playback software, emulators, and many popular games, including the award winning Linux port of "Civilization: Call To Power."<p>
