@@ -7,7 +7,7 @@ SDL Finances
 </strong></font></h1>
 
 <p><font color="#414141"><strong>
-Jonathan Atkins, James Paige, and Daisuke Takeda
+David Finch, Patrizio Mazzucco, and Peter Campbell
 <!--
 has made a generous donation toward SDL development! (<a href="#note">*</a>)<br>
 -->
@@ -128,11 +128,31 @@ Current Finances:
     <td>Daisuke Takeda</td>
     <td>$0.67</td>
     <td>$1117.35</td>
+<tr><td>Donation:</td>
+    <td>Jun 12, 2004</td>
+    <td>David Finch</td>
+    <td>$28.83</td>
+    <td>$1146.18</td>
+<tr><td>Donation:</td>
+    <td>Jun 15, 2004</td>
+    <td>Patrizio Mazzucco</td>
+    <td>$18.92</td>
+    <td>$1165.10</td>
+<tr><td>Donation:</td>
+    <td>Jul 8, 2004</td>
+    <td>Peter Campbell</td>
+    <td>$95.80</td>
+    <td>$1260.90</td>
+<tr><td>Donation:</td>
+    <td>Jul 8, 2004</td>
+    <td>Anonymous</td>
+    <td>$11.22</td>
+    <td>$1272.12</td>
 <tr><td>Total:</td>
     <td></td>
     <td></td>
     <td></td>
-    <td>$1117.35</td>
+    <td>$1272.12</td>
 <tr>
 </table>
 </font>

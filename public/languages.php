@@ -183,8 +183,8 @@ and special purpose programming languages.
                 >http://www.kmc.kyoto-u.ac.jp/~ohai/index.en.html</a>
      <br>
      RUDL -
-	<a href="http://froukepc.dhs.org/rudl/"
-                >http://froukepc.dhs.org/rudl/</a>
+	<a href="http://rudl.sourceforge.net"
+                >http://rudl.sourceforge.net</a>
 </li>
 </ul>
      </font></p>
