@@ -18,7 +18,7 @@
 	<table cellpadding="0" cellspacing="0" border="0" width="100%">
 	<tr>
 	<form method="post" action="/search.php">
-		<td><img src="images/searchbarleft.png" width="5" height="30" ></td>
+		<td><img src="images/searchbarleft.png" alt="" width="5" height="30" ></td>
 		<td valign="middle" background="images/searchbarbg.png"><input type="text" name="keywords" size="12"></td>
 		<td><input type="image" value="Search Site" src="images/go.png"></td>
 	</form>
@@ -31,8 +31,8 @@
 
 <!-- Top Bar -->
 <tr>
-	<td background="images/topbarbg.png" width="100%"><a href="http://www.libsdl.de/"><img src="images/germanbutton.png" width="82" height="20"></a></td>
-	<td background="images/topbarbg.png" align="right"><img src="images/searchsite.png" width="58" height="20" alt="Search:"></td>
+	<td background="images/topbarbg.png" width="100%"><a href="http://www.libsdl.de/"><img src="images/germanbutton.png" alt="German Site" width="82" height="20"></a></td>
+	<td background="images/topbarbg.png" align="right"><img src="images/searchsite.png" alt="Search Site:" width="58" height="20"></td>
 </tr>
 </table>
 <!-- End Top Bar -->
