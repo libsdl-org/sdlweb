@@ -1,7 +1,7 @@
 <?PHP
 	$minversionmajor = 1; $maxversionmajor = 1;
 	$minversionminor = 2; $maxversionminor = 2;
-	$minversionpatch = 0; $maxversionpatch = 5;
+	$minversionpatch = 0; $maxversionpatch = 6;
 
 	$licenses = array(
 		"Unknown",
