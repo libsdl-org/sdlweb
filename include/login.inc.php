@@ -22,8 +22,12 @@ EOT;
 	}
 
 	//------------ database connection ------------//
-	$DBconnection = pg_connect("dbname=sdlweb user=sdlweb")
-		or die ("Could not connect to the database !");
+	$DBconnection = pg_connect("dbname=sdlweb user=sdlweb");
+	if (!$DBconnection) {
+		$header_filename = "header-static.inc.php";
+		return;
+	} else
+		$header_filename = "header.inc.php";
 
 	//------------ cookies functions --------------//
 

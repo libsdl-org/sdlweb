@@ -1,11 +1,13 @@
 <?PHP
 	include ("../include/login.inc.php");
+	include ($header_filename);
 
 //-------------------------------------------------------------------------------------------------
 	if ($wrong_login_or_password)
 		$action = "showloginform";
 
-	include ("header.inc.php");
+	if (!$DBconnection)
+		echo '<P class="warning">Warning: Could not connect to the database ! All dynamic features of the site are unavailable!</P>';
 
 	//---------------------------------------------------------------------------------------------
 	switch ($action) {

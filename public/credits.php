@@ -1,6 +1,6 @@
 <?PHP
  include ("../include/login.inc.php");
- include ("header.inc.php");
+ include ($header_filename);
 ?>
 <h1><font color="#414141"><strong>
 SDL Credits
