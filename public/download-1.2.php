@@ -198,5 +198,3 @@ Development Libraries:
 <?PHP
  include ("footer.inc.php");
 ?>
-
-

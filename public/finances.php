@@ -158,41 +158,56 @@ Current Finances:
     <td>Windows XP</td>
     <td><font color="red">$179.99</font></td>
     <td>$1097.62</td>
+<tr><td>Expense:</td>
+    <td>Aug 21, 2004</td>
+    <td>MacOS X Panther</td>
+    <td><font color="red">$129.99</font></td>
+    <td>$967.63</td>
+<tr><td>Expense:</td>
+    <td>Aug 21, 2004</td>
+    <td>Hard drive</td>
+    <td><font color="red">$99.99</font></td>
+    <td>$867.64</td>
 <tr><td>Donation:</td>
     <td>Oct 13, 2004</td>
     <td>Paul Miüller</td>
     <td>$18.92</td>
-    <td>$1116.54</td>
+    <td>$886.56</td>
 <tr><td>Expense:</td>
     <td>Nov 21, 2004</td>
     <td>DVD drive</td>
     <td><font color="red">$129.99</font></td>
-    <td>$986.55</td>
+    <td>$756.57</td>
 <tr><td>Donation:</td>
     <td>Nov 25, 2004</td>
     <td>Stephan Meisinger</td>
     <td>$6.42</td>
-    <td>$992.97</td>
+    <td>$762.99</td>
 <tr><td>Donation:</td>
     <td>Dec 17, 2004</td>
     <td>Nexxeo Productions</td>
     <td>$4.55</td>
-    <td>$997.52</td>
+    <td>$767.54</td>
 <tr><td>Donation:</td>
     <td>Dec 24, 2004</td>
     <td><a href="http://www.nosubstancesoftware.com">No Substance Software</a></td>
     <td>$28.53</td>
-    <td>$1026.05</td>
+    <td>$796.07</td>
 <tr><td>Donation:</td>
     <td>Jan 7, 2005</td>
     <td>Christopher Lindblom</td>
     <td>$9.31</td>
-    <td>$1035.36</td>
+    <td>$805.38</td>
+<tr><td>Expense:</td>
+    <td>Feb 10, 2005</td>
+    <td>Keyboard + mouse</td>
+    <td><font color="red">$29.99</font></td>
+    <td>$775.39</td>
 <tr><td>Total:</td>
     <td></td>
     <td></td>
     <td></td>
-    <td>$1035.36</td>
+    <td>$775.39</td>
 <tr>
 </table>
 </font>

@@ -27,7 +27,7 @@ Covers: Setting up SDL with Visual C++ 6.0, basic graphics programming
 Covers: Setting up an SDL project with Visual Studio .NET
 </li>
 <li>
-<a href="http://www.adolfinum-schaumburg.de/andre/index.php?view=tutorials"
+<a href="http://www.funkystuff.org/tutorials.html"
         >Spieleprogrammierung mit der SDL in C++</a>
 <br>
 Covers: The basics of using various features of SDL, in german
