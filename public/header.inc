@@ -68,7 +68,6 @@ INPUT, TEXTAREA { font-family: Verdana, Tahoma, Arial, Helvetica, sans-serif; }
 <DD><A href="http://kokido.sourceforge.net/SDL.html"><FONT color="#414141"><STRONG>SDL on IRC</STRONG></FONT></A> 
 <DD><A href="http://www.geekcomix.com/snh/files/docs/sdl-kdev/sdl-kdev-mini-how2.html"><FONT color="#414141"><STRONG>SDL &amp; Kdevelop</STRONG></FONT></A> 
 <DD><A href="/languages.php"><FONT color="#414141"><STRONG>SDL Languages</STRONG></FONT></A>
-<DD><A href="http://sdl.lynx.lv"><FONT color="#414141"><STRONG>SDL News Portal</STRONG></FONT></A>
 </DL>
 <DL>
 <DT>&nbsp;&nbsp;&nbsp;<STRONG><A href="/finances.php"><FONT color="#414141" size=3>SDL Finances</FONT></A></STRONG>
