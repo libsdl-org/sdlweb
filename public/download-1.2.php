@@ -62,26 +62,6 @@ Runtime Libraries:
              >http://packages.debian.org/unstable/libs/</a>
      <br>
   </p>
-<!-- Not available yet
-  <p><font color="#414141"><strong>
-    IRIX:
-     </strong></font><br>
-     <a href="http://ftp.mayn.de/pub/irix/games/SDL/SDL-1.2.6_IRIX_N32_mips3.tardist"
-                     >SDL-1.2.6_IRIX_N32_mips3.tardist</a><br>
-     <br>
-  </p>
--->
-<!-- Not available yet
-  <p><font color="#414141"><strong>
-    OpenBSD:
-     </strong></font><br>
-     <a href="ftp://ftp.openbsd.org/pub/OpenBSD/2.9/packages/i386/sdl-1.2.6-oss.tgz"
-                     >sdl-1.2.6-oss.tgz</a> (i386)<br>
-     <a href="ftp://ftp.openbsd.org/pub/OpenBSD/2.9/packages/powerpc/sdl-1.2.6-oss.tgz"
-                     >sdl-1.2.6-oss.tgz</a> (powerpc)<br>
-     <br>
-  </p>
--->
   <p><font color="#414141"><strong>
     Win32:
      </strong></font><br>
@@ -107,6 +87,32 @@ Runtime Libraries:
      </strong></font><br>
      <a href="release/SDL-1.2.6.pkg.tar.gz"
                      >SDL-1.2.6.pkg.tar.gz</a>
+  </p>
+<!-- Not available yet
+  <p><font color="#414141"><strong>
+    IRIX:
+     </strong></font><br>
+     <a href="http://ftp.mayn.de/pub/irix/games/SDL/SDL-1.2.6_IRIX_N32_mips3.tardist"
+                     >SDL-1.2.6_IRIX_N32_mips3.tardist</a><br>
+     <br>
+  </p>
+-->
+<!-- Not available yet
+  <p><font color="#414141"><strong>
+    OpenBSD:
+     </strong></font><br>
+     <a href="ftp://ftp.openbsd.org/pub/OpenBSD/2.9/packages/i386/sdl-1.2.6-oss.tgz"
+                     >sdl-1.2.6-oss.tgz</a> (i386)<br>
+     <a href="ftp://ftp.openbsd.org/pub/OpenBSD/2.9/packages/powerpc/sdl-1.2.6-oss.tgz"
+                     >sdl-1.2.6-oss.tgz</a> (powerpc)<br>
+     <br>
+  </p>
+-->
+  <p><font color="#414141"><strong>
+    QNX:
+     </strong></font><br>
+     <a href="release/SDL_x86-1.2.6-x86-public.qpr">
+                      SDL_x86-1.2.6-x86-public.qpr</a><br>
   </p>
 <!-- Not available yet
   <p><font color="#414141"><strong>
@@ -163,6 +169,12 @@ Development Libraries:
      </strong></font><br>
      <a href="release/SDL-devel-1.2.6.pkg.tar.gz"
                      >SDL-devel-1.2.6.pkg.tar.gz</a>
+  </p>
+  <p><font color="#414141"><strong>
+    QNX:
+     </strong></font><br>
+     <a href="release/SDL_x86-1.2.6-x86-public.qpr">
+                      SDL_x86-1.2.6-x86-public.qpr</a><br>
   </p>
 <!-- Not available yet
   <p><font color="#414141"><strong>

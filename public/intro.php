@@ -22,6 +22,7 @@ Thanks to the many people who have contributed to the SDL documentation!
 <li><A href="/intro.it/toc.html">Italian</A></li>
 <li><A href="/intro.jp/toc.html">Japanese</A></li>
 <li><A href="/intro.ko/toc.html">Korean</A></li>
+<li><A href="/intro.br/toc.html">Portuguese</A></li>
 <li><A href="/intro.ru/toc.html">Russian</A></li>
 <li><A href="/intro.es/toc.html">Spanish</A></li>
 </ul>

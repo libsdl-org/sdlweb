@@ -44,6 +44,10 @@ Introduction:
                       >SDL-1.0-korean-intro.tar.gz</a><br>
      <a href="archives/SDL-1.0-korean-intro.zip"
                       >SDL-1.0-korean-intro.zip</a><br>
+     <a href="archives/SDL-1.0-portuguese-intro.tar.gz"
+                      >SDL-1.0-portuguese-intro.tar.gz</a><br>
+     <a href="archives/SDL-1.0-portuguese-intro.zip"
+                      >SDL-1.0-portuguese-intro.zip</a><br>
      <a href="archives/SDL-1.0-russian-intro.tar.gz"
                       >SDL-1.0-russian-intro.tar.gz</a><br>
      <a href="archives/SDL-1.0-russian-intro.zip"
