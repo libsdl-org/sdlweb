@@ -139,8 +139,8 @@ and special purpose programming languages.
      </strong>
      <br>
      SDLPerl -
-	<a href="http://www.sdlperl.org"
-                >http://www.sdlperl.org</a>
+	<a href="http://sdl.perl.org"
+                >http://sdl.perl.org</a>
 </li>
 <li> <strong>
      PHP
