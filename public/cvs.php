@@ -37,9 +37,22 @@ You can also browse the CVS repository online at:
 <blockquote>
   <p><font color="#414141"><strong>
     Source snapshot version 1.2 (
-Tue Feb 17
+Fri Apr 23
   )</p>
   <p><a href="cvs/SDL-1.2.tar.gz">SDL-1.2.tar.gz</a></p>
+  <p>Changes for Fri Apr 23:</p>
+     <ul>
+	<LI> 1.2.8: Compile most of the blitter assembly on Opteron
+	<LI> 1.2.8: Compile CPU detection code on Opteron
+	<LI> 1.2.8: Fixed floating point exception with Linux 2.6 joysticks
+	<LI> 1.2.8: Fixed toggling SDL_NOFRAME on X11 video modes
+	<LI> 1.2.8: Fixed loading ESD and aRts function pointers
+	<LI> 1.2.8: IRIX uses libGL.so, not libGL.so.1
+	<LI> 1.2.8: Fixed typo in fatal signal handling code
+	<LI> 1.2.8: Fix potential deadlock in MacOS X joystick code
+	<LI> 1.2.8: Build FSAA code on all versions of MacOS X
+	<LI> 1.2.8: Avoid using kernel headers for byte swapping macros
+     </ul>
   <p>Changes for Tue Feb 17:</p>
      <ul>
 	<LI> 1.2.7: Added a test program for dynamically loading OpenGL

@@ -82,7 +82,7 @@ Runtime Libraries:
   </p>
 -->
   <p><font color="#414141"><strong>
-    MacOS:
+    MacOS (Classic):
      </strong></font><br>
      <a href="release/SDL-1.2.7-PPC.sea.bin"
                      >SDL-1.2.7-PPC.sea.bin</a><br>
@@ -155,7 +155,7 @@ Development Libraries:
     BeOS:
      </strong></font><br>
      <a href="http://libpak.neoni.net/downloads.php?fileverid=46"
-                     >LibPak sdl for deveelopers package</a> (BeOS 5.0)<br>
+                     >LibPak sdl for developers package</a> (BeOS 5.0)<br>
   </p>
 <!-- Not available yet
   <p><font color="#414141"><strong>
@@ -166,7 +166,7 @@ Development Libraries:
   </p>
 -->
   <p><font color="#414141"><strong>
-    MacOS:
+    MacOS (Classic):
      </strong></font><br>
      <a href="release/SDL-devel-1.2.7-PPC.sea.bin"
                      >SDL-devel-1.2.7-PPC.sea.bin</a> (MPW + CodeWarrior)<br>

@@ -7,11 +7,11 @@ SDL Finances
 </strong></font></h1>
 
 <p><font color="#414141"><strong>
-Phoenix Kokido
-has made a generous donation toward SDL development! (<a href="#note">*</a>)<br>
+Jonathan Atkins, James Paige, and Daisuke Takeda
 <!--
-have made generous donations toward SDL development! (<a href="#note">*</a>)<br>
+has made a generous donation toward SDL development! (<a href="#note">*</a>)<br>
 -->
+have made generous donations toward SDL development! (<a href="#note">*</a>)<br>
 Thank you everybody for showing your support and furthering SDL!
 </strong></font>
 </p>
@@ -113,11 +113,26 @@ Current Finances:
     <td>VMware Workstation 4</td>
     <td><font color="red">$299.00</font></td>
     <td>$991.33</td>
+<tr><td>Donation:</td>
+    <td>Feb 23, 2004</td>
+    <td>Jonathan Atkins</td>
+    <td>$75.21</td>
+    <td>$1066.54</td>
+<tr><td>Donation:</td>
+    <td>Apr 15, 2004</td>
+    <td>James Paige</td>
+    <td>$50.14</td>
+    <td>$1116.68</td>
+<tr><td>Donation:</td>
+    <td>Apr 29, 2004</td>
+    <td>Daisuke Takeda</td>
+    <td>$0.67</td>
+    <td>$1117.35</td>
 <tr><td>Total:</td>
     <td></td>
     <td></td>
     <td></td>
-    <td>$991.33</td>
+    <td>$1117.35</td>
 <tr>
 </table>
 </font>
