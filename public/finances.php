@@ -7,7 +7,7 @@ SDL Finances
 </strong></font></h1>
 
 <p><font color="#414141"><strong>
-<a href="http://www.nosubstancesoftware.com">No Substance Software</a> and Christopher Lindblom
+Mark Remollino, Ryan Cleven, Erik Yuzwa, and Karl-Christian Wolff-Ingham
 have made generous donations toward SDL development! (<a href="#note">*</a>)<br>
 <!--
 has made a generous donation toward SDL development! (<a href="#note">*</a>)<br>
@@ -203,11 +203,41 @@ Current Finances:
     <td>Keyboard + mouse</td>
     <td><font color="red">$29.99</font></td>
     <td>$775.39</td>
+<tr><td>Expense:</td>
+    <td>May 2, 2005</td>
+    <td>Domain name renewal</td>
+    <td><font color="red">$150.00</font></td>
+    <td>$625.39</td>
+<tr><td>Donation:</td>
+    <td>Jan 27, 2005</td>
+    <td>Mark Remollino</td>
+    <td>$4.55</td>
+    <td>$629.94</td>
+<tr><td>Donation:</td>
+    <td>Aug 13, 2005</td>
+    <td>Ryan Cleven</td>
+    <td>$143.85</td>
+    <td>$773.79</td>
+<tr><td>Donation:</td>
+    <td>Nov 3, 2005</td>
+    <td>Erik Yuzwa</td>
+    <td>$62.54</td>
+    <td>$836.33</td>
+<tr><td>Donation:</td>
+    <td>Dec 4, 2005</td>
+    <td>Karl-Christian Wolff-Ingham</td>
+    <td>$18.92</td>
+    <td>$855.25</td>
+<tr><td>Expense:</td>
+    <td>Jan 2, 2006</td>
+    <td>SDL T-shirt</td>
+    <td><font color="red">$21.74</font></td>
+    <td>$833.51</td>
 <tr><td>Total:</td>
     <td></td>
     <td></td>
     <td></td>
-    <td>$775.39</td>
+    <td>$833.51</td>
 <tr>
 </table>
 </font>

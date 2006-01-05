@@ -37,9 +37,29 @@ You can also browse the CVS repository online at:
 <blockquote>
   <p><font color="#414141"><strong>
     Source snapshot version 1.2 (
-Tue Dec 14
+Sun Aug 21
   )</p>
   <p><a href="cvs/SDL-1.2.tar.gz">SDL-1.2.tar.gz</a></p>
+  <p>Changes for Sun Aug 21:</p>
+     <ul>
+	<LI> 1.2.9: Numerous improvements to the Atari port (thanks Patrice!)
+	<LI> 1.2.9: SIGTERM and SIGINT handlers are reset when SDL shuts down
+	<LI> 1.2.9: Added support for Visual C++ 2005 (Express Beta 2) to VisualC.zip
+	<LI> 1.2.9: Fixed crash trying to allocate hardware surfaces on MacOS X (thanks Ryan!)
+	<LI> 1.2.9: Fixed SDL.DLL so it works on Windows 95 again
+	<LI> 1.2.9: Dropping a document onto an SDL app passes it as a command line parameter in MacOS X (thanks Ryan!)
+	<LI> 1.2.9: Fixed short read problem with SDL_RWFromMem() (thanks Antonio!)
+	<LI> 1.2.9: Added support for SDL_VIDEO_X11_NODIRECTCOLOR on OpenGL visuals
+	<LI> 1.2.9: Altivec optimized blitters (thanks Bob!)
+	<LI> 1.2.9: YUV mmx code should work with gcc 2.x and 3.x (thanks Stephane!)
+	<LI> 1.2.9: Fixed hang on shutdown using framebuffer console on ia64 (thanks Jesse!)
+	<LI> 1.2.9: Improved RISC OS support (thanks Peter and Alan!)
+	<LI> 1.2.9: Added support for direct color 8-bpp surfaces
+	<LI> 1.2.9: Fixed gcc parse errors in SDL_audio.h on Windows 
+	<LI> 1.2.9: Fixed potential crash in multi-threaded timers
+	<LI> 1.2.9: Added support for Tru64 UNIX 4.X (thanks Hayashi!)
+	<LI> 1.2.9: SDL_OPENGLBLIT has been renamed SDL_OPENGLBLIT_OBSOLETE
+     </ul>
   <p>Changes for Tue Dec 14:</p>
      <ul>
 	<LI> 1.2.8: Fixed pitch vs width bug in SDL_SaveBMP() (thanks Jonathan!)

@@ -7,6 +7,12 @@ Books relating to SDL
 </strong></font></h1>
 
 <blockquote>
+     Erik Yuzwa - December 2005<br>
+     <b><a href="http://book.wazooinc.com/">Game Programming in C++ Start to Finish</a></b><br>
+     An introduction to game programming using SDL and OpenGL on Windows.
+</blockquote>
+
+<blockquote>
      Alberto Garc&iacute;a Serrano - December 2003<br>
      <b><a href="http://www.ediversitas.com/public-gen.php?isbn=8495836084">Programaci&oacute;n de videojuegos en SDL</a></b><br>
      Excellent coverage of using SDL in the development of video games.

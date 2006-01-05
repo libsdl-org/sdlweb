@@ -50,6 +50,7 @@
 	<ul class="menu">
 	<li><a href="/index.php">About</a></li>
 	<li><a href="/news.php">News</a></li>
+	<li><a href="http://bugzilla.libsdl.org/">Bugs</a></li>
 	<li><a href="/license.php">Licensing</a></li>
 	<li><a href="http://www.cafepress.com/libsdl">Merchandise</a></li>
 	<li><a href="/credits.php">Credits</a></li>

@@ -15,6 +15,18 @@ have contributed online tutorials on using various parts of SDL.
 <p><font color="#414141"><strong>
 <ul>
 <li>
+<a href="http://osdl.sourceforge.net/OSDL/OSDL-0.3/src/doc/web/main/documentation/rendering/SDL-audio.html"
+        >SDL corner - Audio with SDL</a>
+<br>
+Covers: Lots of advanced information on using SDL's audio support
+</li>
+<li>
+<a href="http://osdl.sourceforge.net/OSDL/OSDL-0.3/src/doc/web/main/documentation/rendering/SDL-openGL.html"
+        >SDL corner - Using OpenGL with SDL</a>
+<br>
+Covers: Lots of advanced information on using SDL with OpenGL
+</li>
+<li>
 <a href="http://iki.fi/sol/gp/"
         >Sol's Graphics for Beginners</a>
 <br>
@@ -27,8 +39,8 @@ Covers: Setting up SDL with Visual C++ 6.0, basic graphics programming
 Covers: Setting up an SDL project with Visual Studio .NET
 </li>
 <li>
-<a href="http://www.funkystuff.org/tutorials.html"
-        >Spieleprogrammierung mit der SDL in C++</a>
+<a href="http://de.wikibooks.org/wiki/SDL"
+        >Tutorial / Einsteigerkurs in das Programmieren mit der SDL in C</a>
 <br>
 Covers: The basics of using various features of SDL, in german
 </li>
