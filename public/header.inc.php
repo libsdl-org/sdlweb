@@ -6,6 +6,7 @@
 <meta content="text/html; charset=iso-8859-1" http-equiv="content-type">
 <link rel="stylesheet" type="text/css" href="/sdlweb.css">
 <link rel="shortcut icon" type="image/x-icon" href="/images/favicon.ico">
+<link rel="alternate" type="application/rss+xml" title="Simple DirectMedia Layer RSS feed" href="/rss/rss.xml" />
 </head>
 
 <body>
