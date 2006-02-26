@@ -4,7 +4,7 @@
 		//--- open the RSS file ---//
 		$fp = fopen("/home/sdlweb/libsdl.org/web/public/rss/rss.xml", "w");
 		if (!$fp) {
-			break;
+			return;
 		}
 		fwrite($fp, "<?xml version=\"1.0\" encoding=\"utf-8\"?>\n");
 		fwrite($fp, "<rss version=\"2.0\">\n");
