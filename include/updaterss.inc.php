@@ -14,7 +14,7 @@
 		$date = gmdate("r");
 		fwrite($fp, "<title>Simple DirectMedia Layer News</title>\n");
 		fwrite($fp, "<link>http://www.libsdl.org/</link>\n");
-		fwrite($fp, "<description>The latest SDL projects and updates</description>\n");
+		fwrite($fp, "<description>The latest SDL projects and news</description>\n");
 		fwrite($fp, "<lastBuildDate>$date</lastBuildDate>\n");
 		fwrite($fp, "<language>en-us</language>\n");
 
@@ -39,13 +39,13 @@
 				$text = $matches[2].$matches[3];
 			} else {
 				if ( preg_match('|<[Aa] [Hh][Rr][Ee][Ff]="*([^">]+)"*>|', $row[text], $matches) ) {
-					$title = "News";
+					$title = "News Item";
 					$url = $matches[1];
 					$text = $row[text];
 					$text = preg_replace('|<[Aa] [Hh][Rr][Ee][Ff]="*[^>]+"*>([^<]+)</[Aa]>|', '$1', $row[text]);
 					$text = preg_replace('|<[Bb][Rr]/*>|', '', $text);
 				} else {
-					$title = "News";
+					$title = "News Item";
 					$url = "http://www.libsdl.org/news.php";
 					$text = $row[text];
 				}
