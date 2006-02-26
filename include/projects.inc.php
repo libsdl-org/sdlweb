@@ -1,7 +1,9 @@
 <?PHP
+include ("updaterss.inc.php");
+
 	$minversionmajor = 1; $maxversionmajor = 1;
 	$minversionminor = 2; $maxversionminor = 2;
-	$minversionpatch = 0; $maxversionpatch = 7;
+	$minversionpatch = 0; $maxversionpatch = 10;
 
 	$licenses = array(
 		"Unknown",
@@ -208,6 +210,7 @@
 			$query .= " values(-2,CURRENT_TIMESTAMP,'<A href=$projecttypetextp.php?match_id=$projectid>$name</A>, $description, has been added to the $projecttypetextp page.')";
 			pg_exec($DBconnection, $query)
 				or die ("Could not execute query !");
+			UpdateRSS($DBconnection);
 
 			print "$projecttypetextsc added (and news posted about it) !<BR>\n";
 			print "<BR>\n";
@@ -891,9 +894,11 @@
 			if ($match_id)
 				$querycondition .= " and id = $match_id";
 
-			if ($os!="any") 
+			if ($os!="any") {
+				if ($completed==0)
+					$completed = 1;
 				$querycondition .= " and id in (select project from projectstatus where os=$os and status>=$completed)";
-			else
+			} else
 			if ($completed!=0) 
 				$querycondition .= " and id in (select distinct project from projectstatus where status>=$completed)";
 
