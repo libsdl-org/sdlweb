@@ -32,13 +32,26 @@ and special purpose programming languages.
                 >http://cs-sdl.sourceforge.net/</a>
 </li>
 <li> <strong>
+     Ch
+     </strong>
+     <br>
+     Ch SDL -
+	<a href="http://chsdl.sourceforge.net/"
+                >http://chsdl.sourceforge.net/</a>
+</li>
+<li> <strong>
      Eiffel
      </strong>
+     <br>
+     EiffelMedia -
+	<a href="http://eiffelmedia.origo.ethz.ch"
+                >http://eiffelmedia.origo.ethz.ch</a>
      <br>
      ewg -
 	<a href="http://ewg.sourceforge.net/"
                 >http://ewg.sourceforge.net/</a>
 <!--
+     <br>
      jegl -
 	<a href="http://jegl.sourceforge.net/"
                 >http://jegl.sourceforge.net/</a>

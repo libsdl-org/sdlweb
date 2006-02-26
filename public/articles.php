@@ -19,6 +19,11 @@ Articles relating to SDL
 
 
 <blockquote>
+     O'Reilly Network - October 2003<br>
+     <b><a href="http://www.linuxdevcenter.com/pub/a/linux/2003/10/23/sdl_anim.html">Animation in SDL: OpenGL</a></b>
+</blockquote>
+
+<blockquote>
      O'Reilly Network - August 2003<br>
      <b><a href="http://linux.oreillynet.com/pub/a/linux/2003/08/07/sdl_anim.html">Animation in SDL: Hardware Surfaces</a></b>
 </blockquote>

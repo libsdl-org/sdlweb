@@ -1,5 +1,6 @@
 <?PHP
 include ("../include/login.inc.php");
+include ("../include/updaterss.inc.php");
 include ("header.inc.php");
 
 //-------------------------------------------------------------------------------------------------
@@ -104,6 +105,7 @@ switch ($action) {
 
 		pg_exec($DBconnection, $query)
 			or die ("Could not execute query !");
+		UpdateRSS($DBconnection);
 
 		print "News posted !<BR>\n";
 		print "<BR>\n";
@@ -152,6 +154,7 @@ switch ($action) {
 		$query = "update news set text='$newstext' where id=$id";
 		$result = pg_exec($DBconnection, $query)
 			or die ("Could not execute query!");
+		UpdateRSS($DBconnection);
 
 		print "<I>Updated!</I><BR>\n";
 		print "<BR>\n";
@@ -207,6 +210,7 @@ switch ($action) {
 		$query = "delete from news where id=$id";
 		pg_exec($DBconnection, $query)
 			or die ("Could not execute query !");
+		UpdateRSS($DBconnection);
 
 		print "Deleted!<BR>\n";
 		print "<BR>\n";

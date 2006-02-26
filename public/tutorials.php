@@ -15,6 +15,18 @@ have contributed online tutorials on using various parts of SDL.
 <p><font color="#414141"><strong>
 <ul>
 <li>
+<a href="http://www.gamedevwiki.com.ar/tiki-read_article.php?articleId=14"
+        >Tutorial SDL - Primera Parte</a>
+<br>
+Covers: Introduction to SDL in Spanish
+</li>
+<li>
+<a href="http://lazyfooproductions.com/SDL_tutorials/index.php"
+        >Beginning Game Programming</a>
+<br>
+Covers: A series of tutorials on game concepts geared for SDL developers
+</li>
+<li>
 <a href="http://osdl.sourceforge.net/OSDL/OSDL-0.3/src/doc/web/main/documentation/rendering/SDL-audio.html"
         >SDL corner - Audio with SDL</a>
 <br>

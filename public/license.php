@@ -10,48 +10,39 @@ Licensing the Simple DirectMedia Layer library
   <p><font color="#414141">
 <p>
 The Simple DirectMedia Layer library is currently available under the 
-GNU Lesser General Public License (LGPL) version 2 or newer.  This license
-allows you to link with the library in such a way that users can modify
-the library and have your application use the new version.
+<a href="http://www.gnu.org/copyleft/lesser.html">
+GNU Lesser General Public License (LGPL)
+</a> version 2.1 or newer.
 </p>
 <p>
-The GNU LGPL license can be found online at:<br>
-<a href="http://www.gnu.org/copyleft/lgpl.html"
-        >http://www.gnu.org/copyleft/lgpl.html</a>
+SDL's use of the LGPL is twofold:
+<ul>
+<li> Allow end users to use custom versions of the library, to support bug
+   fixes and other enhancements.</li>
+<li> Allow any improvements made to the library for one project to benefit the
+   community as a whole.</li>
+</ul>
 </p>
 <p>
 To comply with this license, you must give prominent notice that you use
 the Simple DirectMedia Layer library, and that it is included under the
-terms of the LGPL license.  You must include a copy of the LGPL license.
+terms of the LGPL license.  You must provide a copy of the LGPL license.
 <br>
 You must also do <strong>one</strong> of the following:
 <ol>
-
-<li> Include the source code for the version of SDL that you link with, as
-     well as the full source or object code to your application so that the
-     user can relink your application,
-<br>
-<strong>or</strong>
-<li> Include a written offer, valid for at least three years, to provide the
-     materials listed in option 1, charging no more than the cost of providing
-     this distribution,
-<br>
-<strong>or</strong>
-<li> Make the materials listed in option 1 available from the same place that
-     your application is available.
-
+<li> Link with the library as a shared object (e.g. SDL.dll or libSDL.so)
+<li> Provide the object or source code to your application along with any
+     libraries and custom tools not available with a standard platform
+     development kit.  You may also simply provide a written offer, valid
+     for three years, to provide these materials upon request to anyone
+     with a legal copy of your application.
 </ol>
 <p>
-The most common way to comply with the license is to dynamically link with
-SDL, and then include the SDL source code and appropriate notices with your
-application.
-</p>
 <p>
-<b>Embedded Use</b>:<br>
-Personally, I don't have a problem with anybody statically linking SDL
-for use with embedded environments that don't already have an open
-development environment. (i.e. the users can't relink programs anyway)
-However, this does technically violate the LGPL, so be cautioned.
+If you include the SDL library in object form, you should also make
+available the source code to the version you provide, including any
+customizations you have made.  If you link to a standard version of
+the library, simply referring to the SDL website is sufficient.
 </p>
      </font></p>
 </blockquote>

@@ -233,6 +233,11 @@ Current Finances:
     <td>SDL T-shirt</td>
     <td><font color="red">$21.74</font></td>
     <td>$833.51</td>
+<tr><td>Expense:</td>
+    <td>Feb 16, 2006</td>
+    <td>VMware Workstation 5 Upgrade</td>
+    <td><font color="red">$99.00</font></td>
+    <td>$734.51</td>
 <tr><td>Total:</td>
     <td></td>
     <td></td>

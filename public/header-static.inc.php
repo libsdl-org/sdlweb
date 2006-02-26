@@ -65,7 +65,6 @@
 	<li><a href="/articles.php">Articles</a></li>
 	<li><a href="/books.php">Books</a></li>
 	<li><a href="http://www.libsdl.org/cgi/docwiki.cgi/">Doc Wiki</a></li>
-	<li><a href="http://sdldoc.csn.ul.ie/">Doc Project</a></li>
 	<li class="unavailable">FAQs</li>
 	<li><a href="/opengl/index.php">OpenGL</a></li>
 	<li><a href="/mailing-list.php">Mailing Lists</a></li>
@@ -92,6 +91,7 @@
 	<img src="/images/other.png" width="180" height="32" alt="Other"><br>
 	<ul class="menu">
 	<li><a href="/finances.php">SDL Finances</a></li>
+	<li><a href="/hardware.php">Hardware Wishlist</a></li>
 	</ul>
 	<!-- End Other -->
 
