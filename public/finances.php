@@ -160,7 +160,7 @@ Current Finances:
     <td>$1097.62</td>
 <tr><td>Expense:</td>
     <td>Aug 21, 2004</td>
-    <td>MacOS X Panther</td>
+    <td>Mac OS X Panther</td>
     <td><font color="red">$129.99</font></td>
     <td>$967.63</td>
 <tr><td>Expense:</td>

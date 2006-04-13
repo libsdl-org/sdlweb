@@ -39,9 +39,9 @@ Special thanks go out to:
 </li>
 <li>Max Watson, Matt Slot, and Kyle for help with the MacOS Classic port
 </li>
-<li>Stan Shebs, for the initial MacOS X port
+<li>Stan Shebs, for the initial Mac OS X port
 </li>
-<li>Max Horn and Darrell Walisser for unflagging work on the MacOS X port
+<li>Max Horn and Darrell Walisser for unflagging work on the Mac OS X port
 </li>
 <li>Patrick Trainor, Jim Boucher, and Mike Gorchak for the QNX Neutrino port
 </li>

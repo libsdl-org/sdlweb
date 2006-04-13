@@ -90,7 +90,7 @@ Runtime Libraries:
                      >SDL-1.2.9-PPC.sea.bin</a><br>
   </p>
   <p><font color="#414141"><strong>
-    MacOS X:
+    Mac OS X:
      </strong></font><br>
      <a href="release/SDL-1.2.9.dmg"
                      >SDL-1.2.9.dmg</a><br>
@@ -174,7 +174,7 @@ Development Libraries:
                      >SDL-devel-1.2.9-PPC.sea.bin</a> (MPW + CodeWarrior)<br>
   </p>
   <p><font color="#414141"><strong>
-    MacOS X:
+    Mac OS X:
      </strong></font><br>
      <a href="release/SDL-devel-1.2.9.pkg.tar.gz"
                      >SDL-devel-1.2.9.pkg.tar.gz</a> (Project Builder + XCode)<br>
