@@ -15,7 +15,7 @@ SDL CVS snapshots
 <a name="SDL_1_2_0"></a>
 <p>
 Getting and building SDL 1.2.0 via
-<a href="http://www.loria.fr/~molli/cvs-index.html">CVS</a>:
+<a href="http://en.wikipedia.org/wiki/Concurrent_Versions_System">CVS</a>:
 </p>
 <blockquote>
 <pre>cvs -d :pserver:guest@libsdl.org:/home/sdlweb/libsdl.org/cvs login
