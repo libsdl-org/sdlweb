@@ -35,7 +35,11 @@
 
 			if ( preg_match('|^<[Aa] [Hh][Rr][Ee][Ff]="*([^">]+)"*>([^<]+)</[Aa]>(.*)$|', $row[text], $matches) ) {
 				$title = $matches[2];
-				$url = "http://www.libsdl.org/".$matches[1];
+				if ( preg_match('|^http://|', $matches[1]) ) {
+					$url = $matches[1];
+				} else {
+					$url = "http://www.libsdl.org/".$matches[1];
+				}
 				$text = $matches[2].$matches[3];
 			} else {
 				if ( preg_match('|<[Aa] [Hh][Rr][Ee][Ff]="*([^">]+)"*>|', $row[text], $matches) ) {
