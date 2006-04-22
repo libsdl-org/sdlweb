@@ -196,12 +196,20 @@ and special purpose programming languages.
      </strong>
      <br>
      Ruby/SDL -
-	<a href="http://www.kmc.kyoto-u.ac.jp/~ohai/index.en.html"
-                >http://www.kmc.kyoto-u.ac.jp/~ohai/index.en.html</a>
+	<a href="http://raa.ruby-lang.org/project/ruby-sdl/"
+                >http://raa.ruby-lang.org/project/ruby-sdl/</a>
      <br>
      RUDL -
 	<a href="http://rudl.sourceforge.net"
                 >http://rudl.sourceforge.net</a>
+</li>
+<li> <strong>
+     Smalltalk
+     </strong>
+     <br>
+     SDLSmalltalk -
+	<a href="http://members.lycos.co.uk/oxidized/SDLSmalltalk/"
+                >http://members.lycos.co.uk/oxidized/SDLSmalltalk/</a>
 </li>
 </ul>
      </font></p>

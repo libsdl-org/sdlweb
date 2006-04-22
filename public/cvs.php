@@ -37,7 +37,7 @@ You can also browse the CVS repository online at:
 <blockquote>
   <p><font color="#414141"><strong>
     Source snapshot for SDL 1.2 (Updated
-Thu Mar 23
+Sat Apr 22
   )</p>
  <a href="cvs/SDL-1.2.tar.gz">SDL-1.2.tar.gz</a><br/>
  <a href="cvs/SDL-1.2.zip">SDL-1.2.zip</a>
