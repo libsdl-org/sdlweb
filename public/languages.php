@@ -88,6 +88,14 @@ and special purpose programming languages.
                 >http://sourceforge.net/projects/guile-sdl/</a>
 </li>
 <li> <strong>
+     Haskell
+     </strong>
+     <br>
+     HSDL -
+	<a href="http://sourceforge.net/projects/hsdl/"
+                >http://sourceforge.net/projects/hsdl/</a>
+</li>
+<li> <strong>
      Java
      </strong>
      <br>
