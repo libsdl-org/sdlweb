@@ -11,7 +11,7 @@ The latest development version of SDL is available via Subversion.
 Subversion allows you to get up-to-the-minute fixes and enhancements;
 as a developer works on a source tree, you can use svn to mirror that
 source tree instead of waiting for an official release. Please look
-at the Subversion website ( http://subversion.tigris.org/ ) for more
+at the <a href="http://subversion.tigris.org/">Subversion website</a> for more
 information on using svn, where you can also download software for
 MacOS, Windows, and Unix systems.
 </p>
