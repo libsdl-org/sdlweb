@@ -16,7 +16,7 @@ Thanks to the many people who have contributed to the SDL documentation!
 <p><font color="#414141"><strong>
 <ul>
 <li><A href="/intro.cn/toc.html">Chinese</A></li>
-<li><A href="/intro/toc.html">English</A></li>
+<li><A href="/intro.en/toc.html">English</A></li>
 <li><A href="/intro.fr/tocfr.html">French</A></li>
 <li><A href="/intro.de/toc.html">German</A></li>
 <li><A href="/intro.it/toc.html">Italian</A></li>
