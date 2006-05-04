@@ -55,7 +55,7 @@
 				}
 			}
 
-			$text = preg_replace(array('/</', '/>/', '/"/'), array('&lt;', '&gt;', '&quot;'), $text);
+			$text = htmlspecialchars($text);
 
 			fwrite($fp, "<item>\n");
 			fwrite($fp, "<title>$title</title>\n");
