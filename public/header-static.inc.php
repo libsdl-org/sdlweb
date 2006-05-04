@@ -77,7 +77,6 @@
 	<!-- Download -->
 	<img src="/images/download.png" width="180" height="32" alt="Download"><br>
 	<ul class="menu">
-	<li><a href="/download-1.0.php">SDL 1.0</a></li>
 	<li><a href="/download-1.2.php">SDL 1.2</a></li>
 	<li><a href="/svn.php">SDL SVN</a></li>
 	<li class="unavailable">Games</li>
