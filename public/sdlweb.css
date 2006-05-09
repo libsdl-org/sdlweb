@@ -1,14 +1,59 @@
-body
-{
+body {
 	margin: 0px;
 	background: #B0D7FA url('images/barbg.png') top left repeat-y;
 /*	font-family: Verdana, Tahoma, Arial, Helvetica, sans-serif; */
 }
 
-input, textarea { font-family: Verdana, Tahoma, Arial, Helvetica, sans-serif; }
+div.newstext {
+	font-family: Verdana, Tahoma, Arial, Helvetica, sans-serif;
+	font-size: medium;
+}
 
-ul.menu
-{
+form.search {
+	margin-bottom: 0
+}
+
+h1 {
+	color: #414141;
+	font-weight: bold
+}
+
+h2 {
+	color: #414141;
+	font-weight: bold;
+	font-size: medium
+}
+
+hr.newssep { 
+	width: 50%;
+	height: 1px;
+	border: 1px solid #D0F7FA;
+}
+
+img {
+	border: 0px;
+}
+
+input, textarea {
+	font-family: Verdana, Tahoma, Arial, Helvetica, sans-serif;
+}
+
+li.unavailable {
+	color: gray
+}
+
+p.warning { 
+	color: red;
+	font-weight: bold
+}
+
+span.newsdate {
+	font-family: Verdana, Tahoma, Arial, Helvetica, sans-serif;
+	font-weight: bold;
+	font-size: medium;
+}
+
+ul.menu {
 	margin-top: 0px;
 	margin-left: 0px;
 	padding-left: 2em;
@@ -19,15 +64,21 @@ ul.menu
 	font-size: small;
 }
 
-img { border: 0px; }
-
-p.warning
-{ 
-	font-weight: bold;
-	color: red
+.intro {
+	color: #414141;
+	font-weight: bold
 }
 
-li.unavailable 
-{ 
-	color: gray
+.graytextstrong {
+	color: #414141;
+	font-weight: bold
+}
+
+.graytext {
+	color: #414141
+}
+
+.title {
+	color: #414141;
+	font-weight: bold
 }

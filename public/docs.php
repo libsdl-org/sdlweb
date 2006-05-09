@@ -2,19 +2,14 @@
  include ("../include/login.inc.php");
  include ($header_filename);
 ?>
-<h1><font color="#414141"><strong>
-SDL Documentation
-</strong></font></h1>
+<h1>SDL Documentation</h1>
 
-<p><font color="#414141"><strong>
+<p class="intro">
 SDL documentation is available online from the sidebar on the left,
 or downloadable as archives from the links on this page.
-</strong></font>
 </p>
 
-<p><font color="#414141"><strong>
-Introduction:
-   </strong></font><br>
+<h2>Introduction:</h2>
 <blockquote>
      <a href="archives/SDL-1.0-chinese-intro.tar.gz"
                       >SDL-1.0-chinese-intro.tar.gz</a><br>
@@ -57,48 +52,43 @@ Introduction:
      <a href="archives/SDL-1.0-spanish-intro.zip"
                       >SDL-1.0-spanish-intro.zip</a><br>
 </blockquote>
-</p>
 
-<p><font color="#414141"><strong>
-SDL Documentation Project:
-   </strong></font><br>
+<h2>SDL Documentation Project:</h2>
 <blockquote>
 <p>
 HTML documentation:<br>
      <a href="archives/sdldoc-html.tar.gz"
                       >sdldoc-html.tar.gz</a><br>
      <a href="archives/sdldoc-html.zip"
-                      >sdldoc-html.zip</a></p>
+                      >sdldoc-html.zip</a>
+</p>
 <p>
 UNIX "man" pages:<br>
      <a href="archives/sdldoc-man3.tar.gz"
-                      >sdldoc-man3.tar.gz</a></p>
+                      >sdldoc-man3.tar.gz</a>
 </p>
 <p>
 Windows Help format: (thanks to Lea Anthony)<br>
      <a href="archives/SDLRef.chm"
-                      >SDLRef.chm</a></p>
+                      >SDLRef.chm</a>
 </p>
 <p>
 Printable Postscript:<br>
      <a href="archives/sdldoc-ps.tar.gz"
                       >sdldoc-ps.tar.gz</a><br>
      <a href="archives/sdldoc-ps.zip"
-                      >sdldoc-ps.zip</a></p>
+                      >sdldoc-ps.zip</a>
 </p>
 </blockquote>
-</p>
 
-<p><font color="#414141"><strong>
-Frequently Asked Questions:
-   </strong></font><br>
+<h2>Frequently Asked Questions:</h2>
 <blockquote>
      <a href="archives/SDL-1.2-FAQ.tar.gz"
                       >SDL-1.2-FAQ.tar.gz</a><br>
      <a href="archives/SDL-1.2-FAQ.zip"
-                      >SDL-1.2-FAQ.zip</a><br>
+                      >SDL-1.2-FAQ.zip</a>
 </blockquote>
-</p>
+
 <?PHP
  include ("footer.inc.php");
 ?>

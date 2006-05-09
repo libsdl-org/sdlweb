@@ -2,9 +2,7 @@
  include ("../include/login.inc.php");
  include ($header_filename);
 ?>
-<h1><font color="#414141"><strong>
-SDL Tutorials
-</strong></font></h1>
+<h1>SDL Tutorials</h1>
 
 <p><font color="#414141"><strong>
 In addition to the introduction and the API reference, several people

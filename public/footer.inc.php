@@ -9,7 +9,7 @@
 		<!-- Right Body -->
 		<td valign="top" width="20%">
 
-		<!-- Add right body -->
+		<!-- We could add a right body someday if we want to -->
 
 		</td>
 		<!-- End Right Body -->

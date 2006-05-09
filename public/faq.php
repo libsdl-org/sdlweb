@@ -13,8 +13,7 @@
 	}
 	BeginContent($title);
 
-	function containtag($name,$value)
-	{
+	function containtag($name,$value) {
 		if ($value!=strip_tags($value)) {
 			print "You may not use HTML nor PHP tags in the $name field !<BR>\n";
 			return 1;
@@ -22,8 +21,7 @@
 			return 0;
 	}
 
-	function isempty($name,$value)
-	{
+	function isempty($name, $value) {
 		if ($value=="") {
 			print "The $name field is required !<BR>\n";
 			return 1;
@@ -43,7 +41,7 @@
 				break;
 			}
 
-			print "<FORM method=post action=\"$PHP_SELF?action=insertentry&category=$category\">\n";
+			print "<FORM method=post action=\"$PHP_SELF?action=insertentry&amp;category=$category\">\n";
 			print "<P>question<BR><TEXTAREA name=question cols=60 rows=2 wrap=\"soft\"></TEXTAREA></P>\n"; 
 			print "<P>answer<BR><TEXTAREA name=answer cols=60 rows=10 wrap=\"soft\"></TEXTAREA></P>\n";
 			print "<P><INPUT type=submit value=Submit></P>\n";
@@ -90,7 +88,7 @@
 
 			print "Entry added !<BR>\n";
 			print "<BR>\n";
-			print "<A href=\"$PHP_SELF?action=listentries&category=$category\">back</A>\n";
+			print "<A href=\"$PHP_SELF?action=listentries&amp;category=$category\">back</A>\n";
 			break;
 
 		case "updateentry":
@@ -137,13 +135,13 @@
 				or die ("Could not execute query !");
 			$row = pg_fetch_array($result, 0, PGSQL_ASSOC);
 
-			print "<FORM method=post action=\"$PHP_SELF?action=updateentry&id=$id&category=$category\">\n";
+			print "<FORM method=post action=\"$PHP_SELF?action=updateentry&amp;id=$id&amp;category=$category\">\n";
 			print "<P>question<BR><TEXTAREA name=question cols=60 rows=2 wrap=\"soft\">$row[question]</TEXTAREA></P>\n"; 
 			print "<P>answer<BR><TEXTAREA name=answer cols=60 rows=10 wrap=\"soft\">$row[answer]</TEXTAREA></P>\n";
 			print "<P>Sorted at: <INPUT type=text name=sorted value=\"$row[sorted]\" size=8 maxlength=8></P>\n";
 			print "<P><INPUT type=submit value=Submit></P>\n";
 			print "</FORM>\n";
-			print "<A href=\"$PHP_SELF?action=listentries&category=$category\">back</A>\n";
+			print "<A href=\"$PHP_SELF?action=listentries&amp;category=$category\">back</A>\n";
 			break;
 
 		case "removeentry":
@@ -167,12 +165,12 @@
 			print "<TABLE>\n";
 			print "<TR>\n";
 			print "<TD>";
-			print "<FORM method=post action=\"$PHP_SELF?action=deleteentry&id=$id&category=$category\">";
+			print "<FORM method=post action=\"$PHP_SELF?action=deleteentry&amp;id=$id&amp;category=$category\">";
 			print "<INPUT type=submit value=delete>";
 			print "</FORM>";
 			print "</TD>\n";
 			print "<TD>";
-			print "<FORM method=post action=\"$PHP_SELF?action=listentries&category=$category\">";
+			print "<FORM method=post action=\"$PHP_SELF?action=listentries&amp;category=$category\">";
 			print "<INPUT type=submit value=cancel>";
 			print "</FORM>";
 			print "</TD>\n";
@@ -199,7 +197,7 @@
 
 			print "Deleted !<BR>\n";
 			print "<BR>\n";
-			print "<A href=\"$PHP_SELF?action=listentries&category=$category\">back</A>\n";
+			print "<A href=\"$PHP_SELF?action=listentries&amp;category=$category\">back</A>\n";
 			break;
 
 		case "listentries":
@@ -244,9 +242,9 @@
 				print "</TABLE>\n";
 
 				if ($userprivileges[editfaqentry])
-					print "Sorted: $row[sorted] &nbsp;<A href=\"$PHP_SELF?action=editentry&id=$row[id]&category=$category\">edit</A>&nbsp\n";
+					print "Sorted: $row[sorted] &nbsp;<A href=\"$PHP_SELF?action=editentry&amp;id=$row[id]&amp;category=$category\">edit</A>&nbsp\n";
 				if ($userprivileges[deletefaqentry])
-					print "<A href=\"$PHP_SELF?action=removeentry&id=$row[id]&category=$category\">delete</A>&nbsp\n";
+					print "<A href=\"$PHP_SELF?action=removeentry&amp;id=$row[id]&amp;category=$category\">delete</A>&nbsp\n";
 				
 				print "<HR>\n";
 
@@ -256,7 +254,7 @@
 			//--- add the add entry button ---//
 
 			if ($userprivileges[addfaqentry]) { 
-				print "<FORM method=post action=\"$PHP_SELF?action=addentry&category=$category\">\n";
+				print "<FORM method=post action=\"$PHP_SELF?action=addentry&amp;category=$category\">\n";
 				print "<INPUT type=submit value=\"add entry\">\n";
 				print "</FORM>\n";
 			}
@@ -364,7 +362,7 @@
 				or die ("Could not execute query !");
 			$row = pg_fetch_array($result, 0, PGSQL_ASSOC);
 
-			print "<FORM method=post action=\"$PHP_SELF?action=updatecategory&id=$id\">\n";
+			print "<FORM method=post action=\"$PHP_SELF?action=updatecategory&amp;id=$id\">\n";
 			print "<P>name<BR><INPUT type=text name=name value=\"$row[name]\" size=50 maxlength=20></P>\n";
 			print "<P>description<BR><INPUT type=text name=description value=\"$row[description]\" size=50 maxlength=255></P>\n";
 			print "<P>Sorted at: <INPUT type=text name=sorted value=\"$row[sorted]\" size=8 maxlength=8></P>\n";
@@ -394,7 +392,7 @@
 			print "<TABLE>\n";
 			print "<TR>\n";
 			print "<TD>";
-			print "<FORM method=post action=\"$PHP_SELF?action=deletecategory&id=$id\">";
+			print "<FORM method=post action=\"$PHP_SELF?action=deletecategory&amp;id=$id\">";
 			print "<INPUT type=submit value=delete>";
 			print "</FORM>";
 			print "</TD>\n";
@@ -453,12 +451,12 @@
 				$row = pg_fetch_array($result, $i, PGSQL_ASSOC);
 
 				print "<TR>";
-				print "<TD><B><A href=\"$PHP_SELF?action=listentries&category=$row[id]\">$row[name]</A></B></TD>";
+				print "<TD><B><A href=\"$PHP_SELF?action=listentries&amp;category=$row[id]\">$row[name]</A></B></TD>";
 				print "<TD>$row[description]</TD>";
 				if ($userprivileges[managefaqcategories]) {
 					print "<TD>$row[sorted]</TD>";
-					print "<TD><A href=\"$PHP_SELF?action=editcategory&id=$row[id]\">edit</A></TD>";
-					print "<TD><A href=\"$PHP_SELF?action=removecategory&id=$row[id]\">delete</A></TD>";
+					print "<TD><A href=\"$PHP_SELF?action=editcategory&amp;id=$row[id]\">edit</A></TD>";
+					print "<TD><A href=\"$PHP_SELF?action=removecategory&amp;id=$row[id]\">delete</A></TD>";
 				}
 				print "</TR>\n";
 

@@ -21,20 +21,10 @@ switch ($action) {
 	case "removenews":
 	case "deletenews":
 		echo <<<EOT
-		<!-- Forms -->
-		<table cellpadding="0" cellspacing="0" border="0" width="90%" align="center">
-		<tr>
-			</td>
-			<font face="Verdana" size="5"><b>
-			NewsAdmin
-			</b></font>
-			</td>
-		<tr>
-		</table>
-		<!-- End Forms -->
+		<h1>NewsAdmin</h1>
 
 		<!-- Forms Table -->
-		<table cellpadding="0" cellspacing="0" border="1" bordercolorlight="black" bordercolordark="white" 		bgcolor="#B0D7FA" width="90%" align="center">
+		<table cellpadding="0" cellspacing="0" border="0" width="90%" align="center">
 		<tr>
 			<td>
 
@@ -49,24 +39,13 @@ EOT;
 
 	default: 
 		echo <<<EOT
-
-		<!-- News -->
-		<font face="Verdana" size="5"><b>
-			News
-		</b></font>
-		<br><br>
-		<!-- End News -->
+		<h1>News</h1>
 
 		<!-- News Table -->
 		<table width="90%" align="center">
 		<tr>
 			<td>
 
-			<!-- News Entry -->
-			<table cellpadding="0" cellspacing="0" border="0" width="100%" align="center">
-			<tr>
-				<td colspan="2">
-				<font face="Verdana">
 EOT;
 }
 
@@ -80,13 +59,15 @@ switch ($action) {
 			break;
 		}
 
-		print "<FORM method=post action=\"$PHP_SELF?action=insertnews\">\n";
-		print "<TEXTAREA name=newstext cols=60 rows=15 wrap=\"soft\"></TEXTAREA>\n"; 
-		print "<P>\n";
-		print "<INPUT type=submit value=Submit>\n";
-		print "</P>\n";
-		print "</FORM>\n";
-		print "<A href=\"$PHP_SELF\">Back</A>\n";
+		echo <<<EOT
+		<FORM method=post action="$PHP_SELF?action=insertnews">
+		<TEXTAREA name=newstext cols=60 rows=15 wrap="soft"></TEXTAREA>
+		<P>
+		<INPUT type=submit value=Submit>
+		</P>
+		</FORM>
+		<A href="$PHP_SELF">Back</A>
+EOT;
 		break;
 
 	case "insertnews":
@@ -107,9 +88,11 @@ switch ($action) {
 			or die ("Could not execute query !");
 		UpdateRSS($DBconnection);
 
-		print "News posted !<BR>\n";
-		print "<BR>\n";
-		print "<A href=\"$PHP_SELF\">Back</A>\n";
+		echo <<<EOT
+		News posted !<BR>
+		<BR>
+		<A href="$PHP_SELF">Back</A>
+EOT;
 		break;
 
 	case "editnews":
@@ -125,12 +108,14 @@ switch ($action) {
 			}
 		}
 
-		print "<FORM method=post action=\"$PHP_SELF?action=updatenews&id=$id\">\n";
-		print "<TEXTAREA name=newstext cols=60 rows=15 wrap=soft>$row[text]</TEXTAREA>\n"; 
-		print "<P>\n";
-		print "<INPUT type=submit value=Submit>\n";
-		print "</P>\n";
-		print "</FORM>\n";
+		echo <<<EOT
+		<FORM method=post action="$PHP_SELF?action=updatenews&amp;id=$id">
+		<TEXTAREA name=newstext cols=60 rows=15 wrap=soft>$row[text]</TEXTAREA>
+		<P>
+		<INPUT type=submit value=Submit>
+		</P>
+		</FORM>
+EOT;
 		break;
 
 	case "updatenews":
@@ -156,9 +141,11 @@ switch ($action) {
 			or die ("Could not execute query!");
 		UpdateRSS($DBconnection);
 
-		print "<I>Updated!</I><BR>\n";
-		print "<BR>\n";
-		print "<A href=$PHP_SELF>Back</A>\n";
+		echo <<<EOT
+		<I>Updated!</I><BR>
+		<BR>
+		<A href="$PHP_SELF">Back</A>
+EOT;
 		break;
 
 	case "removenews":
@@ -174,24 +161,26 @@ switch ($action) {
 			}
 		}
 
-		print "Are you sure you want to delete the following news?\n";
-		print "<P>\n";
-		print "$row[text]\n"; 
-		print "</P>\n";
-		print "<TABLE>\n";
-		print "<TR>\n";
-		print "<TD>";
-		print "<FORM method=post action=\"$PHP_SELF?action=deletenews&id=$id\">";
-		print "<INPUT type=submit value=delete>";
-		print "</FORM>";
-		print "</TD>\n";
-		print "<TD>";
-		print "<FORM method=post action=\"$PHP_SELF\">";
-		print "<INPUT type=submit value=cancel>";
-		print "</FORM>";
-		print "</TD>\n";
-		print "</TR>\n";
-		print "</TABLE>\n";
+		echo <<<EOT
+		Are you sure you want to delete the following news?
+		<P>
+		$row[text]
+		</P>
+		<TABLE>
+		<TR>
+		<TD>
+		<FORM method=post action="$PHP_SELF?action=deletenews&amp;id=$id">
+		<INPUT type=submit value=delete>
+		</FORM>
+		</TD>
+		<TD>
+		<FORM method=post action="$PHP_SELF">
+		<INPUT type=submit value=cancel>
+		</FORM>
+		</TD>
+		</TR>
+		</TABLE>
+EOT;
 		break;
 
 	case "deletenews":
@@ -212,9 +201,11 @@ switch ($action) {
 			or die ("Could not execute query !");
 		UpdateRSS($DBconnection);
 
-		print "Deleted!<BR>\n";
-		print "<BR>\n";
-		print "<A href=index.php>Back</A>\n";
+		echo <<<EOT
+		Deleted!<BR>
+		<BR>
+		<A href="index.php">Back</A>
+EOT;
 		break;
 
 	default: 
@@ -266,60 +257,51 @@ switch ($action) {
 		while ($i < $number) {
 			$row = pg_fetch_array($result, $i, PGSQL_ASSOC);
 
-			sscanf($row[timestamp], "%d-%d-%d %d:%d", &$Y, &$M, &$D, &$h, &$m);
+			//---------------------------------------------------------------------------------------------
+			// date
+
+			sscanf($row['timestamp'], "%d-%d-%d %d:%d", &$Y, &$M, &$D, &$h, &$m);
 			$date = sprintf("%s %s, %s - %d:%02d", $months[$M], $D, $Y, $h, $m);
 
 			//---------------------------------------------------------------------------------------------
+			// news actions
+
+			$mayeditnews	= ($userprivileges["editnews"])	|| ($userid==$row["userid"]);
+			$mayremovenews	= ($userprivileges["removenews"]) || ($userid==$row["userid"]);
+
+			$newsactionstring = "";
+			if ($mayeditnews)
+				$newsactionstring .= "<A href=\"$PHP_SELF?action=editnews&amp;id=$row[id]\"><img src=\"images/editnews.png\" border=\"0\" alt=\"edit\"></A>";
+			if ($mayremovenews)
+				$newsactionstring .= "<A href=\"$PHP_SELF?action=removenews&amp;id=$row[id]\"><img src=\"images/deletenews.png\" border=\"0\" alt=\"delete\"></A>";
+				
+			//---------------------------------------------------------------------------------------------
 			echo <<<EOT
+	<!-- News Entry -->
 	<table cellpadding="0" cellspacing="0" border="0" width="100%" align="center">
 	<tr>
-		<td><font face="Verdana" size="3">
-EOT;
-
-			//---------------------------------------------------------------------------------------------
-			print "<b>$date</b>\n";
-
-			//---------------------------------------------------------------------------------------------
-			echo <<<EOT
-		</font></td>
+		<td><span class="newsdate">
+		$date
+		</span></td>
 		<td align="right">
-EOT;
-
-			//---------------------------------------------------------------------------------------------
-			// news actions
-			$mayeditnews	= ($userprivileges[editnews])	|| ($userid==$row[userid]);
-			$mayremovenews	= ($userprivileges[removenews]) || ($userid==$row[userid]);
-
-			if ($mayeditnews && $mayremovenews)
-				print "<A href=\"$PHP_SELF?action=editnews&id=$row[id]\" border=0><img src=\"images/editnews.png\" border=0></A><A href=\"$PHP_SELF?action=removenews&id=$row[id]\" border=0><img src=\"images/deletenews.png\" border=0></A><BR>\n";
-			else if ($mayeditnews)
-				print "<A href=\"$PHP_SELF?action=editnews&id=$row[id]\" border=0><img src=\"images/editnews.png\" border=0></A><BR>\n";
-			else if ($mayremovenews)
-				print "<A href=\"$PHP_SELF?action=removenews&id=$row[id]\" border=0><img src=\"images/deletenews.png\" border=0></A><BR>\n";
-
-			//---------------------------------------------------------------------------------------------
-			echo <<<EOT
+		$newsactionstring
 		</td>
 	</tr>
 	<tr>
-		<td><font face="Verdana" size="3">
-EOT;
-
-			//---------------------------------------------------------------------------------------------
-			// the news in itself
-			print "$row[text]\n";
-
-			//---------------------------------------------------------------------------------------------
-			echo <<<EOT
-		</font></td>
+		<td><div class="newstext">
+		{$row['text']}
+		</div></td>
+		<td/>
 	</tr>
 	</table>
+	<!-- End News Entry -->
+
 EOT;
 
 			//---------------------------------------------------------------------------------------------
-			//Print out a Horizontal ruler
-			if($i != ($number - 1))
-				print "<hr height=\"1\" width=\"50%\" color=\"#D0F7FA\">";
+			// Print out a Horizontal ruler
+			if ($i != $number - 1)
+				echo '	<hr class="newssep">', "\n";
 			//---------------------------------------------------------------------------------------------
 
 			$i++;
@@ -329,30 +311,27 @@ EOT;
 
 		//--- add the submit news button ---//
 
-		if ($userprivileges[addnews]) { 
-			print "<FORM method=post action=\"$PHP_SELF?action=addnews\">\n";
-			print "<INPUT type=submit value=\"submit news\">\n";
-			print "</FORM>\n";
+		if ($userprivileges[addnews]) {
+			echo <<<EOT
+			<br>
+			<FORM method=post action="$PHP_SELF?action=addnews">
+			<INPUT type=submit value="submit news">
+			</FORM>
+
+EOT;
 		}
-	
-		print "</BLOCKQUOTE>\n";
 	
 		include ("../include/jokes.inc.php");
 
 		//-------------------------------------------------------------------------------------------------
+		// prev/next page links
 
 		echo <<<EOT
-
-				<p></font>
-				</td>
-			</tr>
-			</table>
-			<!-- End News Entry -->
-
 			<!-- Next / Prev Buttons -->
 			<table cellpadding="0" cellspacing="0" border="0" width="100%" align="center">
 			<tr>
-				<td align="left" background="images/newsbarbg.png">
+				<td style="background-image: url(images/newsbarbg.png)" align="left">
+
 EOT;
 
 		//--- show the "previous page" link if needed ---//
@@ -362,22 +341,31 @@ EOT;
 		if ($start>0) {
 			$prev = $start - $step; 
 
-			if ($prev<0)		// this can only happen if the user went manually to a start not dividable by step 
+			if ($prev<0)
+				// this can only happen if the user went manually to a start not dividable by step 
 				$prev = 0;
 
-			print "<A href=\"$PHP_SELF?start=$prev\" border=0><img src=\"images/prev.png\" border=0></A>";
+			print "<A href=\"$PHP_SELF?start=$prev\"><img src=\"images/prev.png\" border=\"0\" alt=\"Previous\"></A>\n";
 		}
 
 		//-------------------------------------------------------------------------------------------------				
 		echo <<<EOT
 				</td>
-				<td align="right" background="images/newsbarbg.png">
+				<td style="background-image: url(images/newsbarbg.png)" align="right">
+
 EOT;
-				
-		//-------------------------------------------------------------------------------------------------
+
 		//--- show the "next page" link if needed ---//
-		if ($next<$total)
-			print "<A href=\"$PHP_SELF?start=$next\" border=0><img src=\"images/next.png\" border=0></A>";
+		if ($next < $total)
+			print "<A href=\"$PHP_SELF?start=$next\"><img src=\"images/next.png\" border=\"0\" alt=\"Next\"></A>\n";
+
+		echo <<<EOT
+				</td>
+			</tr>
+			</table>
+			<!-- End Next / Prev Buttons -->
+
+EOT;
 
 }
 
@@ -402,7 +390,7 @@ switch ($action) {
 			</td>
 		</tr>
 		</table><p>
-		<!-- End Forms Table-->
+		<!-- End Forms Table -->
 
 EOT;
 		break;
@@ -411,16 +399,11 @@ EOT;
 		
 	default:
 		echo <<<EOT
-				</td>
-			</tr>
-			</table>
-			<!-- End Next / Prev Buttons -->
 
 			</td>
 		</tr>
 		</table>
-		<!-- End News Table-->
-		<br>
+		<!-- End News Table -->
 
 EOT;
 }

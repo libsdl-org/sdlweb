@@ -2,15 +2,12 @@
  include ("../include/login.inc.php");
  include ($header_filename);
 ?>
-<h1><font color="#414141"><strong>
-Articles relating to SDL
-</strong></font></h1>
+<h1>Articles relating to SDL</h1>
 
 <blockquote>
      NewsForge - December 2004<br>
      <b><a href="http://www.newsforge.com/article.pl?sid=04/12/04/0156233">Getting stressed by the season?  Try Blob Wars</a></b>
 </blockquote>
-
 
 <blockquote>
      Ask Slashdot - April 2004<br>
@@ -88,7 +85,7 @@ Articles relating to SDL
 <!--
 <blockquote>
      Linux.com - June 2001<br>
-     <b><a href="http://www.linux.com/develop/newsitem.phtml?sid=64&aid=12443">An Introduction to SDL Development</a></b>
+     <b><a href="http://www.linux.com/develop/newsitem.phtml?sid=64&amp;aid=12443">An Introduction to SDL Development</a></b>
 </blockquote>
 -->
 

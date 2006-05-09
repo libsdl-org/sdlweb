@@ -4,16 +4,14 @@
 
 	BeginContent("OS");
 
-	function checkbox($text,$value)
-	{
+	function checkbox($text, $value) {
 		if ($value=="t")
 			print "<INPUT type=checkbox name=$text value=yes checked>$text";
 		else
 			print "<INPUT type=checkbox name=$text value=yes>$text";
 	}
 
-	function containtag($name,$value)
-	{
+	function containtag($name, $value) {
 		if ($value!=strip_tags($value)) {
 			print "You may not use HTML nor PHP tags in the $name field !<BR>\n";
 			return 1;
@@ -21,8 +19,7 @@
 			return 0;
 	}
 
-	function isempty($name,$value)
-	{
+	function isempty($name, $value) {
 		if ($value=="") {
 			print "The $name field is required !<BR>\n";
 			return 1;
@@ -104,7 +101,7 @@
 
 			//--- print the form ---//
 
-			print "<FORM method=post action=\"$PHP_SELF?action=updateos&id=$id\">\n";
+			print "<FORM method=post action=\"$PHP_SELF?action=updateos&amp;id=$id\">\n";
 			print "<P>name<BR><INPUT type=text name=name value=\"$row[name]\" size=50 maxlength=30></P>\n";
 			print "<P>shortname (will be used in the path of the OS image)<BR><INPUT type=text name=shortname value=\"$row[shortname]\" size=50 maxlength=10></P>\n";
 			print "<P><INPUT type=submit value=Submit></P>\n";
@@ -151,7 +148,7 @@
 			print "<TABLE>\n";
 			print "<TR>\n";
 			print "<TD>";
-			print "<FORM method=post action=\"$PHP_SELF?action=deleteos&id=$id\">";
+			print "<FORM method=post action=\"$PHP_SELF?action=deleteos&amp;id=$id\">";
 			print "<INPUT type=submit value=delete>";
 			print "</FORM>";
 			print "</TD>\n";
@@ -197,7 +194,7 @@
 
 			for ($i=0; $i < $number; $i++) {
 				$row = pg_fetch_array($result, $i, PGSQL_ASSOC);
-				print "<TR><TD>$row[name]</TD><TD>$row[shortname]</TD><TD><A href=\"$PHP_SELF?action=editos&id=$row[id]\">edit</A></TD><TD><A href=\"$PHP_SELF?action=removeos&id=$row[id]\">delete</A></TD></TR>";
+				print "<TR><TD>$row[name]</TD><TD>$row[shortname]</TD><TD><A href=\"$PHP_SELF?action=editos&amp;id=$row[id]\">edit</A></TD><TD><A href=\"$PHP_SELF?action=removeos&amp;id=$row[id]\">delete</A></TD></TR>\n";
 			}
 
 			print "</TABLE>\n";

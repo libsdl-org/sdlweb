@@ -2,7 +2,11 @@
 	include ("../include/login.inc.php");
 	include ("header.inc.php");
 
-	BeginContent("Groups");
+	echo <<<EOT
+<H1>Groups</H1>
+<BR>
+<BLOCKQUOTE>
+EOT;
 
 	$privilegelist = array(	"addproject", "reviewproject", "editproject", "removeproject",
 							"addprojectcategory", "editprojectcategory", "removeprojectcategory",
@@ -87,7 +91,7 @@
 
 				//--- print the form ---//
 
-				print "<FORM method=post action=\"$PHP_SELF?action=updategroup&id=$id\">\n";
+				print "<FORM method=post action=\"$PHP_SELF?action=updategroup&amp;id=$id\">\n";
 				print "<P>name<BR><INPUT type=text name=name value=\"$row[name]\" size=50 maxlength=30></P>\n";
 
 				reset($privilegelist);
@@ -152,27 +156,29 @@
 					or die ("Could not execute query !");
 				$name = pg_result($result, 0, "name");
 
-				print "Are you sure you want to delete the $name group ?<BR>\n";
-				print "(all users in this group will be moved to the 'Normal rights' group)<BR>\n";
-				print "<BR>\n";
-				print "<TABLE>\n";
-				print "<TR>\n";
-				print "<TD>";
-				print "<FORM method=post action=\"$PHP_SELF?action=deletegroup&id=$id\">";
-				print "<INPUT type=submit value=delete>";
-				print "</FORM>";
-				print "</TD>\n";
-				print "<TD>";
-				print "<FORM method=post action=\"$PHP_SELF\">";
-				print "<INPUT type=submit value=cancel>";
-				print "</FORM>";
-				print "</TD>\n";
-				print "</TR>\n";
-				print "</TABLE>\n";
+				echo <<<EOT
+Are you sure you want to delete the $name group ?<BR>
+(all users in this group will be moved to the 'Normal rights' group)<BR>
+<BR>
+<TABLE>
+<TR>
+<TD>
+<FORM method=post action="$PHP_SELF?action=deletegroup&amp;id=$id">
+<INPUT type=submit value=delete>
+</FORM>
+</TD>
+<TD>
+<FORM method=post action="$PHP_SELF">
+<INPUT type=submit value=cancel>
+</FORM>
+</TD>
+</TR>
+</TABLE>
+EOT;
 				break;
 
 			case "deletegroup":
-				if ($id<3) {
+				if ($id < 3) {
 					print "Sorry, but I can't let you do that !<BR>\n";
 					break;
 				}
@@ -213,9 +219,9 @@
 					$row = pg_fetch_array($result, $i, PGSQL_ASSOC);
 
 					if ($row[id]>2)
-						print "<TR><TD>$row[name]</TD><TD><A href=\"$PHP_SELF?action=editgroup&id=$row[id]\">edit</A></TD><TD><A href=\"$PHP_SELF?action=removegroup&id=$row[id]\">delete</A></TD></TR>";
+						print "<TR><TD>$row[name]</TD><TD><A href=\"$PHP_SELF?action=editgroup&amp;id=$row[id]\">edit</A></TD><TD><A href=\"$PHP_SELF?action=removegroup&amp;id=$row[id]\">delete</A></TD></TR>";
 					else
-						print "<TR><TD>$row[name]</TD><TD colspan=2><A href=\"$PHP_SELF?action=editgroup&id=$row[id]\">edit</A></TD></TR>";
+						print "<TR><TD>$row[name]</TD><TD colspan=2><A href=\"$PHP_SELF?action=editgroup&amp;id=$row[id]\">edit</A></TD></TR>";
 
 					$i++;
 				}
@@ -223,10 +229,11 @@
 				print "</TABLE>\n";
 
 				//--- add the new group button ---//
-
-				print "<FORM method=post action=\"$PHP_SELF?action=addgroup\">\n";
-				print "<INPUT type=submit value=\"new group\">\n";
-				print "</FORM>\n";
+				echo <<<EOT
+<FORM method=post action="$PHP_SELF?action=addgroup">
+<INPUT type=submit value="new group">
+</FORM>
+EOT;
 		}
 	}
 

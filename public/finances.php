@@ -2,34 +2,30 @@
  include ("../include/login.inc.php");
  include ($header_filename);
 ?>
-<h1><font color="#414141"><strong>
-SDL Finances
-</strong></font></h1>
+<h1>SDL Finances</h1>
 
-<p><font color="#414141"><strong>
+<p class="intro">
 Mark Remollino, Ryan Cleven, Erik Yuzwa, and Karl-Christian Wolff-Ingham
 have made generous donations toward SDL development! (<a href="#note">*</a>)<br>
 <!--
 has made a generous donation toward SDL development! (<a href="#note">*</a>)<br>
 -->
 Thank you everybody for showing your support and furthering SDL!
-</strong></font>
 </p>
 
-<p><font color="#414141"><strong>
+<p class="intro">
 If you want to make a non-tax-deductable donation by check or money order
 to SDL development, please send e-mail to Sam Lantinga at:
 <a href="mailto:slouken@libsdl.org">slouken@libsdl.org</a>.
 <br>
 You can also make a contribution using <a href="http://www.paypal.com">PayPal</a> to slouken@libsdl.org
-</strong></font>
 </p>
 
-<p><font color="#414141">
-Current Finances:
+<p>Current Finances:</p>
+
 <table width="100%">
 <tr><th align="left">Transaction</th>
-    <th aligh="left">Date</th>
+    <th align="left">Date</th>
     <th align="left"></th>
     <th align="left">Amount</th>
     <th align="left">Total</th>
@@ -243,17 +239,15 @@ Current Finances:
     <td></td>
     <td></td>
     <td>$833.51</td>
-<tr>
+</tr>
 </table>
-</font>
-</p>
 
-<p><font color="#414141"><strong>
+<p class="intro">
 <a name="note">
 All money donated and used for SDL development is documented here.
 All money is to be spent on software and/or hardware to be used in
 SDL development.
-</strong></font>
+</a>
 </p>
 <?PHP
  include ("footer.inc.php");

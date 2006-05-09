@@ -95,7 +95,7 @@
 				or die ("Could not execute query !");
 			$login = pg_result($result,0,"login");
 
-			print "<FORM method=post action=\"$PHP_SELF?action=updatepwd&id=$id\">\n";
+			print "<FORM method=post action=\"$PHP_SELF?action=updatepwd&amp;id=$id\">\n";
 
 			print "<P><I>change password for $login</I></P>\n";
 
@@ -107,7 +107,7 @@
 			print "<P><INPUT type=submit value=Submit></P>\n";
 
 			print "</FORM>\n";
-			print "<A href=\"users.php?action=edituser&id=$id\">back</A>";
+			print "<A href=\"users.php?action=edituser&amp;id=$id\">back</A>";
 			break;
 
 		case "updatepwd": 
@@ -163,7 +163,7 @@
 			print "<I>Updated !</I><BR>\n";
 
 			print "<BR>\n";
-			print "<A href=\"users.php?action=edituser&id=$id\">back</A>";
+			print "<A href=\"users.php?action=edituser&amp;id=$id\">back</A>";
 			break;
 
 		case "updateuser":
@@ -214,11 +214,11 @@
 
 			print "<P><B>login</B><BR><I>$row[login]</I></P>\n";
 
-			print "<FORM method=post action=\"$PHP_SELF?action=changepwd&id=$id\">\n";
+			print "<FORM method=post action=\"$PHP_SELF?action=changepwd&amp;id=$id\">\n";
 			print "<P>password<BR><INPUT type=submit value=change></P>\n";
 			print "</FORM>\n";
 
-			print "<FORM method=post action=\"$PHP_SELF?action=updateuser&id=$id\">\n";
+			print "<FORM method=post action=\"$PHP_SELF?action=updateuser&amp;id=$id\">\n";
 			print "<P>name<BR><INPUT type=text value=\"$row[name]\" name=newname size=25 maxlength=100></P>\n";
 			print "<P>email<BR><INPUT type=text value=\"$row[email]\" name=newemail size=25 maxlength=100></P>\n";
 			if ($userprivileges[manageusers]) {
@@ -249,7 +249,7 @@
 			print "</FORM>\n";
 
 			if (!$userprivileges[manageusers]) {
-				print "<FORM method=post action=\"$PHP_SELF?action=removeuser&id=$id\">\n";
+				print "<FORM method=post action=\"$PHP_SELF?action=removeuser&amp;id=$id\">\n";
 				print "<INPUT type=submit value=\"delete account\">\n";
 				print "</FORM>\n";
 			}
@@ -277,7 +277,7 @@
 			print "<TABLE>\n";
 			print "<TR>\n";
 			print "<TD>";
-			print "<FORM method=post action=\"$PHP_SELF?action=deleteuser&id=$id\">";
+			print "<FORM method=post action=\"$PHP_SELF?action=deleteuser&amp;id=$id\">";
 			print "<INPUT type=submit value=delete>";
 			print "</FORM>";
 			print "</TD>\n";
@@ -286,7 +286,7 @@
 			if ($userid!=$id) 
 				print "<FORM method=post action=\"users.php\">";
 			else
-				print "<FORM method=post action=\"users.php?action=edituser&id=$id\">";
+				print "<FORM method=post action=\"users.php?action=edituser&amp;id=$id\">";
 
 			print "<INPUT type=submit value=cancel>";
 			print "</FORM>";
@@ -353,7 +353,7 @@
 			$i=0;
 			while ($i < $number) {
 				$row = pg_fetch_array($result, $i, PGSQL_ASSOC);
-				print "<TD>$row[username]</TD><TD><A href=\"mailto:$row[email]\">$row[email]</A></TD><TD>$row[groupname]</TD><TD><A href=\"$PHP_SELF?action=edituser&id=$row[id]\">edit</A></TD><TD><A href=\"$PHP_SELF?action=removeuser&id=$row[id]\">delete</A></TD></TR>\n";
+				print "<TD>$row[username]</TD><TD><A href=\"mailto:$row[email]\">$row[email]</A></TD><TD>$row[groupname]</TD><TD><A href=\"$PHP_SELF?action=edituser&amp;id=$row[id]\">edit</A></TD><TD><A href=\"$PHP_SELF?action=removeuser&amp;id=$row[id]\">delete</A></TD></TR>\n";
 				$i++;
 			}
 
