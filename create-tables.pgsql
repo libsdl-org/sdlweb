@@ -100,6 +100,7 @@ CREATE TABLE faqcategories
 (id SERIAL,
  name VARCHAR(20) NOT NULL,
  description VARCHAR(255) NOT NULL,
+ sorted REAL,
  PRIMARY KEY (id));
 
 CREATE TABLE faqentries
@@ -110,3 +111,4 @@ CREATE TABLE faqentries
  sorted REAL,
  PRIMARY KEY (id),
  FOREIGN KEY (category) references faqcategories);
+

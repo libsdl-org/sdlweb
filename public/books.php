@@ -2,9 +2,7 @@
  include ("../include/login.inc.php");
  include ($header_filename);
 ?>
-<h1><font color="#414141"><strong>
-Books relating to SDL
-</strong></font></h1>
+<h1>Books relating to SDL</h1>
 
 <blockquote>
      Erik Yuzwa - December 2005<br>

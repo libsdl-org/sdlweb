@@ -2,19 +2,15 @@
  include ("../include/login.inc.php");
  include ($header_filename);
 ?>
-<h1><font color="#414141"><strong>
-SDL Introduction
-</strong></font></h1>
+<h1>SDL Introduction</h1>
 
-<p><font color="#414141"><strong>
+<p class="intro">
 The SDL introduction has been translated into many different languages.
 <br>
 Thanks to the many people who have contributed to the SDL documentation!
-</strong></font>
 </p>
 
-<p><font color="#414141"><strong>
-<ul>
+<ul style="font-weight: bold">
 <li><A href="/intro.cn/toc.html">Chinese</A></li>
 <li><A href="/intro.en/toc.html">English</A></li>
 <li><A href="/intro.fr/tocfr.html">French</A></li>
@@ -26,7 +22,7 @@ Thanks to the many people who have contributed to the SDL documentation!
 <li><A href="/intro.ru/toc.html">Russian</A></li>
 <li><A href="/intro.es/toc.html">Spanish</A></li>
 </ul>
-</p>
+
 <?PHP
  include ("footer.inc.php");
 ?>

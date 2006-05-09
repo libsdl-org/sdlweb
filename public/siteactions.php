@@ -7,7 +7,7 @@
 		print "<li><a href=\"/users.php?action=createuser\">New Account</a></li>";
 	} else {
 		print "<li>Login: <i>$userlogin</i><br>";
-		print "<li><a href=\"/users.php?action=edituser&id=$userid\">Edit Account</a></li>";
+		print "<li><a href=\"/users.php?action=edituser&amp;id=$userid\">Edit Account</a></li>";
 		if ($userprivileges[manageoses])
 			print "<li><a href=\"/oses.php\">Manage OSes</a></li>";
 		if ($userprivileges[manageusers])

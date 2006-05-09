@@ -228,7 +228,7 @@ include ("updaterss.inc.php");
 			print "<TABLE>\n";
 			print "<TR>\n";
 			print "<TD>";
-			print "<FORM method=post action=\"$PHP_SELF?action=maintainconfirmed&id=$id\">";
+			print "<FORM method=post action=\"$PHP_SELF?action=maintainconfirmed&amp;id=$id\">";
 			print "<INPUT type=submit value=maintain>";
 			print "</FORM>";
 			print "</TD>\n";
@@ -258,7 +258,7 @@ include ("updaterss.inc.php");
 
 			print "<I>Updated !</I><BR>\n";
 			print "<BR>\n";
-			print "<A href=\"$PHP_SELF?action=editproject&id=$id\">edit</A>&nbsp;<A href=\"$PHP_SELF\">back</A>\n";
+			print "<A href=\"$PHP_SELF?action=editproject&amp;id=$id\">edit</A>&nbsp;<A href=\"$PHP_SELF\">back</A>\n";
 			break;
 
 		case "disownproject":
@@ -370,7 +370,7 @@ include ("updaterss.inc.php");
 					break;
 				}
 
-			print "<FORM method=post action=\"$PHP_SELF?action=updateproject&id=$id\">\n";
+			print "<FORM method=post action=\"$PHP_SELF?action=updateproject&amp;id=$id\">\n";
 			
 			//--- misc info ---//
 
@@ -475,7 +475,7 @@ include ("updaterss.inc.php");
 			print "<TABLE>\n";
 			print "<TR>\n";
 			print "<TD>";
-			print "<FORM method=post action=\"$PHP_SELF?action=deleteproject&id=$id\">";
+			print "<FORM method=post action=\"$PHP_SELF?action=deleteproject&amp;id=$id\">";
 			print "<INPUT type=submit value=delete>";
 			print "</FORM>";
 			print "</TD>\n";
@@ -619,7 +619,7 @@ include ("updaterss.inc.php");
 				or die ("Could not execute query !");
 			$row = pg_fetch_array($result, 0, PGSQL_ASSOC);
 
-			print "<FORM method=post action=\"$PHP_SELF?action=updatecategory&id=$id\">\n";
+			print "<FORM method=post action=\"$PHP_SELF?action=updatecategory&amp;id=$id\">\n";
 			print "<P>name<BR><INPUT type=text name=name value=\"$row[name]\" size=50 maxlength=40></P>\n";
 			print "<P>description<BR><INPUT type=text name=description value=\"$row[description]\" size=50 maxlength=255></P>\n";
 			print "<P><INPUT type=submit value=Submit></P>\n";
@@ -653,7 +653,7 @@ include ("updaterss.inc.php");
 			print "<TABLE>\n";
 			print "<TR>\n";
 			print "<TD>";
-			print "<FORM method=post action=\"$PHP_SELF?action=deletecategory&id=$id\">";
+			print "<FORM method=post action=\"$PHP_SELF?action=deletecategory&amp;id=$id\">";
 			print "<INPUT type=submit value=delete>";
 			print "</FORM>";
 			print "</TD>\n";
@@ -720,9 +720,9 @@ include ("updaterss.inc.php");
 				print "<TD><B>$row[name]</B></TD>";
 				print "<TD>$row[description]</TD>";
 				if ($userprivileges[editprojectcategory])
-					print "<TD><A href=\"$PHP_SELF?action=editcategory&id=$row[id]\">edit</A></TD>";
+					print "<TD><A href=\"$PHP_SELF?action=editcategory&amp;id=$row[id]\">edit</A></TD>";
 				if ($userprivileges[removeprojectcategory] && $row[id]>4)
-					print "<TD><A href=\"$PHP_SELF?action=removecategory&id=$row[id]\">delete</A></TD>";
+					print "<TD><A href=\"$PHP_SELF?action=removecategory&amp;id=$row[id]\">delete</A></TD>";
 				print "</TR>\n";
 
 				$i++;
@@ -991,19 +991,19 @@ include ("updaterss.inc.php");
 				$mayremoveproject = ($userprivileges[removeproject]) || ($userid==$row[userid]);
 
 				if ($mayeditproject && $mayremoveproject)
-					print "<A href=\"$PHP_SELF?action=editproject&id=$row[id]\">edit</A>&nbsp;<A href=\"$PHP_SELF?action=removeproject&id=$row[id]\">delete</A>";
+					print "<A href=\"$PHP_SELF?action=editproject&amp;id=$row[id]\">edit</A>&nbsp;<A href=\"$PHP_SELF?action=removeproject&amp;id=$row[id]\">delete</A>";
 				else if ($mayeditproject)
-					print "<A href=\"$PHP_SELF?action=editproject&id=$row[id]\">edit</A>";
+					print "<A href=\"$PHP_SELF?action=editproject&amp;id=$row[id]\">edit</A>";
 				else if ($mayremoveproject)
-					print "<A href=\"$PHP_SELF?action=removeproject&id=$row[id]\">delete</A>";
+					print "<A href=\"$PHP_SELF?action=removeproject&amp;id=$row[id]\">delete</A>";
 				if ($userid == $row[userid])
-					print "&nbsp;<A href=\"$PHP_SELF?action=disownproject&id=$row[id]\">disown</A>";
+					print "&nbsp;<A href=\"$PHP_SELF?action=disownproject&amp;id=$row[id]\">disown</A>";
 				if ($mayeditproject || $mayremoveproject || ($userid == $row[userid]))
 					print "<BR>\n";
 
 				if ($userid > 0) {
 					if ($row[userid] == -1) {
-						print "<A href=\"$PHP_SELF?action=maintainproject&id=$row[id]\">maintain project</A><BR>\n";
+						print "<A href=\"$PHP_SELF?action=maintainproject&amp;id=$row[id]\">maintain project</A><BR>\n";
 					} else if ($userprivileges[editproject]) {
 						$query  = "select name, email from users ";
 						$query .= "where id = $row[userid]";
@@ -1024,7 +1024,7 @@ include ("updaterss.inc.php");
 			if (($perpage!="all") && (($start>0) || ($next<$total))) {
 				print "<P>\n";
 
-				$match_infos .= "order=$order&category=$category&completed=$completed&os=$os&match_name=$match_name&perpage=$perpage";
+				$match_infos .= "order=$order&amp;category=$category&amp;completed=$completed&amp;os=$os&amp;match_name=$match_name&amp;perpage=$perpage";
 
 				if ($start>0) {
 					$prev = $start - $perpage; 
@@ -1032,11 +1032,11 @@ include ("updaterss.inc.php");
 					if ($prev<0)		// this can only happen if the user went manually to a start not dividable by step 
 						$prev = 0;
 
-					print "<A href=\"$PHP_SELF?start=$prev&$match_infos\">previous page</A>&nbsp";
+					print "<A href=\"$PHP_SELF?start=$prev&amp;$match_infos\">previous page</A>&nbsp";
 				}
 
 				if ($next<$total)
-					print "<A href=\"$PHP_SELF?start=$next&$match_infos\">next page</A>";
+					print "<A href=\"$PHP_SELF?start=$next&amp;$match_infos\">next page</A>";
 
 				print "</P>\n";
 			}

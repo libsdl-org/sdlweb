@@ -2,9 +2,7 @@
  include ("../include/login.inc.php");
  include ($header_filename);
 ?>
-<h1><font color="#414141"><strong>
-SDL Credits
-</strong></font></h1>
+<h1>SDL Credits</h1>
 
 <p>
 It's impossible to list the hundreds of people who have contributed
@@ -14,6 +12,7 @@ Many thanks to everybody who has contributed over the years... you guys rock!
 
 <p>
 Special thanks go out to:
+</p>
 <ul>
 <li>Cliff Matthews, for giving me a reason to start this project. :)
 <br>-- Executor rocks!  *grin*
@@ -95,7 +94,7 @@ Special thanks go out to:
 <li>Everybody at Loki Software, Inc. for their great contributions!
 </li>
 </ul>
-</p>
+
 <?PHP
  include ("footer.inc.php");
 ?>
