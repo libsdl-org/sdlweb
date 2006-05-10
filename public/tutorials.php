@@ -13,6 +13,12 @@ have contributed online tutorials on using various parts of SDL.
 <p><font color="#414141"><strong>
 <ul>
 <li>
+<a href="http://www.meandmark.com/sdlopenglpart1.html"
+        >SDL and OpenGL</a>
+<br>
+Covers: Using SDL and OpenGL on Mac OS X
+</li>
+<li>
 <a href="http://www.gamedevwiki.com.ar/tiki-read_article.php?articleId=14"
         >Tutorial SDL - Primera Parte</a>
 <br>
