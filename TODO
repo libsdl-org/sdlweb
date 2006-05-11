@@ -1,11 +1,20 @@
+This is my TODO list for libsdl.org development.
+
+In case you want to contact me, please use the following address:
+Gaëtan de Menten (ged at bugfactory dot org)
+
 - finish/cleanup my small design change (add title) and commit it
-- articles/tutorials/books/... (publications)
 - convert all print, print, print sequences -> echo <<<EOT
 - fix global variables / register globals problem
 - use quotes for array indexes
+- convert all HTML tags to lowercase, so that one day we can switch to XHTML
+- use quotes for HTML attributes even when not stricly needed
+
+- articles/tutorials/books/... (publications)
 
 - CSSify deprecated stuff
-- use quotes for HTML attributes even when not stricly needed
+- cleanup current CSS, I did it on a hurry...
+- try validating all pages as HTML 4.01 Strict...
 
 - move containtags, isempty, OPTION, months to one include file accessible
   from all files
@@ -19,6 +28,13 @@
 ? use pg_freeresult() when the result is not used anymore
 ? use pg_close (or the new name?)
 
-- rewrite the whole thing using a premade framework, such as Turbo Gears...
-  (this probably won't happen, because of lack of time, even though it should 
-  be done)
+- use template system (smarty seems nice)
+- rewrite the whole thing. This probably won't happen, because of lack of time.
+  But it should be done anyway... Why? because the current code is awfully
+  repetitive, and is a bit of a nightmare to maintain/expand.
+
+  The rewrite could be done either:
+    * using a premade framework, such as Turbo Gears
+    OR
+    * using nothing but PHP again. Just using an OO approach with inheritance 
+      should cut down the code in more than half
