@@ -2,13 +2,13 @@
 	include ("../include/login.inc.php");
 	include ("header.inc.php");
 
-	$projecttype = 1;
-	$projecttypetextpc = "Games";	// endings: p = plural / s = singular / c = capitalized
-	$projecttypetextp = "games";
-	$projecttypetextsc = "Game";
-	$projecttypetexts = "game";
+	define(PROJECTTYPE, 1);
+	define(PROJECTTYPETEXTPC, "Games");	// endings: p = plural / s = singular / c = capitalized
+	define(PROJECTTYPETEXTP, "games");
+	define(PROJECTTYPETEXTSC, "Game");
+	define(PROJECTTYPETEXTS, "game");
 
-	BeginContent($projecttypetextpc);
+	BeginContent(PROJECTTYPETEXTPC);
 	include ("../include/projects.inc.php");
 	CloseContent();
 

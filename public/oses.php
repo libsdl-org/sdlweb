@@ -3,44 +3,32 @@
 	include ("header.inc.php");
 
 	BeginContent("OS");
-
-	function checkbox($text, $value) {
-		if ($value=="t")
-			print "<INPUT type=checkbox name=$text value=yes checked>$text";
-		else
-			print "<INPUT type=checkbox name=$text value=yes>$text";
-	}
-
-	function containtag($name, $value) {
-		if ($value!=strip_tags($value)) {
-			print "You may not use HTML nor PHP tags in the $name field !<BR>\n";
-			return 1;
-		} else
-			return 0;
-	}
-
-	function isempty($name, $value) {
-		if ($value=="") {
-			print "The $name field is required !<BR>\n";
-			return 1;
-		} else
-			return 0;
-	}
-
-	if (!$userprivileges[manageoses]) {
-		print "You are not permitted to access this page !<BR>\n";
+	
+	if (!$userprivileges['manageoses']) {
+		print "You are not permitted to access this page !<br>\n";
 		exit();
 	}
 
+	$fields_def = array(
+		'id' => array('type' => 'integer'),
+		'shortname' => array('type' => 'char', 'size' => 10, 'required' => True),
+		'name' => array('type' => 'char', 'size' => 30, 'required' => True) 
+	);
+	
+	$id = $_GET['id'];
+	
 	switch ($action) {
 		case "addos":
-			print "<FORM method=post action=\"$PHP_SELF?action=insertos\">\n";
-			print "<P>name<BR><INPUT type=text name=name size=50 maxlength=30></P>\n";
-			print "<P>shortname (will be used in the path of the OS image)<BR><INPUT type=text name=shortname size=50 maxlength=10></P>\n";
-			print "<P><INPUT type=submit value=Submit></P>\n";
-			print "</FORM>\n";
-			print "<BR>\n";
-			print "<A href=\"$PHP_SELF\">back</A>\n";
+			echo <<<EOT
+<form method="post" action="{$_SERVER['PHP_SELF']}?action=insertos">
+<p>name<br><input type="text" name="name" size="50" maxlength="30"></p>
+<p>shortname (will be used in the path of the OS image)<br><input type="text" name="shortname" size="50" maxlength="10"></p>
+<p><input type="submit" value="Submit"></p>
+</form>
+<br>
+<a href="{$_SERVER['PHP_SELF']}">back</a>
+
+EOT;
 			break;
 
 		case "insertos":
@@ -50,18 +38,18 @@
 
 			$required = array("name", "shortname");
 			while (list($key,$varname)=each($required))
-				$nbrerrors += isempty($varname,$$varname);
+				$nbrerrors += isempty($varname, $_POST[$varname]);
 
 			$notags = array("name", "shortname");
 			while (list($key,$varname)=each($notags))
-				$nbrerrors += containtag($varname,$$varname);
+				$nbrerrors += containtag($varname, $_POST[$varname]);
 
 			if ($nbrerrors)
 				break;
 
 			//--- insert new OS ---//
 
-			$query = "insert into oses(shortname, name) values('$shortname','$name')";
+			$query = "insert into oses(shortname, name) values('{$_POST['shortname']}','{$_POST['name']}')";
 			pg_exec($DBconnection, $query)
 				or die ("Could not execute query !");
 
@@ -74,23 +62,18 @@
 
 			//--- add a new status for every project in the database ---//
 
-			$query = "select id from projects";
-			$result = pg_exec($DBconnection, $query)
+			$query = "insert into projectstatus (select id, $osid, 0 from projects)";
+			pg_exec($DBconnection, $query)
 				or die ("Could not execute query !");
-			$number = pg_numrows($result);
-
-			for ($i=0; $i < $number; $i++) {
-				$projectid = pg_result($result, $i, "id");
-				$query  = "insert into projectstatus values($projectid,$osid,0)";
-				pg_exec($DBconnection, $query)
-					or die ("Could not execute query !");
-			}
 
 			//------//
 
-			print "OS added !<BR>\n";
-			print "<BR>\n";
-			print "<A href=\"$PHP_SELF\">back</A>\n";
+			echo <<<EOT
+OS added !<br>
+<br>
+<a href="{$_SERVER['PHP_SELF']}">back</a>
+
+EOT;
 			break;
 
 		case "editos":
@@ -101,13 +84,16 @@
 
 			//--- print the form ---//
 
-			print "<FORM method=post action=\"$PHP_SELF?action=updateos&amp;id=$id\">\n";
-			print "<P>name<BR><INPUT type=text name=name value=\"$row[name]\" size=50 maxlength=30></P>\n";
-			print "<P>shortname (will be used in the path of the OS image)<BR><INPUT type=text name=shortname value=\"$row[shortname]\" size=50 maxlength=10></P>\n";
-			print "<P><INPUT type=submit value=Submit></P>\n";
-			print "</FORM>\n";
-			print "<BR>\n";
-			print "<A href=\"$PHP_SELF\">back</A>\n";
+			echo <<<EOT
+<form method="post" action="{$_SERVER['PHP_SELF']}?action=updateos&amp;id=$id">
+<p>name<br><input type="text" name="name" value="{$row['name']}" size="50" maxlength="30"></p>
+<p>shortname (will be used in the path of the OS image)<br><input type="text" name="shortname" value="{$row['shortname']}" size="50" maxlength="10"></p>
+<p><input type="submit" value="Submit"></p>
+</form>
+<br>
+<a href="{$_SERVER['PHP_SELF']}">back</a>
+
+EOT;
 			break;
 
 		case "updateos":
@@ -117,24 +103,27 @@
 
 			$required = array("name", "shortname");
 			while (list($key,$varname)=each($required))
-				$nbrerrors += isempty($varname,$$varname);
+				$nbrerrors += isempty($varname, $_POST[$varname]);
 
 			$notags = array("name", "shortname");
 			while (list($key,$varname)=each($notags))
-				$nbrerrors += containtag($varname,$$varname);
+				$nbrerrors += containtag($varname, $_POST[$varname]);
 
 			if ($nbrerrors)
 				break;
 
 			//--- update the os in the database ---//
 
-			$query  = "update oses set shortname='$shortname', name='$name' where id=$id";
+			$query  = "update oses set shortname='{$_POST['shortname']}', name='{$_POST['name']}' where id=$id";
 			pg_exec($DBconnection, $query)
 				or die ("Could not execute query !");
 
-			print "<I>Updated !</I><BR>\n";
-			print "<BR>\n";
-			print "<A href=\"$PHP_SELF\">back</A>\n";
+			echo <<<EOT
+<i>Updated !</i><br>
+<br>
+<a href="{$_SERVER['PHP_SELF']}">back</a>
+
+EOT;
 			break;
 
 		case "removeos":
@@ -143,22 +132,25 @@
 				or die ("Could not execute query !");
 			$name = pg_result($result, 0, "name");
 
-			print "Are you sure you want to delete the $name os ?<BR>\n";
-			print "<BR>\n";
-			print "<TABLE>\n";
-			print "<TR>\n";
-			print "<TD>";
-			print "<FORM method=post action=\"$PHP_SELF?action=deleteos&amp;id=$id\">";
-			print "<INPUT type=submit value=delete>";
-			print "</FORM>";
-			print "</TD>\n";
-			print "<TD>";
-			print "<FORM method=post action=\"$PHP_SELF\">";
-			print "<INPUT type=submit value=cancel>";
-			print "</FORM>";
-			print "</TD>\n";
-			print "</TR>\n";
-			print "</TABLE>\n";
+			echo <<<EOT
+Are you sure you want to delete the $name os ?<br>
+<br>
+<table>
+<tr>
+<td>
+<form method="post" action="{$_SERVER['PHP_SELF']}?action=deleteos&amp;id=$id">
+<input type="submit" value="delete">
+</form>
+</td>
+<td>
+<form method="post" action="{$_SERVER['PHP_SELF']}">
+<input type="submit" value="cancel">
+</form>
+</td>
+</tr>
+</table>
+
+EOT;
 			break;
 
 		case "deleteos":
@@ -174,9 +166,12 @@
 			pg_exec($DBconnection, $query)
 				or die ("Could not execute query !");
 
-			print "Deleted !<BR>\n";
-			print "<BR>\n";
-			print "<A href=\"$PHP_SELF\">back</A>\n";
+			echo <<<EOT
+Deleted !<br>
+<br>
+<a href="{$_SERVER['PHP_SELF']}">back</a>
+
+EOT;
 			break;
 
 		default:
@@ -186,24 +181,30 @@
 			$result = pg_exec($DBconnection, $query)
 				or die ("Could not execute query !");
 
-			$number = pg_numrows($result);
-
 			//--- print oses ---//
 
-			print "<TABLE cellpadding=5>\n";
+			echo '<table cellpadding="5">', "\n";
 
-			for ($i=0; $i < $number; $i++) {
-				$row = pg_fetch_array($result, $i, PGSQL_ASSOC);
-				print "<TR><TD>$row[name]</TD><TD>$row[shortname]</TD><TD><A href=\"$PHP_SELF?action=editos&amp;id=$row[id]\">edit</A></TD><TD><A href=\"$PHP_SELF?action=removeos&amp;id=$row[id]\">delete</A></TD></TR>\n";
-			}
+			while (($row = pg_fetch_array($result, NULL, PGSQL_ASSOC)) != FALSE)
+				echo <<<EOT
+<tr>
+	<td>{$row['name']}</td>
+	<td>{$row['shortname']}</td>
+	<td><a href="{$_SERVER['PHP_SELF']}?action=editos&amp;id={$row['id']}">edit</a></td>
+	<td><a href="{$_SERVER['PHP_SELF']}?action=removeos&amp;id={$row['id']}">delete</a></td>
+</tr>
 
-			print "</TABLE>\n";
+EOT;
+			print "</table>\n";
 
 			//--- add the new os button ---//
 
-			print "<FORM method=post action=\"$PHP_SELF?action=addos\">\n";
-			print "<INPUT type=submit value=\"new os\">\n";
-			print "</FORM>\n";
+			echo <<<EOT
+<form method="post" action="{$_SERVER['PHP_SELF']}?action=addos">
+<input type="submit" value="new os">
+</form>
+
+EOT;
 	}
 
 	CloseContent();

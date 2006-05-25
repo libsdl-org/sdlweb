@@ -1,9 +1,50 @@
 <?PHP
-include ("updaterss.inc.php");
+	include("updaterss.inc.php");
 
-	$minversionmajor = 1; $maxversionmajor = 1;
-	$minversionminor = 2; $maxversionminor = 2;
-	$minversionpatch = 0; $maxversionpatch = 10;
+	define(MINVERSIONMAJOR, 1); define(MAXVERSIONMAJOR, 1); define(DEFAULTVERSIONMAJOR, 1);
+	define(MINVERSIONMINOR, 2); define(MAXVERSIONMINOR, 2); define(DEFAULTVERSIONMINOR, 2);
+	define(MINVERSIONPATCH, 0); define(MAXVERSIONPATCH, 10); define(DEFAULTVERSIONPATCH, 0);
+
+	if ((PROJECTTYPE < 1) || (PROJECTTYPE > 4)) {
+		print "Invalid project type !<br>\n";
+		break;
+	}
+
+	$fields_def = array(
+		'id'=>array('type'=>'integer', 'required'=>True),
+#		'userid'=>array('type'=>'integer', 'required'=>True),
+#		'type'=>array('type'=>'integer', 'required'=>True),
+		'category'=>array('type'=>'integer', 'required'=>True),
+		'name'=>array('type'=>'char', 'size'=>30, 'required'=>True),
+		'description'=>array('type'=>'char', 'size'=>255, 'required'=>True),
+#		'versionrequired'=>array('type'=>'integer', 'required'=>True),
+		'versionreqmajor'=>array('type'=>'integer', 'required'=>True, 'min'=>MINVERSIONMAJOR, 'max'=>MAXVERSIONMAJOR),
+		'versionreqminor'=>array('type'=>'integer', 'required'=>True, 'min'=>MINVERSIONMINOR, 'max'=>MAXVERSIONMINOR),
+		'versionreqpatch'=>array('type'=>'integer', 'required'=>True, 'min'=>MINVERSIONPATCH, 'max'=>MAXVERSIONPATCH),
+		'url'=>array('type'=>'char', 'size'=>100 , 'required'=>True),
+		'contact'=>array('type'=>'char', 'size'=>64),
+#		'reviewed'=>array('type'=>'bool', 'required'=>True),
+#		'timestamp'=>TIMESTAMP , 'required'=>True),
+		'license'=>array('type'=>'char', 'size'=>32, 'required'=>True),
+	);
+
+	$query_fields_def = array(
+		'category'=>array('type'=>'integer'),
+		'match_name'=>array('type'=>'char'),
+		'match_id'=>array('type'=>'integer'),
+		'os'=>array('type'=>'integer'),
+		'completed'=>array('type'=>'integer'),
+		'perpage'=>array('type'=>'integer'),
+		'start'=>array('type'=>'integer'),
+		'match_userid'=>array('type'=>'char'),
+		'order'=>array('type'=>'char'),
+	);
+
+	$categ_fields_def = array(
+		'id'=>array('type'=>'integer', 'required'=>True),
+		'name'=>array('type'=>'char', 'size'=>40, 'required'=>True),
+		'description'=>array('type'=>'char', 'size'=>255),
+	);
 
 	$licenses = array(
 		"Unknown",
@@ -16,96 +57,73 @@ include ("updaterss.inc.php");
 		"Other Closed Source",
 	);
 
-	function OPTION($value,$selectedvalue,$text)
-	{
-		if ($value==$selectedvalue)
-			print "<OPTION selected value=$value>$text";
-		else
-			print "<OPTION value=$value>$text";
-	}
-
-	function containtag($name,$value)
-	{
-		if ($value!=strip_tags($value)) {
-			print "You may not use HTML nor PHP tags in the $name field !<BR>\n";
-			return 1;
-		} else
-			return 0;
-	}
-
-	function isempty($name,$value)
-	{
-		if ($value=="") {
-			print "The $name field is required !<BR>\n";
-			return 1;
-		} else
-			return 0;
-	}
-
 	switch ($action) {
 		case "addproject":
-			if (!$userprivileges[addproject]) {
-				print "You are not permitted to access this page !<BR>\n";
+			if (!$userprivileges['addproject']) {
+				print "You are not permitted to access this page !<br>\n";
 				break;
 			}
 
-			print "<FORM method=post action=\"$PHP_SELF?action=insertproject\">\n";
-			print "<P><I>The fields marked with (*) are required</I></P>\n";
+#TODO: fetch user email here instead in login.inc.php
 
-			//--- misc info ---//
+			print "<form method=post action=\"{$_SERVER['PHP_SELF']}?action=insertproject\">\n";
+			print "<p><i>The fields marked with (*) are required</i></p>\n";
 
-			print "<P>name (*)<BR><INPUT type=text name=name size=50 maxlength=30></P>\n";
-			print "<P>description (a single sentence without trailing period) (*)<BR><INPUT type=text name=description size=50 maxlength=255></P>\n";
-			print "<P>url (*)<BR><INPUT type=text name=url value=\"http://\" size=50 maxlength=100></P>\n";
-			print "<P>contact email<BR><INPUT type=text name=contact value=\"$useremail\" size=50 $maxlength=64></P>\n";
+			# --- misc info ---
 
-			//--- select min version req ---//
+			print "<p>name (*)<br><input type=text name=name size=50 maxlength=30></p>\n";
+			print "<p>description (a single sentence without trailing period) (*)<br><input type=text name=description size=50 maxlength=255></p>\n";
+			print "<p>url (*)<br><input type=text name=url value=\"http://\" size=50 maxlength=100></p>\n";
+			print "<p>contact email<br><input type=text name=contact value=\"$useremail\" size=50 $maxlength=64></p>\n";
 
-			print "<P>minimum SDL version required<BR>\n";
-			print "<SELECT name=versionreqmajor>";
-			for ($i=$minversionmajor; $i<=$maxversionmajor; $i++)
-				OPTION($i,1,$i);
-			print "</SELECT>\n";
-			print "<SELECT name=versionreqminor>";
-			for ($i=$minversionminor; $i<=$maxversionminor; $i++)
-				OPTION($i,2,$i);
-			print "</SELECT>\n";
-			print "<SELECT name=versionreqpatch>";
-			for ($i=$minversionpatch; $i<=$maxversionpatch; $i++)
-				OPTION($i,0,$i);
-			print "</SELECT>\n";
-			print "</P>\n";
+			# --- select min version req ---
 
-			//--- select category ---//
+			print "<p>minimum SDL version required<br>\n";
+			print "<select name=versionreqmajor>";
+			print MINVERSIONMAJOR." ".MAXVERSIONMAJOR;
+			for ($i=MINVERSIONMAJOR; $i<=MAXVERSIONMAJOR; $i++)
+				OPTION($i, DEFAULTVERSIONMAJOR, $i);
+			print "</select>\n";
+			print "<select name=versionreqminor>";
+			for ($i=MINVERSIONMINOR; $i<=MAXVERSIONMINOR; $i++)
+				OPTION($i, DEFAULTVERSIONMINOR, $i);
+			print "</select>\n";
+			print "<select name=versionreqpatch>";
+			for ($i=MINVERSIONPATCH; $i<=MAXVERSIONPATCH; $i++)
+				OPTION($i, DEFAULTVERSIONPATCH, $i);
+			print "</select>\n";
+			print "</p>\n";
+
+			# --- select category ---
 		
-			print "<P>category<BR>\n";
-			print "<SELECT name=category>";
+			print "<p>category<br>\n";
+			print "<select name=category>";
 
-			$query = "select id, name from projectcategories where type=$projecttype";
+			$query = "select id, name from projectcategories where type=".PROJECTTYPE;
 			$result = pg_exec($DBconnection, $query)
 				or die ("Could not execute query !");
 			$number = pg_numrows($result);
 
 			for ($i=0; $i < $number; $i++) {
 				$row = pg_fetch_array($result, $i, PGSQL_ASSOC);
-				OPTION($row[id],$category,$row[name]);
+				OPTION($row['id'],$category,$row['name']);
 			}
 
-			print "</SELECT>\n";
-			print "</P>\n";
+			print "</select>\n";
+			print "</p>\n";
 
-			//--- select license ---//
+			# --- select license ---
 		
-			print "<P>license<BR>\n";
-			print "<SELECT name=license>";
+			print "<p>license<br>\n";
+			print "<select name=license>";
 			for ($i=0; $licenses[$i]; $i++) {
 				$db_license = str_replace(" ", "_", $licenses[$i]);
 				OPTION($db_license,$licenses[0],$licenses[$i]);
 			}
-			print "</SELECT>\n";
-			print "</P>\n";
+			print "</select>\n";
+			print "</p>\n";
 
-			//--- select os status ---//
+			# --- select os status ---
 
 			$query = "select * from oses order by name";
 			$result = pg_exec($DBconnection, $query)
@@ -116,322 +134,351 @@ include ("updaterss.inc.php");
 
 			for ($i=0; $i < $number; $i++) {
 				$row = pg_fetch_array($result, $i, PGSQL_ASSOC);
-				print "<P>$row[name] status<BR>\n";
-				print "<SELECT name=$row[shortname]"."status>";
+				print "<p>{$row['name']} status<br>\n";
+				print "<select name=\"{$row['shortname']}status\">";
 				reset($ratinglist);
 				while (list($ratingnbr,$rating)=each($ratinglist))
 					OPTION($rating,0,"$rating%");
-				print "</SELECT>\n";
-				print "</P>\n";
+				print "</select>\n";
+				print "</p>\n";
 			}
 
-			//--- submit button ---//
+			# --- submit button ---
 
-			print "<P><INPUT type=submit value=Submit></P>\n";
-			print "</FORM>\n";
-			print "<A href=\"$PHP_SELF\">back</A>\n";
+			print "<p><input type=submit value=Submit></p>\n";
+			print "</form>\n";
+			print "<a href=\"{$_SERVER['PHP_SELF']}\">back</a>\n";
 			break;
 
 		case "insertproject":
-			if (!$userprivileges[addproject]) {
-				print "You are not permitted to access this page !<BR>\n";
+			if (!$userprivileges['addproject']) {
+				print "You are not permitted to access this page !<br>\n";
 				break;
 			}
 
-			//--- fetch os list ---//
+			# --- fetch os list ---
 
 			$query = "select id,shortname from oses order by name";
 			$oslist = pg_exec($DBconnection, $query)
 				or die ("Could not execute query !");
 			$numberos = pg_numrows($oslist);
 
-			//--- check everything is valid ---//
+			# --- check everything is valid ---
 
-			$nbrerrors = 0;
+			// list of fields to check
+			$fieldlist = array('category', 'name', 'description', 'versionreqmajor', 'versionreqminor', 'versionreqpatch', 'url', 'contact', 'license');
 
-			$required = array( "userid", "name", "description", "category", "license", "versionreqmajor", "versionreqminor", "versionreqpatch", "url");
-			while (list($key,$varname)=each($required))
-				$nbrerrors += isempty($varname,$$varname);
-
+			// add oses status fields to the fields definition array
+			// and to the list of fields to check
 			for ($i=0; $i < $numberos; $i++) {
 				$shortname = pg_result($oslist, $i, "shortname");
-				$varname = $shortname."status";
-				$nbrerrors += isempty($varname,$$varname);
+				$fieldname = "{$shortname}status";
+				$fields_def[$fieldname] = array('type'=>'integer', 'required'=>True);
+				$fieldlist[] = $fieldname;
 			}
-
-			$notags = array( "name", "description", "license", "url", "contact" );
-			while (list($key,$varname)=each($notags))
-				$nbrerrors += containtag($varname,$$varname);
-
-			if (($versionreqmajor<$minversionmajor) || ($versionreqmajor>$maxversionmajor) ||
-				($versionreqminor<$minversionminor) || ($versionreqminor>$maxversionminor) ||
-				($versionreqpatch<$minversionpatch) || ($versionreqpatch>$maxversionpatch)) {
-				print "Invalid SDL version required !<BR>\n";
-				$nbrerrors++;
-			}
-
-			if ($nbrerrors)
+			
+			$input = validateinput($_POST, $fields_def, $fieldlist);
+			if (!$input)
 				break;
 
-			if ($license==$licenses[0])
-				$license="";
+			# --- add project to the database ---
 
-			//--- add project to the database ---//
-
-			$versionrequired = $versionreqmajor*1000 + $versionreqminor * 100 + $versionreqpatch;
-			$description = rtrim($description," \t,.");
+			$license = $input['license'];
+			if ($license == $licenses[0])
+				$license = "";
+			$versionrequired = 
+				$input['versionreqmajor'] * 1000 + 
+				$input['versionreqminor'] * 100 + 
+				$input['versionreqpatch'];
+			$description = rtrim($input['description'], " \t,.");
 
 			$query  = "insert into projects (userid,type,category,name,description,versionrequired,url,contact,reviewed,timestamp,license)";
-			$query .= " values($userid,$projecttype,$category,'$name','$description',$versionrequired,'$url','$contact',FALSE,CURRENT_TIMESTAMP,'$license')";
+			$query .= " values($userid, ".PROJECTTYPE.", {$input['category']}, '{$input['name']}', '$description', $versionrequired, '{$input['url']}', '{$input['contact']}', FALSE, CURRENT_TIMESTAMP, '$license')";
 			pg_exec($DBconnection, $query)
 				or die ("Could not execute query !");
 
-			//--- fetch the id of the project ---//
+			# --- fetch the id of the project ---
 
 			$query = "select max(id) as id from projects";
 			$result = pg_exec($DBconnection, $query)
 				or die ("Could not execute query !");
 			$projectid = pg_result($result, 0, "id");
 
-			//--- add project's status to the database ---//
+			# --- add project's status to the database ---
 
 			for ($i=0; $i < $numberos; $i++) {
 				$row = pg_fetch_array($oslist, $i, PGSQL_ASSOC);
-				$varname = $row[shortname]."status";
-				$value = $$varname;
-				$query  = "insert into projectstatus values($projectid,$row[id],$value)";
+				$value = $input["{$row['shortname']}status"];
+				$query = "insert into projectstatus values($projectid, {$row['id']}, $value)";
 				pg_exec($DBconnection, $query)
 					or die ("Could not execute query !");
 			}
 
-			//--- post a news about it ---//
+			# --- post a news about it ---
 
-			$query  = "insert into news (userid,timestamp,text)";
-			$query .= " values(-2,CURRENT_TIMESTAMP,'<A href=$projecttypetextp.php?match_id=$projectid>$name</A>, $description, has been added to the $projecttypetextp page.')";
+			$query = "insert into news (userid,timestamp,text)";
+			$query .= " values(-2, CURRENT_TIMESTAMP, '<a href=\"{$_SERVER['PHP_SELF']}?match_id=$projectid\">{$input['name']}</a>, {$input['description']}, has been added to the ".PROJECTTYPETEXTP." page.')";
 			pg_exec($DBconnection, $query)
 				or die ("Could not execute query !");
 			UpdateRSS($DBconnection);
 
-			print "$projecttypetextsc added (and news posted about it) !<BR>\n";
-			print "<BR>\n";
-			print "<A href=\"$PHP_SELF\">back</A>\n";
+			echo PROJECTTYPETEXTSC. <<<EOT
+ added (and news posted about it) !<br>
+<br>
+<a href="{$_SERVER['PHP_SELF']}">back</a>
+
+EOT;
 			break;
 
 		case "maintainproject":
-			$query = "select name from projects where id=$id";
+			$input = validateinput($_GET, $fields_def, array('id'));
+			if (!$input)
+				break;
+				
+			$query = "select name from projects where id={$input['id']}";
 			$result = pg_exec($DBconnection, $query)
 				or die ("Could not execute query !");
-			$name = pg_result ($result, 0, "name");
+			$name = pg_result($result, 0, "name");
 
-			print "Are you sure you are the maintainer of the $name project ?<BR>\n";
-			print "<BR>\n";
-			print "<TABLE>\n";
-			print "<TR>\n";
-			print "<TD>";
-			print "<FORM method=post action=\"$PHP_SELF?action=maintainconfirmed&amp;id=$id\">";
-			print "<INPUT type=submit value=maintain>";
-			print "</FORM>";
-			print "</TD>\n";
-			print "<TD>";
-			print "<FORM method=post action=\"$PHP_SELF\">";
-			print "<INPUT type=submit value=cancel>";
-			print "</FORM>";
-			print "</TD>\n";
-			print "</TR>\n";
-			print "</TABLE>\n";
+			echo <<<EOT
+Are you sure you are the maintainer of the $name project ?<br>
+<br>
+<table>
+<tr>
+<td>
+<form method="post" action="{$_SERVER['PHP_SELF']}?action=maintainconfirmed&amp;id={$input['id']}">
+<input type="submit" value="maintain">
+</form>
+</td>
+<td>
+<form method="post" action="{$_SERVER['PHP_SELF']}">
+<input type="submit" value="cancel">
+</form>
+</td>
+</tr>
+</table>
+
+EOT;
 			break;
 
 		case "maintainconfirmed":
-			$query = "select userid from projects where id=$id";
+			$input = validateinput($_GET, $fields_def, array('id'));
+			if (!$input)
+				break;
+				
+			$query = "select userid from projects where id={$input['id']}";
 			$result = pg_exec($DBconnection, $query)
 				or die ("Could not execute query !");
 			$ownerid = pg_result($result, 0, "userid");
 
-			if ( ($userid <= 0) || ($ownerid > 0) ) {
-				print "You are not permitted to maintain this project!<BR>\n";
+			if (($userid <= 0) || ($ownerid > 0)) {
+				print "You are not permitted to maintain this project!<br>\n";
 				break;
 			}
 
-			$query  = "update projects set userid=$userid where id=$id";
+			$query = "update projects set userid=$userid where id={$input['id']}";
 			pg_exec($DBconnection, $query)
 				or die ("Could not execute query !");
+			
+			echo <<<EOT
+<i>Updated !</i><br>
+<br>
+<a href="{$_SERVER['PHP_SELF']}?action=editproject&amp;id={$input['id']}">edit</a>&nbsp;<a href="{$_SERVER['PHP_SELF']}">back</a>
 
-			print "<I>Updated !</I><BR>\n";
-			print "<BR>\n";
-			print "<A href=\"$PHP_SELF?action=editproject&amp;id=$id\">edit</A>&nbsp;<A href=\"$PHP_SELF\">back</A>\n";
+EOT;
 			break;
 
 		case "disownproject":
-			$query = "select userid from projects where id=$id";
+			$input = validateinput($_GET, $fields_def, array('id'));
+			if (!$input)
+				break;
+
+			$query = "select userid from projects where id={$input['id']}";
 			$result = pg_exec($DBconnection, $query)
 				or die ("Could not execute query !");
 			$ownerid = pg_result($result, 0, "userid");
 
-			if (($userid!=$ownerid) || ($userid<1)) {
-				print "You are not permitted to disown this project!<BR>\n";
+			if (($userid != $ownerid) || ($userid < 1)) {
+				print "You are not permitted to disown this project!<br>\n";
 				break;
 			}
 
-			$query  = "update projects set userid=-1 where id=$id";
+			$query = "update projects set userid=-1 where id={$input['id']}";
 			pg_exec($DBconnection, $query)
 				or die ("Could not execute query !");
 
-			print "<I>Updated !</I><BR>\n";
-			print "<BR>\n";
-			print "<A href=$PHP_SELF>back</A>\n";
+			echo <<<EOT
+<i>Updated !</i><br>
+<br>
+<a href="{$_SERVER['PHP_SELF']}">back</a>
+
+EOT;
 			break;
 
 		case "updateproject":
+			$input = validateinput($_GET, $fields_def, array('id'));
+			if (!$input)
+				break;
+				
+			$id = $input['id'];
+
 			$query = "select userid from projects where id=$id";
 			$result = pg_exec($DBconnection, $query)
 				or die ("Could not execute query !");
 			$ownerid = pg_result($result, 0, "userid");
 
-			if (!$userprivileges[editproject]) 
-				if (($userid!=$ownerid) || ($userid<1)) {
-					print "You are not permitted to access this page !<BR>\n";
+			if (!$userprivileges['editproject']) 
+				if (($userid != $ownerid) || ($userid < 1)) {
+					print "You are not permitted to access this page !<br>\n";
 					break;
 				}
 
-			//--- fetch os list ---//
+			# --- fetch os list ---
 
 			$query = "select id,shortname from oses order by name";
 			$oslist = pg_exec($DBconnection, $query)
 				or die ("Could not execute query !");
 			$numberos = pg_numrows($oslist);
 
-			//--- check everything is valid ---//
+			# --- check everything is valid ---
 
-			$nbrerrors = 0;
+			// list of fields to check
+			$fieldlist = array('category', 'name', 'description', 'versionreqmajor', 'versionreqminor', 'versionreqpatch', 'url', 'contact', 'license');
 
-			$required = array("category", "name", "description", "versionreqmajor", "versionreqminor", "versionreqpatch", "url");
-			while (list($key,$varname)=each($required))
-				$nbrerrors += isempty($varname,$$varname);
-
+			// add oses status fields to the fields definition array
+			// and to the list of fields to check
 			for ($i=0; $i < $numberos; $i++) {
 				$shortname = pg_result($oslist, $i, "shortname");
-				$varname = $shortname."status";
-				$nbrerrors += isempty($varname,$$varname);
+				$fieldname = "{$shortname}status";
+				$fields_def[$fieldname] = array('type'=>'integer', 'required'=>True);
+				$fieldlist[] = $fieldname;
 			}
+			print "POST: ";
+			print_r($_POST);
+			print "<BR>\nlist: ";
+			print_r($fieldlist);
+			print "<BR>\ndef: ";
+			print_r($fields_def);
 
-			$notags = array( "name", "description", "license", "url", "contact" );
-			while (list($key,$varname)=each($notags))
-				$nbrerrors += containtag($varname,$$varname);
-
-			if (($versionreqmajor<$minversionmajor) || ($versionreqmajor>$maxversionmajor) ||
-				($versionreqminor<$minversionminor) || ($versionreqminor>$maxversionminor) ||
-				($versionreqpatch<$minversionpatch) || ($versionreqpatch>$maxversionpatch)) {
-				print "Invalid SDL version required !<BR>\n";
-				$nbrerrors++;
-			}
-
-			if ( $license == $licenses[0] ) {
-				$license = "";
-			}
-
-			if ($nbrerrors)
+			$input = validateinput($_POST, $fields_def, $fieldlist);
+			if (!$input)
 				break;
 
-			//--- update project in the database ---//
-
-			$versionrequired = $versionreqmajor*1000 + $versionreqminor * 100 + $versionreqpatch;
+			# --- update project in the database ---
+			
+			$license = $input['license'];
+			if ($license == $licenses[0])
+				$license = "";
+			$versionrequired = 
+				$input['versionreqmajor'] * 1000 + 
+				$input['versionreqminor'] * 100 + 
+				$input['versionreqpatch'];
+			$description = rtrim($input['description'], " \t,.");
 
 			$query  = "update projects "; 
-			$query .= "set category=$category, name='$name', description='$description', versionrequired=$versionrequired, url='$url', contact='$contact', timestamp=CURRENT_TIMESTAMP, license='$license' ";
+			$query .= "set category={$input['category']}, name='{$input['name']}', description='$description', versionrequired=$versionrequired, url='{$input['url']}', contact='{$input['contact']}', timestamp=CURRENT_TIMESTAMP, license='$license' ";
 			$query .= "where id=$id";
 			pg_exec($DBconnection, $query)
 				or die ("Could not execute query !");
 
-			//--- update project status in the database ---//
+			# --- update project status in the database ---
 
 			for ($i=0; $i < $numberos; $i++) {
 				$row = pg_fetch_array($oslist, $i, PGSQL_ASSOC);
-				$varname = $row[shortname]."status";
-				$value = $$varname;
-				$query = "update projectstatus set status=$value where project=$id and os=$row[id]";
+				$value = $input["{$row['shortname']}status"];
+				$query = "update projectstatus set status=$value where project=$id and os={$row['id']}";
 				pg_exec($DBconnection, $query)
 					or die ("Could not execute query !");
 			}
 
-			print "<I>Updated !</I><BR>\n";
-			print "<BR>\n";
-			print "<A href=\"$PHP_SELF?match_id=$id\">back</A>\n";
+			echo <<<EOT
+<i>Updated !</i><br>
+<br>
+<a href="{$_SERVER['PHP_SELF']}?match_id=$id">back</a>
+
+EOT;
 			break;
 
 		case "editproject":
+			$input = validateinput($_GET, $fields_def, array('id'));
+			if (!$input)
+				break;
+				
+			$id = $input['id'];
+
 			$query = "select * from projects where id=$id";
 			$result = pg_exec($DBconnection, $query)
 				or die ("Could not execute query !");
 			$row = pg_fetch_array($result, 0, PGSQL_ASSOC);
 
-			if (!$userprivileges[editproject]) 
-				if (($userid!=$row[userid]) || ($userid<1)) {
-					print "You are not permitted to access this page !<BR>\n";
+			if (!$userprivileges['editproject']) 
+				if (($userid != $row['userid']) || ($userid < 1)) {
+					print "You are not permitted to access this page !<br>\n";
 					break;
 				}
 
-			print "<FORM method=post action=\"$PHP_SELF?action=updateproject&amp;id=$id\">\n";
+			print "<form method=post action=\"{$_SERVER['PHP_SELF']}?action=updateproject&amp;id=$id\">\n";
 			
-			//--- misc info ---//
+			# --- misc info ---
 
-			print "<P>name<BR><INPUT type=text name=name value=\"$row[name]\" size=50 maxlength=30></P>\n";
-			print "<P>description (a single sentence without trailing period)<BR><INPUT type=text name=description value=\"$row[description]\" size=50 maxlength=255></P>\n";
-			print "<P>url<BR><INPUT type=text name=url value=\"$row[url]\" size=50 maxlength=100></P>\n";
-			print "<P>contact email<BR><INPUT type=text name=contact value=\"$row[contact]\" size=50 maxlength=64></P>\n";
+			print "<p>name<br><input type=text name=name value=\"{$row['name']}\" size=50 maxlength=30></p>\n";
+			print "<p>description (a single sentence without trailing period)<br><input type=text name=description value=\"{$row['description']}\" size=50 maxlength=255></p>\n";
+			print "<p>url<br><input type=text name=url value=\"{$row['url']}\" size=50 maxlength=100></p>\n";
+			print "<p>contact email<br><input type=text name=contact value=\"{$row['contact']}\" size=50 maxlength=64></p>\n";
 
-			//--- select min version req ---//
+			# --- select min version req ---
 
-			$versionreqmajor = ($row[versionrequired] / 1000) % 10;
-			$versionreqminor = ($row[versionrequired] / 100) % 10;
-			$versionreqpatch = ($row[versionrequired]) % 100;
+			$versionreqmajor = ($row['versionrequired'] / 1000) % 10;
+			$versionreqminor = ($row['versionrequired'] / 100) % 10;
+			$versionreqpatch = $row['versionrequired'] % 100;
 
-			print "<P>minimum SDL version required<BR>\n";
-			print "<SELECT name=versionreqmajor>";
-			for ($i=$minversionmajor; $i<=$maxversionmajor; $i++)
+			print "<p>minimum SDL version required<br>\n";
+			print "<select name=versionreqmajor>";
+			for ($i=MINVERSIONMAJOR; $i<=MAXVERSIONMAJOR; $i++)
 				OPTION($i,$versionreqmajor,$i);
-			print "</SELECT>\n";
-			print "<SELECT name=versionreqminor>";
-			for ($i=$minversionminor; $i<=$maxversionminor; $i++)
+			print "</select>\n";
+			print "<select name=versionreqminor>";
+			for ($i=MINVERSIONMINOR; $i<=MAXVERSIONMINOR; $i++)
 				OPTION($i,$versionreqminor,$i);
-			print "</SELECT>\n";
-			print "<SELECT name=versionreqpatch>";
-			for ($i=$minversionpatch; $i<=$maxversionpatch; $i++)
+			print "</select>\n";
+			print "<select name=versionreqpatch>";
+			for ($i=MINVERSIONPATCH; $i<=MAXVERSIONPATCH; $i++)
 				OPTION($i,$versionreqpatch,$i);
-			print "</SELECT>\n";
-			print "</P>\n";
+			print "</select>\n";
+			print "</p>\n";
 
-			//--- select category ---//
+			# --- select category ---
 
-			print "<P>category<BR>\n";
-			print "<SELECT name=category>";
+			print "<p>category<br>\n";
+			print "<select name=category>";
 
-			$query = "select id, name from projectcategories where type=$projecttype";
+			$query = "select id, name from projectcategories where type=".PROJECTTYPE;
 			$result = pg_exec($DBconnection, $query)
 				or die ("Could not execute query !");
 			$number = pg_numrows($result);
 
 			for ($i=0; $i < $number; $i++) {
 				$categ = pg_fetch_array($result, $i, PGSQL_ASSOC);
-				OPTION($categ[id],$row[category],$categ[name]);
+				OPTION($categ['id'],$row['category'],$categ['name']);
 			}
 
-			print "</SELECT>\n";
-			print "</P>\n";
+			print "</select>\n";
+			print "</p>\n";
 
-			//--- select license ---//
+			# --- select license ---
 
-			print "<P>license<BR>\n";
-			print "<SELECT name=license>";
+			print "<p>license<br>\n";
+			print "<select name=license>";
 
 			for ($i=0; $licenses[$i]; $i++) {
 				$db_license = str_replace(" ", "_", $licenses[$i]);
-				OPTION($db_license,$row[license],$licenses[$i]);
+				OPTION($db_license,$row['license'],$licenses[$i]);
 			}
 
-			print "</SELECT>\n";
-			print "</P>\n";
+			print "</select>\n";
+			print "</p>\n";
 
-			//--- select os status ---//
+			# --- select os status ---
 
 			$query = "select * from oses, projectstatus where projectstatus.os=oses.id and project=$id order by name";
 			$result = pg_exec($DBconnection, $query)
@@ -442,204 +489,206 @@ include ("updaterss.inc.php");
 
 			for ($i=0; $i < $number; $i++) {
 				$row = pg_fetch_array($result, $i, PGSQL_ASSOC);
-				print "<P>$row[name] status<BR>\n";
-				print "<SELECT name=$row[shortname]"."status>";
+				print "<p>{$row['name']} status<br>\n";
+				print "<select name={$row['shortname']}"."status>";
 				reset($ratinglist);
 				while (list($ratingnbr,$rating)=each($ratinglist))
-					OPTION($rating,$row[status],"$rating%");
-				print "</SELECT>\n";
-				print "</P>\n";
+					OPTION($rating,$row['status'],"$rating%");
+				print "</select>\n";
+				print "</p>\n";
 			}
 
-			//--- submit button ---//
+			# --- submit button ---
 
-			print "<P><INPUT type=submit value=Submit></P>\n";
-			print "</FORM>\n";
-			print "<A href=\"$PHP_SELF\">back</A>\n";
+			print "<p><input type=submit value=Submit></p>\n";
+			print "</form>\n";
+			print "<a href=\"{$_SERVER['PHP_SELF']}\">back</a>\n";
 			break;
 
 		case "removeproject":
+			$input = validateinput($_GET, $fields_def, array('id'));
+			if (!$input)
+				break;
+				
+			$id = $input['id'];
+			
 			$query = "select name,userid from projects where id=$id";
 			$result = pg_exec($DBconnection, $query)
 				or die ("Could not execute query !");
 			$row = pg_fetch_array($result, $i, PGSQL_ASSOC);
 
-			if (!$userprivileges[removeproject])
-				if (($userid!=$row[userid]) || ($userid<1)) {
-					print "You are not permitted to delete that project !<BR>\n";
+			if (!$userprivileges['removeproject'])
+				if (($userid!=$row['userid']) || ($userid<1)) {
+					print "You are not permitted to delete that project !<br>\n";
 					break;
 				}
 
-			print "Are you sure you want to delete the $row[name] project ?<BR>\n";
-			print "<BR>\n";
-			print "<TABLE>\n";
-			print "<TR>\n";
-			print "<TD>";
-			print "<FORM method=post action=\"$PHP_SELF?action=deleteproject&amp;id=$id\">";
-			print "<INPUT type=submit value=delete>";
-			print "</FORM>";
-			print "</TD>\n";
-			print "<TD>";
-			print "<FORM method=post action=\"$PHP_SELF\">";
-			print "<INPUT type=submit value=cancel>";
-			print "</FORM>";
-			print "</TD>\n";
-			print "</TR>\n";
-			print "</TABLE>\n";
+			echo <<<EOT
+Are you sure you want to delete the {$row['name']} project ?<br>
+<br>
+<table>
+<tr>
+<td>
+<form method="post" action="{$_SERVER['PHP_SELF']}?action=deleteproject&amp;id=$id">
+<input type="submit" value="delete">
+</form>
+</td>
+<td>
+<form method="post" action="{$_SERVER['PHP_SELF']}">
+<input type="submit" value="cancel">
+</form>
+</td>
+</tr>
+</table>
+EOT;
 			break;
 
 		case "deleteproject":
+			$input = validateinput($_GET, $fields_def, array('id'));
+			if (!$input)
+				break;
+				
+			$id = $input['id'];
+
 			$query = "select userid from projects where id=$id";
 			$result = pg_exec($DBconnection, $query)
 				or die ("Could not execute query !");
-			$ownerid = pg_result ($result, 0, "userid");
+			$ownerid = pg_result($result, 0, "userid");
 
-			if (!$userprivileges[removeproject]) 
+			if (!$userprivileges['removeproject']) 
 				if (($userid!=$ownerid) || ($userid<1)) {
-					print "You are not permitted to access this page !<BR>\n";
+					print "You are not permitted to access this page !<br>\n";
 					break;
 				}
 
-			//--- delete project status referring to this project in the database ---//
+			# --- delete project status referring to this project in the database ---
 
 			$query = "delete from projectstatus where project=$id";
 			pg_exec($DBconnection, $query)
 				or die ("Could not execute query !");
 
-			//--- delete project from the database ---//
+			# --- delete project from the database ---
 
 			$query = "delete from projects where id=$id";
 			pg_exec($DBconnection, $query)
 				or die ("Could not execute query !");
 
-			print "Deleted !<BR>\n";
-			print "<BR>\n";
-			print "<A href=\"$PHP_SELF\">back</A>\n";
+			echo <<<EOT
+Deleted !<br>
+<br>
+<a href="{$_SERVER['PHP_SELF']}">back</a>
+EOT;
 			break;
 
-		//------------------------//
-		//------------------------//
-		//------ CATEGORIES ------//
-		//------------------------//
-		//------------------------//
+		# ------------------------
+		# ------------------------
+		# ------ CATEGORIES ------
+		# ------------------------
+		# ------------------------
 
 		case "addcategory":
-			if (!$userprivileges[addprojectcategory]) {
-				print "You are not permitted to access this page !<BR>\n";
+			if (!$userprivileges['addprojectcategory']) {
+				print "You are not permitted to access this page !<br>\n";
 				break;
 			}
 
-			if (($projecttype<1) || ($projecttype>4)) {
-				print "Invalid category !<BR>\n";
-				break;
-			}
-
-			print "<FORM method=post action=\"$PHP_SELF?action=insertcategory\">\n";
-			print "<P>name<BR><INPUT type=text name=name size=50 maxlength=40></P>\n";
-			print "<P>description<BR><INPUT type=text name=description size=50 maxlength=255></P>\n";
-			print "<P><INPUT type=submit value=Submit></P>\n";
-			print "</FORM>\n";
-			print "<A href=\"$PHP_SELF?action=listcategories\">back</A>\n";
+			echo <<<EOT
+<form method="post" action="{$_SERVER['PHP_SELF']}?action=insertcategory">
+<p>name<br><input type="text" name="name" size="50" maxlength="40"></p>
+<p>description<br><input type="text" name="description" size="50" maxlength="255"></p>
+<p><input type="submit" value="Submit"></p>
+</form>
+<a href="{$_SERVER['PHP_SELF']}?action=listcategories">back</a>
+EOT;
 			break;
 
 		case "insertcategory":
-			if (!$userprivileges[addprojectcategory]) {
-				print "You are not permitted to access this page !<BR>\n";
+			if (!$userprivileges['addprojectcategory']) {
+				print "You are not permitted to access this page !<br>\n";
 				break;
 			}
 
-			if (($projecttype<1) || ($projecttype>4)) {
-				print "Invalid category !<BR>\n";
+			$input = validateinput($_POST, $categ_fields_def, array('name', 'description'));
+			if (!$input)
 				break;
-			}
-
-			if ($name=="") {
-				print "A non-empty name is required !<BR>\n";
-				break;
-			}
-
-			if (($name!=strip_tags($name)) ||
-				($description!=strip_tags($description))) {
-				print "You may not use HTML nor PHP tags in any field !<BR>\n";
-				break;
-			}
 
 			$query  = "insert into projectcategories(type,name,description)";
-			$query .= " values($projecttype,'$name','$description')";
+			$query .= " values(".PROJECTTYPE.",'{$input['name']}','{$input['description']}')";
 
 			pg_exec($DBconnection, $query)
 				or die ("Could not execute query !");
 
-			print "Category added !<BR>\n";
-			print "<BR>\n";
-			print "<A href=\"$PHP_SELF?action=listcategories\">back</A>\n";
+			echo <<<EOT
+Category added !<br>
+<br>
+<a href="{$_SERVER['PHP_SELF']}?action=listcategories">back</a>
+EOT;
 			break;
 
 		case "updatecategory":
-			if (!$userprivileges[editprojectcategory]) {
-				print "You are not permitted to access this page !<BR>\n";
+			if (!$userprivileges['editprojectcategory']) {
+				print "You are not permitted to access this page !<br>\n";
 				break;
 			}
-
-			if ($id=="") {
-				print "Invalid category !<BR>\n";
+			
+			$input = validateinput($_GET, $categ_fields_def, array('id'));
+			if (!$input)
 				break;
-			}
+				
+			$id = $input['id'];
 
-			if ($name=="") {
-				print "A non-empty name is required !<BR>\n";
+			$input = validateinput($_POST, $categ_fields_def, array('name', 'description'));
+			if (!$input)
 				break;
-			}
 
-			if (($name!=strip_tags($name)) ||
-				($description!=strip_tags($description))) {
-				print "You may not use HTML nor PHP tags in any field !<BR>\n";
-				break;
-			}
-
-			$query  = "update projectcategories set name='$name', description='$description' where id=$id";
+			$query = "update projectcategories set name='{$input['name']}', description='{$input['description']}' where id=$id";
 			pg_exec($DBconnection, $query)
 				or die ("Could not execute query !");
 
-			print "<I>Updated !</I><BR>\n";
+			print "<i>Updated !</i><br>\n";
+			// no break !
 
 		case "editcategory":
-			if (!$userprivileges[editprojectcategory]) {
-				print "You are not permitted to access this page !<BR>\n";
+			if (!$userprivileges['editprojectcategory']) {
+				print "You are not permitted to access this page !<br>\n";
 				break;
 			}
 
-			if ($id=="") {
-				print "Invalid category !<BR>\n";
+			$input = validateinput($_GET, $fields_def, array('id'));
+			if (!$input)
 				break;
-			}
+				
+			$id = $input['id'];
 
 			$query = "select * from projectcategories where id=$id";
 			$result = pg_exec($DBconnection, $query)
 				or die ("Could not execute query !");
 			$row = pg_fetch_array($result, 0, PGSQL_ASSOC);
 
-			print "<FORM method=post action=\"$PHP_SELF?action=updatecategory&amp;id=$id\">\n";
-			print "<P>name<BR><INPUT type=text name=name value=\"$row[name]\" size=50 maxlength=40></P>\n";
-			print "<P>description<BR><INPUT type=text name=description value=\"$row[description]\" size=50 maxlength=255></P>\n";
-			print "<P><INPUT type=submit value=Submit></P>\n";
-			print "</FORM>\n";
-			print "<A href=\"$PHP_SELF?action=listcategories\">back</A>\n";
+			echo <<<EOT
+<form method=post action="{$_SERVER['PHP_SELF']}?action=updatecategory&amp;id=$id">
+<p>name<br><input type=text name=name value="{$row['name']}" size=50 maxlength=40></p>
+<p>description<br><input type=text name=description value="{$row['description']}" size=50 maxlength=255></p>
+<p><input type=submit value=Submit></p>
+</form>
+<a href="{$_SERVER['PHP_SELF']}?action=listcategories">back</a>
+EOT;
 			break;
 
 		case "removecategory":
-			if (!$userprivileges[removeprojectcategory]) {
-				print "You are not permitted to access this page !<BR>\n";
+			if (!$userprivileges['removeprojectcategory']) {
+				print "You are not permitted to access this page !<br>\n";
 				break;
 			}
 
-			if ($id=="") {
-				print "Invalid category !<BR>\n";
+			$input = validateinput($_GET, $fields_def, array('id'));
+			if (!$input)
 				break;
-			}
+				
+			$id = $input['id'];
 
-			if ($id<5) {
-				print "You can't delete this category !<BR>\n";
+			if ($id < 5) {
+				print "You can't delete this category !<br>\n";
 				break;
 			}
 
@@ -648,159 +697,167 @@ include ("updaterss.inc.php");
 				or die ("Could not execute query !");
 			$name = pg_result($result, 0, "name");
 
-			print "Are you sure you want to delete the $name category ?<BR>\n";
-			print "<BR>\n";
-			print "<TABLE>\n";
-			print "<TR>\n";
-			print "<TD>";
-			print "<FORM method=post action=\"$PHP_SELF?action=deletecategory&amp;id=$id\">";
-			print "<INPUT type=submit value=delete>";
-			print "</FORM>";
-			print "</TD>\n";
-			print "<TD>";
-			print "<FORM method=post action=\"$PHP_SELF?action=listcategories\">";
-			print "<INPUT type=submit value=cancel>";
-			print "</FORM>";
-			print "</TD>\n";
-			print "</TR>\n";
-			print "</TABLE>\n";
+			echo <<<EOT
+Are you sure you want to delete the $name category ?<br>
+<br>
+<table>
+<tr>
+<td>
+<form method=post action="{$_SERVER['PHP_SELF']}?action=deletecategory&amp;id=$id">
+<input type=submit value=delete>
+</form>
+</td>
+<td>
+<form method=post action="{$_SERVER['PHP_SELF']}?action=listcategories">
+<input type=submit value=cancel>
+</form>
+</td>
+</tr>
+</table>
+EOT;
 			break;
 
 		case "deletecategory":
-			if (!$userprivileges[removeprojectcategory])  {
-				print "You are not permitted to access this page !<BR>\n";
+			if (!$userprivileges['removeprojectcategory'])  {
+				print "You are not permitted to access this page !<br>\n";
 				break;
 			}
 
-			if ($id=="") {
-				print "Invalid category !<BR>\n";
+			$input = validateinput($_GET, $fields_def, array('id'));
+			if (!$input)
+				break;
+				
+			$id = $input['id'];
+
+			if ($id < 5) {
+				print "You can't delete this category !<br>\n";
 				break;
 			}
 
-			if ($id<5) {
-				print "You can't delete this category !<BR>\n";
-				break;
-			}
+			# --- set projects' using this category to the 'Other' category ---
 
-			//--- set projects' using this category to the 'Other' category ---//
-
-			$query = "update projects set category=$projecttype where category=$id";
+			$query = "update projects set category=".PROJECTTYPE." where category=$id";
 			pg_exec($DBconnection, $query)
 				or die ("Could not execute query !");
 
-			//--- remove it from the database ---//
+			# --- remove it from the database ---
 
 			$query = "delete from projectcategories where id=$id";
 			pg_exec($DBconnection, $query)
 				or die ("Could not execute query !");
+	
+			echo <<<EOT
+Deleted !<br>
+<br>
+<a href="{$_SERVER['PHP_SELF']}?action=listcategories">back</a>
 
-			print "Deleted !<BR>\n";
-			print "<BR>\n";
-			print "<A href=\"$PHP_SELF?action=listcategories\">back</A>\n";
+EOT;
 			break;
 
 		case "listcategories":
-			//--- fetch categories list ---//
+			# --- fetch categories list ---
 
-			$query  = "select * from projectcategories where type=$projecttype order by name";
+			$query = "select * from projectcategories where type=".PROJECTTYPE." order by name";
 			$result = pg_exec($DBconnection, $query)
 				or die ("Could not execute query !");
 
 			$number = pg_numrows($result);
 
-			//--- print infos ---//
+			# --- print infos ---
 
-			print "<TABLE cellpadding=5>\n";
+			print "<table cellpadding=5>\n";
 
 			$i=0;
 			while ($i < $number) {
 				$row = pg_fetch_array($result, $i, PGSQL_ASSOC);
 
-				print "<TR>";
-				print "<TD><B>$row[name]</B></TD>";
-				print "<TD>$row[description]</TD>";
-				if ($userprivileges[editprojectcategory])
-					print "<TD><A href=\"$PHP_SELF?action=editcategory&amp;id=$row[id]\">edit</A></TD>";
-				if ($userprivileges[removeprojectcategory] && $row[id]>4)
-					print "<TD><A href=\"$PHP_SELF?action=removecategory&amp;id=$row[id]\">delete</A></TD>";
-				print "</TR>\n";
+				print "<tr>";
+				print "<td><b>{$row['name']}</b></td>";
+				print "<td>{$row['description']}</td>";
+				if ($userprivileges['editprojectcategory'])
+					print "<td><a href=\"{$_SERVER['PHP_SELF']}?action=editcategory&amp;id={$row['id']}\">edit</a></td>";
+				if ($userprivileges['removeprojectcategory'] && $row['id']>4)
+					print "<td><a href=\"{$_SERVER['PHP_SELF']}?action=removecategory&amp;id={$row['id']}\">delete</a></td>";
+				print "</tr>\n";
 
 				$i++;
 			}
 
-			print "</TABLE>\n";
+			print "</table>\n";
 
-			//--- add the add category button ---//
+			# --- add the add category button ---
 
-			if ($userprivileges[addprojectcategory]) { 
-				print "<FORM method=post action=\"$PHP_SELF?action=addcategory\">\n";
-				print "<INPUT type=submit value=\"submit category\">\n";
-				print "</FORM>\n";
+			if ($userprivileges['addprojectcategory']) { 
+				print "<form method=post action=\"{$_SERVER['PHP_SELF']}?action=addcategory\">\n";
+				print "<input type=submit value=\"submit category\">\n";
+				print "</form>\n";
 			}
 
-			print "<A href=\"$PHP_SELF\">back</A>\n";
+			print "<a href=\"{$_SERVER['PHP_SELF']}\">back</a>\n";
 			break;
 
-		//---------------------------//
-		//---------------------------//
-		//------ LIST PROJECTS ------//
-		//---------------------------//
-		//---------------------------//
+		# ---------------------------
+		# ---------------------------
+		# ------ LIST PROJECTS ------
+		# ---------------------------
+		# ---------------------------
 
 		default:
-			//--- show the top table with explanations ---//
+			# --- validate input ---
+			
+			// match_userid and order are pretty safe but it doesn't hurt to
+			// validate them anyway
+			$input = validateinput($_GET, $query_fields_def, array(
+				'category', 'match_name', 'match_id', 'os', 'completed', 
+				'perpage', 'start', 'match_userid', 'order'));
+				
+			if ($input === False)
+				break;
+
+			# --- fetch os list ---
 
 			$query = "select * from oses order by name";
 			$oslist = pg_exec($DBconnection, $query)
 				or die ("Could not execute query !");
 			$numberos = pg_numrows($oslist);
 
-			//--- set filters default values ---//
+			# --- set filters default values ---
 
-			if ($order=="")
-				$order = "name";
+			$category = isset($input['category']) ? $input['category'] : '-1';
+			$match_name = $input['match_name'];
+			$match_id = $input['match_id'];
+			$os = isset($input['os']) ? $input['os'] : '-1';
+			$completed = isset($input['completed']) ? $input['completed'] : 0;
+			$perpage = isset($input['perpage']) ? $input['perpage'] : 50;
+			$start = isset($input['start']) ? $input['start'] : 0;
+			$match_userid = $input['match_userid'];
+			$order = isset($input['order']) ? $input['order'] : 'name';
 
-			if ($category=="")
-				$category = "any";
+			# --- show the different filters ---
 
-			if ($completed=="")
-				$completed = 0;
+			print "<form method=get action=\"{$_SERVER['PHP_SELF']}\">\n";
 
-			if ($os=="")
-				$os = "any";
+			print "<table>\n";
 
-			if ($perpage=="")
-				$perpage = "50";
+			# --- sort by name/last updated ---
 
-			if ($start=="")
-				$start = 0;
-
-			//--- show the different filters ---//
-
-			print "<FORM method=get action=\"$PHP_SELF\">\n";
-//			print "<INPUT type=hidden name=form_submit value=true>\n";
-
-			print "<TABLE><TBODY>\n";
-
-			//--- sort by name/last updated ---//
-
-			print "<TR>\n";
-			print "<TD>Sort by: ";
-			print "<TD>";
-			print "<SELECT name=order>";
+			print "<tr>\n";
+			print "<td>Sort by: ";
+			print "<td>";
+			print "<select name=order>";
 			OPTION("name",$order,"name");
 			OPTION("time",$order,"recently updated");
-			print "</SELECT>\n";
+			print "</select>\n";
 
-			//--- category ---//
+			# --- category ---
 
-			print "<TR>\n";
-			print "<TD>Category: ";
-			print "<TD>";
-			print "<SELECT name=category>";
-			OPTION("any",$category,"any");
+			print "<tr>\n";
+			print "<td>Category: ";
+			print "<td>";
+			print "<select name=category>";
+			OPTION(-1, $category, "any");
 
-			$query = "select id, name from projectcategories where type=$projecttype";
+			$query = "select id, name from projectcategories where type=".PROJECTTYPE;
 			$result = pg_exec($DBconnection, $query)
 				or die ("Could not execute query !");
 			$number = pg_numrows($result);
@@ -808,141 +865,140 @@ include ("updaterss.inc.php");
 			$i=0;
 			while ($i < $number) {
 				$row = pg_fetch_array($result, $i, PGSQL_ASSOC);
-				OPTION($row[id],$category,$row[name]);
+				OPTION($row['id'], $category, $row['name']);
 				$i++;
 			}
-			print "</SELECT>\n";
+			print "</select>\n";
 
-			//--- license ---//
+			# --- license ---
 
 /*
-			print "<TR>\n";
-			print "<TD>License: ";
-			print "<TD>";
-			print "<SELECT name=match_license>";
+			print "<tr>\n";
+			print "<td>License: ";
+			print "<td>";
+			print "<select name=match_license>";
 			OPTION("",$match_license,"any");
 
 			for ($i=0; $licenses[$i]; $i++) {
 				$db_license = str_replace(" ", "_", $licenses[$i]);
 				OPTION($db_license,$match_license,$licenses[$i]);
 			}
-			print "</SELECT></TD>\n";
+			print "</select></td>\n";
 */
 
-			//--- completed ... on ... ---//
+			# --- completed ... on ... ---
 
-			print "<TR>\n";
-			print "<TD>Completed: ";
-			print "<TD>";
-			print "<SELECT name=completed>";
+			print "<tr>\n";
+			print "<td>Completed: ";
+			print "<td>";
+			print "<select name=completed>";
 			$ratinglist = array(0, 25, 50, 75, 100);
 			while (list($elemnbr,$elemvalue)=each($ratinglist))
 				OPTION($elemvalue,$completed,"$elemvalue%");
-			print "</SELECT>";
+			print "</select>";
 			print " on ";
-			print "<SELECT name=os>";
-			OPTION("any",$os,"Any OS");
+			print "<select name=os>";
+			OPTION(-1, $os, "Any OS");
 			for ($i=0; $i < $numberos; $i++) {
 				$row = pg_fetch_array($oslist, $i, PGSQL_ASSOC);
-				OPTION($row[id],$os,"$row[name]");
+				OPTION($row['id'], $os, $row['name']);
 			}
-			print "</SELECT>\n";
+			print "</select>\n";
 
-			//--- named ... ---//
+			# --- named ... ---
 
-			print "<TR>\n";
-			print "<TD>Named: ";
-			print "<TD>";
-			print "<INPUT type=text name=match_name value=\"$match_name\" size=8>\n";
+			print "<tr>\n";
+			print "<td>Named: ";
+			print "<td>";
+			print "<input type=text name=match_name value=\"$match_name\" size=8>\n";
 
-			//--- limit to ... per page ---//
+			# --- limit to ... per page ---
 
-			print "<TR>\n";
-			print "<TD>Show: ";
-			print "<TD>";
-			print "<SELECT name=perpage>";
-			$perpagelist = array(10, 25, 50, 100, "all");
-			while (list($elemnbr,$elemvalue)=each($perpagelist))
-				OPTION($elemvalue,$perpage,"$elemvalue");
-			print "</SELECT>";
-			print " $projecttypetextp on one page\n";
+			print "<tr>\n";
+			print "<td>Show: ";
+			print "<td>";
+			print "<select name=perpage>";
+			$perpagelist = array(10, 25, 50, 100);
+			foreach ($perpagelist as $elemvalue)
+				OPTION($elemvalue, $perpage, "$elemvalue");
+			OPTION(-1, $perpage, "all");
+			print "</select> ".PROJECTTYPETEXTP." on one page\n";
 
-			print "</TABLE>\n";
+			print "</table>\n";
 
-			//--- only own projects ---//
+			# --- only own projects ---
 
-			if ( $userid > 0 ) {
-				print "<INPUT type=checkbox name=match_userid value=checked $match_userid> Show only my projects<BR>\n";
-			}
+			if ($userid > 0)
+				print "<input type=checkbox name=match_userid value=checked $match_userid> Show only my projects<br>\n";
 
-			print "<INPUT type=submit value=\"Show\"> ";
+			# -----
 
-			print "</FORM>\n";
+			print "<input type=submit value=\"Show\"> ";
 
-			//--- set up the query condition --//
-			$querycondition = "where type = $projecttype";
+			print "</form>\n";
 
-			if ($category!="any")
-				$querycondition .= " and category=$category";
+			# --- set up the query condition --
+			$querycondition = "where type = ".PROJECTTYPE;
 
-			if ($match_name!="")
+			if ($category != "-1")
+				$querycondition .= " and category = $category";
+
+			if ($match_name)
 				$querycondition .= " and name ~* '$match_name'";
 
-			if ($match_userid!="")
+			if ($match_userid)
 				$querycondition .= " and userid = $userid";
 
 			if ($match_id)
 				$querycondition .= " and id = $match_id";
 
-			if ($os!="any") {
-				if ($completed==0)
+			if ($os != "-1") {
+				if ($completed == 0)
 					$completed = 1;
 				$querycondition .= " and id in (select project from projectstatus where os=$os and status>=$completed)";
 			} else
-			if ($completed!=0) 
+			if ($completed != 0) 
 				$querycondition .= " and id in (select distinct project from projectstatus where status>=$completed)";
 
-			//--- count projects ---//
+			# --- count projects ---
 
 			$query = "select count(*) as total from projects $querycondition";
-
 			$result = pg_exec($DBconnection, $query)
 				or die ("Could not execute query !");
 
-			$total = pg_result ($result, 0, "total");
+			$total = pg_result($result, 0, "total");
 
-			//--- fetch projects info ---//
+			# --- fetch projects info ---
 
-			$query  = "select * from projects $querycondition";
+			$query = "select * from projects $querycondition";
 			if ($order=="time")
 				$query .= " order by timestamp desc";
 			else
 				$query .= " order by name";
 
-			if ($perpage!="all") 
+			if ($perpage != "-1") 
 				$query .= " limit $perpage offset $start";
-
 
 			$result = pg_exec($DBconnection, $query)
 				or die ("Could not execute query !");
 
 			$number = pg_numrows($result);
 
-			//--- print infos ---//
+			# --- print infos ---
 
 			if ($number == $total) {
-				if ( $total == 1 ) {
-					print "<P>Showing $total $projecttypetexts:</P>";
+				if ($total == 1) {
+					print "<p>Showing $total ".PROJECTTYPETEXTS.":</p>";
 				} else {
-					print "<P>Showing $total $projecttypetextp:</P>";
+					print "<p>Showing $total ".PROJECTTYPETEXTP.":</p>";
 				}
 			} else {
 				$showstart = $start + 1;
-				$showstop  = $start + $perpage;
-				if ( $showstop > $total ) {
+				$showstop = $start + $perpage;
+				if ($showstop > $total) {
 					$showstop = $total;
 				}
-				print "<P>Showing $showstart-$showstop out of $total $projecttypetextp:</P>";
+				print "<p>Showing $showstart-$showstop out of $total ".PROJECTTYPETEXTP.":</p>";
 			}
 
 			$ratingstring = array(25=>"work in progress", 50=>"work in progress", 75=>"ready for testing", 100=>"fully functional");
@@ -950,108 +1006,112 @@ include ("updaterss.inc.php");
 			for ($i=0; $i < $number; $i++) {
 				$row = pg_fetch_array($result, $i, PGSQL_ASSOC);
 
-				print "<P>\n";
-				print "<B><A name=$row[id]>$row[name]</A></B> - $row[description]<BR>\n";
+				print "<p>\n";
+				print "<b><a name={$row['id']}>{$row['name']}</a></b> - {$row['description']}<br>\n";
 
-				print "<A href=\"$row[url]\">$row[url]</A><BR>\n";
+				print "<a href=\"{$row['url']}\">{$row['url']}</a><br>\n";
 
-				if ($userid>0)
-					$contact = "<A href=\"mailto:$row[contact]\">$row[contact]</A>";
+				if ($userid > 0)
+					$contact = "<a href=\"mailto:{$row['contact']}\">{$row['contact']}</a>";
 				else
-					$contact = str_replace("@", " ", $row[contact]);
+					$contact = str_replace("@", " ", $row['contact']);
 
-				print "Contact: $contact<BR>\n";
+				print "Contact: $contact<br>\n";
 
-				$query = "select status,shortname from projectstatus,oses where os=oses.id and project=$row[id] and status > 0";
+				$query = "select status,shortname from projectstatus,oses where os=oses.id and project={$row['id']} and status > 0";
 				$status = pg_exec($DBconnection, $query)
 					or die ("Could not execute query !");
 				$numberos = pg_numrows($status);
 
 				for ($j=0; $j < $numberos; $j++) {
 					$shortname = pg_result($status, $j, "shortname");
-					print "<IMG alt=\" $shortname \" src=\"images/platforms/$shortname.png\" width=32 height=32>";
-					print "<IMG alt=\"\" src=\"images/sep.gif\" width=4 height=32>";
+					print "<img alt=\" $shortname \" src=\"images/platforms/$shortname.png\" width=32 height=32>";
+					print "<img alt=\"\" src=\"images/sep.gif\" width=4 height=32>";
 				}
-				if ($numberos) print "<BR>\n";
+				if ($numberos)
+					print "<br>\n";
+
 				for ($j=0; $j < $numberos; $j++) {
 					$rating = pg_result($status, $j, "status");
-					print "<IMG alt=\" $ratingstring[$rating] \" src=\"images/$rating-small.png\" width=32 height=4>";
-					print "<IMG alt=\"\" src=\"images/sep-small.gif\" width=4 height=4>";
+					print "<img alt=\"{$ratingstring[$rating]}\" src=\"images/$rating-small.png\" width=32 height=4>";
+					print "<img alt=\"\" src=\"images/sep-small.gif\" width=4 height=4>";
 				}
-				if ($numberos) print "<BR>\n";
 
-				if ( $row[license] ) {
-					$license = str_replace("_", " ", $row[license]);
+				if ($numberos)
+					print "<br>\n";
+
+				if ($row['license']) {
+					$license = str_replace("_", " ", $row['license']);
 				} else {
 					$license = $licenses[0];
 				}
-				print "License: $license<BR>\n";
+				print "License: $license<br>\n";
 
-				$mayeditproject = ($userprivileges[editproject]) || ($userid==$row[userid]);
-				$mayremoveproject = ($userprivileges[removeproject]) || ($userid==$row[userid]);
+				$mayeditproject = ($userprivileges['editproject']) || ($userid==$row['userid']);
+				$mayremoveproject = ($userprivileges['removeproject']) || ($userid==$row['userid']);
 
 				if ($mayeditproject && $mayremoveproject)
-					print "<A href=\"$PHP_SELF?action=editproject&amp;id=$row[id]\">edit</A>&nbsp;<A href=\"$PHP_SELF?action=removeproject&amp;id=$row[id]\">delete</A>";
+					print "<a href=\"{$_SERVER['PHP_SELF']}?action=editproject&amp;id={$row['id']}\">edit</a>&nbsp;<a href=\"{$_SERVER['PHP_SELF']}?action=removeproject&amp;id={$row['id']}\">delete</a>";
 				else if ($mayeditproject)
-					print "<A href=\"$PHP_SELF?action=editproject&amp;id=$row[id]\">edit</A>";
+					print "<a href=\"{$_SERVER['PHP_SELF']}?action=editproject&amp;id={$row['id']}\">edit</a>";
 				else if ($mayremoveproject)
-					print "<A href=\"$PHP_SELF?action=removeproject&amp;id=$row[id]\">delete</A>";
-				if ($userid == $row[userid])
-					print "&nbsp;<A href=\"$PHP_SELF?action=disownproject&amp;id=$row[id]\">disown</A>";
-				if ($mayeditproject || $mayremoveproject || ($userid == $row[userid]))
-					print "<BR>\n";
+					print "<a href=\"{$_SERVER['PHP_SELF']}?action=removeproject&amp;id={$row['id']}\">delete</a>";
+				if ($userid == $row['userid'])
+					print "&nbsp;<a href=\"{$_SERVER['PHP_SELF']}?action=disownproject&amp;id={$row['id']}\">disown</a>";
+				if ($mayeditproject || $mayremoveproject || ($userid == $row['userid']))
+					print "<br>\n";
 
 				if ($userid > 0) {
-					if ($row[userid] == -1) {
-						print "<A href=\"$PHP_SELF?action=maintainproject&amp;id=$row[id]\">maintain project</A><BR>\n";
-					} else if ($userprivileges[editproject]) {
+					if ($row['userid'] == -1) {
+						print "<a href=\"{$_SERVER['PHP_SELF']}?action=maintainproject&amp;id={$row['id']}\">maintain project</a><br>\n";
+					} else if ($userprivileges['editproject']) {
 						$query  = "select name, email from users ";
-						$query .= "where id = $row[userid]";
+						$query .= "where id = {$row['userid']}";
 						$users = pg_exec($DBconnection, $query)
 							or die ("Could not execute query !");
-						$name = pg_result ($users, 0, "name");
-						$email = pg_result ($users, 0, "email");
-						print "Maintained by: $name (<A href=\"mailto:$email\">$email</A>)<BR>\n";
+						$name = pg_result($users, 0, "name");
+						$email = pg_result($users, 0, "email");
+						print "Maintained by: $name (<a href=\"mailto:$email\">$email</a>)<br>\n";
 					}
 				}
-				print "</P>\n";
+				print "</p>\n";
 			}
 
-			//--- show the "previous page"/"next page" links if needed ---//
+			# --- show the "previous page"/"next page" links if needed ---
 
 			$next = $start + $perpage;
 
-			if (($perpage!="all") && (($start>0) || ($next<$total))) {
-				print "<P>\n";
+			if (($perpage != -1) && (($start > 0) || ($next < $total))) {
+				print "<p>\n";
 
 				$match_infos .= "order=$order&amp;category=$category&amp;completed=$completed&amp;os=$os&amp;match_name=$match_name&amp;perpage=$perpage";
 
-				if ($start>0) {
+				if ($start > 0) {
 					$prev = $start - $perpage; 
 
-					if ($prev<0)		// this can only happen if the user went manually to a start not dividable by step 
+					if ($prev < 0)		// this can only happen if the user went manually to a start not dividable by step 
 						$prev = 0;
 
-					print "<A href=\"$PHP_SELF?start=$prev&amp;$match_infos\">previous page</A>&nbsp";
+					print "<a href=\"{$_SERVER['PHP_SELF']}?start=$prev&amp;$match_infos\">previous page</a>&nbsp";
 				}
 
-				if ($next<$total)
-					print "<A href=\"$PHP_SELF?start=$next&amp;$match_infos\">next page</A>";
+				if ($next < $total)
+					print "<a href=\"{$_SERVER['PHP_SELF']}?start=$next&amp;$match_infos\">next page</a>";
 
-				print "</P>\n";
+				print "</p>\n";
 			}
 
-			//--- add the add project button ---//
+			# --- add the add project button ---
 
-			if ($userprivileges[addproject]) {
-				print "<FORM method=post action=\"$PHP_SELF?action=addproject\">\n";
-				print "<INPUT type=submit value=\"submit $projecttypetexts\">\n";
-				print "</FORM>\n";
+			if ($userprivileges['addproject']) {
+				print "<form method=post action=\"{$_SERVER['PHP_SELF']}?action=addproject\">\n";
+				print "<input type=submit value=\"submit ".PROJECTTYPETEXTS."\">\n";
+				print "</form>\n";
 			}
 
-			//--- add the list project categories link ---//
+			# --- add the list project categories link ---
 
-			print "<A href=\"$PHP_SELF?action=listcategories\">list $projecttypetexts categories</A>\n";
+			print "<a href=\"{$_SERVER['PHP_SELF']}?action=listcategories\">list ".PROJECTTYPETEXTS." categories</a>\n";
 	}
 ?>
 

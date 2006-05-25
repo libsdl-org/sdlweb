@@ -12,6 +12,7 @@ Gaëtan de Menten (ged at bugfactory dot org)
 
 - articles/tutorials/books/... (publications)
 
+- use POST instead of GET for updateXXX (use input hidden) and deleteXXX
 - CSSify deprecated stuff
 - cleanup current CSS, I did it on a hurry...
 - try validating all pages as HTML 4.01 Strict...

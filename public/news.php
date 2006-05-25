@@ -1,7 +1,7 @@
 <?PHP
-include ("../include/login.inc.php");
-include ("../include/updaterss.inc.php");
-include ("header.inc.php");
+include("../include/login.inc.php");
+include("../include/updaterss.inc.php");
+include("header.inc.php");
 
 //-------------------------------------------------------------------------------------------------
 function show_motd() {
@@ -10,6 +10,20 @@ function show_motd() {
 
 EOT;
 }
+
+$id = $_GET['id'];
+
+$fields_def = array(
+	'id'=>array('type'=>'integer', 'required'=>True),
+//	'userid'=>array('type'=>'integer', 'required'=>True),
+//	'timestamp'=>TIMESTAMP , 'required'=>True),
+	'newstext'=>array('type'=>'char'),
+);
+
+$query_fields_def = array(
+	'step'=>array('type'=>'integer'),
+	'start'=>array('type'=>'integer'),
+);
 
 //-------------------------------------------------------------------------------------------------
 // Use the correct "header" for the page, depending on the action
@@ -29,14 +43,10 @@ switch ($action) {
 		<tr>
 			<td>
 
-			<!-- Form Options -->
-			<table cellpadding="0" cellspacing="0" border="0" width="100%" align="center">
-			<tr>
-				<td colspan="2">
-				<font face="Verdana">
 EOT;
 		break;
-//-------------------------------------------------------------------------------------------------
+		
+	//-------------------------------------------------------------------------
 
 	default: 
 		echo <<<EOT
@@ -55,178 +65,208 @@ EOT;
 
 switch ($action) {
 	case "addnews":
-		if (!$userprivileges[addnews]) {
-			print "You are not permitted to access this page!<BR>\n";
+		if (!$userprivileges['addnews']) {
+			print "You are not permitted to access this page!<br>\n";
 			break;
 		}
 
 		echo <<<EOT
-		<FORM method=post action="$PHP_SELF?action=insertnews">
-		<TEXTAREA name=newstext cols=60 rows=15 wrap="soft"></TEXTAREA>
-		<P>
-		<INPUT type=submit value=Submit>
-		</P>
-		</FORM>
-		<A href="$PHP_SELF">Back</A>
+<form method="post" action="{$_SERVER['PHP_SELF']}?action=insertnews">
+<textarea name="newstext" cols="60" rows="15" wrap="soft"></textarea>
+<p>
+<input type="submit" value="Submit">
+</p>
+</form>
+<a href="{$_SERVER['PHP_SELF']}">Back</a>
+
 EOT;
 		break;
 
 	case "insertnews":
-		if (!$userprivileges[addnews]) {
-			print "You are not permitted to access this page !<BR>\n";
+		if (!$userprivileges['addnews']) {
+			print "You are not permitted to access this page !<br>\n";
 			break;
 		}
 
-		if ($newstext=="") {
-			print "Please enter some text!<BR>\n";
+		$input = validateinput($_POST, $fields_def, array('newstext'));
+		if (!$input)
 			break;
-		}
 
 		$query = "insert into news (userid,timestamp,text)
-			values($userid,CURRENT_TIMESTAMP,'$newstext')";
-
+			values($userid, CURRENT_TIMESTAMP, '{$input['newstext']}')";
 		pg_exec($DBconnection, $query)
 			or die ("Could not execute query !");
+
 		UpdateRSS($DBconnection);
 
 		echo <<<EOT
-		News posted !<BR>
-		<BR>
-		<A href="$PHP_SELF">Back</A>
+News posted !<br>
+<br>
+<a href="{$_SERVER['PHP_SELF']}">Back</a>
+		
 EOT;
 		break;
 
 	case "editnews":
-		$query = "select * from news where id=$id";
+		$input = validateinput($_GET, $fields_def, array('id'));
+		if (!$input)
+			break;
+			
+		$query = "select * from news where id={$input['id']}";
 		$result = pg_exec($DBconnection, $query)
 			or die ("Could not execute query !");
 		$row = pg_fetch_array($result, 0, PGSQL_ASSOC);
 
-		if (!$userprivileges[editnews]) {
-			if (($userid!=$row[userid]) || ($userid<1)) {
-				print "You are not permitted to access this page!<BR>\n";
+		if (!$userprivileges['editnews']) {
+			if (($userid != $row['userid']) || ($userid < 1)) {
+				print "You are not permitted to access this page!<br>\n";
 				break;
 			}
 		}
 
 		echo <<<EOT
-		<FORM method=post action="$PHP_SELF?action=updatenews&amp;id=$id">
-		<TEXTAREA name=newstext cols=60 rows=15 wrap=soft>$row[text]</TEXTAREA>
-		<P>
-		<INPUT type=submit value=Submit>
-		</P>
-		</FORM>
+<form method="post" action="{$_SERVER['PHP_SELF']}?action=updatenews&amp;id={$input['id']}">
+<textarea name="newstext" cols="60" rows="15" wrap="soft">{$row['text']}</textarea>
+<p>
+<input type="submit" value="Submit">
+</p>
+</form>
 EOT;
 		break;
 
 	case "updatenews":
+		$input = validateinput($_GET, $fields_def, array('id'));
+		if (!$input)
+			break;
+				
+		$id = $input['id'];
+
 		$query = "select userid from news where id=$id";
 		$result = pg_exec($DBconnection, $query)
 			or die ("Could not execute query !");
 		$writerid = pg_result($result, 0, "userid");
 
-		if (!$userprivileges[editnews]) {
-			if (($userid!=$writerid) || ($userid<1)) {
-				print "You are not permitted to access this page!<BR>\n";
+		if (!$userprivileges['editnews']) {
+			if (($userid != $writerid) || ($userid < 1)) {
+				print "You are not permitted to access this page!<br>\n";
 				break;
 			}
 		}
 
-		if ($newstext=="") {
-			print "Please enter some text!<BR>\n";
+		$input = validateinput($_POST, $fields_def, array('newstext'));
+		if (!$input)
 			break;
-		}
-
-		$query = "update news set text='$newstext' where id=$id";
-		$result = pg_exec($DBconnection, $query)
+			
+		$query = "update news set text='{$input['newstext']}' where id=$id";
+		pg_exec($DBconnection, $query)
 			or die ("Could not execute query!");
 		UpdateRSS($DBconnection);
 
 		echo <<<EOT
-		<I>Updated!</I><BR>
-		<BR>
-		<A href="$PHP_SELF">Back</A>
+<i>Updated!</i><br>
+<br>
+<a href="{$_SERVER['PHP_SELF']}">Back</a>
 EOT;
 		break;
 
 	case "removenews":
-		$query = "select * from news where id=$id";
+		$input = validateinput($_GET, $fields_def, array('id'));
+		if (!$input)
+			break;
+				
+		$query = "select * from news where id={$input['id']}";
 		$result = pg_exec($DBconnection, $query)
 			or die ("Could not execute query !");
 		$row = pg_fetch_array($result, 0, PGSQL_ASSOC);
 
-		if (!$userprivileges[removenews]) {
-			if (($userid!=$row[userid]) || ($userid<1)) {
-				print "You are not permitted to access this page!<BR>\n";
+		if (!$userprivileges['removenews']) {
+			if (($userid != $row['userid']) || ($userid < 1)) {
+				print "You are not permitted to access this page!<br>\n";
 				break;
 			}
 		}
 
 		echo <<<EOT
-		Are you sure you want to delete the following news?
-		<P>
-		$row[text]
-		</P>
-		<TABLE>
-		<TR>
-		<TD>
-		<FORM method=post action="$PHP_SELF?action=deletenews&amp;id=$id">
-		<INPUT type=submit value=delete>
-		</FORM>
-		</TD>
-		<TD>
-		<FORM method=post action="$PHP_SELF">
-		<INPUT type=submit value=cancel>
-		</FORM>
-		</TD>
-		</TR>
-		</TABLE>
+Are you sure you want to delete the following news?
+<p>
+{$row['text']}
+</p>
+<table>
+<tr>
+<td>
+<form method="post" action="{$_SERVER['PHP_SELF']}?action=deletenews&amp;id={$input['id']}">
+<input type="submit" value="delete">
+</form>
+</td>
+<td>
+<form method="post" action="{$_SERVER['PHP_SELF']}">
+<input type="submit" value="cancel">
+</form>
+</td>
+</tr>
+</table>
 EOT;
 		break;
 
 	case "deletenews":
-		$query = "select userid from news where id=$id";
+		$input = validateinput($_GET, $fields_def, array('id'));
+		if (!$input)
+			break;
+			
+		$query = "select userid from news where id={$input['id']}";
 		$result = pg_exec($DBconnection, $query)
 			or die ("Could not execute query !");
-		$writerid = pg_result ($result, 0, "userid");
+		$writerid = pg_result($result, 0, "userid");
 
-		if (!$userprivileges[removenews]) {
-			if (($userid!=$writerid) || ($userid<1)) {
-				print "You are not permitted to access this page!<BR>\n";
+		if (!$userprivileges['removenews']) {
+			if (($userid != $writerid) || ($userid < 1)) {
+				print "You are not permitted to access this page!<br>\n";
 				break;
 			}
 		}
 
-		$query = "delete from news where id=$id";
+		$query = "delete from news where id={$input['id']}";
 		pg_exec($DBconnection, $query)
 			or die ("Could not execute query !");
 		UpdateRSS($DBconnection);
 
 		echo <<<EOT
-		Deleted!<BR>
-		<BR>
-		<A href="index.php">Back</A>
+Deleted!<br>
+<br>
+<a href="{$_SERVER['PHP_SELF']}">Back</a>
 EOT;
 		break;
 
+	//---------------------------------------------------------------------
+	
 	default: 
+		//--- Show temporary notices ---//
 
-		//-------------------------------------------------------------------------------------------------
-		// Temporary notices:
 		show_motd();
 
-		if (!isset($step))
-			$step = 8;		// max number news items to show at one time
+		//--- validate input ---//
 
-		if (!isset($start))
-			$start = 0;		// number news items to skip
+		$input = validateinput($_GET, $query_fields_def, 
+			array('step', 'start'));
+				
+		if ($input === False)
+			break;
 
-		//--- calculate number of news items ---//
+		//--- set input default values ---//
+
+		// max number news items to show at one time
+		$step = isset($input['step']) ? $input['step'] : 8;
+
+		// number news items to skip
+		$start = isset($input['start']) ? $input['start'] : 0;
+
+		//--- compute number of news items ---//
+
 		$query = "select count(*) as count from news";
 		$result = pg_exec($DBconnection, $query)
 			or die ("Could not execute query !");
 
-		$total = pg_result ($result, 0, "count");
+		$total = pg_result($result, 0, "count");
 
 		//--- fetch news ---//
 
@@ -237,6 +277,7 @@ EOT;
 		$number = pg_numrows($result);
 
 		//--- print news ---//
+
 		$months = array(
 			"Unused",
 			"January",
@@ -254,8 +295,7 @@ EOT;
 		);
 	
 		//-------------------------------------------------------------------------------------------------
-		$i=0;
-		while ($i < $number) {
+		for ($i=0; $i < $number; $i++) {
 			$row = pg_fetch_array($result, $i, PGSQL_ASSOC);
 
 			//---------------------------------------------------------------------------------------------
@@ -267,14 +307,14 @@ EOT;
 			//---------------------------------------------------------------------------------------------
 			// news actions
 
-			$mayeditnews	= ($userprivileges["editnews"])	|| ($userid==$row["userid"]);
-			$mayremovenews	= ($userprivileges["removenews"]) || ($userid==$row["userid"]);
+			$mayeditnews = ($userprivileges['editnews']) || ($userid == $row['userid']);
+			$mayremovenews = ($userprivileges['removenews']) || ($userid == $row['userid']);
 
 			$newsactionstring = "";
 			if ($mayeditnews)
-				$newsactionstring .= "<A href=\"$PHP_SELF?action=editnews&amp;id=$row[id]\"><img src=\"images/editnews.png\" border=\"0\" alt=\"edit\"></A>";
+				$newsactionstring .= "<a href=\"{$_SERVER['PHP_SELF']}?action=editnews&amp;id={$row['id']}\"><img src=\"images/editnews.png\" border=\"0\" alt=\"edit\"></a>";
 			if ($mayremovenews)
-				$newsactionstring .= "<A href=\"$PHP_SELF?action=removenews&amp;id=$row[id]\"><img src=\"images/deletenews.png\" border=\"0\" alt=\"delete\"></A>";
+				$newsactionstring .= "<a href=\"{$_SERVER['PHP_SELF']}?action=removenews&amp;id={$row['id']}\"><img src=\"images/deletenews.png\" border=\"0\" alt=\"delete\"></a>";
 				
 			//---------------------------------------------------------------------------------------------
 			echo <<<EOT
@@ -304,20 +344,18 @@ EOT;
 			if ($i != $number - 1)
 				echo '	<hr class="newssep">', "\n";
 			//---------------------------------------------------------------------------------------------
-
-			$i++;
 		}
 
 		//-------------------------------------------------------------------------------------------------
 
 		//--- add the submit news button ---//
 
-		if ($userprivileges[addnews]) {
+		if ($userprivileges['addnews']) {
 			echo <<<EOT
 			<br>
-			<FORM method=post action="$PHP_SELF?action=addnews">
-			<INPUT type=submit value="submit news">
-			</FORM>
+			<form method="post" action="{$_SERVER['PHP_SELF']}?action=addnews">
+			<input type="submit" value="submit news">
+			</form>
 
 EOT;
 		}
@@ -346,7 +384,7 @@ EOT;
 				// this can only happen if the user went manually to a start not dividable by step 
 				$prev = 0;
 
-			print "<A href=\"$PHP_SELF?start=$prev\"><img src=\"images/prev.png\" border=\"0\" alt=\"Previous\"></A>\n";
+			print "<a href=\"{$_SERVER['PHP_SELF']}?start=$prev\"><img src=\"images/prev.png\" border=\"0\" alt=\"Previous\"></a>\n";
 		}
 
 		//-------------------------------------------------------------------------------------------------				
@@ -358,7 +396,7 @@ EOT;
 
 		//--- show the "next page" link if needed ---//
 		if ($next < $total)
-			print "<A href=\"$PHP_SELF?start=$next\"><img src=\"images/next.png\" border=\"0\" alt=\"Next\"></A>\n";
+			print "<a href=\"{$_SERVER['PHP_SELF']}?start=$next\"><img src=\"images/next.png\" border=\"0\" alt=\"Next\"></a>\n";
 
 		echo <<<EOT
 				</td>
@@ -381,13 +419,6 @@ switch ($action) {
 	case "removenews":
 	case "deletenews":
 		echo <<<EOT
-
-				<p></font>
-				</td>
-			</tr>
-			</table>
-			<!-- End Form Options -->
-
 			</td>
 		</tr>
 		</table><p>
@@ -396,11 +427,10 @@ switch ($action) {
 EOT;
 		break;
 
-//-------------------------------------------------------------------------------------------------
+	//-------------------------------------------------------------------------
 		
 	default:
 		echo <<<EOT
-
 			</td>
 		</tr>
 		</table>

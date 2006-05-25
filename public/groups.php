@@ -2,11 +2,14 @@
 	include ("../include/login.inc.php");
 	include ("header.inc.php");
 
-	echo <<<EOT
-<H1>Groups</H1>
-<BR>
-<BLOCKQUOTE>
-EOT;
+	BeginContent("Groups");
+
+	$fields_def = array(
+		'id'=>array('type'=>'integer', 'required'=>True),
+		'name'=>array('type'=>'char', 'size'=>30, 'required'=>True),
+	);
+
+	$id = $_GET['id'];
 
 	$privilegelist = array(	"addproject", "reviewproject", "editproject", "removeproject",
 							"addprojectcategory", "editprojectcategory", "removeprojectcategory",
@@ -15,58 +18,52 @@ EOT;
 							"addfaqentry", "editfaqentry", "removefaqentry",
 							"managefaqcategories", "manageoses", "managegroups", "manageusers" );
 
-	function checkbox($text,$value)
-	{
-		if ($value=="t")
-			print "<INPUT type=checkbox name=$text value=yes checked>$text";
-		else
-			print "<INPUT type=checkbox name=$text value=yes>$text";
-	}
-
-	if (!$userprivileges[managegroups]) {
-		print "You are not permitted to access this page !<BR>\n";
-	}
-	else
-	{
+	if (!$userprivileges['managegroups'])
+		print "You are not permitted to access this page !<br>\n";
+	else {
 		switch ($action) {
 			case "addgroup":
-				print "<FORM method=post action=\"$PHP_SELF?action=insertgroup\">\n";
-				print "<P>name<BR><INPUT type=text name=name size=50 maxlength=30></P>\n";
+				$privilegeboxes = "";
 				reset($privilegelist);
 				while (list($key,$privilegename)=each($privilegelist))
-					print "<INPUT type=checkbox name=$privilegename value=yes>$privilegename\n";
-				print "<P><INPUT type=submit value=Submit></P>\n";
-				print "</FORM>\n";
-				print "<A href=\"$PHP_SELF\">back</A>\n";
+					$privilegeboxes .= "<input type=\"checkbox\" name=\"$privilegename\" value=\"yes\">$privilegename\n";
+
+				echo <<<EOT
+<form method="post" action="{$_SERVER['PHP_SELF']}?action=insertgroup">
+<p>name<br><input type="text" name="name" size="50" maxlength="30"></p>
+$privilegeboxes
+<p><input type="submit" value="Submit"></p>
+</form>
+<a href="{$_SERVER['PHP_SELF']}">back</a>
+
+EOT;
 				break;
 
 			case "insertgroup":
-				if ($name=="") {
-					print "Invalid name !<BR>\n";
+				if ($_POST['name'] == "") {
+					print "Invalid name !<br>\n";
 					break;
 				}
 
 				//--- generate insertion query ---//
 
-				$query  = "insert into groups (name,";
+				$query = "insert into groups (name,";
 
 				reset($privilegelist);
 				while (list($key,$privilegename)=each($privilegelist))
 					$query .= "$privilegename,";
-				$query  = substr ($query, 0, -1); // remove the last comma
+				$query = substr($query, 0, -1); // remove the last comma
 
-				$query .= ") values('$name',";
+				$query .= ") values('{$_POST['name']}',";
 
 				reset($privilegelist);
 				while (list($key,$privilegename)=each($privilegelist)) {
-					$privilegevalue = $$privilegename;
-
-					if ($privilegevalue=="yes")
+					if ($_POST[$privilegename] == "yes")
 						$query .= "TRUE,";
 					else
 						$query .= "FALSE,";
 				}
-				$query  = substr ($query, 0, -1); // remove the last comma
+				$query = substr($query, 0, -1); // remove the last comma
 
 				$query .= ")";
 
@@ -75,14 +72,16 @@ EOT;
 				pg_exec($DBconnection, $query)
 					or die ("Could not execute query !");
 
-				print "Group added !<BR>\n";
-				print "<BR>\n";
-				print "<A href=\"$PHP_SELF\">back</A>\n";
+				echo <<<EOT
+Group added !<br>
+<br>
+<a href="{$_SERVER['PHP_SELF']}">back</a>
+EOT;
 				break;
 
 			case "editgroup":
-				if ($id<2) 
-					print "Notice: You can only modify the name of this group !<BR>\n";
+				if ($id < 2) 
+					print "Notice: You can only modify the name of this group !<br>\n";
 
 				$query = "select * from groups where id=$id";
 				$result = pg_exec($DBconnection, $query)
@@ -91,42 +90,45 @@ EOT;
 
 				//--- print the form ---//
 
-				print "<FORM method=post action=\"$PHP_SELF?action=updategroup&amp;id=$id\">\n";
-				print "<P>name<BR><INPUT type=text name=name value=\"$row[name]\" size=50 maxlength=30></P>\n";
+				echo <<<EOT
+<form method="post" action="{$_SERVER['PHP_SELF']}?action=updategroup&amp;id=$id">
+<p>name<br><input type="text" name="name" value="$row[name]" size="50" maxlength="30"></p>
 
+EOT;
 				reset($privilegelist);
 				while (list($key,$privilegename)=each($privilegelist))
 					checkbox("$privilegename",$row[$privilegename]);
 
-				print "<P><INPUT type=submit value=Submit></P>\n";
-				print "</FORM>\n";
-				print "<BR>\n";
-				print "<A href=\"$PHP_SELF\">back</A>\n";
+				echo <<<EOT
+<p><input type="submit" value="Submit"></p>
+</form>
+<br>
+<a href="{$_SERVER['PHP_SELF']}">back</a>
+
+EOT;
 				break;
 
 			case "updategroup":
-				if ($name=="") {
-					print "Invalid name !<BR>\n";
+				if ($_POST['name'] == "") {
+					print "Invalid name !<br>\n";
 					break;
 				}
 
 				//--- generate update query ---//
 
-				if ($id<2)
-					$query = "update groups set	name='$name' where id=$id";
+				if ($id < 2)
+					$query = "update groups set	name='{$_POST['name']}' where id=$id";
 				else {
-
-					$query  = "update groups set name='$name',";
+					$query = "update groups set name='{$_POST['name']}',";
 
 					reset($privilegelist);
 					while (list($key,$privilegename)=each($privilegelist)) {
-						$privilegevalue = $$privilegename;
-						if ($privilegevalue=="yes")
+						if ($_POST[$privilegename] == "yes")
 							$query .= "$privilegename=TRUE,";
 						else
 							$query .= "$privilegename=FALSE,";
 					}
-					$query  = substr ($query, 0, -1); // remove the last comma
+					$query = substr($query, 0, -1); // remove the last comma
 
 					$query .= " where id=$id";
 				}
@@ -136,18 +138,18 @@ EOT;
 				pg_exec($DBconnection, $query)
 					or die ("Could not execute query !");
 
-				if ($id<2) 
-					print "Only the name was updated because it would be stupid to update anything else about this group !<BR>\n";
-				else
-					print "<I>Updated !</I><BR>\n";
+				$message = ($id < 2) ? "Only the name was updated because it would be stupid to update anything else about this group !" : "<i>Updated !</i>";
 
-				print "<BR>\n";
-				print "<A href=\"$PHP_SELF\">back</A>\n";
+				echo <<<EOT
+$message<br>
+<br>
+<a href="{$_SERVER['PHP_SELF']}">back</a>
+EOT;
 				break;
 
 			case "removegroup":
-				if ($id<3) {
-					print "Sorry, but I can't let you do that !<BR>\n";
+				if ($id < 3) {
+					print "Sorry, but I can't let you do that !<br>\n";
 					break;
 				}
 
@@ -157,29 +159,29 @@ EOT;
 				$name = pg_result($result, 0, "name");
 
 				echo <<<EOT
-Are you sure you want to delete the $name group ?<BR>
-(all users in this group will be moved to the 'Normal rights' group)<BR>
-<BR>
-<TABLE>
-<TR>
-<TD>
-<FORM method=post action="$PHP_SELF?action=deletegroup&amp;id=$id">
-<INPUT type=submit value=delete>
-</FORM>
-</TD>
-<TD>
-<FORM method=post action="$PHP_SELF">
-<INPUT type=submit value=cancel>
-</FORM>
-</TD>
-</TR>
-</TABLE>
+Are you sure you want to delete the $name group ?<br>
+(all users in this group will be moved to the 'Normal rights' group)<br>
+<br>
+<table>
+<tr>
+<td>
+<form method="post" action="{$_SERVER['PHP_SELF']}?action=deletegroup&amp;id=$id">
+<input type="submit" value="delete">
+</form>
+</td>
+<td>
+<form method="post" action="{$_SERVER['PHP_SELF']}">
+<input type="submit" value="cancel">
+</form>
+</td>
+</tr>
+</table>
 EOT;
 				break;
 
 			case "deletegroup":
 				if ($id < 3) {
-					print "Sorry, but I can't let you do that !<BR>\n";
+					print "Sorry, but I can't let you do that !<br>\n";
 					break;
 				}
 
@@ -195,9 +197,11 @@ EOT;
 				pg_exec($DBconnection, $query)
 					or die ("Could not execute query !");
 
-				print "Deleted !<BR>\n";
-				print "<BR>\n";
-				print "<A href=\"$PHP_SELF\">back</A>\n";
+				echo <<<EOT
+Deleted !<br>
+<br>
+<a href="{$_SERVER['PHP_SELF']}">back</a>
+EOT;
 				break;
 
 			default:
@@ -208,31 +212,33 @@ EOT;
 				$result = pg_exec($DBconnection, $query)
 					or die ("Could not execute query !");
 
-				$number = pg_numrows($result);
-
 				//--- print groups ---//
 
-				print "<TABLE cellpadding=5>\n";
+				print "<table cellpadding=\"5\">\n";
 
-				$i=0;
-				while ($i < $number) {
-					$row = pg_fetch_array($result, $i, PGSQL_ASSOC);
-
-					if ($row[id]>2)
-						print "<TR><TD>$row[name]</TD><TD><A href=\"$PHP_SELF?action=editgroup&amp;id=$row[id]\">edit</A></TD><TD><A href=\"$PHP_SELF?action=removegroup&amp;id=$row[id]\">delete</A></TD></TR>";
+				while (($row = pg_fetch_array($result, NULL, PGSQL_ASSOC)) != FALSE) {
+					if ($row['id'] > 2)
+						$removelink = "<a href=\"{$_SERVER['PHP_SELF']}?action=removegroup&amp;id={$row['id']}\">delete</a>";
 					else
-						print "<TR><TD>$row[name]</TD><TD colspan=2><A href=\"$PHP_SELF?action=editgroup&amp;id=$row[id]\">edit</A></TD></TR>";
+						$removelink = "&nbsp;";
 
-					$i++;
+					echo <<<EOT
+<tr>
+<td>{$row['name']}</td>
+<td><a href="{$_SERVER['PHP_SELF']}?action=editgroup&amp;id={$row['id']}">edit</a></td>
+<td>$removelink</td>
+</tr>
+
+EOT;
 				}
 
-				print "</TABLE>\n";
+				print "</table>\n";
 
 				//--- add the new group button ---//
 				echo <<<EOT
-<FORM method=post action="$PHP_SELF?action=addgroup">
-<INPUT type=submit value="new group">
-</FORM>
+<form method="post" action="{$_SERVER['PHP_SELF']}?action=addgroup">
+<input type="submit" value="new group">
+</form>
 EOT;
 		}
 	}

@@ -1,78 +1,75 @@
 <?PHP
-	include ("../include/login.inc.php");
+	include("../include/login.inc.php");
+	include("../include/common.inc.php");
 	if (!$printer_friendly)
-		include ("header.inc.php");
+		include("header.inc.php");
 
 	$title = "Frequently Asked Questions";
-	if ( $category ) {
-		$query  = "select name from faqcategories where id = $category";
+		
+	$input = validateinput($_GET, array('category'=>array('type'=>'integer')), array('category'));
+	if ($input === False)
+		break;
+	
+	if ($input['category']) {
+		$query = "select name from faqcategories where id = {$input['category']}";
 		$result = pg_exec($DBconnection, $query)
 			or die ("Could not execute query !");
 		$name = pg_result($result, 0, "name");
 		$title = "$title: $name";
 	}
+
 	BeginContent($title);
 
-	function containtag($name,$value) {
-		if ($value!=strip_tags($value)) {
-			print "You may not use HTML nor PHP tags in the $name field !<BR>\n";
-			return 1;
-		} else
-			return 0;
-	}
+	$faq_categories_fields_def = array(
+		'id'=>array('type'=>'integer', 'required'=>True),
+		'name'=>array('type'=>'char', 'size'=>20, 'required'=>True),
+		'description'=>array('type'=>'char', 'size'=>255, 'required'=>True),
+		'sorted'=>array('type'=>'float', 'required'=>True),
+	);
 
-	function isempty($name, $value) {
-		if ($value=="") {
-			print "The $name field is required !<BR>\n";
-			return 1;
-		} else
-			return 0;
-	}
-
+	$faq_entries_fields_def = array(
+		'id'=>array('type'=>'integer', 'required'=>True),
+		'category'=>array('type'=>'integer', 'required'=>True),
+		'question'=>array('type'=>'char', 'required'=>True),
+		'answer'=>array('type'=>'char', 'required'=>True),
+		'sorted'=>array('type'=>'float', 'required'=>True),
+	);
+	
 	switch ($action) {
 		case "addentry":
-			if (!$userprivileges[addfaqentry])  {
-				print "You are not permitted to access this page !<BR>\n";
+			if (!$userprivileges['addfaqentry'])  {
+				print "You are not permitted to access this page !<br>\n";
 				break;
 			}
 
-			if ($category=="") {
-				print "Invalid category !<BR>\n";
+			$input = validateinput($_GET, $faq_entries_fields_def, array('category'));
+			if (!$input)
 				break;
-			}
 
-			print "<FORM method=post action=\"$PHP_SELF?action=insertentry&amp;category=$category\">\n";
-			print "<P>question<BR><TEXTAREA name=question cols=60 rows=2 wrap=\"soft\"></TEXTAREA></P>\n"; 
-			print "<P>answer<BR><TEXTAREA name=answer cols=60 rows=10 wrap=\"soft\"></TEXTAREA></P>\n";
-			print "<P><INPUT type=submit value=Submit></P>\n";
-			print "</FORM>\n";
-			print "<A href=\"$PHP_SELF?action=listentries&category=$category\">back</A>\n";
+			echo <<<EOT
+<form method="post" action="{$_SERVER['PHP_SELF']}?action=insertentry&amp;category={$input['category']}">
+<p>question<br><textarea name="question" cols="60" rows="2" wrap="soft"></textarea></p> 
+<p>answer<br><textarea name="answer" cols="60" rows="10" wrap="soft"></textarea></p>
+<p><input type="submit" value="Submit"></p>
+<input type="hidden" name="category" value="{$input['category']}"> 
+</form>
+<a href="{$_SERVER['PHP_SELF']}?action=listentries&amp;category={$input['category']}">back</a>
+
+EOT;
 			break;
 
 		case "insertentry":
-			if (!$userprivileges[addfaqentry])  {
-				print "You are not permitted to access this page !<BR>\n";
+			if (!$userprivileges['addfaqentry'])  {
+				print "You are not permitted to access this page !<br>\n";
 				break;
 			}
 
-			if ($category=="") {
-				print "Invalid category !<BR>\n";
-				break;
-			}
-
-			$required = array("question", "answer");
-			while (list($key,$varname)=each($required))
-				$nbrerrors += isempty($varname,$$varname);
-
-			$notags = array("question");
-			while (list($key,$varname)=each($notags))
-				$nbrerrors += containtag($varname,$$varname);
-
-			if ($nbrerrors)
+			$input = validateinput($_POST, $faq_entries_fields_def, array('category', 'question', 'answer'));
+			if (!$input)
 				break;
 
-			$query  = "insert into faqentries(category,question,answer)";
-			$query .= " values($category,'$question','$answer')";
+			$query = "insert into faqentries(category,question,answer)";
+			$query .= " values({$input['category']}, '{$input['question']}', '{$input['answer']}')";
 
 			pg_exec($DBconnection, $query)
 				or die ("Could not execute query !");
@@ -82,185 +79,194 @@
 				or die ("Could not execute query !");
 			$id = pg_result($result, 0, "id");
 
-			$query  = "update faqentries set sorted=$id where id=$id";
+			$query = "update faqentries set sorted=$id where id=$id";
 			pg_exec($DBconnection, $query)
 				or die ("Could not execute query !");
 
-			print "Entry added !<BR>\n";
-			print "<BR>\n";
-			print "<A href=\"$PHP_SELF?action=listentries&amp;category=$category\">back</A>\n";
+			echo <<<EOT
+Entry added !<br>
+<br>
+<a href="{$_SERVER['PHP_SELF']}?action=listentries&amp;category={$input['category']}">back</a>
+
+EOT;
 			break;
 
 		case "updateentry":
-			if (!$userprivileges[editfaqentry])  {
-				print "You are not permitted to access this page !<BR>\n";
+			if (!$userprivileges['editfaqentry'])  {
+				print "You are not permitted to access this page !<br>\n";
 				break;
 			}
 
-			if ($id=="") {
-				print "Invalid entry !<BR>\n";
+			$input = validateinput($_GET, $faq_entries_fields_def, array('id'));
+			if (!$input)
 				break;
-			}
+				
+			$id = $input['id'];
 
-			$required = array("question", "answer", "sorted");
-			while (list($key,$varquestion)=each($required))
-				$nbrerrors += isempty($varquestion,$$varquestion);
-
-			$notags = array("question", "sorted");
-			while (list($key,$varquestion)=each($notags))
-				$nbrerrors += containtag($varquestion,$$varquestion);
-
-			if ($nbrerrors)
+			$input = validateinput($_POST, $faq_entries_fields_def, array('question', 'answer', 'sorted'));
+			if (!$input)
 				break;
 
-			$query  = "update faqentries set question='$question', answer='$answer', sorted=$sorted where id=$id";
+			$query = "update faqentries set question='{$input['question']}', answer='{$input['answer']}', sorted={$input['sorted']} where id=$id";
 			pg_exec($DBconnection, $query)
 				or die ("Could not execute query !");
 
-			print "<I>Updated !</I><BR>\n";
+			print "<i>Updated !</i><br>\n";
 
 		case "editentry":
-			if (!$userprivileges[editfaqentry])  {
-				print "You are not permitted to access this page !<BR>\n";
+			if (!$userprivileges['editfaqentry'])  {
+				print "You are not permitted to access this page !<br>\n";
 				break;
 			}
 
-			if ($id=="") {
-				print "Invalid entry !<BR>\n";
+			$input = validateinput($_GET, $faq_entries_fields_def, array('id', 'category'));
+			if (!$input)
 				break;
-			}
-
-			$query = "select * from faqentries where id=$id";
+				
+			$query = "select * from faqentries where id={$input['id']}";
 			$result = pg_exec($DBconnection, $query)
 				or die ("Could not execute query !");
 			$row = pg_fetch_array($result, 0, PGSQL_ASSOC);
 
-			print "<FORM method=post action=\"$PHP_SELF?action=updateentry&amp;id=$id&amp;category=$category\">\n";
-			print "<P>question<BR><TEXTAREA name=question cols=60 rows=2 wrap=\"soft\">$row[question]</TEXTAREA></P>\n"; 
-			print "<P>answer<BR><TEXTAREA name=answer cols=60 rows=10 wrap=\"soft\">$row[answer]</TEXTAREA></P>\n";
-			print "<P>Sorted at: <INPUT type=text name=sorted value=\"$row[sorted]\" size=8 maxlength=8></P>\n";
-			print "<P><INPUT type=submit value=Submit></P>\n";
-			print "</FORM>\n";
-			print "<A href=\"$PHP_SELF?action=listentries&amp;category=$category\">back</A>\n";
+			echo <<<EOT
+<form method="post" action="{$_SERVER['PHP_SELF']}?action=updateentry&amp;id={$input['id']}&amp;category={$input['category']}">
+<p>question<br><textarea name="question" cols="60" rows="2" wrap="soft">{$row['question']}</textarea></p> 
+<p>answer<br><textarea name="answer" cols="60" rows="10" wrap="soft">{$row['answer']}</textarea></p>
+<p>Sorted at: <input type="text" name="sorted" value="{$row['sorted']}" size="8" maxlength="8"></p>
+<p><input type="submit" value="Submit"></p>
+</form>
+<a href="{$_SERVER['PHP_SELF']}?action=listentries&amp;category={$input['category']}">back</a>
+
+EOT;
 			break;
 
 		case "removeentry":
-			if (!$userprivileges[removefaqentry]) {
-				print "You are not permitted to access this page !<BR>\n";
+			if (!$userprivileges['removefaqentry']) {
+				print "You are not permitted to access this page !<br>\n";
 				break;
 			}
 
-			if ($id=="") {
-				print "Invalid entry !<BR>\n";
+			$input = validateinput($_GET, $faq_entries_fields_def, array('id', 'category'));
+			if (!$input)
 				break;
-			}
 
-			$query = "select question from faqentries where id=$id";
+			$query = "select question from faqentries where id={$input['id']}";
 			$result = pg_exec($DBconnection, $query)
 				or die ("Could not execute query !");
 			$question = pg_result($result, 0, "question");
 
-			print "Are you sure you want to delete this entry ?\n";
-			print "<P>$question</P>\n";
-			print "<TABLE>\n";
-			print "<TR>\n";
-			print "<TD>";
-			print "<FORM method=post action=\"$PHP_SELF?action=deleteentry&amp;id=$id&amp;category=$category\">";
-			print "<INPUT type=submit value=delete>";
-			print "</FORM>";
-			print "</TD>\n";
-			print "<TD>";
-			print "<FORM method=post action=\"$PHP_SELF?action=listentries&amp;category=$category\">";
-			print "<INPUT type=submit value=cancel>";
-			print "</FORM>";
-			print "</TD>\n";
-			print "</TR>\n";
-			print "</TABLE>\n";
+			echo <<<EOT
+Are you sure you want to delete this entry ?
+<p>$question</p>
+<table>
+<tr>
+<td>
+<form method="post" action="{$_SERVER['PHP_SELF']}?action=deleteentry&amp;id={$input['id']}&amp;category={$input['category']}">
+<input type="submit" value="delete">
+</form>
+</td>
+<td>
+<form method="post" action="{$_SERVER['PHP_SELF']}?action=listentries&amp;category={$input['category']}">
+<input type="submit" value="cancel">
+</form>
+</td>
+</tr>
+</table>
+
+EOT;
 			break;
 
 		case "deleteentry":
-			if (!$userprivileges[removefaqentry])  {
-				print "You are not permitted to access this page !<BR>\n";
+			if (!$userprivileges['removefaqentry'])  {
+				print "You are not permitted to access this page !<br>\n";
 				break;
 			}
 
-			if ($id=="") {
-				print "Invalid entry !<BR>\n";
+			$input = validateinput($_GET, $faq_entries_fields_def, array('id', 'category'));
+			if (!$input)
 				break;
-			}
 
 			//--- remove entry from the database ---//
 
-			$query = "delete from faqentries where id=$id";
+			$query = "delete from faqentries where id={$input['id']}";
 			pg_exec($DBconnection, $query)
 				or die ("Could not execute query !");
 
-			print "Deleted !<BR>\n";
-			print "<BR>\n";
-			print "<A href=\"$PHP_SELF?action=listentries&amp;category=$category\">back</A>\n";
+			echo <<<EOT
+Deleted !<br>
+<br>
+<a href="{$_SERVER['PHP_SELF']}?action=listentries&amp;category={$input['category']}">back</a>
+
+EOT;
 			break;
 
 		case "listentries":
-
-			if ($category=="") {
-				print "Invalid category !<BR>\n";
+			if ($input['category'] == "") {
+				print "Invalid category !<br>\n";
 				break;
 			}
 
 			//--- fetch entries ---//
 
-			$query  = "select * from faqentries where category=$category order by sorted";
+			$query = "select * from faqentries where category={$input['category']} order by sorted";
 			$result = pg_exec($DBconnection, $query)
 				or die ("Could not execute query !");
 
-			$number = pg_numrows($result);
-
 			//--- print ToC ---//
 
-			print "<H3>Table Of Contents</H3>\n";
-			print "<UL>\n";
+			$questions = '';
+			$entries = '';
+			while (($row = pg_fetch_array($result, NULL, PGSQL_ASSOC)) != FALSE) {
+				$questions .= "<li><a href='#{$row['id']}'>{$row['question']}</a>\n";
 
-			$i=0;
-			while ($i < $number) {
-				$row = pg_fetch_array($result, $i, PGSQL_ASSOC);
+				$entryactions = '';
+				if ($userprivileges['editfaqentry'])
+					$entryactions .= <<<EOT
+Sorted: {$row['sorted']}&nbsp;
+<a href="{$_SERVER['PHP_SELF']}?action=editentry&amp;id={$row['id']}&amp;category={$input['category']}">edit</a>&nbsp;
 
-				print "<LI><A href=\"#$row[id]\">$row[question]</A>\n";
-				$i++;
+EOT;
+				if ($userprivileges['removefaqentry'])
+					$entryactions .= <<<EOT
+<a href="{$_SERVER['PHP_SELF']}?action=removeentry&amp;id={$row['id']}&amp;category={$input['category']}">delete</a>&nbsp;
+
+EOT;
+				$entries .= <<<EOT
+<table cellpadding="5">
+<tr><td valign="top"><b>Q:</b></td><td><a name="{$row['id']}"><b>{$row['question']}</b></a></td></tr>
+<tr><td valign="top"><b>A:</b></td><td>{$row['answer']}</td></tr>
+</table>
+$entryactions
+<hr>
+
+EOT;
 			}
-			print "</UL>\n";
-			print "<HR width=\"100%\">\n";
+			
+			// output the whole thing	
+			echo <<<EOT
+<h3>Table Of Contents</h3>
+<ul>
+$questions
+</ul>
 
-			//--- print entries ---//
+<hr width="100%">
 
-			$i=0;
-			while ($i < $number) {
-				$row = pg_fetch_array($result, $i, PGSQL_ASSOC);
+$entries
 
-				print "<TABLE cellpadding=5>\n";
-				print "<TR><TD valign=top><B>Q:</B></TD><TD><A name=$row[id]><B>$row[question]</B></A></TD></TR>\n";
-				print "<TR><TD valign=top><B>A:</B></TD><TD>$row[answer]</TD></TR>\n";
-				print "</TABLE>\n";
-
-				if ($userprivileges[editfaqentry])
-					print "Sorted: $row[sorted] &nbsp;<A href=\"$PHP_SELF?action=editentry&amp;id=$row[id]&amp;category=$category\">edit</A>&nbsp\n";
-				if ($userprivileges[deletefaqentry])
-					print "<A href=\"$PHP_SELF?action=removeentry&amp;id=$row[id]&amp;category=$category\">delete</A>&nbsp\n";
-				
-				print "<HR>\n";
-
-				$i++;
-			}
+EOT;
 
 			//--- add the add entry button ---//
 
-			if ($userprivileges[addfaqentry]) { 
-				print "<FORM method=post action=\"$PHP_SELF?action=addentry&amp;category=$category\">\n";
-				print "<INPUT type=submit value=\"add entry\">\n";
-				print "</FORM>\n";
-			}
+			if ($userprivileges['addfaqentry'])
+				echo <<<EOT
+<form method="post" action="{$_SERVER['PHP_SELF']}?action=addentry&amp;category={$input['category']}">
+<input type="submit" value="add entry">
+</form>
+
+EOT;
 
 			if (!$printer_friendly)
-				print "<A href=\"$PHP_SELF\">back</A>\n";
+				print "<a href=\"{$_SERVER['PHP_SELF']}\">back</a>\n";
 			break;
 
 		//----------------------------------------------------------------------------------//
@@ -268,38 +274,34 @@
 		//----------------------------------------------------------------------------------//
 
 		case "addcategory":
-			if (!$userprivileges[managefaqcategories])  {
-				print "You are not permitted to access this page !<BR>\n";
+			if (!$userprivileges['managefaqcategories'])  {
+				print "You are not permitted to access this page !<br>\n";
 				break;
 			}
 
-			print "<FORM method=post action=\"$PHP_SELF?action=insertcategory\">\n";
-			print "<P>name<BR><INPUT type=text name=name size=50 maxlength=20></P>\n";
-			print "<P>description<BR><INPUT type=text name=description size=50 maxlength=255></P>\n";
-			print "<P><INPUT type=submit value=Submit></P>\n";
-			print "</FORM>\n";
-			print "<A href=\"$PHP_SELF\">back</A>\n";
+			echo <<<EOT
+<form method="post" action="{$_SERVER['PHP_SELF']}?action=insertcategory">
+<p>name<br><input type="text" name="name" size="50" maxlength="20"></p>
+<p>description<br><input type="text" name="description" size="50" maxlength="255"></p>
+<p><input type="submit" value="Submit"></p>
+</form>
+<a href="{$_SERVER['PHP_SELF']}">back</a>
+
+EOT;
 			break;
 
 		case "insertcategory":
-			if (!$userprivileges[managefaqcategories])  {
-				print "You are not permitted to access this page !<BR>\n";
+			if (!$userprivileges['managefaqcategories'])  {
+				print "You are not permitted to access this page !<br>\n";
 				break;
 			}
 
-			$required = array("name", "description");
-			while (list($key,$varname)=each($required))
-				$nbrerrors += isempty($varname,$$varname);
-
-			$notags = array("name");
-			while (list($key,$varname)=each($notags))
-				$nbrerrors += containtag($varname,$$varname);
-
-			if ($nbrerrors)
+			$input = validateinput($_POST, $faq_categories_fields_def, array('name', 'description'));
+			if (!$input)
 				break;
 
-			$query  = "insert into faqcategories(name,description)";
-			$query .= " values('$name','$description')";
+			$query  = "insert into faqcategories(name, description)";
+			$query .= " values('{$input['name']}','{$input['description']}')";
 
 			pg_exec($DBconnection, $query)
 				or die ("Could not execute query !");
@@ -309,172 +311,181 @@
 				or die ("Could not execute query !");
 			$id = pg_result($result, 0, "id");
 
-			$query  = "update faqcategories set sorted=$id where id=$id";
+			$query = "update faqcategories set sorted=$id where id=$id";
 			pg_exec($DBconnection, $query)
 				or die ("Could not execute query !");
 
-			print "Category added !<BR>\n";
-			print "<BR>\n";
-			print "<A href=\"$PHP_SELF\">back</A>\n";
+			echo <<<EOT
+Category added !<br>
+<br>
+<a href="{$_SERVER['PHP_SELF']}">back</a>
+
+EOT;
 			break;
 
 		case "updatecategory":
-			if (!$userprivileges[managefaqcategories])  {
-				print "You are not permitted to access this page !<BR>\n";
+			if (!$userprivileges['managefaqcategories'])  {
+				print "You are not permitted to access this page !<br>\n";
 				break;
 			}
 
-			if ($id=="") {
-				print "Invalid category !<BR>\n";
+			$input = validateinput($_GET, $faq_categories_fields_def, array('id'));
+			if (!$input)
 				break;
-			}
+				
+			$id = $input['id'];
 
-			$required = array("name", "description", "sorted");
-			while (list($key,$varname)=each($required))
-				$nbrerrors += isempty($varname,$$varname);
-
-			$notags = array("name", "sorted");
-			while (list($key,$varname)=each($notags))
-				$nbrerrors += containtag($varname,$$varname);
-
-			if ($nbrerrors)
+			$input = validateinput($_POST, $faq_categories_fields_def, array('name', 'description', 'sorted'));
+			if (!$input)
 				break;
 
-			$query  = "update faqcategories set name='$name', description='$description', sorted=$sorted where id=$id";
+			$query = "update faqcategories set name='{$input['name']}', description='{$input['description']}', sorted={$input['sorted']} where id=$id";
 			pg_exec($DBconnection, $query)
 				or die ("Could not execute query !");
 
-			print "<I>Updated !</I><BR>\n";
+			print "<i>Updated !</i><br>\n";
 
 		case "editcategory":
-			if (!$userprivileges[managefaqcategories])  {
-				print "You are not permitted to access this page !<BR>\n";
+			if (!$userprivileges['managefaqcategories'])  {
+				print "You are not permitted to access this page !<br>\n";
 				break;
 			}
 
-			if ($id=="") {
-				print "Invalid category !<BR>\n";
+			$input = validateinput($_GET, $faq_categories_fields_def, array('id'));
+			if (!$input)
 				break;
-			}
 
-			$query = "select * from faqcategories where id=$id";
+			$query = "select * from faqcategories where id={$input['id']}";
 			$result = pg_exec($DBconnection, $query)
 				or die ("Could not execute query !");
 			$row = pg_fetch_array($result, 0, PGSQL_ASSOC);
 
-			print "<FORM method=post action=\"$PHP_SELF?action=updatecategory&amp;id=$id\">\n";
-			print "<P>name<BR><INPUT type=text name=name value=\"$row[name]\" size=50 maxlength=20></P>\n";
-			print "<P>description<BR><INPUT type=text name=description value=\"$row[description]\" size=50 maxlength=255></P>\n";
-			print "<P>Sorted at: <INPUT type=text name=sorted value=\"$row[sorted]\" size=8 maxlength=8></P>\n";
-			print "<P><INPUT type=submit value=Submit></P>\n";
-			print "</FORM>\n";
-			print "<A href=\"$PHP_SELF\">back</A>\n";
+			echo <<<EOT
+<form method="post" action="{$_SERVER['PHP_SELF']}?action=updatecategory&amp;id={$input['id']}">
+<p>name<br><input type="text" name="name" value="{$row['name']}" size="50" maxlength="20"></p>
+<p>description<br><input type="text" name="description" value="{$row['description']}" size="50" maxlength="255"></p>
+<p>Sorted at: <input type="text" name="sorted" value="{$row['sorted']}" size="8" maxlength="8"></p>
+<p><input type="submit" value="Submit"></p>
+</form>
+<a href="{$_SERVER['PHP_SELF']}">back</a>
+
+EOT;
 			break;
 
 		case "removecategory":
-			if (!$userprivileges[managefaqcategories]) {
-				print "You are not permitted to access this page !<BR>\n";
+			if (!$userprivileges['managefaqcategories']) {
+				print "You are not permitted to access this page !<br>\n";
 				break;
 			}
 
-			if ($id=="") {
-				print "Invalid category !<BR>\n";
+			$input = validateinput($_GET, $faq_categories_fields_def, array('id'));
+			if (!$input)
 				break;
-			}
 
-			$query = "select name from faqcategories where id=$id";
+			$query = "select name from faqcategories where id={$input['id']}";
 			$result = pg_exec($DBconnection, $query)
 				or die ("Could not execute query !");
 			$name = pg_result($result, 0, "name");
+	
+			echo <<<EOT
+Are you sure you want to delete the $name category ? (this will delete all entries within this category)<br>
+<br>
+<table>
+<tr>
+<td>
+<form method="post" action="{$_SERVER['PHP_SELF']}?action=deletecategory&amp;id={$input['id']}">
+<input type="submit" value="delete">
+</form
+</td>
+<td
+<form method="post" action="{$_SERVER['PHP_SELF']}">
+<input type="submit" value="cancel">
+</form>
+</td>
+</tr>
+</table>
 
-			print "Are you sure you want to delete the $name category ? (this will delete all entries within this category)<BR>\n";
-			print "<BR>\n";
-			print "<TABLE>\n";
-			print "<TR>\n";
-			print "<TD>";
-			print "<FORM method=post action=\"$PHP_SELF?action=deletecategory&amp;id=$id\">";
-			print "<INPUT type=submit value=delete>";
-			print "</FORM>";
-			print "</TD>\n";
-			print "<TD>";
-			print "<FORM method=post action=\"$PHP_SELF\">";
-			print "<INPUT type=submit value=cancel>";
-			print "</FORM>";
-			print "</TD>\n";
-			print "</TR>\n";
-			print "</TABLE>\n";
+EOT;
 			break;
 
 		case "deletecategory":
-			if (!$userprivileges[managefaqcategories])  {
-				print "You are not permitted to access this page !<BR>\n";
+			if (!$userprivileges['managefaqcategories'])  {
+				print "You are not permitted to access this page !<br>\n";
 				break;
 			}
 
-			if ($id=="") {
-				print "Invalid category !<BR>\n";
+			$input = validateinput($_GET, $faq_categories_fields_def, array('id'));
+			if (!$input)
 				break;
-			}
 
 			//--- delete all entries in that category ---//
 
-			$query = "delete from faqentries where category=$id";
+			$query = "delete from faqentries where category={$input['id']}";
 			pg_exec($DBconnection, $query)
 				or die ("Could not execute query !");
 
 			//--- remove category from the database ---//
 
-			$query = "delete from faqcategories where id=$id";
+			$query = "delete from faqcategories where id={$input['id']}";
 			pg_exec($DBconnection, $query)
 				or die ("Could not execute query !");
+			
+			echo <<<EOT
+Deleted !<br>
+<br>
+<a href="{$_SERVER['PHP_SELF']}">back</a>
 
-			print "Deleted !<BR>\n";
-			print "<BR>\n";
-			print "<A href=\"$PHP_SELF\">back</A>\n";
+EOT;
 			break;
 
 		default:
-			//--- fetch categories list ---//
+			//--- fetch category list ---//
 
 			$query  = "select * from faqcategories order by sorted";
 			$result = pg_exec($DBconnection, $query)
 				or die ("Could not execute query !");
 
-			$number = pg_numrows($result);
-
 			//--- print categories ---//
 
-			print "<TABLE cellpadding=5>\n";
+			print "<table cellpadding=\"5\">\n";
 
-			$i=0;
-			while ($i < $number) {
-				$row = pg_fetch_array($result, $i, PGSQL_ASSOC);
+			while (($row = pg_fetch_array($result, NULL, PGSQL_ASSOC)) != FALSE) {
+				if ($userprivileges['managefaqcategories'])
+					$actions = <<<EOT
+<td>{$row['sorted']}</td>
+<td><a href="{$_SERVER['PHP_SELF']}?action=editcategory&amp;id={$row['id']}">edit</a></td>
+<td><a href="{$_SERVER['PHP_SELF']}?action=removecategory&amp;id={$row['id']}">delete</a></td>
 
-				print "<TR>";
-				print "<TD><B><A href=\"$PHP_SELF?action=listentries&amp;category=$row[id]\">$row[name]</A></B></TD>";
-				print "<TD>$row[description]</TD>";
-				if ($userprivileges[managefaqcategories]) {
-					print "<TD>$row[sorted]</TD>";
-					print "<TD><A href=\"$PHP_SELF?action=editcategory&amp;id=$row[id]\">edit</A></TD>";
-					print "<TD><A href=\"$PHP_SELF?action=removecategory&amp;id=$row[id]\">delete</A></TD>";
-				}
-				print "</TR>\n";
+EOT;
+				else
+					$actions = "";
 
-				$i++;
+				echo <<<EOT
+<tr>
+<td><b><a href="{$_SERVER['PHP_SELF']}?action=listentries&amp;category={$row['id']}">{$row['name']}</a></b></td>
+<td>{$row['description']}</td>
+$actions
+</tr>
+
+EOT;
 			}
 
-			print "</TABLE>\n";
+			print "</table>\n";
 
 			//--- add the add category button ---//
 
-			if ($userprivileges[managefaqcategories]) { 
-				print "<FORM method=post action=\"$PHP_SELF?action=addcategory\">\n";
-				print "<INPUT type=submit value=\"add category\">\n";
-				print "</FORM>\n";
-			}
+			if ($userprivileges['managefaqcategories']) 
+				echo <<<EOT
+<form method="post" action="{$_SERVER['PHP_SELF']}?action=addcategory">
+<input type="submit" value="add category">
+</form>
 
-			print "<HR width=\"100%\">\n";
-			print "<A href=\"index.php\">back</A>\n";
+EOT;
+			echo <<<EOT
+<hr width="100%">
+<a href="index.php">back</a>
+
+EOT;
 	}
 
 	CloseContent();
