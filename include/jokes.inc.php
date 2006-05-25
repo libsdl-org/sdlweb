@@ -1,6 +1,6 @@
 <?PHP /*
-<H1><FONT color="#414141">Joke of the Week:</FONT></H1>
-<BLOCKQUOTE>
+<h1><font color="#414141">Joke of the Week:</font></h1>
+<blockquote>
 <p>
 It's no joke:
 <a href="http://www.1112.net/lastpage.html"
@@ -38,6 +38,6 @@ window, gave them a big smile and held up the Hawaiian good luck sign as
 I drove away. Praise the Lord for such wonderful folks.
 </p>
             </strong></font></p>
-</STRONG></FONT></P>
-</BLOCKQUOTE>
+</strong></font></p>
+</blockquote>
 */ ?>

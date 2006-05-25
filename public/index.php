@@ -7,30 +7,30 @@
 		$action = "showloginform";
 
 	if (!$DBconnection)
-		echo "<P class='warning'>Warning: Could not connect to the database ! All dynamic features of the site are unavailable!</P>\n";
+		echo "<p class='warning'>Warning: Could not connect to the database ! All dynamic features of the site are unavailable!</p>\n";
 
 	//---------------------------------------------------------------------------------------------
 	switch ($action) {
 		case "showloginform":
 			if ($wrong_login_or_password)
-				echo "<P class='warning'>Wrong Login / Password!</P>\n";
+				echo "<p class='warning'>Wrong Login / Password!</p>\n";
 
 			// not logged in yet -- getting user login & pass
 			if ($userid == 0) { 	
 				echo <<<EOT
-					<FORM method=post action="$PHP_SELF?action=login">
-					<P>Login<BR><INPUT type=text name=userlogin size=16 maxlength=20></P>
-					<P>Password<BR><INPUT type=password name=userpassword size=16 maxlength=50></P>
-					<P><INPUT type=checkbox name=userpersist value=yes>remember me</P>
-					<INPUT type=submit value=login>
-					</FORM>
-					<A href="users.php?action=createuser">Create new Account</A>
+					<form method="post" action="{$_SERVER['PHP_SELF']}?action=login">
+					<p>Login<br><input type="text" name="userlogin" size="16" maxlength="20"></p>
+					<p>Password<br><input type="password" name="userpassword" size="16" maxlength="50"></p>
+					<p><input type="checkbox" name="userpersist" value="yes">remember me</p>
+					<input type="submit" value="login">
+					</form>
+					<a href="users.php?action=createuser">Create new Account</a>
 
 EOT;
 			} else {
 				echo <<<EOT
-					<P class="warning">You are already logged in as $userlogin</P>
-					<P><A href="index.php">Back to main page.</A></P>
+					<p class="warning">You are already logged in as $userlogin</p>
+					<p><a href="index.php">Back to main page.</a></p>
 
 EOT;
 			}

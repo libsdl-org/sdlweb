@@ -4,205 +4,232 @@
 
 	BeginContent("Users");
 
-	switch ($action) 
-	{
+	$fields_def = array(
+		'id'=>array('type'=>'integer', 'required'=>True),
+		'groupid'=>array('type'=>'integer', 'required'=>True),
+		'login'=>array('type'=>'char', 'size'=>20, 'required'=>True),
+# pass 1 and pass2 need not be validated since they'll go trough md5 before 
+# being entered in the database. We don't even need to quotes them.
+#		'pass1'=>array('type'=>'char', 'size'=>32, 'required'=>True),
+#		'pass2'=>array('type'=>'char', 'size'=>32, 'required'=>True),
+#		'nickname'=>array('type'=>'char', 'size'=>30, 'required'=>True),
+		'name'=>array('type'=>'char', 'size'=>40, 'required'=>True),
+		'email'=>array('type'=>'char', 'size'=>64, 'required'=>True),
+	);
+
+	switch ($action) {
 		case "createuser":
-			print "<FORM method=post action=\"$PHP_SELF?action=insertuser\">\n";
+			echo <<<EOT
+<form method="post" action="{$_SERVER['PHP_SELF']}?action=insertuser">
+<i>All fields are required</i><br>
+<p>Login (case sensitive)<br><input type="text" name="login" size="50" maxlength="100"></p>
+<p>Password<br><input type="password" name="pass1" size="50" maxlength="100"></p>
+<p>Repeat password for confirmation<br><input type="password" name="pass2" size="50" maxlength="100"></p>
+<p>Name<br><input type="text" value="" name="name" size="50" maxlength="100"></p>
+<p>Email<br><input type="text" value="" name="email" size="50" maxlength="100"></p>
+<p><input type="submit" value="Submit"></p>
+</form>
+<p>Note that the information submitted here is kept completely private.</p>
 
-			print "<I>All fields are required</I><BR>\n";
-			print "<P>Login (case sensitive)<BR><INPUT type=text name=newlogin size=50 maxlength=100></P>\n";
-			print "<P>Password<BR><INPUT type=password name=newpass1 size=50 maxlength=100></P>\n";
-			print "<P>Password confirmation<BR><INPUT type=password name=newpass2 size=50 maxlength=100></P>\n";
-			print "<P>Name<BR><INPUT type=text value=\"\" name=newname size=50 maxlength=100></P>\n";
-			print "<P>Email<BR><INPUT type=text value=\"\" name=newemail size=50 maxlength=100></P>\n";
-			print "<P><INPUT type=submit value=Submit></P>\n";
-
-			print "</FORM>\n";
-			print "<P>Note that the information submitted here is kept completely private.</P>";
+EOT;
 			break;
 
 		case "insertuser":
-			//--- check his data is valid ---//
+			# --- check user input ---
 
-			if (($newlogin=="") ||
-			    ($newpass1=="") ||
-			    ($newpass2=="") ||
-			    ($newname=="") ||
-			    ($newemail=="") ) {
-				print "You are missing required fields!<BR>\n";
+			$input = validateinput($_POST, $fields_def,
+				array('login', 'name', 'email'));
+			if (!$input)
+				break;
+
+			if ($_POST['pass1'] != $_POST['pass2']) {
+				print "Your confirmation password is not the same than your password !<br>\n";
 				break;
 			}
 
-			if (($newlogin!=strip_tags($newlogin)) ||
-				($newnickname!=strip_tags($newnickname)) ||
-				($newname!=strip_tags($newname)) ||
-				($newemail!=strip_tags($newemail))) {
-				print "You may not use HTML nor PHP tags in any field !<BR>\n";
-				break;
-			}
+			# --- check the login is not already used by someone else ---
 
-			if ($newpass1!=$newpass2) {
-				print "Your confirmation password is not the same than your password !<BR>\n";
-				break;
-			}
-
-			//--- check his login is not already used by someone else ---//
-
-			$query = "select login from users where login='$newlogin'";
+			$query = "select login from users where login='{$input['login']}'";
 			$result = pg_exec($DBconnection, $query)
 				or die ("Could not execute query !");
 
-			if ( pg_numrows($result) != 0) {
-				print "That login is used by someone else. Please choose another one...<BR>\n";
+			if (pg_numrows($result) != 0) {
+				print "That login is used by someone else. Please choose another one...<br>\n";
 				break;
 			}
 
-			//--- insert him in the user table ---//
+			# --- insert him in the user table ---
 
-			$newpassword = md5($newpass1);
+			$password = md5($_POST['pass1']);
 
 			$query = "insert into users (groupid,login,password,nickname,name,email)
-				values(2,'$newlogin','$newpassword','$newnickname','$newname','$newemail')";
+				values(2,'{$input['login']}','$password','','{$input['name']}','{$input['email']}')";
 			pg_exec($DBconnection, $query)
 				or die ("Could not execute query !");
 
-			//--- mail user ---//
+			# --- mail user ---
 
-			$mail_login = $newlogin;
-			$mail_password = $newpass1;
+			$mail_login = $input['login'];
+			$mail_password = $_POST['pass1'];
 			include("../include/mail-newuser.inc.php");
-			mail("$newemail", $subject, $body, "from: $from");
+			mail($input['email'], $subject, $body, "from: $from");
 
-			//--- mail webmaster ---//
+			# --- mail webmaster ---
 
-			mail($webadmin, "New user registered on libsdl.org !", "login: $newlogin\nnick: $newnickname\nname: $newname\nemail: $newemail\n", "from: $webadmin");
+			mail(WEBADMIN, "New user registered on libsdl.org !", "login: {$input['login']}\nname: {$input['name']}\nemail: {$input['email']}\n", "from: ".WEBADMIN);
 
-			print "You are now registered... Click <A href=\"index.php?action=showloginform\">here</A> to login !\n";
+			print "You are now registered... Click <a href=\"index.php?action=showloginform\">here</a> to login !\n";
 			break;
 
 		case "changepwd":
-
-			if (!$userprivileges[manageusers])
-				if  (($userid!=$id) || ($userid<1)) {
-					print "You are not permitted to access this page !<BR>\n";
+			$input = validateinput($_GET, $fields_def, array('id'));
+			if (!$input)
+				break;
+				
+			if (!$userprivileges['manageusers'])
+				if (($userid != $input['id']) || ($userid < 1)) {
+					print "You are not permitted to access this page !<br>\n";
 					break;
 				}
 
-			//--- get his login ---//
+			# --- get his login ---
 
-			$query = "select login from users where id=$id";
+			$query = "select login from users where id={$input['id']}";
 			$result = pg_exec($DBconnection, $query)
 				or die ("Could not execute query !");
-			$login = pg_result($result,0,"login");
+			$login = pg_result($result, 0, "login");
 
-			print "<FORM method=post action=\"$PHP_SELF?action=updatepwd&amp;id=$id\">\n";
+			$oldpasswordline = !$userprivileges['manageusers'] ? 
+				'<p>old password<br><input type="password" name="oldpass" size="25" maxlength="100"></p>' :
+				'';
+			echo <<<EOT
+<form method="post" action="{$_SERVER['PHP_SELF']}?action=updatepwd&amp;id={$input['id']}">
+<p><i>change password for $login</i></p>
+$oldpasswordline
+<p>new password<br><input type="password" name="pass1" size="25" maxlength="100"></p>
+<p>new password<br><input type="password" name="pass2" size="25" maxlength="100"></p>
+<p><input type="submit" value="Submit"></p>
+</form>
+<a href="users.php?action=edituser&amp;id={$input['id']}">back</a>
 
-			print "<P><I>change password for $login</I></P>\n";
-
-			if (!$userprivileges[manageusers])
-				print "<P>old password<BR><INPUT type=password name=oldpass size=25 maxlength=100></P>\n";
-
-			print "<P>new password<BR><INPUT type=password name=newpass1 size=25 maxlength=100></P>\n";
-			print "<P>new password<BR><INPUT type=password name=newpass2 size=25 maxlength=100></P>\n";
-			print "<P><INPUT type=submit value=Submit></P>\n";
-
-			print "</FORM>\n";
-			print "<A href=\"users.php?action=edituser&amp;id=$id\">back</A>";
+EOT;
 			break;
 
 		case "updatepwd": 
-			// Note that some variables are initialized in login.inc
+			$input = validateinput($_GET, $fields_def, array('id'));
+			if (!$input)
+				break;
+			
+			$id = $input['id'];
+				
+			# Note that some variables are initialized in login.inc
 
-			//--- check everything is valid ---//
+			# --- check everything is valid ---
 
-			if (!$userprivileges[manageusers]) {
-				if (($userid!=$id) || ($userid<1)) {
-					print "You are not permitted to access this page !<BR>\n";
+			if (!$userprivileges['manageusers']) {
+				if (($userid != $input['id']) || ($userid < 1)) {
+					print "You are not permitted to access this page !<br>\n";
 					break;
 				}
 
-				if ($oldpassword!=$userpassword) {
-					print "Wrong password !<BR>\n";
+				if ($oldpassword != $userpassword) {
+					print "Wrong password !<br>\n";
 					break;
 				}
 			}
 
-			if ($newpass1=="") {
-				print "You may not use an empty password !<BR>\n";
+			if ($_POST['pass1'] == "") {
+				print "You may not use an empty password !<br>\n";
 				break;
 			}
 
-			if ($newpass1!=$newpass2) {
-				print "Your confirmation password is not the same than your password !<BR>\n";
+			if ($_POST['pass1'] != $_POST['pass2']) {
+				print "Your confirmation password is not the same than your password !<br>\n";
 				break;
 			}
 
-			//--- update his password ---//
+			# --- update his password ---
 
 			$query = "update users set password='$newpassword' where id=$id";
 			pg_exec($DBconnection, $query)
 				or die ("Could not execute query !");
 
-			//--- mail user ---//
+			# --- mail user ---
 
-			//--- get his email address ---//
+			# --- get his email address ---
 
 			$query = "select login, email from users where id=$id";
 			$result = pg_exec($DBconnection, $query)
 				or die ("Could not execute query !");
-			$login = pg_result($result,0,"login");
-			$email = pg_result($result,0,"email");
+			$login = pg_result($result, 0, 'login');
+			$email = pg_result($result, 0, 'email');
 
-			//--- send the mail ---//
+			# --- send the mail ---
 
 			$mail_login = $login;
-			$mail_password = $newpass1;
+			$mail_password = $_POST['pass1'];
 			include("../include/mail-changedpassword.inc.php");
-			mail("$email", $subject, $body, "from: $from");
+			mail($email, $subject, $body, "from: $from");
 
-			print "<I>Updated !</I><BR>\n";
+			echo <<<EOT
+<i>Updated !</i><br>
+<br>
+<a href="users.php?action=edituser&amp;id=$id">back</a>
 
-			print "<BR>\n";
-			print "<A href=\"users.php?action=edituser&amp;id=$id\">back</A>";
+EOT;
 			break;
 
 		case "updateuser":
-			if (!$userprivileges[manageusers])
-				if  (($userid!=$id) || ($userid<1)) {
-					print "You are not permitted to access this page !<BR>\n";
+			$input = validateinput($_GET, $fields_def, array('id'));
+			if (!$input)
+				break;
+			
+			$id = $input['id'];
+			
+			if (!$userprivileges['manageusers'])
+				if (($userid != $id) || ($userid < 1)) {
+					print "You are not permitted to access this page !<br>\n";
 					break;
 				}
 
-			//--- check his data is valid ---//
+			# --- check his data is valid ---
 
-			if (($newlogin!=strip_tags($newlogin)) ||
-				($newnickname!=strip_tags($newnickname)) ||
-				($newname!=strip_tags($newname)) ||
-				($newemail!=strip_tags($newemail))) {
-				print "You may not use HTML nor PHP tags in any field !<BR>\n";
+			$field_list = array('name', 'email');
+			if ($userprivileges['manageusers'])
+				$field_list[] = 'groupid';
+				
+			$input = validateinput($_POST, $fields_def, $field_list);
+			if (!$input)
 				break;
-			}
+				
+			# --- update his infos ---
 
-			//--- update his infos ---//
-
-			if ($userprivileges[manageusers])
-				$query = "update users set groupid=$newgroup, nickname='$newnickname', name='$newname', email='$newemail' where id=$id";
+			if ($userprivileges['manageusers'])
+				$query = "update users set groupid={$input['groupid']}, name='{$input['name']}', email='{$input['email']}' where id=$id";
 			else
-				$query = "update users set nickname='$newnickname', name='$newname', email='$newemail' where id=$id";
+				$query = "update users set name='{$input['name']}', email='{$input['email']}' where id=$id";
 
 			pg_exec($DBconnection, $query)
 				or die ("Could not execute query !");
 
-			print "<I>Updated !</I><BR>\n";
+			print "<i>Updated !</i><br>\n";
+			
+			# no break ! after updating, we go back the the edit screen
 
 		case "edituser":
-			if (!$userprivileges[manageusers])
-				if  (($userid!=$id) || ($userid<1)) {
-					print "You are not permitted to access this page !<BR>\n";
+			$input = validateinput($_GET, $fields_def, array('id'));
+			if (!$input)
+				break;
+			
+			$id = $input['id'];
+			
+			if (!$userprivileges['manageusers'])
+				if (($userid != $id) || ($userid < 1)) {
+					print "You are not permitted to access this page !<br>\n";
 					break;
 				}
 
-			// fetch his current infos
+			# fetch his current infos
 
 			$query = "select * from users where id=$id";
 			$result = pg_exec($DBconnection, $query)
@@ -210,60 +237,65 @@
 
 			$row = pg_fetch_array($result, 0, PGSQL_ASSOC);
 
-			// print his infos
+			# compute some variable interface elements
 
-			print "<P><B>login</B><BR><I>$row[login]</I></P>\n";
-
-			print "<FORM method=post action=\"$PHP_SELF?action=changepwd&amp;id=$id\">\n";
-			print "<P>password<BR><INPUT type=submit value=change></P>\n";
-			print "</FORM>\n";
-
-			print "<FORM method=post action=\"$PHP_SELF?action=updateuser&amp;id=$id\">\n";
-			print "<P>name<BR><INPUT type=text value=\"$row[name]\" name=newname size=25 maxlength=100></P>\n";
-			print "<P>email<BR><INPUT type=text value=\"$row[email]\" name=newemail size=25 maxlength=100></P>\n";
-			if ($userprivileges[manageusers]) {
-				$groupid = $row[groupid];
-
-				print "<P>group<BR><SELECT name=newgroup>";
+			$group_sel = '';
+			$delete_account_form = '';
+			
+			if ($userprivileges['manageusers']) {
+				$groupid = $row['groupid'];
 
 				$query = "select id, name from groups where id>=0";
 				$result = pg_exec($DBconnection, $query)
 					or die ("Could not execute query !");
-				$number = pg_numrows($result);
 
-				$i=0;
-				while ($i < $number) {
-					$row = pg_fetch_array($result, $i, PGSQL_ASSOC);
-					if ($row[id]==$groupid)
-						print "<OPTION selected value=$row[id]>$row[name]";
-					else
-						print "<OPTION value=$row[id]>$row[name]";
+				$group_sel .= '<p>group<br><select name="groupid">';
+				while (($group_row = pg_fetch_array($result, NULL, PGSQL_ASSOC)) != FALSE)
+					$group_sel .= OPTIONSTR($group_row['id'], $groupid, $group_row['name']);
+				$group_sel .= "</select></p>\n";
+			} else {
+				$delete_account_form = <<<EOT
+<form method="post" action="{$_SERVER['PHP_SELF']}?action=removeuser&amp;id=$id">
+<input type="submit" value="delete account">
+</form>
 
-					$i++;
-				}
-
-				print "</SELECT></P>\n";
-			}
-			print "<P><INPUT type=submit value=submit></P>\n";
-
-			print "</FORM>\n";
-
-			if (!$userprivileges[manageusers]) {
-				print "<FORM method=post action=\"$PHP_SELF?action=removeuser&amp;id=$id\">\n";
-				print "<INPUT type=submit value=\"delete account\">\n";
-				print "</FORM>\n";
+EOT;
 			}
 
-			if ($userid!=$id) 
-				print "<A href=\"users.php\">back</A>";
-			else
-				print "<A href=\"index.php\">back</A>";
+			$back_dest = ($userid != $id) ? "users.php" : "index.php";
+
+			# display the form(s)
+
+			echo <<<EOT
+<p><b>login</b><br><i>{$row['login']}</i></p>
+
+<form method="post" action="{$_SERVER['PHP_SELF']}?action=changepwd&amp;id=$id">
+<p>password<br><input type="submit" value="change"></p>
+</form>
+
+<form method="post" action="{$_SERVER['PHP_SELF']}?action=updateuser&amp;id=$id">
+<p>name<br><input type="text" value="{$row['name']}" name="name" size="25" maxlength="100"></p>
+<p>email<br><input type="text" value="{$row['email']}" name="email" size="25" maxlength="100"></p>
+$group_sel
+<p><input type="submit" value="submit"></p>
+</form>
+
+$delete_account_form
+
+<a href="$back_dest">back</a>
+EOT;
 			break;
 
 		case "removeuser":
-			if (!$userprivileges[manageusers])
-				if  (($userid!=$id) || ($userid<=0)) {
-					print "You are not permitted to access this page !<BR>\n";
+			$input = validateinput($_GET, $fields_def, array('id'));
+			if (!$input)
+				break;
+			
+			$id = $input['id'];
+			
+			if (!$userprivileges['manageusers'])
+				if (($userid != $id) || ($userid <= 0)) {
+					print "You are not permitted to access this page !<br>\n";
 					break;
 				}
 
@@ -272,71 +304,78 @@
 				or die ("Could not execute query !");
 			$login = pg_result($result, 0, "login");
 
-			print "Are you sure you want to delete $login account?<BR>\n";
-			print "<BR>\n";
-			print "<TABLE>\n";
-			print "<TR>\n";
-			print "<TD>";
-			print "<FORM method=post action=\"$PHP_SELF?action=deleteuser&amp;id=$id\">";
-			print "<INPUT type=submit value=delete>";
-			print "</FORM>";
-			print "</TD>\n";
-			print "<TD>";
+			# if the user himself tried to delete his account, go back to
+			# his account edit screen, if it's someone else, go back to the
+			# user list
+			$cancel_action = ($userid == $id) ? "?action=edituser&amp;id=$id" : "";
 
-			if ($userid!=$id) 
-				print "<FORM method=post action=\"users.php\">";
-			else
-				print "<FORM method=post action=\"users.php?action=edituser&amp;id=$id\">";
-
-			print "<INPUT type=submit value=cancel>";
-			print "</FORM>";
-			print "</TD>\n";
-			print "</TR>\n";
-			print "</TABLE>\n";
+			echo <<<EOT
+Are you sure you want to delete $login account?<br>
+<br>
+<table>
+<tr>
+<td>
+<form method="post" action="{$_SERVER['PHP_SELF']}?action=deleteuser&amp;id=$id">
+<input type="submit" value="delete">
+</form>
+</td>
+<td>
+<form method="post" action="users.php$cancel_action">
+<input type="submit" value="cancel">
+</form>
+</td>
+</tr>
+</table>
+EOT;
 			break;
 
 		case "deleteuser":
+			$input = validateinput($_GET, $fields_def, array('id'));
+			if (!$input)
+				break;
+			
+			$id = $input['id'];
 
-			if (!$userprivileges[manageusers])
-				if  (($userid!=$id) || ($userid<1)) {
-					print "You are not permitted to access this page !<BR>\n";
+			if (!$userprivileges['manageusers'])
+				if (($userid != $id) || ($userid < 1)) {
+					print "You are not permitted to access this page !<br>\n";
 					break;
 				}
 
-			//--- set his news items' author to the special 'deleted' user ---//
+			# --- set his news items' author to the special 'deleted' user ---
 
 			$query = "update news set userid=-1 where userid=$id";
 			pg_exec($DBconnection, $query)
 				or die ("Could not execute query !");
 
-			//--- set his projects'  to the special 'deleted' user ---//
+			# --- set his projects' maintainer to the special 'deleted' user ---
 
 			$query = "update projects set userid=-1 where userid=$id";
 			pg_exec($DBconnection, $query)
 				or die ("Could not execute query !");
 
-			//--- remove him from user list ---//
+			# --- remove him from user list ---
 
 			$query = "delete from users where id=$id";
 			pg_exec($DBconnection, $query)
 				or die ("Could not execute query !");
-
-			print "Deleted !<BR>\n";
-			print "<BR>\n";
-			if ($userid!=$id) 
-				print "<A href=\"users.php\">back</A>";
-			else
-				print "<A href=\"index.php\">back</A>";
+			
+			$back_dest = ($userid != $id) ? "users.php" : "index.php";
+			
+			echo <<<EOT
+Deleted !<br>
+<br>
+<a href="$back_dest">back</a>
+EOT;
 			break;
 
-		default: // list users
-			if (!$userprivileges[manageusers])
-				if  (($userid!=$id) || ($userid<1)) {
-					print "You are not permitted to access this page !<BR>\n";
-					break;
-				}
+		default: # list users
+			if (!$userprivileges['manageusers']) {
+				print "You are not permitted to access this page !<br>\n";
+				break;
+			}
 
-			//--- fetch users infos ---//
+			# --- fetch users infos ---
 
 			$query  = "select users.id as id, login, nickname, users.name as username, email, groups.name as groupname ";
 			$query .= "from users,groups ";
@@ -344,20 +383,22 @@
 			$result = pg_exec($DBconnection, $query)
 				or die ("Could not execute query !");
 
-			$number = pg_numrows($result);
+			# --- print users infos ---
 
-			//--- print users infos ---//
+			echo '<table cellpadding="4">', "\n";
 
-			print "<TABLE cellpadding=4>\n";
+			while (($row = pg_fetch_array($result, NULL, PGSQL_ASSOC)) != FALSE)
+				echo <<<EOT
+<tr>
+	<td>{$row['username']}</td>
+	<td><a href="mailto:{$row['email']}">{$row['email']}</a></td>
+	<td>{$row['groupname']}</td>
+	<td><a href="{$_SERVER['PHP_SELF']}?action=edituser&amp;id={$row['id']}">edit</a></td>
+	<td><a href="{$_SERVER['PHP_SELF']}?action=removeuser&amp;id={$row['id']}">delete</a></td>
+</tr>
+EOT;
 
-			$i=0;
-			while ($i < $number) {
-				$row = pg_fetch_array($result, $i, PGSQL_ASSOC);
-				print "<TD>$row[username]</TD><TD><A href=\"mailto:$row[email]\">$row[email]</A></TD><TD>$row[groupname]</TD><TD><A href=\"$PHP_SELF?action=edituser&amp;id=$row[id]\">edit</A></TD><TD><A href=\"$PHP_SELF?action=removeuser&amp;id=$row[id]\">delete</A></TD></TR>\n";
-				$i++;
-			}
-
-			print "</TABLE>\n";
+			print "</table>\n";
 	}
 
 	CloseContent();
