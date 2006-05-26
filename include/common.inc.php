@@ -62,6 +62,8 @@ EOT;
 			$allowed_tags = $field_def['allowed_tags'];
 			if ($value != strip_tags($value, $allowed_tags)) {
 				print "You are using unallowed tags in the $name field !<br>\n";
+				if ($allowed_tags != "")
+					print "<p>The following tags are allowed: ".htmlspecialchars($allowed_tags)."</p>\n";
 				return False;
 			} else {
 				# We do not need to go through htmlspecialchars since 

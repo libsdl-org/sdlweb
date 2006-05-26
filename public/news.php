@@ -17,7 +17,7 @@ $fields_def = array(
 	'id'=>array('type'=>'integer', 'required'=>True),
 //	'userid'=>array('type'=>'integer', 'required'=>True),
 //	'timestamp'=>TIMESTAMP , 'required'=>True),
-	'newstext'=>array('type'=>'char'),
+	'newstext'=>array('type'=>'char', 'allowed_tags'=>'<a><p><br><h3><h4><ul><li><strong>'),
 );
 
 $query_fields_def = array(
