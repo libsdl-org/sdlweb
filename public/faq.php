@@ -1,6 +1,5 @@
 <?PHP
 	include("../include/login.inc.php");
-	include("../include/common.inc.php");
 	if (!$printer_friendly)
 		include("header.inc.php");
 
