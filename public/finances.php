@@ -5,9 +5,9 @@
 <h1>SDL Finances</h1>
 
 <p class="intro">
-Mark Remollino, Ryan Cleven, Erik Yuzwa, and Karl-Christian Wolff-Ingham
-have made generous donations toward SDL development! (<a href="#note">*</a>)<br>
+Jacob Kolding has donated a GameCube to USB controller converter.<br>
 <!--
+have made generous donations toward SDL development! (<a href="#note">*</a>)<br>
 has made a generous donation toward SDL development! (<a href="#note">*</a>)<br>
 -->
 Thank you everybody for showing your support and furthering SDL!
@@ -234,11 +234,16 @@ You can also make a contribution using <a href="http://www.paypal.com">PayPal</a
     <td>VMware Workstation 5 Upgrade</td>
     <td><font color="red">$99.00</font></td>
     <td>$734.51</td>
+<tr><td>Expense:</td>
+    <td>May 24, 2006</td>
+    <td>MacBook Pro + RAM upgrade</td>
+    <td><font color="red">$2393.61</font></td>
+    <td><font color="red">-1659.10</font></td>
 <tr><td>Total:</td>
     <td></td>
     <td></td>
     <td></td>
-    <td>$833.51</td>
+    <td><font color="red">-1659.10</font></td>
 </tr>
 </table>
 
