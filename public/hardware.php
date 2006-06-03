@@ -14,7 +14,6 @@ Hardware donations are listed with credit on the
 
 <ul>
 <li> GP2X (need: medium)
-<li> MacBook (need: medium)
 <li> 64-bit Windows development system (need: low)
 </ul>
 
