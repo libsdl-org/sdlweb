@@ -15,6 +15,16 @@ MacOS, Windows, and Unix systems.
 </p>
 
 <p>
+SDL 1.2:
+<blockquote>
+<pre>
+svn checkout svn://libsdl.org/branches/SDL-1.2
+</pre>
+</blockquote>
+</p>
+
+<p>
+SDL 1.3 (<b>WARNING: UNDER CONSTRUCTION</b>):
 <blockquote>
 <pre>
 svn checkout svn://libsdl.org/trunk/SDL
@@ -42,10 +52,20 @@ There is a web interface to the subversion repository at:<br>
 
 <p><font color="#414141">
 Source snapshot for SDL 1.2 (Updated
-Sun May 21
+Mon Jul 10
 )</p>
 <blockquote>
 <a href="tmp/SDL-1.2.tar.gz">SDL-1.2.tar.gz</a><br/>
+<a href="tmp/SDL-1.2.zip">SDL-1.2.zip</a>
+</blockquote>
+
+<p><font color="#414141">
+Source snapshot for SDL 1.3 (Updated
+Mon Jul 10
+)</p>
+<b>WARNING: UNDER CONSTRUCTION</b>
+<blockquote>
+<a href="tmp/SDL-1.3.tar.gz">SDL-1.3.tar.gz</a><br/>
 <a href="tmp/SDL-1.2.zip">SDL-1.2.zip</a>
 </blockquote>
 
