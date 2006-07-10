@@ -66,7 +66,7 @@ Mon Jul 10
 <b>WARNING: UNDER CONSTRUCTION</b>
 <blockquote>
 <a href="tmp/SDL-1.3.tar.gz">SDL-1.3.tar.gz</a><br/>
-<a href="tmp/SDL-1.2.zip">SDL-1.2.zip</a>
+<a href="tmp/SDL-1.3.zip">SDL-1.3.zip</a>
 </blockquote>
 
 <strong>Note: These are not official releases and may be unstable!</strong>
