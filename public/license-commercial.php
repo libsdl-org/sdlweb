@@ -8,7 +8,7 @@
 
 <p>
 The Simple DirectMedia Layer library will be available under alternative
-commercial terms as of the release of SDL 1.3.
+commercial licensing terms as of the release of SDL 1.3.
 </p
 
 </blockquote>

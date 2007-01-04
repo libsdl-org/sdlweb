@@ -5,6 +5,12 @@
 <h1>Books relating to SDL</h1>
 
 <blockquote>
+     Erik Yuzwa - August 2006<br>
+     <b><a href="http://learncppbymakinggames.wazooinc.com/">Learn C++ by Making Games</a></b><br>
+     An introduction to C++, using it to develop games with SDL.
+</blockquote>
+
+<blockquote>
      Erik Yuzwa - December 2005<br>
      <b><a href="http://book.wazooinc.com/">Game Programming in C++ Start to Finish</a></b><br>
      An introduction to game programming using SDL and OpenGL on Windows.
