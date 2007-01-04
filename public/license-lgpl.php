@@ -41,7 +41,7 @@ You must also do <strong>one</strong> of the following:
 </ol>
 
 <p>
-If you include the SDL library in object form, you should also make
+If you include the SDL library in binary form, you should also make
 available the source code to the version you provide, including any
 customizations you have made.  If you link to a standard version of
 the library, simply referring to the SDL website is sufficient.

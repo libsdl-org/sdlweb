@@ -13,6 +13,12 @@ have contributed online tutorials on using various parts of SDL.
 <p><font color="#414141"><strong>
 <ul>
 <li>
+<a href="http://www.gamedev.net/reference/articles/article2249.asp"
+        >Direct3D 9.0 with SDL</a>
+<br>
+Covers: Using SDL with Direct3D for graphics
+</li>
+<li>
 <a href="http://www.meandmark.com/sdlopenglpart1.html"
         >SDL and OpenGL</a>
 <br>
@@ -25,7 +31,7 @@ Covers: Using SDL and OpenGL on Mac OS X
 Covers: Introduction to SDL in Spanish
 </li>
 <li>
-<a href="http://lazyfooproductions.com/SDL_tutorials/index.php"
+<a href="http://lazyfoo.net/SDL_tutorials/index.php"
         >Beginning Game Programming</a>
 <br>
 Covers: A series of tutorials on game concepts geared for SDL developers
