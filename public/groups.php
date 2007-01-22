@@ -86,7 +86,7 @@ EOT;
 				$query = "select * from groups where id=$id";
 				$result = mysql_query($query, $DBconnection)
 					or die ("Could not execute query !");
-				$row = mysql_fetch_array($result, 0, MYSQL_ASSOC);
+				$row = mysql_fetch_array($result, MYSQL_ASSOC);
 
 				//--- print the form ---//
 
@@ -216,7 +216,7 @@ EOT;
 
 				print "<table cellpadding=\"5\">\n";
 
-				while (($row = mysql_fetch_array($result, NULL, MYSQL_ASSOC)) != FALSE) {
+				while ($row = mysql_fetch_array($result, MYSQL_ASSOC)) {
 					if ($row['id'] > 2)
 						$removelink = "<a href=\"{$_SERVER['PHP_SELF']}?action=removegroup&amp;id={$row['id']}\">delete</a>";
 					else

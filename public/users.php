@@ -235,7 +235,7 @@ EOT;
 			$result = mysql_query($query, $DBconnection)
 				or die ("Could not execute query !");
 
-			$row = mysql_fetch_array($result, 0, MYSQL_ASSOC);
+			$row = mysql_fetch_array($result, MYSQL_ASSOC);
 
 			# compute some variable interface elements
 
@@ -250,7 +250,7 @@ EOT;
 					or die ("Could not execute query !");
 
 				$group_sel .= '<p>group<br><select name="groupid">';
-				while (($group_row = mysql_fetch_array($result, NULL, MYSQL_ASSOC)) != FALSE)
+				while ($group_row = mysql_fetch_array($result, MYSQL_ASSOC))
 					$group_sel .= OPTIONSTR($group_row['id'], $groupid, $group_row['name']);
 				$group_sel .= "</select></p>\n";
 			} else {
@@ -387,7 +387,7 @@ EOT;
 
 			echo '<table cellpadding="4">', "\n";
 
-			while (($row = mysql_fetch_array($result, NULL, MYSQL_ASSOC)) != FALSE)
+			while ($row = mysql_fetch_array($result, MYSQL_ASSOC))
 				echo <<<EOT
 <tr>
 	<td>{$row['username']}</td>
