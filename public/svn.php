@@ -18,7 +18,7 @@ MacOS, Windows, and Unix systems.
 SDL 1.2:
 <blockquote>
 <pre>
-svn checkout svn://libsdl.org/branches/SDL-1.2
+svn checkout http://svn.libsdl.org/branches/SDL-1.2
 </pre>
 </blockquote>
 </p>
@@ -27,7 +27,7 @@ svn checkout svn://libsdl.org/branches/SDL-1.2
 SDL 1.3 (<b>WARNING: UNDER CONSTRUCTION</b>):
 <blockquote>
 <pre>
-svn checkout svn://libsdl.org/trunk/SDL
+svn checkout http://svn.libsdl.org/trunk/SDL
 </pre>
 </blockquote>
 </p>
