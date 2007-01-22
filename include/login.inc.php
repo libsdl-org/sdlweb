@@ -120,11 +120,13 @@
 		or die ("Could not execute query !");
 	$row = mysql_fetch_array($result, MYSQL_ASSOC);
 
-	# -- translate them into more usefull values --
+
+	# -- translate them into more useful values --
 
 	reset($row);
-	while (list ($key, $val) = each ($row))
-		$userprivileges[$key] = ($val=='t');
+	while (list ($key, $val) = each ($row)) {
+		$userprivileges[$key] = ($val==1);
+	}
 
 	# -------------- change passwd ----------------
 
