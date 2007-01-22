@@ -2,7 +2,7 @@
 	function UpdateRSS($DBconnection)
 	{
 		//--- open the RSS file ---//
-		$fp = fopen("/home/sdlweb/libsdl.org/web/public/rss/rss.xml", "w");
+		$fp = fopen("/home/sdlweb/web/rss/rss.xml", "w");
 		if (!$fp) {
 			return;
 		}
