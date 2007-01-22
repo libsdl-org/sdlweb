@@ -94,7 +94,7 @@ EOT;
 
 		$query = "insert into news (userid,timestamp,text)
 			values($userid, CURRENT_TIMESTAMP, '{$input['newstext']}')";
-		pg_exec($DBconnection, $query)
+		mysql_query($query, $DBconnection)
 			or die ("Could not execute query !");
 
 		UpdateRSS($DBconnection);
@@ -113,9 +113,9 @@ EOT;
 			break;
 			
 		$query = "select * from news where id={$input['id']}";
-		$result = pg_exec($DBconnection, $query)
+		$result = mysql_query($query, $DBconnection)
 			or die ("Could not execute query !");
-		$row = pg_fetch_array($result, 0, PGSQL_ASSOC);
+		$row = mysql_fetch_array($result, 0, MYSQL_ASSOC);
 
 		if (!$userprivileges['editnews']) {
 			if (($userid != $row['userid']) || ($userid < 1)) {
@@ -142,9 +142,9 @@ EOT;
 		$id = $input['id'];
 
 		$query = "select userid from news where id=$id";
-		$result = pg_exec($DBconnection, $query)
+		$result = mysql_query($query, $DBconnection)
 			or die ("Could not execute query !");
-		$writerid = pg_result($result, 0, "userid");
+		$writerid = mysql_result($result, 0, "userid");
 
 		if (!$userprivileges['editnews']) {
 			if (($userid != $writerid) || ($userid < 1)) {
@@ -158,7 +158,7 @@ EOT;
 			break;
 			
 		$query = "update news set text='{$input['newstext']}' where id=$id";
-		pg_exec($DBconnection, $query)
+		mysql_query($query, $DBconnection)
 			or die ("Could not execute query!");
 		UpdateRSS($DBconnection);
 
@@ -175,9 +175,9 @@ EOT;
 			break;
 				
 		$query = "select * from news where id={$input['id']}";
-		$result = pg_exec($DBconnection, $query)
+		$result = mysql_query($query, $DBconnection)
 			or die ("Could not execute query !");
-		$row = pg_fetch_array($result, 0, PGSQL_ASSOC);
+		$row = mysql_fetch_array($result, 0, MYSQL_ASSOC);
 
 		if (!$userprivileges['removenews']) {
 			if (($userid != $row['userid']) || ($userid < 1)) {
@@ -214,9 +214,9 @@ EOT;
 			break;
 			
 		$query = "select userid from news where id={$input['id']}";
-		$result = pg_exec($DBconnection, $query)
+		$result = mysql_query($query, $DBconnection)
 			or die ("Could not execute query !");
-		$writerid = pg_result($result, 0, "userid");
+		$writerid = mysql_result($result, 0, "userid");
 
 		if (!$userprivileges['removenews']) {
 			if (($userid != $writerid) || ($userid < 1)) {
@@ -226,7 +226,7 @@ EOT;
 		}
 
 		$query = "delete from news where id={$input['id']}";
-		pg_exec($DBconnection, $query)
+		mysql_query($query, $DBconnection)
 			or die ("Could not execute query !");
 		UpdateRSS($DBconnection);
 
@@ -263,18 +263,18 @@ EOT;
 		//--- compute number of news items ---//
 
 		$query = "select count(*) as count from news";
-		$result = pg_exec($DBconnection, $query)
+		$result = mysql_query($query, $DBconnection)
 			or die ("Could not execute query !");
 
-		$total = pg_result($result, 0, "count");
+		$total = mysql_result($result, 0, "count");
 
 		//--- fetch news ---//
 
 		$query = "select * from news order by id desc limit $step offset $start";
-		$result = pg_exec($DBconnection, $query)
+		$result = mysql_query($query, $DBconnection)
 			or die ("Could not execute query !");
 
-		$number = pg_numrows($result);
+		$number = mysql_num_rows($result);
 
 		//--- print news ---//
 
@@ -296,7 +296,7 @@ EOT;
 	
 		//-------------------------------------------------------------------------------------------------
 		for ($i=0; $i < $number; $i++) {
-			$row = pg_fetch_array($result, $i, PGSQL_ASSOC);
+			$row = mysql_fetch_array($result, $i, MYSQL_ASSOC);
 
 			//---------------------------------------------------------------------------------------------
 			// date

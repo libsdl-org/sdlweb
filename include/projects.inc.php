@@ -100,12 +100,12 @@
 			print "<select name=category>";
 
 			$query = "select id, name from projectcategories where type=".PROJECTTYPE;
-			$result = pg_exec($DBconnection, $query)
+			$result = mysql_query($query, $DBconnection)
 				or die ("Could not execute query !");
-			$number = pg_numrows($result);
+			$number = mysql_num_rows($result);
 
 			for ($i=0; $i < $number; $i++) {
-				$row = pg_fetch_array($result, $i, PGSQL_ASSOC);
+				$row = mysql_fetch_array($result, $i, MYSQL_ASSOC);
 				OPTION($row['id'],$category,$row['name']);
 			}
 
@@ -126,14 +126,14 @@
 			# --- select os status ---
 
 			$query = "select * from oses order by name";
-			$result = pg_exec($DBconnection, $query)
+			$result = mysql_query($query, $DBconnection)
 				or die ("Could not execute query !");
-			$number = pg_numrows($result);
+			$number = mysql_num_rows($result);
 
 			$ratinglist = array(0, 25, 50, 75, 100);
 
 			for ($i=0; $i < $number; $i++) {
-				$row = pg_fetch_array($result, $i, PGSQL_ASSOC);
+				$row = mysql_fetch_array($result, $i, MYSQL_ASSOC);
 				print "<p>{$row['name']} status<br>\n";
 				print "<select name=\"{$row['shortname']}status\">";
 				reset($ratinglist);
@@ -159,9 +159,9 @@
 			# --- fetch os list ---
 
 			$query = "select id,shortname from oses order by name";
-			$oslist = pg_exec($DBconnection, $query)
+			$oslist = mysql_query($query, $DBconnection)
 				or die ("Could not execute query !");
-			$numberos = pg_numrows($oslist);
+			$numberos = mysql_num_rows($oslist);
 
 			# --- check everything is valid ---
 
@@ -171,7 +171,7 @@
 			// add oses status fields to the fields definition array
 			// and to the list of fields to check
 			for ($i=0; $i < $numberos; $i++) {
-				$shortname = pg_result($oslist, $i, "shortname");
+				$shortname = mysql_result($oslist, $i, "shortname");
 				$fieldname = "{$shortname}status";
 				$fields_def[$fieldname] = array('type'=>'integer', 'required'=>True);
 				$fieldlist[] = $fieldname;
@@ -194,23 +194,23 @@
 
 			$query  = "insert into projects (userid,type,category,name,description,versionrequired,url,contact,reviewed,timestamp,license)";
 			$query .= " values($userid, ".PROJECTTYPE.", {$input['category']}, '{$input['name']}', '$description', $versionrequired, '{$input['url']}', '{$input['contact']}', FALSE, CURRENT_TIMESTAMP, '$license')";
-			pg_exec($DBconnection, $query)
+			mysql_query($query, $DBconnection)
 				or die ("Could not execute query !");
 
 			# --- fetch the id of the project ---
 
 			$query = "select max(id) as id from projects";
-			$result = pg_exec($DBconnection, $query)
+			$result = mysql_query($query, $DBconnection)
 				or die ("Could not execute query !");
-			$projectid = pg_result($result, 0, "id");
+			$projectid = mysql_result($result, 0, "id");
 
 			# --- add project's status to the database ---
 
 			for ($i=0; $i < $numberos; $i++) {
-				$row = pg_fetch_array($oslist, $i, PGSQL_ASSOC);
+				$row = mysql_fetch_array($oslist, $i, MYSQL_ASSOC);
 				$value = $input["{$row['shortname']}status"];
 				$query = "insert into projectstatus values($projectid, {$row['id']}, $value)";
-				pg_exec($DBconnection, $query)
+				mysql_query($query, $DBconnection)
 					or die ("Could not execute query !");
 			}
 
@@ -218,7 +218,7 @@
 
 			$query = "insert into news (userid,timestamp,text)";
 			$query .= " values(-2, CURRENT_TIMESTAMP, '<a href=\"{$_SERVER['PHP_SELF']}?match_id=$projectid\">{$input['name']}</a>, {$input['description']}, has been added to the ".PROJECTTYPETEXTP." page.')";
-			pg_exec($DBconnection, $query)
+			mysql_query($query, $DBconnection)
 				or die ("Could not execute query !");
 			UpdateRSS($DBconnection);
 
@@ -236,9 +236,9 @@ EOT;
 				break;
 				
 			$query = "select name from projects where id={$input['id']}";
-			$result = pg_exec($DBconnection, $query)
+			$result = mysql_query($query, $DBconnection)
 				or die ("Could not execute query !");
-			$name = pg_result($result, 0, "name");
+			$name = mysql_result($result, 0, "name");
 
 			echo <<<EOT
 Are you sure you are the maintainer of the $name project ?<br>
@@ -267,9 +267,9 @@ EOT;
 				break;
 				
 			$query = "select userid from projects where id={$input['id']}";
-			$result = pg_exec($DBconnection, $query)
+			$result = mysql_query($query, $DBconnection)
 				or die ("Could not execute query !");
-			$ownerid = pg_result($result, 0, "userid");
+			$ownerid = mysql_result($result, 0, "userid");
 
 			if (($userid <= 0) || ($ownerid > 0)) {
 				print "You are not permitted to maintain this project!<br>\n";
@@ -277,7 +277,7 @@ EOT;
 			}
 
 			$query = "update projects set userid=$userid where id={$input['id']}";
-			pg_exec($DBconnection, $query)
+			mysql_query($query, $DBconnection)
 				or die ("Could not execute query !");
 			
 			echo <<<EOT
@@ -294,9 +294,9 @@ EOT;
 				break;
 
 			$query = "select userid from projects where id={$input['id']}";
-			$result = pg_exec($DBconnection, $query)
+			$result = mysql_query($query, $DBconnection)
 				or die ("Could not execute query !");
-			$ownerid = pg_result($result, 0, "userid");
+			$ownerid = mysql_result($result, 0, "userid");
 
 			if (($userid != $ownerid) || ($userid < 1)) {
 				print "You are not permitted to disown this project!<br>\n";
@@ -304,7 +304,7 @@ EOT;
 			}
 
 			$query = "update projects set userid=-1 where id={$input['id']}";
-			pg_exec($DBconnection, $query)
+			mysql_query($query, $DBconnection)
 				or die ("Could not execute query !");
 
 			echo <<<EOT
@@ -323,9 +323,9 @@ EOT;
 			$id = $input['id'];
 
 			$query = "select userid from projects where id=$id";
-			$result = pg_exec($DBconnection, $query)
+			$result = mysql_query($query, $DBconnection)
 				or die ("Could not execute query !");
-			$ownerid = pg_result($result, 0, "userid");
+			$ownerid = mysql_result($result, 0, "userid");
 
 			if (!$userprivileges['editproject']) 
 				if (($userid != $ownerid) || ($userid < 1)) {
@@ -336,9 +336,9 @@ EOT;
 			# --- fetch os list ---
 
 			$query = "select id,shortname from oses order by name";
-			$oslist = pg_exec($DBconnection, $query)
+			$oslist = mysql_query($query, $DBconnection)
 				or die ("Could not execute query !");
-			$numberos = pg_numrows($oslist);
+			$numberos = mysql_num_rows($oslist);
 
 			# --- check everything is valid ---
 
@@ -348,7 +348,7 @@ EOT;
 			// add oses status fields to the fields definition array
 			// and to the list of fields to check
 			for ($i=0; $i < $numberos; $i++) {
-				$shortname = pg_result($oslist, $i, "shortname");
+				$shortname = mysql_result($oslist, $i, "shortname");
 				$fieldname = "{$shortname}status";
 				$fields_def[$fieldname] = array('type'=>'integer', 'required'=>True);
 				$fieldlist[] = $fieldname;
@@ -378,16 +378,16 @@ EOT;
 			$query  = "update projects "; 
 			$query .= "set category={$input['category']}, name='{$input['name']}', description='$description', versionrequired=$versionrequired, url='{$input['url']}', contact='{$input['contact']}', timestamp=CURRENT_TIMESTAMP, license='$license' ";
 			$query .= "where id=$id";
-			pg_exec($DBconnection, $query)
+			mysql_query($query, $DBconnection)
 				or die ("Could not execute query !");
 
 			# --- update project status in the database ---
 
 			for ($i=0; $i < $numberos; $i++) {
-				$row = pg_fetch_array($oslist, $i, PGSQL_ASSOC);
+				$row = mysql_fetch_array($oslist, $i, MYSQL_ASSOC);
 				$value = $input["{$row['shortname']}status"];
 				$query = "update projectstatus set status=$value where project=$id and os={$row['id']}";
-				pg_exec($DBconnection, $query)
+				mysql_query($query, $DBconnection)
 					or die ("Could not execute query !");
 			}
 
@@ -407,9 +407,9 @@ EOT;
 			$id = $input['id'];
 
 			$query = "select * from projects where id=$id";
-			$result = pg_exec($DBconnection, $query)
+			$result = mysql_query($query, $DBconnection)
 				or die ("Could not execute query !");
-			$row = pg_fetch_array($result, 0, PGSQL_ASSOC);
+			$row = mysql_fetch_array($result, 0, MYSQL_ASSOC);
 
 			if (!$userprivileges['editproject']) 
 				if (($userid != $row['userid']) || ($userid < 1)) {
@@ -453,12 +453,12 @@ EOT;
 			print "<select name=category>";
 
 			$query = "select id, name from projectcategories where type=".PROJECTTYPE;
-			$result = pg_exec($DBconnection, $query)
+			$result = mysql_query($query, $DBconnection)
 				or die ("Could not execute query !");
-			$number = pg_numrows($result);
+			$number = mysql_num_rows($result);
 
 			for ($i=0; $i < $number; $i++) {
-				$categ = pg_fetch_array($result, $i, PGSQL_ASSOC);
+				$categ = mysql_fetch_array($result, $i, MYSQL_ASSOC);
 				OPTION($categ['id'],$row['category'],$categ['name']);
 			}
 
@@ -481,14 +481,14 @@ EOT;
 			# --- select os status ---
 
 			$query = "select * from oses, projectstatus where projectstatus.os=oses.id and project=$id order by name";
-			$result = pg_exec($DBconnection, $query)
+			$result = mysql_query($query, $DBconnection)
 				or die ("Could not execute query !");
-			$number = pg_numrows($result);
+			$number = mysql_num_rows($result);
 
 			$ratinglist = array(0, 25, 50, 75, 100);
 
 			for ($i=0; $i < $number; $i++) {
-				$row = pg_fetch_array($result, $i, PGSQL_ASSOC);
+				$row = mysql_fetch_array($result, $i, MYSQL_ASSOC);
 				print "<p>{$row['name']} status<br>\n";
 				print "<select name={$row['shortname']}"."status>";
 				reset($ratinglist);
@@ -513,9 +513,9 @@ EOT;
 			$id = $input['id'];
 			
 			$query = "select name,userid from projects where id=$id";
-			$result = pg_exec($DBconnection, $query)
+			$result = mysql_query($query, $DBconnection)
 				or die ("Could not execute query !");
-			$row = pg_fetch_array($result, $i, PGSQL_ASSOC);
+			$row = mysql_fetch_array($result, $i, MYSQL_ASSOC);
 
 			if (!$userprivileges['removeproject'])
 				if (($userid!=$row['userid']) || ($userid<1)) {
@@ -551,9 +551,9 @@ EOT;
 			$id = $input['id'];
 
 			$query = "select userid from projects where id=$id";
-			$result = pg_exec($DBconnection, $query)
+			$result = mysql_query($query, $DBconnection)
 				or die ("Could not execute query !");
-			$ownerid = pg_result($result, 0, "userid");
+			$ownerid = mysql_result($result, 0, "userid");
 
 			if (!$userprivileges['removeproject']) 
 				if (($userid!=$ownerid) || ($userid<1)) {
@@ -564,13 +564,13 @@ EOT;
 			# --- delete project status referring to this project in the database ---
 
 			$query = "delete from projectstatus where project=$id";
-			pg_exec($DBconnection, $query)
+			mysql_query($query, $DBconnection)
 				or die ("Could not execute query !");
 
 			# --- delete project from the database ---
 
 			$query = "delete from projects where id=$id";
-			pg_exec($DBconnection, $query)
+			mysql_query($query, $DBconnection)
 				or die ("Could not execute query !");
 
 			echo <<<EOT
@@ -615,7 +615,7 @@ EOT;
 			$query  = "insert into projectcategories(type,name,description)";
 			$query .= " values(".PROJECTTYPE.",'{$input['name']}','{$input['description']}')";
 
-			pg_exec($DBconnection, $query)
+			mysql_query($query, $DBconnection)
 				or die ("Could not execute query !");
 
 			echo <<<EOT
@@ -642,7 +642,7 @@ EOT;
 				break;
 
 			$query = "update projectcategories set name='{$input['name']}', description='{$input['description']}' where id=$id";
-			pg_exec($DBconnection, $query)
+			mysql_query($query, $DBconnection)
 				or die ("Could not execute query !");
 
 			print "<i>Updated !</i><br>\n";
@@ -661,9 +661,9 @@ EOT;
 			$id = $input['id'];
 
 			$query = "select * from projectcategories where id=$id";
-			$result = pg_exec($DBconnection, $query)
+			$result = mysql_query($query, $DBconnection)
 				or die ("Could not execute query !");
-			$row = pg_fetch_array($result, 0, PGSQL_ASSOC);
+			$row = mysql_fetch_array($result, 0, MYSQL_ASSOC);
 
 			echo <<<EOT
 <form method=post action="{$_SERVER['PHP_SELF']}?action=updatecategory&amp;id=$id">
@@ -693,9 +693,9 @@ EOT;
 			}
 
 			$query = "select name from projectcategories where id=$id";
-			$result = pg_exec($DBconnection, $query)
+			$result = mysql_query($query, $DBconnection)
 				or die ("Could not execute query !");
-			$name = pg_result($result, 0, "name");
+			$name = mysql_result($result, 0, "name");
 
 			echo <<<EOT
 Are you sure you want to delete the $name category ?<br>
@@ -737,13 +737,13 @@ EOT;
 			# --- set projects' using this category to the 'Other' category ---
 
 			$query = "update projects set category=".PROJECTTYPE." where category=$id";
-			pg_exec($DBconnection, $query)
+			mysql_query($query, $DBconnection)
 				or die ("Could not execute query !");
 
 			# --- remove it from the database ---
 
 			$query = "delete from projectcategories where id=$id";
-			pg_exec($DBconnection, $query)
+			mysql_query($query, $DBconnection)
 				or die ("Could not execute query !");
 	
 			echo <<<EOT
@@ -758,10 +758,10 @@ EOT;
 			# --- fetch categories list ---
 
 			$query = "select * from projectcategories where type=".PROJECTTYPE." order by name";
-			$result = pg_exec($DBconnection, $query)
+			$result = mysql_query($query, $DBconnection)
 				or die ("Could not execute query !");
 
-			$number = pg_numrows($result);
+			$number = mysql_num_rows($result);
 
 			# --- print infos ---
 
@@ -769,7 +769,7 @@ EOT;
 
 			$i=0;
 			while ($i < $number) {
-				$row = pg_fetch_array($result, $i, PGSQL_ASSOC);
+				$row = mysql_fetch_array($result, $i, MYSQL_ASSOC);
 
 				print "<tr>";
 				print "<td><b>{$row['name']}</b></td>";
@@ -817,9 +817,9 @@ EOT;
 			# --- fetch os list ---
 
 			$query = "select * from oses order by name";
-			$oslist = pg_exec($DBconnection, $query)
+			$oslist = mysql_query($query, $DBconnection)
 				or die ("Could not execute query !");
-			$numberos = pg_numrows($oslist);
+			$numberos = mysql_num_rows($oslist);
 
 			# --- set filters default values ---
 
@@ -858,13 +858,13 @@ EOT;
 			OPTION(-1, $category, "any");
 
 			$query = "select id, name from projectcategories where type=".PROJECTTYPE;
-			$result = pg_exec($DBconnection, $query)
+			$result = mysql_query($query, $DBconnection)
 				or die ("Could not execute query !");
-			$number = pg_numrows($result);
+			$number = mysql_num_rows($result);
 
 			$i=0;
 			while ($i < $number) {
-				$row = pg_fetch_array($result, $i, PGSQL_ASSOC);
+				$row = mysql_fetch_array($result, $i, MYSQL_ASSOC);
 				OPTION($row['id'], $category, $row['name']);
 				$i++;
 			}
@@ -900,7 +900,7 @@ EOT;
 			print "<select name=os>";
 			OPTION(-1, $os, "Any OS");
 			for ($i=0; $i < $numberos; $i++) {
-				$row = pg_fetch_array($oslist, $i, PGSQL_ASSOC);
+				$row = mysql_fetch_array($oslist, $i, MYSQL_ASSOC);
 				OPTION($row['id'], $os, $row['name']);
 			}
 			print "</select>\n";
@@ -963,10 +963,10 @@ EOT;
 			# --- count projects ---
 
 			$query = "select count(*) as total from projects $querycondition";
-			$result = pg_exec($DBconnection, $query)
+			$result = mysql_query($query, $DBconnection)
 				or die ("Could not execute query !");
 
-			$total = pg_result($result, 0, "total");
+			$total = mysql_result($result, 0, "total");
 
 			# --- fetch projects info ---
 
@@ -979,10 +979,10 @@ EOT;
 			if ($perpage != "-1") 
 				$query .= " limit $perpage offset $start";
 
-			$result = pg_exec($DBconnection, $query)
+			$result = mysql_query($query, $DBconnection)
 				or die ("Could not execute query !");
 
-			$number = pg_numrows($result);
+			$number = mysql_num_rows($result);
 
 			# --- print infos ---
 
@@ -1004,7 +1004,7 @@ EOT;
 			$ratingstring = array(25=>"work in progress", 50=>"work in progress", 75=>"ready for testing", 100=>"fully functional");
 
 			for ($i=0; $i < $number; $i++) {
-				$row = pg_fetch_array($result, $i, PGSQL_ASSOC);
+				$row = mysql_fetch_array($result, $i, MYSQL_ASSOC);
 
 				print "<p>\n";
 				print "<b><a name={$row['id']}>{$row['name']}</a></b> - {$row['description']}<br>\n";
@@ -1019,12 +1019,12 @@ EOT;
 				print "Contact: $contact<br>\n";
 
 				$query = "select status,shortname from projectstatus,oses where os=oses.id and project={$row['id']} and status > 0";
-				$status = pg_exec($DBconnection, $query)
+				$status = mysql_query($query, $DBconnection)
 					or die ("Could not execute query !");
-				$numberos = pg_numrows($status);
+				$numberos = mysql_num_rows($status);
 
 				for ($j=0; $j < $numberos; $j++) {
-					$shortname = pg_result($status, $j, "shortname");
+					$shortname = mysql_result($status, $j, "shortname");
 					print "<img alt=\" $shortname \" src=\"images/platforms/$shortname.png\" width=32 height=32>";
 					print "<img alt=\"\" src=\"images/sep.gif\" width=4 height=32>";
 				}
@@ -1032,7 +1032,7 @@ EOT;
 					print "<br>\n";
 
 				for ($j=0; $j < $numberos; $j++) {
-					$rating = pg_result($status, $j, "status");
+					$rating = mysql_result($status, $j, "status");
 					print "<img alt=\"{$ratingstring[$rating]}\" src=\"images/$rating-small.png\" width=32 height=4>";
 					print "<img alt=\"\" src=\"images/sep-small.gif\" width=4 height=4>";
 				}
@@ -1067,10 +1067,10 @@ EOT;
 					} else if ($userprivileges['editproject']) {
 						$query  = "select name, email from users ";
 						$query .= "where id = {$row['userid']}";
-						$users = pg_exec($DBconnection, $query)
+						$users = mysql_query($query, $DBconnection)
 							or die ("Could not execute query !");
-						$name = pg_result($users, 0, "name");
-						$email = pg_result($users, 0, "email");
+						$name = mysql_result($users, 0, "name");
+						$email = mysql_result($users, 0, "email");
 						print "Maintained by: $name (<a href=\"mailto:$email\">$email</a>)<br>\n";
 					}
 				}

@@ -69,7 +69,7 @@ EOT;
 
 				//--- execute query ---//
 
-				pg_exec($DBconnection, $query)
+				mysql_query($query, $DBconnection)
 					or die ("Could not execute query !");
 
 				echo <<<EOT
@@ -84,9 +84,9 @@ EOT;
 					print "Notice: You can only modify the name of this group !<br>\n";
 
 				$query = "select * from groups where id=$id";
-				$result = pg_exec($DBconnection, $query)
+				$result = mysql_query($query, $DBconnection)
 					or die ("Could not execute query !");
-				$row = pg_fetch_array($result, 0, PGSQL_ASSOC);
+				$row = mysql_fetch_array($result, 0, MYSQL_ASSOC);
 
 				//--- print the form ---//
 
@@ -135,7 +135,7 @@ EOT;
 
 				//--- execute query ---//
 
-				pg_exec($DBconnection, $query)
+				mysql_query($query, $DBconnection)
 					or die ("Could not execute query !");
 
 				$message = ($id < 2) ? "Only the name was updated because it would be stupid to update anything else about this group !" : "<i>Updated !</i>";
@@ -154,9 +154,9 @@ EOT;
 				}
 
 				$query = "select name from groups where id=$id";
-				$result = pg_exec($DBconnection, $query)
+				$result = mysql_query($query, $DBconnection)
 					or die ("Could not execute query !");
-				$name = pg_result($result, 0, "name");
+				$name = mysql_result($result, 0, "name");
 
 				echo <<<EOT
 Are you sure you want to delete the $name group ?<br>
@@ -188,13 +188,13 @@ EOT;
 				//--- change the group of the users that were in this group ---//
 
 				$query = "update users set groupid=2 where groupid=$id";
-				pg_exec($DBconnection, $query)
+				mysql_query($query, $DBconnection)
 					or die ("Could not execute query !");
 
 				//--- remove the group from the database ---//
 
 				$query = "delete from groups where id=$id";
-				pg_exec($DBconnection, $query)
+				mysql_query($query, $DBconnection)
 					or die ("Could not execute query !");
 
 				echo <<<EOT
@@ -209,14 +209,14 @@ EOT;
 				//--- fetch groups ---//
 
 				$query = "select * from groups where id>=0 order by name";
-				$result = pg_exec($DBconnection, $query)
+				$result = mysql_query($query, $DBconnection)
 					or die ("Could not execute query !");
 
 				//--- print groups ---//
 
 				print "<table cellpadding=\"5\">\n";
 
-				while (($row = pg_fetch_array($result, NULL, PGSQL_ASSOC)) != FALSE) {
+				while (($row = mysql_fetch_array($result, NULL, MYSQL_ASSOC)) != FALSE) {
 					if ($row['id'] > 2)
 						$removelink = "<a href=\"{$_SERVER['PHP_SELF']}?action=removegroup&amp;id={$row['id']}\">delete</a>";
 					else

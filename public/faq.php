@@ -11,9 +11,9 @@
 	
 	if ($input['category']) {
 		$query = "select name from faqcategories where id = {$input['category']}";
-		$result = pg_exec($DBconnection, $query)
+		$result = mysql_query($query, $DBconnection)
 			or die ("Could not execute query !");
-		$name = pg_result($result, 0, "name");
+		$name = mysql_result($result, 0, "name");
 		$title = "$title: $name";
 	}
 
@@ -70,16 +70,16 @@ EOT;
 			$query = "insert into faqentries(category,question,answer)";
 			$query .= " values({$input['category']}, '{$input['question']}', '{$input['answer']}')";
 
-			pg_exec($DBconnection, $query)
+			mysql_query($query, $DBconnection)
 				or die ("Could not execute query !");
 
 			$query = "select max(id) as id from faqentries";
-			$result = pg_exec($DBconnection, $query)
+			$result = mysql_query($query, $DBconnection)
 				or die ("Could not execute query !");
-			$id = pg_result($result, 0, "id");
+			$id = mysql_result($result, 0, "id");
 
 			$query = "update faqentries set sorted=$id where id=$id";
-			pg_exec($DBconnection, $query)
+			mysql_query($query, $DBconnection)
 				or die ("Could not execute query !");
 
 			echo <<<EOT
@@ -107,7 +107,7 @@ EOT;
 				break;
 
 			$query = "update faqentries set question='{$input['question']}', answer='{$input['answer']}', sorted={$input['sorted']} where id=$id";
-			pg_exec($DBconnection, $query)
+			mysql_query($query, $DBconnection)
 				or die ("Could not execute query !");
 
 			print "<i>Updated !</i><br>\n";
@@ -123,9 +123,9 @@ EOT;
 				break;
 				
 			$query = "select * from faqentries where id={$input['id']}";
-			$result = pg_exec($DBconnection, $query)
+			$result = mysql_query($query, $DBconnection)
 				or die ("Could not execute query !");
-			$row = pg_fetch_array($result, 0, PGSQL_ASSOC);
+			$row = mysql_fetch_array($result, 0, MYSQL_ASSOC);
 
 			echo <<<EOT
 <form method="post" action="{$_SERVER['PHP_SELF']}?action=updateentry&amp;id={$input['id']}&amp;category={$input['category']}">
@@ -150,9 +150,9 @@ EOT;
 				break;
 
 			$query = "select question from faqentries where id={$input['id']}";
-			$result = pg_exec($DBconnection, $query)
+			$result = mysql_query($query, $DBconnection)
 				or die ("Could not execute query !");
-			$question = pg_result($result, 0, "question");
+			$question = mysql_result($result, 0, "question");
 
 			echo <<<EOT
 Are you sure you want to delete this entry ?
@@ -188,7 +188,7 @@ EOT;
 			//--- remove entry from the database ---//
 
 			$query = "delete from faqentries where id={$input['id']}";
-			pg_exec($DBconnection, $query)
+			mysql_query($query, $DBconnection)
 				or die ("Could not execute query !");
 
 			echo <<<EOT
@@ -208,14 +208,14 @@ EOT;
 			//--- fetch entries ---//
 
 			$query = "select * from faqentries where category={$input['category']} order by sorted";
-			$result = pg_exec($DBconnection, $query)
+			$result = mysql_query($query, $DBconnection)
 				or die ("Could not execute query !");
 
 			//--- print ToC ---//
 
 			$questions = '';
 			$entries = '';
-			while (($row = pg_fetch_array($result, NULL, PGSQL_ASSOC)) != FALSE) {
+			while (($row = mysql_fetch_array($result, NULL, MYSQL_ASSOC)) != FALSE) {
 				$questions .= "<li><a href='#{$row['id']}'>{$row['question']}</a>\n";
 
 				$entryactions = '';
@@ -302,16 +302,16 @@ EOT;
 			$query  = "insert into faqcategories(name, description)";
 			$query .= " values('{$input['name']}','{$input['description']}')";
 
-			pg_exec($DBconnection, $query)
+			mysql_query($query, $DBconnection)
 				or die ("Could not execute query !");
 
 			$query = "select max(id) as id from faqcategories";
-			$result = pg_exec($DBconnection, $query)
+			$result = mysql_query($query, $DBconnection)
 				or die ("Could not execute query !");
-			$id = pg_result($result, 0, "id");
+			$id = mysql_result($result, 0, "id");
 
 			$query = "update faqcategories set sorted=$id where id=$id";
-			pg_exec($DBconnection, $query)
+			mysql_query($query, $DBconnection)
 				or die ("Could not execute query !");
 
 			echo <<<EOT
@@ -339,7 +339,7 @@ EOT;
 				break;
 
 			$query = "update faqcategories set name='{$input['name']}', description='{$input['description']}', sorted={$input['sorted']} where id=$id";
-			pg_exec($DBconnection, $query)
+			mysql_query($query, $DBconnection)
 				or die ("Could not execute query !");
 
 			print "<i>Updated !</i><br>\n";
@@ -355,9 +355,9 @@ EOT;
 				break;
 
 			$query = "select * from faqcategories where id={$input['id']}";
-			$result = pg_exec($DBconnection, $query)
+			$result = mysql_query($query, $DBconnection)
 				or die ("Could not execute query !");
-			$row = pg_fetch_array($result, 0, PGSQL_ASSOC);
+			$row = mysql_fetch_array($result, 0, MYSQL_ASSOC);
 
 			echo <<<EOT
 <form method="post" action="{$_SERVER['PHP_SELF']}?action=updatecategory&amp;id={$input['id']}">
@@ -382,9 +382,9 @@ EOT;
 				break;
 
 			$query = "select name from faqcategories where id={$input['id']}";
-			$result = pg_exec($DBconnection, $query)
+			$result = mysql_query($query, $DBconnection)
 				or die ("Could not execute query !");
-			$name = pg_result($result, 0, "name");
+			$name = mysql_result($result, 0, "name");
 	
 			echo <<<EOT
 Are you sure you want to delete the $name category ? (this will delete all entries within this category)<br>
@@ -420,13 +420,13 @@ EOT;
 			//--- delete all entries in that category ---//
 
 			$query = "delete from faqentries where category={$input['id']}";
-			pg_exec($DBconnection, $query)
+			mysql_query($query, $DBconnection)
 				or die ("Could not execute query !");
 
 			//--- remove category from the database ---//
 
 			$query = "delete from faqcategories where id={$input['id']}";
-			pg_exec($DBconnection, $query)
+			mysql_query($query, $DBconnection)
 				or die ("Could not execute query !");
 			
 			echo <<<EOT
@@ -441,14 +441,14 @@ EOT;
 			//--- fetch category list ---//
 
 			$query  = "select * from faqcategories order by sorted";
-			$result = pg_exec($DBconnection, $query)
+			$result = mysql_query($query, $DBconnection)
 				or die ("Could not execute query !");
 
 			//--- print categories ---//
 
 			print "<table cellpadding=\"5\">\n";
 
-			while (($row = pg_fetch_array($result, NULL, PGSQL_ASSOC)) != FALSE) {
+			while (($row = mysql_fetch_array($result, NULL, MYSQL_ASSOC)) != FALSE) {
 				if ($userprivileges['managefaqcategories'])
 					$actions = <<<EOT
 <td>{$row['sorted']}</td>

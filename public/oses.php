@@ -50,20 +50,20 @@ EOT;
 			//--- insert new OS ---//
 
 			$query = "insert into oses(shortname, name) values('{$_POST['shortname']}','{$_POST['name']}')";
-			pg_exec($DBconnection, $query)
+			mysql_query($query, $DBconnection)
 				or die ("Could not execute query !");
 
 			//--- fetch the id of the os ---//
 
 			$query = "select max(id) as id from oses";
-			$result = pg_exec($DBconnection, $query)
+			$result = mysql_query($query, $DBconnection)
 				or die ("Could not execute query !");
-			$osid = pg_result($result, 0, "id");
+			$osid = mysql_result($result, 0, "id");
 
 			//--- add a new status for every project in the database ---//
 
 			$query = "insert into projectstatus (select id, $osid, 0 from projects)";
-			pg_exec($DBconnection, $query)
+			mysql_query($query, $DBconnection)
 				or die ("Could not execute query !");
 
 			//------//
@@ -78,9 +78,9 @@ EOT;
 
 		case "editos":
 			$query = "select * from oses where id=$id";
-			$result = pg_exec($DBconnection, $query)
+			$result = mysql_query($query, $DBconnection)
 				or die ("Could not execute query !");
-			$row = pg_fetch_array($result, 0, PGSQL_ASSOC);
+			$row = mysql_fetch_array($result, 0, MYSQL_ASSOC);
 
 			//--- print the form ---//
 
@@ -115,7 +115,7 @@ EOT;
 			//--- update the os in the database ---//
 
 			$query  = "update oses set shortname='{$_POST['shortname']}', name='{$_POST['name']}' where id=$id";
-			pg_exec($DBconnection, $query)
+			mysql_query($query, $DBconnection)
 				or die ("Could not execute query !");
 
 			echo <<<EOT
@@ -128,9 +128,9 @@ EOT;
 
 		case "removeos":
 			$query = "select name from oses where id=$id";
-			$result = pg_exec($DBconnection, $query)
+			$result = mysql_query($query, $DBconnection)
 				or die ("Could not execute query !");
-			$name = pg_result($result, 0, "name");
+			$name = mysql_result($result, 0, "name");
 
 			echo <<<EOT
 Are you sure you want to delete the $name os ?<br>
@@ -157,13 +157,13 @@ EOT;
 			//--- delete the project status entries referring to that os ---//
 
 			$query = "delete from projectstatus where os=$id";
-			pg_exec($DBconnection, $query)
+			mysql_query($query, $DBconnection)
 				or die ("Could not execute query !");
 
 			//--- remove the os from the database ---//
 
 			$query = "delete from oses where id=$id";
-			pg_exec($DBconnection, $query)
+			mysql_query($query, $DBconnection)
 				or die ("Could not execute query !");
 
 			echo <<<EOT
@@ -178,14 +178,14 @@ EOT;
 			//--- fetch oses ---//
 
 			$query = "select * from oses order by name";
-			$result = pg_exec($DBconnection, $query)
+			$result = mysql_query($query, $DBconnection)
 				or die ("Could not execute query !");
 
 			//--- print oses ---//
 
 			echo '<table cellpadding="5">', "\n";
 
-			while (($row = pg_fetch_array($result, NULL, PGSQL_ASSOC)) != FALSE)
+			while (($row = mysql_fetch_array($result, NULL, MYSQL_ASSOC)) != FALSE)
 				echo <<<EOT
 <tr>
 	<td>{$row['name']}</td>
