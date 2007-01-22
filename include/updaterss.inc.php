@@ -29,8 +29,7 @@
 		$i=0;
 		while ($i < $number) {
 			$row = mysql_fetch_array($result, $i, MYSQL_ASSOC);
-
-			sscanf($row[timestamp], "%d-%d-%d %d:%d", &$Y, &$M, &$D, &$h, &$m);
+			list($Y, $M, $D, $h, $m) = sscanf($row[timestamp], "%d-%d-%d %d:%d");
 			$date = gmdate("r", mktime($h, $m, 0, $M, $D, $Y));
 
 			if ( preg_match('|^<[Aa] [Hh][Rr][Ee][Ff]="*([^">]+)"*>([^<]+)</[Aa]>(.*)$|', $row[text], $matches) ) {
