@@ -6,12 +6,39 @@
 	$action = isset($_GET['action']) ? $_GET['action'] : '';
 
 	# ------------ database connection ------------
+
+    // This should have the following lines, minus comments:
+    //
+    //  $dbuser = 'username';
+    //  $dbpass = 'password';
+    //
+    // Obviously, those should be a real username and password for the database.
+    require_once '/home/sdlweb/dbpasswd.php';
+    $DBconnection = mysql_connect('mysql.libsdl.org', $dbuser, $dbpass);
+    if (!$DBconnection)
+    {
+		$header_filename = "header-static.inc.php";
+        $DBConnection = NULL;
+		return;
+    } // if
+
+    if (!mysql_select_db('sdlweb'))
+    {
+		$header_filename = "header-static.inc.php";
+        $DBConnection = NULL;
+		return;
+    } // if
+
+	$header_filename = "header.inc.php";
+
+/*  ...old postgres code...
 	$DBconnection = pg_connect("dbname=sdlweb user=sdlweb");
 	if (!$DBconnection) {
 		$header_filename = "header-static.inc.php";
 		return;
 	} else
 		$header_filename = "header.inc.php";
+*/
 
 	# ------------ cookies functions --------------
 
@@ -73,15 +100,15 @@
 			$wrong_login_or_password = 1;
 		else {
 			$query = "select id,groupid,email from users where login='{$login_input['login']}' and password='{$login_input['password']}'";
-			$result = pg_exec($DBconnection, $query)
+			$result = mysql_query($query, $DBconnection)
 				or die ("Could not execute query !");
 
-			if (pg_numrows($result) < 1) {				# could be 0 (no row) or -1 (pg_numrows error)
+			if (mysql_num_rows($result) < 1) {				# could be 0 (no row) or -1 (error)
 				$wrong_login_or_password = 1;
 			} else {
-				$userid = pg_result($result, 0, "id");
-				$usergroup = pg_result($result, 0, "groupid");
-				$useremail = pg_result($result, 0, "email");
+				$userid = mysql_result($result, 0, "id");
+				$usergroup = mysql_result($result, 0, "groupid");
+				$useremail = mysql_result($result, 0, "email");
 			}
 		}
 	}
@@ -89,9 +116,9 @@
 	# ------------ get user privileges ------------
 
 	$query = "select * from groups where id=$usergroup";
-	$result = pg_exec($DBconnection, $query)
+	$result = mysql_query($query, $DBconnection)
 		or die ("Could not execute query !");
-	$row = pg_fetch_array($result, 0, PGSQL_ASSOC);
+	$row = mysql_fetch_array($result, MYSQL_ASSOC);
 
 	# -- translate them into more usefull values --
 

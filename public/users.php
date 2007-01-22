@@ -50,10 +50,10 @@ EOT;
 			# --- check the login is not already used by someone else ---
 
 			$query = "select login from users where login='{$input['login']}'";
-			$result = pg_exec($DBconnection, $query)
+			$result = mysql_query($query, $DBconnection)
 				or die ("Could not execute query !");
 
-			if (pg_numrows($result) != 0) {
+			if (mysql_num_rows($result) != 0) {
 				print "That login is used by someone else. Please choose another one...<br>\n";
 				break;
 			}
@@ -64,7 +64,7 @@ EOT;
 
 			$query = "insert into users (groupid,login,password,nickname,name,email)
 				values(2,'{$input['login']}','$password','','{$input['name']}','{$input['email']}')";
-			pg_exec($DBconnection, $query)
+			mysql_query($query, $DBconnection)
 				or die ("Could not execute query !");
 
 			# --- mail user ---
@@ -95,9 +95,9 @@ EOT;
 			# --- get his login ---
 
 			$query = "select login from users where id={$input['id']}";
-			$result = pg_exec($DBconnection, $query)
+			$result = mysql_query($query, $DBconnection)
 				or die ("Could not execute query !");
-			$login = pg_result($result, 0, "login");
+			$login = mysql_result($result, 0, "login");
 
 			$oldpasswordline = !$userprivileges['manageusers'] ? 
 				'<p>old password<br><input type="password" name="oldpass" size="25" maxlength="100"></p>' :
@@ -151,7 +151,7 @@ EOT;
 			# --- update his password ---
 
 			$query = "update users set password='$newpassword' where id=$id";
-			pg_exec($DBconnection, $query)
+			mysql_query($query, $DBconnection)
 				or die ("Could not execute query !");
 
 			# --- mail user ---
@@ -159,10 +159,10 @@ EOT;
 			# --- get his email address ---
 
 			$query = "select login, email from users where id=$id";
-			$result = pg_exec($DBconnection, $query)
+			$result = mysql_query($query, $DBconnection)
 				or die ("Could not execute query !");
-			$login = pg_result($result, 0, 'login');
-			$email = pg_result($result, 0, 'email');
+			$login = mysql_result($result, 0, 'login');
+			$email = mysql_result($result, 0, 'email');
 
 			# --- send the mail ---
 
@@ -209,7 +209,7 @@ EOT;
 			else
 				$query = "update users set name='{$input['name']}', email='{$input['email']}' where id=$id";
 
-			pg_exec($DBconnection, $query)
+			mysql_query($query, $DBconnection)
 				or die ("Could not execute query !");
 
 			print "<i>Updated !</i><br>\n";
@@ -232,10 +232,10 @@ EOT;
 			# fetch his current infos
 
 			$query = "select * from users where id=$id";
-			$result = pg_exec($DBconnection, $query)
+			$result = mysql_query($query, $DBconnection)
 				or die ("Could not execute query !");
 
-			$row = pg_fetch_array($result, 0, PGSQL_ASSOC);
+			$row = mysql_fetch_array($result, 0, MYSQL_ASSOC);
 
 			# compute some variable interface elements
 
@@ -246,11 +246,11 @@ EOT;
 				$groupid = $row['groupid'];
 
 				$query = "select id, name from groups where id>=0";
-				$result = pg_exec($DBconnection, $query)
+				$result = mysql_query($query, $DBconnection)
 					or die ("Could not execute query !");
 
 				$group_sel .= '<p>group<br><select name="groupid">';
-				while (($group_row = pg_fetch_array($result, NULL, PGSQL_ASSOC)) != FALSE)
+				while (($group_row = mysql_fetch_array($result, NULL, MYSQL_ASSOC)) != FALSE)
 					$group_sel .= OPTIONSTR($group_row['id'], $groupid, $group_row['name']);
 				$group_sel .= "</select></p>\n";
 			} else {
@@ -300,9 +300,9 @@ EOT;
 				}
 
 			$query = "select login from users where id=$id";
-			$result = pg_exec($DBconnection, $query)
+			$result = mysql_query($query, $DBconnection)
 				or die ("Could not execute query !");
-			$login = pg_result($result, 0, "login");
+			$login = mysql_result($result, 0, "login");
 
 			# if the user himself tried to delete his account, go back to
 			# his account edit screen, if it's someone else, go back to the
@@ -345,19 +345,19 @@ EOT;
 			# --- set his news items' author to the special 'deleted' user ---
 
 			$query = "update news set userid=-1 where userid=$id";
-			pg_exec($DBconnection, $query)
+			mysql_query($query, $DBconnection)
 				or die ("Could not execute query !");
 
 			# --- set his projects' maintainer to the special 'deleted' user ---
 
 			$query = "update projects set userid=-1 where userid=$id";
-			pg_exec($DBconnection, $query)
+			mysql_query($query, $DBconnection)
 				or die ("Could not execute query !");
 
 			# --- remove him from user list ---
 
 			$query = "delete from users where id=$id";
-			pg_exec($DBconnection, $query)
+			mysql_query($query, $DBconnection)
 				or die ("Could not execute query !");
 			
 			$back_dest = ($userid != $id) ? "users.php" : "index.php";
@@ -380,14 +380,14 @@ EOT;
 			$query  = "select users.id as id, login, nickname, users.name as username, email, groups.name as groupname ";
 			$query .= "from users,groups ";
 			$query .= "where (users.groupid=groups.id) and (users.id>0) order by username";
-			$result = pg_exec($DBconnection, $query)
+			$result = mysql_query($query, $DBconnection)
 				or die ("Could not execute query !");
 
 			# --- print users infos ---
 
 			echo '<table cellpadding="4">', "\n";
 
-			while (($row = pg_fetch_array($result, NULL, PGSQL_ASSOC)) != FALSE)
+			while (($row = mysql_fetch_array($result, NULL, MYSQL_ASSOC)) != FALSE)
 				echo <<<EOT
 <tr>
 	<td>{$row['username']}</td>

@@ -21,14 +21,14 @@
 		//--- fetch news ---//
 
 		$query = "select * from news order by id desc limit 5 offset 0";
-		$result = pg_exec($DBconnection, $query)
+		$result = mysql_query($query, $DBconnection)
 			or die ("Could not execute query !");
 
-		$number = pg_numrows($result);
+		$number = mysql_num_rows($result);
 
 		$i=0;
 		while ($i < $number) {
-			$row = pg_fetch_array($result, $i, PGSQL_ASSOC);
+			$row = mysql_fetch_array($result, $i, MYSQL_ASSOC);
 
 			sscanf($row[timestamp], "%d-%d-%d %d:%d", &$Y, &$M, &$D, &$h, &$m);
 			$date = gmdate("r", mktime($h, $m, 0, $M, $D, $Y));

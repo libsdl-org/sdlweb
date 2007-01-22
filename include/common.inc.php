@@ -82,8 +82,8 @@ EOT;
 					$newvalue = stripslashes($newvalue);
 
 				# check if this function exists
-				if (function_exists("pg_escape_string"))
-					$newvalue = pg_escape_string($newvalue);
+				if (function_exists("mysql_escape_string"))
+					$newvalue = mysql_escape_string($newvalue);
 				else
 					$newvalue = addslashes($newvalue);
 			}

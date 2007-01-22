@@ -20,15 +20,6 @@ Gaëtan de Menten (ged at bugfactory dot org)
 - move containtags, isempty, OPTION, months to one include file accessible
   from all files
 
-- update PostreSQL functions, depending on PHP version (to check with Sam)
-    * pg_exec() -> pg_query(), if PHP >= 4.2 
-    * pg_numrows() -> pg_num_rows(), if PHP >= 4.2
-    * pg_result() -> pg_fetch_result(), if PHP >= 4.2
-    * pg_fetch_array($result, $i, PGSQL_ASSOC) -> pg_fetch_assoc, if PHP >= 4.3
-      maybe I should use pg_fetch_all()
-? use pg_freeresult() when the result is not used anymore
-? use pg_close (or the new name?)
-
 - use template system (smarty seems nice)
 - rewrite the whole thing. This probably won't happen, because of lack of time.
   But it should be done anyway... Why? because the current code is awfully
