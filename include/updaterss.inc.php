@@ -24,11 +24,7 @@
 		$result = mysql_query($query, $DBconnection)
 			or die ("Could not execute query !");
 
-		$number = mysql_num_rows($result);
-
-		$i=0;
-		while ($i < $number) {
-			$row = mysql_fetch_array($result, $i, MYSQL_ASSOC);
+        while ($row = mysql_fetch_array($result, MYSQL_ASSOC)) {
 			list($Y, $M, $D, $h, $m) = sscanf($row[timestamp], "%d-%d-%d %d:%d");
 			$date = gmdate("r", mktime($h, $m, 0, $M, $D, $Y));
 
@@ -63,8 +59,6 @@
 			fwrite($fp, "<pubDate>$date</pubDate>\n");
 			fwrite($fp, "<description>$text</description>\n");
 			fwrite($fp, "</item>\n");
-
-			++$i;
 		}
 
 		//--- close the RSS file ---//

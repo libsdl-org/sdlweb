@@ -115,7 +115,7 @@ EOT;
 		$query = "select * from news where id={$input['id']}";
 		$result = mysql_query($query, $DBconnection)
 			or die ("Could not execute query !");
-		$row = mysql_fetch_array($result, 0, MYSQL_ASSOC);
+		$row = mysql_fetch_array($result, MYSQL_ASSOC);
 
 		if (!$userprivileges['editnews']) {
 			if (($userid != $row['userid']) || ($userid < 1)) {
@@ -177,7 +177,7 @@ EOT;
 		$query = "select * from news where id={$input['id']}";
 		$result = mysql_query($query, $DBconnection)
 			or die ("Could not execute query !");
-		$row = mysql_fetch_array($result, 0, MYSQL_ASSOC);
+		$row = mysql_fetch_array($result, MYSQL_ASSOC);
 
 		if (!$userprivileges['removenews']) {
 			if (($userid != $row['userid']) || ($userid < 1)) {
@@ -296,7 +296,7 @@ EOT;
 	
 		//-------------------------------------------------------------------------------------------------
 		for ($i=0; $i < $number; $i++) {
-			$row = mysql_fetch_array($result, $i, MYSQL_ASSOC);
+			$row = mysql_fetch_array($result, MYSQL_ASSOC);
 
 			//---------------------------------------------------------------------------------------------
 			// date

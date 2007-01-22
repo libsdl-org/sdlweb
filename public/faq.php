@@ -125,7 +125,7 @@ EOT;
 			$query = "select * from faqentries where id={$input['id']}";
 			$result = mysql_query($query, $DBconnection)
 				or die ("Could not execute query !");
-			$row = mysql_fetch_array($result, 0, MYSQL_ASSOC);
+			$row = mysql_fetch_array($result, MYSQL_ASSOC);
 
 			echo <<<EOT
 <form method="post" action="{$_SERVER['PHP_SELF']}?action=updateentry&amp;id={$input['id']}&amp;category={$input['category']}">
@@ -215,7 +215,7 @@ EOT;
 
 			$questions = '';
 			$entries = '';
-			while (($row = mysql_fetch_array($result, NULL, MYSQL_ASSOC)) != FALSE) {
+			while ($row = mysql_fetch_array($result, MYSQL_ASSOC)) {
 				$questions .= "<li><a href='#{$row['id']}'>{$row['question']}</a>\n";
 
 				$entryactions = '';
@@ -357,7 +357,7 @@ EOT;
 			$query = "select * from faqcategories where id={$input['id']}";
 			$result = mysql_query($query, $DBconnection)
 				or die ("Could not execute query !");
-			$row = mysql_fetch_array($result, 0, MYSQL_ASSOC);
+			$row = mysql_fetch_array($result, MYSQL_ASSOC);
 
 			echo <<<EOT
 <form method="post" action="{$_SERVER['PHP_SELF']}?action=updatecategory&amp;id={$input['id']}">
@@ -448,7 +448,7 @@ EOT;
 
 			print "<table cellpadding=\"5\">\n";
 
-			while (($row = mysql_fetch_array($result, NULL, MYSQL_ASSOC)) != FALSE) {
+			while ($row = mysql_fetch_array($result, MYSQL_ASSOC)) {
 				if ($userprivileges['managefaqcategories'])
 					$actions = <<<EOT
 <td>{$row['sorted']}</td>

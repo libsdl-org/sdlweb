@@ -102,10 +102,8 @@
 			$query = "select id, name from projectcategories where type=".PROJECTTYPE;
 			$result = mysql_query($query, $DBconnection)
 				or die ("Could not execute query !");
-			$number = mysql_num_rows($result);
 
-			for ($i=0; $i < $number; $i++) {
-				$row = mysql_fetch_array($result, $i, MYSQL_ASSOC);
+            while ($row = mysql_fetch_array($result, MYSQL_ASSOC)) {
 				OPTION($row['id'],$category,$row['name']);
 			}
 
@@ -128,12 +126,10 @@
 			$query = "select * from oses order by name";
 			$result = mysql_query($query, $DBconnection)
 				or die ("Could not execute query !");
-			$number = mysql_num_rows($result);
 
 			$ratinglist = array(0, 25, 50, 75, 100);
 
-			for ($i=0; $i < $number; $i++) {
-				$row = mysql_fetch_array($result, $i, MYSQL_ASSOC);
+            while ($row = mysql_fetch_array($result, MYSQL_ASSOC)) {
 				print "<p>{$row['name']} status<br>\n";
 				print "<select name=\"{$row['shortname']}status\">";
 				reset($ratinglist);
@@ -206,8 +202,7 @@
 
 			# --- add project's status to the database ---
 
-			for ($i=0; $i < $numberos; $i++) {
-				$row = mysql_fetch_array($oslist, $i, MYSQL_ASSOC);
+            while ($row = mysql_fetch_array($oslist, MYSQL_ASSOC)) {
 				$value = $input["{$row['shortname']}status"];
 				$query = "insert into projectstatus values($projectid, {$row['id']}, $value)";
 				mysql_query($query, $DBconnection)
@@ -383,8 +378,7 @@ EOT;
 
 			# --- update project status in the database ---
 
-			for ($i=0; $i < $numberos; $i++) {
-				$row = mysql_fetch_array($oslist, $i, MYSQL_ASSOC);
+            while ($row = mysql_fetch_array($oslist, MYSQL_ASSOC)) {
 				$value = $input["{$row['shortname']}status"];
 				$query = "update projectstatus set status=$value where project=$id and os={$row['id']}";
 				mysql_query($query, $DBconnection)
@@ -409,7 +403,7 @@ EOT;
 			$query = "select * from projects where id=$id";
 			$result = mysql_query($query, $DBconnection)
 				or die ("Could not execute query !");
-			$row = mysql_fetch_array($result, 0, MYSQL_ASSOC);
+			$row = mysql_fetch_array($result, MYSQL_ASSOC);
 
 			if (!$userprivileges['editproject']) 
 				if (($userid != $row['userid']) || ($userid < 1)) {
@@ -455,10 +449,8 @@ EOT;
 			$query = "select id, name from projectcategories where type=".PROJECTTYPE;
 			$result = mysql_query($query, $DBconnection)
 				or die ("Could not execute query !");
-			$number = mysql_num_rows($result);
 
-			for ($i=0; $i < $number; $i++) {
-				$categ = mysql_fetch_array($result, $i, MYSQL_ASSOC);
+            while ($categ = mysql_fetch_array($result, MYSQL_ASSOC)) {
 				OPTION($categ['id'],$row['category'],$categ['name']);
 			}
 
@@ -483,12 +475,10 @@ EOT;
 			$query = "select * from oses, projectstatus where projectstatus.os=oses.id and project=$id order by name";
 			$result = mysql_query($query, $DBconnection)
 				or die ("Could not execute query !");
-			$number = mysql_num_rows($result);
 
 			$ratinglist = array(0, 25, 50, 75, 100);
 
-			for ($i=0; $i < $number; $i++) {
-				$row = mysql_fetch_array($result, $i, MYSQL_ASSOC);
+            while ($row = mysql_fetch_array($result, MYSQL_ASSOC)) {
 				print "<p>{$row['name']} status<br>\n";
 				print "<select name={$row['shortname']}"."status>";
 				reset($ratinglist);
@@ -515,7 +505,7 @@ EOT;
 			$query = "select name,userid from projects where id=$id";
 			$result = mysql_query($query, $DBconnection)
 				or die ("Could not execute query !");
-			$row = mysql_fetch_array($result, $i, MYSQL_ASSOC);
+			$row = mysql_fetch_array($result, MYSQL_ASSOC);
 
 			if (!$userprivileges['removeproject'])
 				if (($userid!=$row['userid']) || ($userid<1)) {
@@ -663,7 +653,7 @@ EOT;
 			$query = "select * from projectcategories where id=$id";
 			$result = mysql_query($query, $DBconnection)
 				or die ("Could not execute query !");
-			$row = mysql_fetch_array($result, 0, MYSQL_ASSOC);
+			$row = mysql_fetch_array($result, MYSQL_ASSOC);
 
 			echo <<<EOT
 <form method=post action="{$_SERVER['PHP_SELF']}?action=updatecategory&amp;id=$id">
@@ -761,16 +751,11 @@ EOT;
 			$result = mysql_query($query, $DBconnection)
 				or die ("Could not execute query !");
 
-			$number = mysql_num_rows($result);
-
 			# --- print infos ---
 
 			print "<table cellpadding=5>\n";
 
-			$i=0;
-			while ($i < $number) {
-				$row = mysql_fetch_array($result, $i, MYSQL_ASSOC);
-
+            while ($row = mysql_fetch_array($result, MYSQL_ASSOC)) {
 				print "<tr>";
 				print "<td><b>{$row['name']}</b></td>";
 				print "<td>{$row['description']}</td>";
@@ -779,8 +764,6 @@ EOT;
 				if ($userprivileges['removeprojectcategory'] && $row['id']>4)
 					print "<td><a href=\"{$_SERVER['PHP_SELF']}?action=removecategory&amp;id={$row['id']}\">delete</a></td>";
 				print "</tr>\n";
-
-				$i++;
 			}
 
 			print "</table>\n";
@@ -860,13 +843,9 @@ EOT;
 			$query = "select id, name from projectcategories where type=".PROJECTTYPE;
 			$result = mysql_query($query, $DBconnection)
 				or die ("Could not execute query !");
-			$number = mysql_num_rows($result);
 
-			$i=0;
-			while ($i < $number) {
-				$row = mysql_fetch_array($result, $i, MYSQL_ASSOC);
+            while ($row = mysql_fetch_array($result, MYSQL_ASSOC)) {
 				OPTION($row['id'], $category, $row['name']);
-				$i++;
 			}
 			print "</select>\n";
 
@@ -899,8 +878,7 @@ EOT;
 			print " on ";
 			print "<select name=os>";
 			OPTION(-1, $os, "Any OS");
-			for ($i=0; $i < $numberos; $i++) {
-				$row = mysql_fetch_array($oslist, $i, MYSQL_ASSOC);
+            while ($row = mysql_fetch_array($oslist, MYSQL_ASSOC)) {
 				OPTION($row['id'], $os, $row['name']);
 			}
 			print "</select>\n";
@@ -1003,9 +981,7 @@ EOT;
 
 			$ratingstring = array(25=>"work in progress", 50=>"work in progress", 75=>"ready for testing", 100=>"fully functional");
 
-			for ($i=0; $i < $number; $i++) {
-				$row = mysql_fetch_array($result, $i, MYSQL_ASSOC);
-
+            while ($row = mysql_fetch_array($result, MYSQL_ASSOC)) {
 				print "<p>\n";
 				print "<b><a name={$row['id']}>{$row['name']}</a></b> - {$row['description']}<br>\n";
 

@@ -80,7 +80,7 @@ EOT;
 			$query = "select * from oses where id=$id";
 			$result = mysql_query($query, $DBconnection)
 				or die ("Could not execute query !");
-			$row = mysql_fetch_array($result, 0, MYSQL_ASSOC);
+			$row = mysql_fetch_array($result, MYSQL_ASSOC);
 
 			//--- print the form ---//
 
@@ -185,7 +185,7 @@ EOT;
 
 			echo '<table cellpadding="5">', "\n";
 
-			while (($row = mysql_fetch_array($result, NULL, MYSQL_ASSOC)) != FALSE)
+			while ($row = mysql_fetch_array($result, MYSQL_ASSOC))
 				echo <<<EOT
 <tr>
 	<td>{$row['name']}</td>
