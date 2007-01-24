@@ -922,7 +922,7 @@ EOT;
 				$querycondition .= " and category = $category";
 
 			if ($match_name)
-				$querycondition .= " and name ~* '$match_name'";
+				$querycondition .= " and name REGEXP '$match_name'";
 
 			if ($match_userid)
 				$querycondition .= " and userid = $userid";
