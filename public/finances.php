@@ -5,9 +5,14 @@
 <h1>SDL Finances</h1>
 
 <p class="intro">
-Jacob Kolding has donated a GameCube to USB controller converter.<br>
-<!--
+Ricardo Cruz, Justin Shumaker, Redflame Games, Frederic Duval, William Weilep,
+Thibault Bernard, <a href="http://www.mydreamrpg.com/">MyDreamRPG</a>,
+OpenCity, Benjamin Renaut, David Losada, 
+<a href="http://www.goyman.com">Goyman.com</a>, Simon Goller, Zerothis,
+Ellert van Koperen, James Youngquist, Rolf Hendriks, Max Horn,
+Phil Steinmeyer, and Torbjorn Andersson
 have made generous donations toward SDL development! (<a href="#note">*</a>)<br>
+<!--
 has made a generous donation toward SDL development! (<a href="#note">*</a>)<br>
 -->
 Thank you everybody for showing your support and furthering SDL!
@@ -186,7 +191,7 @@ You can also make a contribution using <a href="http://www.paypal.com">PayPal</a
     <td>$767.54</td>
 <tr><td>Donation:</td>
     <td>Dec 24, 2004</td>
-    <td><a href="http://www.nosubstancesoftware.com">No Substance Software</a></td>
+    <td>No Substance Software</td>
     <td>$28.53</td>
     <td>$796.07</td>
 <tr><td>Donation:</td>
@@ -229,21 +234,121 @@ You can also make a contribution using <a href="http://www.paypal.com">PayPal</a
     <td>SDL T-shirt</td>
     <td><font color="red">$21.74</font></td>
     <td>$833.51</td>
+<tr><td>Donation:</td>
+    <td>Jan 20, 2006</td>
+    <td>Ricardo Cruz</td>
+    <td>$112.94</td>
+    <td>$946.45</td>
 <tr><td>Expense:</td>
     <td>Feb 16, 2006</td>
     <td>VMware Workstation 5 Upgrade</td>
     <td><font color="red">$99.00</font></td>
-    <td>$734.51</td>
+    <td>$847.45</td>
+<tr><td>Donation:</td>
+    <td>Feb 19, 2006</td>
+    <td>Justin Shumaker</td>
+    <td>$15.71</td>
+    <td>$863.16</td>
+<tr><td>Donation:</td>
+    <td>May 1, 2006</td>
+    <td>Redflame Games</td>
+    <td>$18.92</td>
+    <td>$882.08</td>
+<tr><td>Donation:</td>
+    <td>May 22, 2006</td>
+    <td>Frederic Duval</td>
+    <td>$23.38</td>
+    <td>$905.46</td>
 <tr><td>Expense:</td>
     <td>May 24, 2006</td>
     <td>MacBook Pro + RAM upgrade</td>
     <td><font color="red">$2393.61</font></td>
-    <td><font color="red">-1659.10</font></td>
+    <td><font color="red">-1488.15</font></td>
+<tr><td>Donation:</td>
+    <td>Jun 3, 2006</td>
+    <td>William Weilep</td>
+    <td>$72.52</td>
+    <td><font color="red">-1415.63</font></td>
+<tr><td>Donation:</td>
+    <td>Jun 7, 2006</td>
+    <td>Thibault Bernard</td>
+    <td>$95.80</td>
+    <td><font color="red">-1319.83</font></td>
+<tr><td>Donation:</td>
+    <td>Jun 15, 2006</td>
+    <td><a href="http://www.mydreamrpg.com/">MyDreamRPG</a></td>
+    <td>$19.12</td>
+    <td><font color="red">-1300.71</font></td>
+<tr><td>Donation:</td>
+    <td>Jul 8, 2006</td>
+    <td>OpenCity</td>
+    <td>$11.56</td>
+    <td><font color="red">-1289.15</font></td>
+<tr><td>Donation:</td>
+    <td>Jul 22, 2006</td>
+    <td>Benjamin Renaut</td>
+    <td>$23.35</td>
+    <td><font color="red">-1265.80</font></td>
+<tr><td>Donation:</td>
+    <td>Aug 13, 2006</td>
+    <td>Anonymous</td>
+    <td>$9.41</td>
+    <td><font color="red">-1256.39</font></td>
+<tr><td>Donation:</td>
+    <td>Nov 7, 2006</td>
+    <td>Phil Steinmeyer</td>
+    <td>$100.00</td>
+    <td><font color="red">-1144.81</font></td>
+<tr><td>Donation:</td>
+    <td>Nov 14, 2006</td>
+    <td>David Losada</td>
+    <td>$11.58</td>
+    <td><font color="red">-1144.81</font></td>
+<tr><td>Donation:</td>
+    <td>Dec 1, 2006</td>
+    <td><a href="http://www.goyman.com">Goyman.com</a></td>
+    <td>$95.80</td>
+    <td><font color="red">-1049.01</font></td>
+<tr><td>Donation:</td>
+    <td>Dec 4, 2006</td>
+    <td>Simon Goller</td>
+    <td>$36.91</td>
+    <td><font color="red">-1012.10</font></td>
+<tr><td>Donation:</td>
+    <td>Dec 9, 2006</td>
+    <td>Zerothis</td>
+    <td>$48.25</td>
+    <td><font color="red">-963.85</font></td>
+<tr><td>Donation:</td>
+    <td>Jan 16, 2007</td>
+    <td>Ellert van Koperen</td>
+    <td>$23.84</td>
+    <td><font color="red">-940.01</font></td>
+<tr><td>Donation:</td>
+    <td>Feb 1, 2007</td>
+    <td>James Youngquist</td>
+    <td>$48.25</td>
+    <td><font color="red">-891.76</font></td>
+<tr><td>Donation:</td>
+    <td>Feb 6, 2007</td>
+    <td>Rolf Hendriks</td>
+    <td>$38.54</td>
+    <td><font color="red">-853.22</font></td>
+<tr><td>Donation:</td>
+    <td>Feb 10, 2007</td>
+    <td>Max Horn</td>
+    <td>$33.33</td>
+    <td><font color="red">-819.89</font></td>
+<tr><td>Donation:</td>
+    <td>Feb 12, 2007</td>
+    <td>Torbjorn Andersson</td>
+    <td>$33.33</td>
+    <td><font color="red">-786.56</font></td>
 <tr><td>Total:</td>
     <td></td>
     <td></td>
     <td></td>
-    <td><font color="red">-1659.10</font></td>
+    <td><font color="red">-786.56</font></td>
 </tr>
 </table>
 
