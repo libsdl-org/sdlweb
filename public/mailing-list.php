@@ -37,8 +37,8 @@ Development Mailing List:
 This is a high volume list for discussion of SDL development and issues
 related to SDL:
 <br>
-<a href="http://listserver.dreamhost.com/listinfo.cgi/sdl-libsdl.org">
-         http://listserver.dreamhost.com/listinfo.cgi/sdl-libsdl.org</a>
+<a href="http://lists.libsdl.org/listinfo.cgi/sdl-libsdl.org">
+         http://lists.libsdl.org/listinfo.cgi/sdl-libsdl.org</a>
 <br>
 Subscribing to this list automatically subscribes you to the SDL-announce list.
 </font>
@@ -50,8 +50,8 @@ SVN Mailing List:
 <br>
 This is a moderated list where subversion repository changes are sent:
 <br>
-<a href="http://listserver.dreamhost.com/listinfo.cgi/svn-libsdl.org">
-         http://listserver.dreamhost.com/listinfo.cgi/svn-libsdl.org</a>
+<a href="http://lists.libsdl.org/listinfo.cgi/svn-libsdl.org">
+         http://lists.libsdl.org/listinfo.cgi/svn-libsdl.org</a>
 </font>
 </p>
 
