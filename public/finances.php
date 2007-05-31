@@ -5,12 +5,8 @@
 <h1>SDL Finances</h1>
 
 <p class="intro">
-Ricardo Cruz, Justin Shumaker, Redflame Games, Frederic Duval, William Weilep,
-Thibault Bernard, <a href="http://www.mydreamrpg.com/">MyDreamRPG</a>,
-OpenCity, Benjamin Renaut, David Losada, 
-<a href="http://www.goyman.com">Goyman.com</a>, Simon Goller, Zerothis,
-Ellert van Koperen, James Youngquist, Rolf Hendriks, Max Horn,
-Phil Steinmeyer, and Torbjorn Andersson
+Johan Knutzen, Zac Bowling, Eric Dallaire, Sebasian Erben, Jean-Baptiste Denis,
+Frederic Duval, Motion Reactor, and Michael Kurinnoy
 have made generous donations toward SDL development! (<a href="#note">*</a>)<br>
 <!--
 has made a generous donation toward SDL development! (<a href="#note">*</a>)<br>
@@ -23,7 +19,7 @@ If you want to make a non-tax-deductable donation by check or money order
 to SDL development, please send e-mail to Sam Lantinga at:
 <a href="mailto:slouken@libsdl.org">slouken@libsdl.org</a>.
 <br>
-You can also make a contribution using <a href="http://www.paypal.com">PayPal</a> to slouken@libsdl.org
+You can also make a contribution using <a href="https://www.paypal.com">PayPal</a> to slouken@libsdl.org
 </p>
 
 <p>Current Finances:</p>
@@ -341,14 +337,54 @@ You can also make a contribution using <a href="http://www.paypal.com">PayPal</a
     <td><font color="red">-819.89</font></td>
 <tr><td>Donation:</td>
     <td>Feb 12, 2007</td>
-    <td>Torbjorn Andersson</td>
+    <td>Torbj&ouml;rn Andersson</td>
     <td>$33.33</td>
     <td><font color="red">-786.56</font></td>
+<tr><td>Donation:</td>
+    <td>Mar 3, 2007</td>
+    <td>Johan Knutzen</td>
+    <td>$28.83</td>
+    <td><font color="red">-757.73</font></td>
+<tr><td>Donation:</td>
+    <td>Mar 18, 2007</td>
+    <td>Zac Bowling</td>
+    <td>$19.12</td>
+    <td><font color="red">-738.61</font></td>
+<tr><td>Donation:</td>
+    <td>Mar 26, 2007</td>
+    <td>Eric Dallaire</td>
+    <td>$18.75</td>
+    <td><font color="red">-719.86</font></td>
+<tr><td>Donation:</td>
+    <td>Mar 28, 2007</td>
+    <td>Sebasian Erben</td>
+    <td>$9.31</td>
+    <td><font color="red">-710.55</font></td>
+<tr><td>Donation:</td>
+    <td>Apr 13, 2007</td>
+    <td>Jean-Baptiste Denis</td>
+    <td>$37.51</td>
+    <td><font color="red">-673.04</font></td>
+<tr><td>Donation:</td>
+    <td>Apr 23, 2007</td>
+    <td>Frederic Duval</td>
+    <td>$12.25</td>
+    <td><font color="red">-660.79</font></td>
+<tr><td>Donation:</td>
+    <td>Apr 23, 2007</td>
+    <td>Motion Reactor</td>
+    <td>$38.54</td>
+    <td><font color="red">-622.25</font></td>
+<tr><td>Donation:</td>
+    <td>May 4, 2007</td>
+    <td>Michael Kurinnoy</td>
+    <td>$47.75</td>
+    <td><font color="red">-574.5</font></td>
 <tr><td>Total:</td>
     <td></td>
     <td></td>
     <td></td>
-    <td><font color="red">-786.56</font></td>
+    <td><font color="red">-574.5</font></td>
 </tr>
 </table>
 
