@@ -518,6 +518,11 @@ Are you sure you want to delete the {$row['name']} project ?<br>
 </form>
 </td>
 <td>
+<form method="post" action="{$_SERVER['PHP_SELF']}?action=purgeproject&amp;id=$id">
+<input type="submit" value="purge">
+</form>
+</td>
+<td>
 <form method="post" action="{$_SERVER['PHP_SELF']}">
 <input type="submit" value="cancel">
 </form>
@@ -545,26 +550,49 @@ EOT;
 					break;
 				}
 
-#### Old deletion code...
-#			# --- delete project status referring to this project in the database ---
-#
-#			$query = "delete from projectstatus where project=$id";
-#			mysql_query($query, $DBconnection)
-#				or die ("Could not execute query !");
-#
-#			# --- delete project from the database ---
-#
-#			$query = "delete from projects where id=$id";
-#			mysql_query($query, $DBconnection)
-#				or die ("Could not execute query !");
-#
-#### New deletion code...
 			$query = "update projects set deleted = 1 where id=$id";
 			mysql_query($query, $DBconnection)
 				or die ("Could not execute query !");
 
 			echo <<<EOT
 Deleted !<br>
+<br>
+<a href="{$_SERVER['PHP_SELF']}">back</a>
+EOT;
+			break;
+
+		case "purgeproject":
+			$input = validateinput($_GET, $fields_def, array('id'));
+			if (!$input)
+				break;
+				
+			$id = $input['id'];
+
+			$query = "select userid from projects where id=$id";
+			$result = mysql_query($query, $DBconnection)
+				or die ("Could not execute query !");
+			$ownerid = mysql_result($result, 0, "userid");
+
+			if (!$userprivileges['removeproject']) 
+				if (($userid!=$ownerid) || ($userid<1)) {
+					print "You are not permitted to access this page !<br>\n";
+					break;
+				}
+
+			# --- delete project status referring to this project in the database ---
+
+			$query = "delete from projectstatus where project=$id";
+			mysql_query($query, $DBconnection)
+				or die ("Could not execute query !");
+
+			# --- delete project from the database ---
+
+			$query = "delete from projects where id=$id";
+			mysql_query($query, $DBconnection)
+				or die ("Could not execute query !");
+
+			echo <<<EOT
+Purged !<br>
 <br>
 <a href="{$_SERVER['PHP_SELF']}">back</a>
 EOT;
