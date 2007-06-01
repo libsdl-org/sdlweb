@@ -60,8 +60,8 @@ and special purpose programming languages.
      </strong>
      <br>
      ESDL -
-        <a href="http://www.ericsson.com/cslab/~dgud/esdl/"
-                >http://www.ericsson.com/cslab/~dgud/esdl/</a>
+        <a href="http://esdl.sourceforge.net/"
+                >http://esdl.sourceforge.net/</a>
 </li>
 <li> <strong>
      Euphoria
