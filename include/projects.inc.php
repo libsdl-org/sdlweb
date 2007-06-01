@@ -348,12 +348,6 @@ EOT;
 				$fields_def[$fieldname] = array('type'=>'integer', 'required'=>True);
 				$fieldlist[] = $fieldname;
 			}
-			print "POST: ";
-			print_r($_POST);
-			print "<BR>\nlist: ";
-			print_r($fieldlist);
-			print "<BR>\ndef: ";
-			print_r($fields_def);
 
 			$input = validateinput($_POST, $fields_def, $fieldlist);
 			if (!$input)
@@ -551,15 +545,21 @@ EOT;
 					break;
 				}
 
-			# --- delete project status referring to this project in the database ---
-
-			$query = "delete from projectstatus where project=$id";
-			mysql_query($query, $DBconnection)
-				or die ("Could not execute query !");
-
-			# --- delete project from the database ---
-
-			$query = "delete from projects where id=$id";
+#### Old deletion code...
+#			# --- delete project status referring to this project in the database ---
+#
+#			$query = "delete from projectstatus where project=$id";
+#			mysql_query($query, $DBconnection)
+#				or die ("Could not execute query !");
+#
+#			# --- delete project from the database ---
+#
+#			$query = "delete from projects where id=$id";
+#			mysql_query($query, $DBconnection)
+#				or die ("Could not execute query !");
+#
+#### New deletion code...
+			$query = "update projects set deleted = 1 where id=$id";
 			mysql_query($query, $DBconnection)
 				or die ("Could not execute query !");
 
@@ -916,7 +916,7 @@ EOT;
 			print "</form>\n";
 
 			# --- set up the query condition --
-			$querycondition = "where type = ".PROJECTTYPE;
+			$querycondition = "where deleted = 0 and type = ".PROJECTTYPE;
 
 			if ($category != "-1")
 				$querycondition .= " and category = $category";
