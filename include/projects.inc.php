@@ -36,8 +36,9 @@
 		'completed'=>array('type'=>'integer'),
 		'perpage'=>array('type'=>'integer'),
 		'start'=>array('type'=>'integer'),
-		'match_userid'=>array('type'=>'char'),
 		'order'=>array('type'=>'char'),
+		'match_userid'=>array('type'=>'char'),
+		'show_deleted'=>array('type'=>'char'),
 	);
 
 	$categ_fields_def = array(
@@ -561,6 +562,35 @@ Deleted !<br>
 EOT;
 			break;
 
+		case "recoverproject":
+			$input = validateinput($_GET, $fields_def, array('id'));
+			if (!$input)
+				break;
+				
+			$id = $input['id'];
+
+			$query = "select userid from projects where id=$id";
+			$result = mysql_query($query, $DBconnection)
+				or die ("Could not execute query !");
+			$ownerid = mysql_result($result, 0, "userid");
+
+			if (!$userprivileges['removeproject']) 
+				if (($userid!=$ownerid) || ($userid<1)) {
+					print "You are not permitted to access this page !<br>\n";
+					break;
+				}
+
+			$query = "update projects set deleted = 0 where id=$id";
+			mysql_query($query, $DBconnection)
+				or die ("Could not execute query !");
+
+			echo <<<EOT
+Recovered !<br>
+<br>
+<a href="{$_SERVER['PHP_SELF']}">back</a>
+EOT;
+			break;
+
 		case "purgeproject":
 			$input = validateinput($_GET, $fields_def, array('id'));
 			if (!$input)
@@ -820,7 +850,7 @@ EOT;
 			// validate them anyway
 			$input = validateinput($_GET, $query_fields_def, array(
 				'category', 'match_name', 'match_id', 'os', 'completed', 
-				'perpage', 'start', 'match_userid', 'order'));
+				'perpage', 'start', 'order', 'match_userid', 'show_deleted'));
 				
 			if ($input === False)
 				break;
@@ -841,8 +871,9 @@ EOT;
 			$completed = isset($input['completed']) ? $input['completed'] : 0;
 			$perpage = isset($input['perpage']) ? $input['perpage'] : 50;
 			$start = isset($input['start']) ? $input['start'] : 0;
-			$match_userid = $input['match_userid'];
 			$order = isset($input['order']) ? $input['order'] : 'name';
+			$match_userid = $input['match_userid'];
+			$show_deleted = $input['show_deleted'];
 
 			# --- show the different filters ---
 
@@ -934,8 +965,10 @@ EOT;
 
 			# --- only own projects ---
 
-			if ($userid > 0)
+			if ($userid > 0) {
 				print "<input type=checkbox name=match_userid value=checked $match_userid> Show only my projects<br>\n";
+				print "<input type=checkbox name=show_deleted value=checked $show_deleted> Show deleted projects<br>\n";
+			}
 
 			# -----
 
@@ -944,7 +977,12 @@ EOT;
 			print "</form>\n";
 
 			# --- set up the query condition --
-			$querycondition = "where deleted = 0 and type = ".PROJECTTYPE;
+			$querycondition = "where type = ".PROJECTTYPE;
+
+			if ($show_deleted)
+				$querycondition .= " and deleted = 1";
+			else
+				$querycondition .= " and deleted = 0";
 
 			if ($category != "-1")
 				$querycondition .= " and category = $category";
@@ -1054,12 +1092,16 @@ EOT;
 				$mayeditproject = ($userprivileges['editproject']) || ($userid==$row['userid']);
 				$mayremoveproject = ($userprivileges['removeproject']) || ($userid==$row['userid']);
 
-				if ($mayeditproject && $mayremoveproject)
-					print "<a href=\"{$_SERVER['PHP_SELF']}?action=editproject&amp;id={$row['id']}\">edit</a>&nbsp;<a href=\"{$_SERVER['PHP_SELF']}?action=removeproject&amp;id={$row['id']}\">delete</a>";
-				else if ($mayeditproject)
+				if ($mayeditproject)
 					print "<a href=\"{$_SERVER['PHP_SELF']}?action=editproject&amp;id={$row['id']}\">edit</a>";
-				else if ($mayremoveproject)
-					print "<a href=\"{$_SERVER['PHP_SELF']}?action=removeproject&amp;id={$row['id']}\">delete</a>";
+				if ($mayeditproject && $mayremoveproject)
+					print "&nbsp;";
+				if ($mayremoveproject) {
+					if ($row['deleted'] == 1)
+						print "<a href=\"{$_SERVER['PHP_SELF']}?action=recoverproject&amp;id={$row['id']}\">undelete</a>";
+					else
+						print "<a href=\"{$_SERVER['PHP_SELF']}?action=removeproject&amp;id={$row['id']}\">delete</a>";
+				}
 				if ($userid == $row['userid'])
 					print "&nbsp;<a href=\"{$_SERVER['PHP_SELF']}?action=disownproject&amp;id={$row['id']}\">disown</a>";
 				if ($mayeditproject || $mayremoveproject || ($userid == $row['userid']))
