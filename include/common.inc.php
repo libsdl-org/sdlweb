@@ -39,7 +39,7 @@ EOT;
 	}
 
 	function checkbox($text, $value) {
-		if ($value == "t")
+		if ($value == 1)
 			print "<input type=\"checkbox\" name=\"$text\" value=\"yes\" checked>$text";
 		else
 			print "<input type=\"checkbox\" name=\"$text\" value=\"yes\">$text";
