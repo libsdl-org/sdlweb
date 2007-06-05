@@ -27,7 +27,6 @@
 		'id'=>array('type'=>'integer', 'required'=>True),
 		'groupid'=>array('type'=>'integer', 'required'=>True),
 		'login'=>array('type'=>'char', 'size'=>20, 'required'=>True),
-#		'nickname'=>array('type'=>'char', 'size'=>30, 'required'=>True),
 		'name'=>array('type'=>'char', 'size'=>64, 'required'=>True),
 		'email'=>array('type'=>'char', 'size'=>64, 'required'=>False),
 		'reset'=>array('type'=>'char', 'size'=>64, 'required'=>True),
@@ -90,8 +89,8 @@ EOT;
 			$password = create_password();
 			$passhash = md5($password);
 
-			$query = "insert into users (groupid,login,password,nickname,name,email,created)
-				values(2,'{$input['login']}','$passhash','','{$input['name']}','{$input['email']}',CURRENT_TIMESTAMP)";
+			$query = "insert into users (groupid,login,password,name,email,created)
+				values(2,'{$input['login']}','$passhash','{$input['name']}','{$input['email']}',CURRENT_TIMESTAMP)";
 			mysql_query($query, $DBconnection)
 				or die ("Could not execute query !");
 
@@ -446,7 +445,7 @@ EOT;
 
 			# --- fetch users infos ---
 
-			$query  = "select users.id as id, login, nickname, users.name as username, email, groups.name as groupname ";
+			$query  = "select users.id as id, login, users.name as username, email, groups.name as groupname ";
 			$query .= "from users,groups ";
 			$query .= "where (users.groupid=groups.id) and (users.id>0) order by username";
 			$result = mysql_query($query, $DBconnection)
