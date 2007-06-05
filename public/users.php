@@ -2,19 +2,35 @@
 	include ("../include/login.inc.php");
 	include ("header.inc.php");
 
+	/**
+	 * The letter l (lowercase L) and the number 1 have been removed,
+	 * as they can be mistaken for each other.
+	 */
+	function create_password() {
+		$chars = "abcdefghijkmnopqrstuvwxyz023456789";
+		srand((double)microtime()*1000000);
+		$i = 0;
+		$pass = '' ;
+
+		while ($i <= 7) {
+			$num = rand() % 33;
+			$tmp = substr($chars, $num, 1);
+			$pass = $pass . $tmp;
+			$i++;
+		}
+		return $pass;
+	}
+
 	BeginContent("Users");
 
 	$fields_def = array(
 		'id'=>array('type'=>'integer', 'required'=>True),
 		'groupid'=>array('type'=>'integer', 'required'=>True),
 		'login'=>array('type'=>'char', 'size'=>20, 'required'=>True),
-# pass 1 and pass2 need not be validated since they'll go trough md5 before 
-# being entered in the database. We don't even need to quotes them.
-#		'pass1'=>array('type'=>'char', 'size'=>32, 'required'=>True),
-#		'pass2'=>array('type'=>'char', 'size'=>32, 'required'=>True),
 #		'nickname'=>array('type'=>'char', 'size'=>30, 'required'=>True),
-		'name'=>array('type'=>'char', 'size'=>40, 'required'=>True),
+		'name'=>array('type'=>'char', 'size'=>64, 'required'=>True),
 		'email'=>array('type'=>'char', 'size'=>64, 'required'=>True),
+		'reset'=>array('type'=>'char', 'size'=>64, 'required'=>True),
 	);
 
 	switch ($action) {
@@ -22,11 +38,9 @@
 			echo <<<EOT
 <form method="post" action="{$_SERVER['PHP_SELF']}?action=insertuser">
 <i>All fields are required</i><br>
-<p>Login (case sensitive)<br><input type="text" name="login" size="50" maxlength="100"></p>
-<p>Password<br><input type="password" name="pass1" size="50" maxlength="100"></p>
-<p>Repeat password for confirmation<br><input type="password" name="pass2" size="50" maxlength="100"></p>
-<p>Name<br><input type="text" value="" name="name" size="50" maxlength="100"></p>
-<p>Email<br><input type="text" value="" name="email" size="50" maxlength="100"></p>
+<p>Login (case sensitive)<br><input type="text" name="login" size="16" maxlength="20"></p>
+<p>Name<br><input type="text" value="" name="name" size="50" maxlength="64"></p>
+<p>Email<br><input type="text" value="" name="email" size="50" maxlength="64"></p>
 <p><input type="submit" value="Submit"></p>
 </form>
 <p>Note that the information submitted here is kept completely private.</p>
@@ -42,10 +56,13 @@ EOT;
 			if (!$input)
 				break;
 
-			if ($_POST['pass1'] != $_POST['pass2']) {
-				print "Your confirmation password is not the same than your password !<br>\n";
+			# --- make sure there is a valid e-mail address provided
+
+			if (!strchr($input['email'], '@')) {
+				print "You must provide a valid e-mail address.<br>\n";
 				break;
 			}
+
 
 			# --- check the login is not already used by someone else ---
 
@@ -60,17 +77,18 @@ EOT;
 
 			# --- insert him in the user table ---
 
-			$password = md5($_POST['pass1']);
+			$password = create_password();
+			$passhash = md5($password);
 
-			$query = "insert into users (groupid,login,password,nickname,name,email)
-				values(2,'{$input['login']}','$password','','{$input['name']}','{$input['email']}')";
+			$query = "insert into users (groupid,login,password,nickname,name,email,created)
+				values(2,'{$input['login']}','$passhash','','{$input['name']}','{$input['email']}',1,CURRENT_TIMESTAMP)";
 			mysql_query($query, $DBconnection)
 				or die ("Could not execute query !");
 
 			# --- mail user ---
 
 			$mail_login = $input['login'];
-			$mail_password = $_POST['pass1'];
+			$mail_password = $password;
 			include("../include/mail-newuser.inc.php");
 			mail($input['email'], $subject, $body, "from: $from");
 
@@ -78,7 +96,48 @@ EOT;
 
 			mail(WEBADMIN, "New user registered on libsdl.org !", "login: {$input['login']}\nname: {$input['name']}\nemail: {$input['email']}\n", "from: ".WEBADMIN);
 
-			print "You are now registered... Click <a href=\"index.php?action=showloginform\">here</a> to login !\n";
+			print "You are now registered and your password has been mailed to the address you provided. Click <a href=\"index.php?action=showloginform\">here</a> to login !\n";
+			break;
+
+		case "resetpwd":
+			# --- check user input ---
+
+			$input = validateinput($_POST, $fields_def, array('reset'));
+			if (!$input)
+				break;
+
+			if (strchr($input['reset'], '@')) {
+				$query = "select login, email from users where email='{$input['reset']}'";
+			} else {
+				$query = "select login, email from users where login='{$input['reset']}'";
+			}
+			$result = mysql_query($query, $DBconnection)
+				or die ("Could not execute query !");
+
+			if (mysql_num_rows($result) == 0) {
+				print "That login or e-mail address is not valid, please <a href=\"index.php?action=showresetform\">re-enter</a> the one you want to reset...<br>\n";
+				break;
+			}
+			$login = mysql_result($result, 0, 'login');
+			$email = mysql_result($result, 0, 'email');
+
+			# --- reset the password ---
+
+			$password = create_password();
+			$passhash = md5($password);
+
+			$query = "update users set password='$passhash' where login = '$login'";
+			mysql_query($query, $DBconnection)
+				or die ("Could not execute query !");
+
+			# --- mail user ---
+
+			$mail_login = $login;
+			$mail_password = $password;
+			include("../include/mail-changedpassword.inc.php");
+			mail($email, $subject, $body, "from: $from");
+
+			print "Your new password has been mailed to the address you provided. Click <a href=\"index.php?action=showloginform\">here</a> to login !\n";
 			break;
 
 		case "changepwd":

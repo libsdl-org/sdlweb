@@ -24,6 +24,7 @@
 					<p><input type="checkbox" name="userpersist" value="yes">remember me</p>
 					<input type="submit" value="login">
 					</form>
+					<a href="{$_SERVER['PHP_SELF']}?action=showresetform">Recover Password</a><br>
 					<a href="users.php?action=createuser">Create new Account</a>
 
 EOT;
@@ -34,6 +35,15 @@ EOT;
 
 EOT;
 			}
+			break;
+
+		case "showresetform":
+			echo <<<EOT
+				<form method="post" action="users.php?action=resetpwd">
+				<p>Login or e-mail address<br><input type="text" name="reset" size="50" maxlength="64"></p>
+				<input type="submit" value="Reset">
+				</form>
+EOT;
 			break;
 
 		default:
