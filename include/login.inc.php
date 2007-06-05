@@ -109,6 +109,10 @@
 				$userid = mysql_result($result, 0, "id");
 				$usergroup = mysql_result($result, 0, "groupid");
 				$useremail = mysql_result($result, 0, "email");
+
+				$query = "update users set lastlogin = CURRENT_TIMESTAMP where id=$userid";
+				mysql_query($query, $DBconnection)
+					or die ("Could not execute query !");
 			}
 		}
 	}
