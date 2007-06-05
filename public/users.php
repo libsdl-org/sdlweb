@@ -29,7 +29,7 @@
 		'login'=>array('type'=>'char', 'size'=>20, 'required'=>True),
 #		'nickname'=>array('type'=>'char', 'size'=>30, 'required'=>True),
 		'name'=>array('type'=>'char', 'size'=>64, 'required'=>True),
-		'email'=>array('type'=>'char', 'size'=>64, 'required'=>True),
+		'email'=>array('type'=>'char', 'size'=>64, 'required'=>False),
 		'reset'=>array('type'=>'char', 'size'=>64, 'required'=>True),
 	);
 
@@ -38,9 +38,9 @@
 			echo <<<EOT
 <form method="post" action="{$_SERVER['PHP_SELF']}?action=insertuser">
 <i>All fields are required</i><br>
-<p>Login (case sensitive)<br><input type="text" name="login" size="16" maxlength="20"></p>
-<p>Name<br><input type="text" value="" name="name" size="50" maxlength="64"></p>
-<p>Email<br><input type="text" value="" name="email" size="50" maxlength="64"></p>
+<p>Login (case sensitive)<br><input type="text" name="login" value="{$_GET['login']}" size="16" maxlength="20"></p>
+<p>Name<br><input type="text" name="name" value="{$_GET['name']}" size="50" maxlength="64"></p>
+<p>Email<br><input type="text" name="email" value="{$_GET['email']}" size="50" maxlength="64"></p>
 <p><input type="submit" value="Submit"></p>
 </form>
 <p>Note that the information submitted here is kept completely private.</p>
@@ -59,7 +59,17 @@ EOT;
 			# --- make sure there is a valid e-mail address provided
 
 			if (!strchr($input['email'], '@')) {
-				print "You must provide a valid e-mail address.<br>\n";
+			echo <<<EOT
+<p>
+You must provide a valid e-mail address.
+</p>
+<p>
+This address is never publicly visible, and is only used to recover your password and by the SDL administrators to contact you if it ever becomes necessary.
+</p>
+<p>
+Click <a href="users.php?action=createuser&amp;login={$input['login']}&amp;name={$input['name']}">here</a> to re-enter your e-mail address.
+</p>
+EOT;
 				break;
 			}
 
@@ -81,7 +91,7 @@ EOT;
 			$passhash = md5($password);
 
 			$query = "insert into users (groupid,login,password,nickname,name,email,created)
-				values(2,'{$input['login']}','$passhash','','{$input['name']}','{$input['email']}',1,CURRENT_TIMESTAMP)";
+				values(2,'{$input['login']}','$passhash','','{$input['name']}','{$input['email']}',CURRENT_TIMESTAMP)";
 			mysql_query($query, $DBconnection)
 				or die ("Could not execute query !");
 
