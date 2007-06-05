@@ -379,12 +379,22 @@ You can also make a contribution using <a href="https://www.paypal.com">PayPal</
     <td>May 4, 2007</td>
     <td>Michael Kurinnoy</td>
     <td>$47.75</td>
-    <td><font color="red">-574.5</font></td>
+    <td><font color="red">-574.50</font></td>
+<tr><td>Expense:</td>
+    <td>Jun 5, 2007</td>
+    <td>Micro SD writer + 1GB card</td>
+    <td><font color="red">$32.12</font></td>
+    <td><font color="red">-606.62</font></td>
+<tr><td>Expense:</td>
+    <td>Jun 5, 2007</td>
+    <td>M3 DS Simply</td>
+    <td><font color="red">$57.81</font></td>
+    <td><font color="red">-664.43</font></td>
 <tr><td>Total:</td>
     <td></td>
     <td></td>
     <td></td>
-    <td><font color="red">-574.5</font></td>
+    <td><font color="red">-664.43</font></td>
 </tr>
 </table>
 
