@@ -72,7 +72,7 @@
 
 			# --- misc info ---
 
-			print "<p>name (*)<br><input type=text name=name size=50 maxlength=30></p>\n";
+			print "<p>project name (*)<br><input type=text name=name size=50 maxlength=30></p>\n";
 			print "<p>description (a single sentence without trailing period) (*)<br><input type=text name=description size=50 maxlength=255></p>\n";
 			print "<p>url (*)<br><input type=text name=url value=\"http://\" size=50 maxlength=100></p>\n";
 			print "<p>contact email<br><input type=text name=contact value=\"$useremail\" size=50 $maxlength=64></p>\n";
@@ -203,9 +203,10 @@
 
 			# --- add project's status to the database ---
 
+			mysql_data_seek($oslist, 0);
             while ($row = mysql_fetch_array($oslist, MYSQL_ASSOC)) {
 				$value = $input["{$row['shortname']}status"];
-				$query = "insert into projectstatus values($projectid, {$row['id']}, $value)";
+				$query = "insert into projectstatus (project,os,status) values($projectid, {$row['id']}, $value)";
 				mysql_query($query, $DBconnection)
 					or die ("Could not execute query !");
 			}
@@ -373,6 +374,7 @@ EOT;
 
 			# --- update project status in the database ---
 
+			mysql_data_seek($oslist, 0);
             while ($row = mysql_fetch_array($oslist, MYSQL_ASSOC)) {
 				$value = $input["{$row['shortname']}status"];
 				$query = "update projectstatus set status=$value where project=$id and os={$row['id']}";
@@ -470,6 +472,21 @@ EOT;
 			$query = "select * from oses, projectstatus where projectstatus.os=oses.id and project=$id order by name";
 			$result = mysql_query($query, $DBconnection)
 				or die ("Could not execute query !");
+
+			# crap - fix up entries created after mysql conversion
+			if (mysql_num_rows($result) == 0) {
+				$osquery = "select id,shortname from oses order by name";
+				$oslist = mysql_query($osquery, $DBconnection)
+					or die ("Could not execute query !");
+				$numberos = mysql_num_rows($oslist);
+				for ($i=0; $i < $numberos; $i++) {
+					$osid = mysql_result($oslist, $i, "id");
+					$statusquery = "insert into projectstatus (project,os,status) values($id, $osid, 0)";
+					mysql_query($statusquery, $DBconnection);
+				}
+				$result = mysql_query($query, $DBconnection)
+					or die ("Could not execute query !");
+			}
 
 			$ratinglist = array(0, 25, 50, 75, 100);
 
