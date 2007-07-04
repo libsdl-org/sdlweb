@@ -30,8 +30,9 @@
 		'id'=>array('type'=>'integer', 'required'=>True),
 		'category'=>array('type'=>'integer', 'required'=>True),
 		'question'=>array('type'=>'char', 'required'=>True),
-		'answer'=>array('type'=>'char', 'required'=>True),
+		'answer'=>array('type'=>'char', 'required'=>True, 'allowed_tags'=>'<p><br><ul><ol><li><a><pre><code>'),
 		'sorted'=>array('type'=>'float', 'required'=>True),
+		
 	);
 	
 	switch ($action) {
