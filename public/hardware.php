@@ -13,10 +13,14 @@ Hardware donations are listed with credit on the
 </p>
 
 <ul>
-<li> Nintendo DS (need: high)
 <li> GP2X (need: medium)
-<li> 64-bit Windows development system (need: low)
 </ul>
+
+<p>
+Thanks to Peter Lawler for donating a Nintendo DS, and Alec Dun for
+donating Windows Vista Ultimate.  I now have a 64-bit testing and
+development system! :)
+</p>
 
 </blockquote>
 
