@@ -390,11 +390,41 @@ You can also make a contribution using <a href="https://www.paypal.com">PayPal</
     <td>M3 DS Simply</td>
     <td><font color="red">$57.81</font></td>
     <td><font color="red">-664.43</font></td>
+<tr><td>Expense:</td>
+    <td>Jun 13, 2007</td>
+    <td>VMware Fusion 1.0</td>
+    <td><font color="red">$39.99</font></td>
+    <td><font color="red">-704.42</font></td>
+<tr><td>Donation:</td>
+    <td>Jun 19, 2007</td>
+    <td>Peter Lawler</td>
+    <td>Nintendo DS</td>
+    <td><font color="red">-704.42</font></td>
+<tr><td>Sale:</td>
+    <td>Jun 23, 2007</td>
+    <td>MacBook Pro</td>
+    <td>$1000.00</td>
+    <td>$295.58</font></td>
+<tr><td>Expense:</td>
+    <td>Jun 24, 2007</td>
+    <td>Nintendo DS Charger</td>
+    <td><font color="red">$5.38</font></td>
+    <td>$290.20</font></td>
+<tr><td>Expense:</td>
+    <td>Jun 27, 2007</td>
+    <td>MacBook Pro Core 2 Duo + RAM upgrade</td>
+    <td><font color="red">$3020.33</font></td>
+    <td><font color="red">-2730.13</font></td>
+<tr><td>Donation:</td>
+    <td>Jun 28, 2007</td>
+    <td>Alec Dun</td>
+    <td>Windows Vista Ultimate</td>
+    <td><font color="red">-2730.13</font></td>
 <tr><td>Total:</td>
     <td></td>
     <td></td>
     <td></td>
-    <td><font color="red">-664.43</font></td>
+    <td><font color="red">-2730.13</font></td>
 </tr>
 </table>
 
