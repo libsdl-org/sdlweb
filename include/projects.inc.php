@@ -1125,16 +1125,27 @@ EOT;
 					print "<br>\n";
 
 				if ($userid > 0) {
+					$unmaintained = false;
 					if ($row['userid'] == -1) {
-						print "<a href=\"{$_SERVER['PHP_SELF']}?action=maintainproject&amp;id={$row['id']}\">maintain project</a><br>\n";
+						$unmaintained = true;
 					} else if ($userprivileges['editproject']) {
 						$query  = "select name, email from users ";
 						$query .= "where id = {$row['userid']}";
 						$users = mysql_query($query, $DBconnection)
 							or die ("Could not execute query !");
-						$name = mysql_result($users, 0, "name");
-						$email = mysql_result($users, 0, "email");
-						print "Maintained by: $name (<a href=\"mailto:$email\">$email</a>)<br>\n";
+						if (mysql_num_rows($query) < 1) {
+							// apparently this user record was deleted. Set all his projects to unmaintained.
+							print("(Fixing project database issue...)<br>\n");
+							$unmaintained = true;
+							mysql_query("update projects set userid=-1 where userid={$row['userid']}");
+						} else {
+							$name = mysql_result($users, 0, "name");
+							$email = mysql_result($users, 0, "email");
+							print "Maintained by: $name (<a href=\"mailto:$email\">$email</a>)<br>\n";
+						}
+					}
+					if ($unmaintained) {
+						print "<a href=\"{$_SERVER['PHP_SELF']}?action=maintainproject&amp;id={$row['id']}\">maintain project</a><br>\n";
 					}
 				}
 				print "</p>\n";
