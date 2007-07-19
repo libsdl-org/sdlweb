@@ -1133,7 +1133,7 @@ EOT;
 						$query .= "where id = {$row['userid']}";
 						$users = mysql_query($query, $DBconnection)
 							or die ("Could not execute query !");
-						if (mysql_num_rows($query) < 1) {
+						if (mysql_num_rows($users) < 1) {
 							// apparently this user record was deleted. Set all his projects to unmaintained.
 							print("(Fixing project database issue...)<br>\n");
 							$unmaintained = true;
