@@ -5,8 +5,7 @@
 <h1>SDL Finances</h1>
 
 <p class="intro">
-Johan Knutzen, Zac Bowling, Eric Dallaire, Sebasian Erben, Jean-Baptiste Denis,
-Frederic Duval, Motion Reactor, and Michael Kurinnoy
+Gianfranco Berardi, Toby Lieven, Peter Lawler, and Ultim
 have made generous donations toward SDL development! (<a href="#note">*</a>)<br>
 <!--
 has made a generous donation toward SDL development! (<a href="#note">*</a>)<br>
@@ -380,51 +379,71 @@ You can also make a contribution using <a href="https://www.paypal.com">PayPal</
     <td>Michael Kurinnoy</td>
     <td>$47.75</td>
     <td><font color="red">-574.50</font></td>
+<tr><td>Donation:</td>
+    <td>May 31, 2007</td>
+    <td>Gianfranco Berardi</td>
+    <td>$23.97</td>
+    <td><font color="red">-550.53</font></td>
+<tr><td>Donation:</td>
+    <td>Jun 2, 2007</td>
+    <td>Toby Lieven</td>
+    <td>$95.80</td>
+    <td><font color="red">-454.73</font></td>
+<tr><td>Donation:</td>
+    <td>Jun 3, 2007</td>
+    <td>Peter Lawler</td>
+    <td>$14.11</td>
+    <td><font color="red">-440.62</font></td>
 <tr><td>Expense:</td>
     <td>Jun 5, 2007</td>
     <td>Micro SD writer + 1GB card</td>
     <td><font color="red">$32.12</font></td>
-    <td><font color="red">-606.62</font></td>
+    <td><font color="red">-472.74</font></td>
 <tr><td>Expense:</td>
     <td>Jun 5, 2007</td>
     <td>M3 DS Simply</td>
     <td><font color="red">$57.81</font></td>
-    <td><font color="red">-664.43</font></td>
+    <td><font color="red">-530.55</font></td>
 <tr><td>Expense:</td>
     <td>Jun 13, 2007</td>
     <td>VMware Fusion 1.0</td>
     <td><font color="red">$39.99</font></td>
-    <td><font color="red">-704.42</font></td>
+    <td><font color="red">-570.54</font></td>
 <tr><td>Donation:</td>
     <td>Jun 19, 2007</td>
     <td>Peter Lawler</td>
     <td>Nintendo DS</td>
-    <td><font color="red">-704.42</font></td>
+    <td><font color="red">-570.54</font></td>
 <tr><td>Sale:</td>
     <td>Jun 23, 2007</td>
     <td>MacBook Pro</td>
     <td>$1000.00</td>
-    <td>$295.58</font></td>
+    <td>$429.46</font></td>
 <tr><td>Expense:</td>
     <td>Jun 24, 2007</td>
     <td>Nintendo DS Charger</td>
     <td><font color="red">$5.38</font></td>
-    <td>$290.20</font></td>
+    <td>$424.08</font></td>
 <tr><td>Expense:</td>
     <td>Jun 27, 2007</td>
     <td>MacBook Pro Core 2 Duo + RAM upgrade</td>
     <td><font color="red">$3020.33</font></td>
-    <td><font color="red">-2730.13</font></td>
+    <td><font color="red">-2,596.25</font></td>
 <tr><td>Donation:</td>
     <td>Jun 28, 2007</td>
     <td>Alec Dun</td>
     <td>Windows Vista Ultimate</td>
     <td><font color="red">-2730.13</font></td>
+<tr><td>Donation:</td>
+    <td>Jul 14, 2007</td>
+    <td>Ultim</td>
+    <td>$300.00</td>
+    <td><font color="red">-2,296.25</font></td>
 <tr><td>Total:</td>
     <td></td>
     <td></td>
     <td></td>
-    <td><font color="red">-2730.13</font></td>
+    <td><font color="red">-2,296.25</font></td>
 </tr>
 </table>
 
