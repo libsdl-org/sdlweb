@@ -5,6 +5,11 @@
 <h1>Articles relating to SDL</h1>
 
 <blockquote>
+     Free Software Magazine - May 2006<br>
+     <b><a href="http://www.freesoftwaremagazine.com/articles/linux_pdas">The GP2x PDA</a></b>
+</blockquote>
+
+<blockquote>
      NewsForge - December 2004<br>
      <b><a href="http://www.newsforge.com/article.pl?sid=04/12/04/0156233">Getting stressed by the season?  Try Blob Wars</a></b>
 </blockquote>
