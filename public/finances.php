@@ -5,7 +5,7 @@
 <h1>SDL Finances</h1>
 
 <p class="intro">
-Gianfranco Berardi, Toby Lieven, Peter Lawler, and Ultim
+Ben Galbraith and William Menninger
 have made generous donations toward SDL development! (<a href="#note">*</a>)<br>
 <!--
 has made a generous donation toward SDL development! (<a href="#note">*</a>)<br>
@@ -439,11 +439,31 @@ You can also make a contribution using <a href="https://www.paypal.com">PayPal</
     <td>Ultim</td>
     <td>$300.00</td>
     <td><font color="red">-2,296.25</font></td>
+<tr><td>Expense:</td>
+    <td>Jul 28, 2007</td>
+    <td>Amiga Forever 2006</td>
+    <td><font color="red">$29.95</font></td>
+    <td><font color="red">-2326.20</font></td>
+<tr><td>Donation:</td>
+    <td>Aug 22, 2007</td>
+    <td>Ben Galbraith</td>
+    <td>$23.97</td>
+    <td><font color="red">-2302.23</font></td>
+<tr><td>Donation:</td>
+    <td>Aug 23, 2007</td>
+    <td>Anonymous</td>
+    <td>$47.75</td>
+    <td><font color="red">-2254.48</font></td>
+<tr><td>Donation:</td>
+    <td>Oct 18, 2007</td>
+    <td>William Menninger</td>
+    <td>$96.80</td>
+    <td><font color="red">-2157.68</font></td>
 <tr><td>Total:</td>
     <td></td>
     <td></td>
     <td></td>
-    <td><font color="red">-2,296.25</font></td>
+    <td><font color="red">-2157.68</font></td>
 </tr>
 </table>
 

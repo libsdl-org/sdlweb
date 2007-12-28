@@ -84,8 +84,10 @@ For more information about public key signatures, see
 	<p><span class="title">
 		Win32:
 		</span><br>
+		<a href="release/SDL-devel-1.2.12-VC6.zip"
+		                >SDL-devel-1.2.12-VC6.zip</a> (Visual C++ 6.0)<br>
 		<a href="release/SDL-devel-1.2.12-VC8.zip"
-		                >SDL-devel-1.2.12-VC8.zip</a> (Visual C++ 8)<br>
+		                >SDL-devel-1.2.12-VC8.zip</a> (Visual C++ 2005 Service Pack 1)<br>
 		<a href="release/SDL-devel-1.2.12-mingw32.tar.gz"
 		                >SDL-devel-1.2.12-mingw32.tar.gz</a> (Mingw32)<br>
 	</p>

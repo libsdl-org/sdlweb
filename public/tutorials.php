@@ -25,12 +25,6 @@ Covers: Using SDL with Direct3D for graphics
 Covers: Using SDL and OpenGL on Mac OS X
 </li>
 <li>
-<a href="http://www.gamedevwiki.com.ar/tiki-read_article.php?articleId=14"
-        >Tutorial SDL - Primera Parte</a>
-<br>
-Covers: Introduction to SDL in Spanish
-</li>
-<li>
 <a href="http://lazyfoo.net/SDL_tutorials/index.php"
         >Beginning Game Programming</a>
 <br>

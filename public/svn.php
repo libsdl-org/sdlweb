@@ -52,7 +52,7 @@ There is a web interface to the subversion repository at:<br>
 
 <p><font color="#414141">
 Source snapshot for SDL 1.2 (Updated
-Sun Jul 15
+Thu Dec 27
 )</p>
 <blockquote>
 <a href="tmp/SDL-1.2.tar.gz">SDL-1.2.tar.gz</a><br/>
@@ -61,7 +61,7 @@ Sun Jul 15
 
 <p><font color="#414141">
 Source snapshot for SDL 1.3 (Updated
-Thu Jul  5
+Fri Aug 10
 )</p>
 <b>WARNING: UNDER CONSTRUCTION</b>
 <blockquote>
