@@ -2,7 +2,7 @@
  include ("../include/login.inc.php");
  include ($header_filename);
 ?>
-<h1>SDL version 1.2.12 (stable)</h1>
+<h1>SDL version 1.2.13 (stable)</h1>
 <a href="release/changes-1.2.html">ChangeLog</a>
 
 <h2>GPG Signature:</h2>
@@ -27,18 +27,18 @@ For more information about public key signatures, see
 
 <h2>Source Code:</h2>
 <blockquote>
-     <a href="release/SDL-1.2.12.tar.gz"
-                     >SDL-1.2.12.tar.gz</a>
-     - <a href="release/SDL-1.2.12.tar.gz.sig">GPG signed</a><br>
-     <a href="release/SDL-1.2.12-1.src.rpm"
-                     >SDL-1.2.12-1.src.rpm</a>
-     - <a href="release/SDL-1.2.12-1.src.rpm.sig">GPG signed</a><br>
-     <a href="release/SDL-1.2.12.zip"
-                     >SDL-1.2.12.zip</a>
-     - <a href="release/SDL-1.2.12.zip.sig">GPG signed</a><br>
-     <a href="release/SDL-1.2.12.sea.bin"
-                     >SDL-1.2.12.sea.bin</a>
-     - <a href="release/SDL-1.2.12.sea.bin.sig">GPG signed</a><br>
+     <a href="release/SDL-1.2.13.tar.gz"
+                     >SDL-1.2.13.tar.gz</a>
+     - <a href="release/SDL-1.2.13.tar.gz.sig">GPG signed</a><br>
+     <a href="release/SDL-1.2.13-1.src.rpm"
+                     >SDL-1.2.13-1.src.rpm</a>
+     - <a href="release/SDL-1.2.13-1.src.rpm.sig">GPG signed</a><br>
+     <a href="release/SDL-1.2.13.zip"
+                     >SDL-1.2.13.zip</a>
+     - <a href="release/SDL-1.2.13.zip.sig">GPG signed</a><br>
+     <a href="release/SDL-1.2.13.sea.bin"
+                     >SDL-1.2.13.sea.bin</a>
+     - <a href="release/SDL-1.2.13.sea.bin.sig">GPG signed</a><br>
 </blockquote>
 
 <h2>Runtime Libraries:</h2>
@@ -46,28 +46,30 @@ For more information about public key signatures, see
 	<p><span class="title">
 		Linux:
 		</span><br>
-		<a href="release/SDL-1.2.12-1.i386.rpm"
-		                >SDL-1.2.12-1.i386.rpm</a><br>
+		<a href="release/SDL-1.2.13-1.i386.rpm"
+		                >SDL-1.2.13-1.i386.rpm</a><br>
+		<a href="release/SDL-1.2.13-1.x86_64.rpm"
+		                >SDL-1.2.13-1.x86_64.rpm</a><br>
 		<a href="http://packages.debian.org/stable/libs/"
 		        >http://packages.debian.org/stable/libs/</a><br>
 	</p>
 	<p><span class="title">
 		Win32:
 		</span><br>
-		<a href="release/SDL-1.2.12-win32.zip"
-		                >SDL-1.2.12-win32.zip</a><br>
+		<a href="release/SDL-1.2.13-win32.zip"
+		                >SDL-1.2.13-win32.zip</a><br>
 	</p>
 	<p><span class="title">
 		MacOS (Classic):
 		</span><br>
-		<a href="release/SDL-1.2.12-PPC.sea.bin"
-		                >SDL-1.2.12-PPC.sea.bin</a><br>
+		<a href="release/SDL-1.2.13-PPC.sea.bin"
+		                >SDL-1.2.13-PPC.sea.bin</a><br>
 	</p>
 	<p><span class="title">
 		Mac OS X:
 		</span><br>
-		<a href="release/SDL-1.2.12.dmg"
-		                >SDL-1.2.12.dmg</a><br>
+		<a href="release/SDL-1.2.13.dmg"
+		                >SDL-1.2.13.dmg</a><br>
 	</p>
 </blockquote>
 
@@ -76,32 +78,34 @@ For more information about public key signatures, see
 	<p><span class="title">
 		Linux:
 		</span><br>
-		<a href="release/SDL-devel-1.2.12-1.i386.rpm"
-		                >SDL-devel-1.2.12-1.i386.rpm</a><br>
+		<a href="release/SDL-devel-1.2.13-1.i386.rpm"
+		                >SDL-devel-1.2.13-1.i386.rpm</a><br>
+		<a href="release/SDL-devel-1.2.13-1.x86_64.rpm"
+		                >SDL-devel-1.2.13-1.x86_64.rpm</a><br>
 		<a href="http://packages.debian.org/stable/libdevel/"
 		        >http://packages.debian.org/stable/libdevel/</a><br>
 	</p>
 	<p><span class="title">
 		Win32:
 		</span><br>
-		<a href="release/SDL-devel-1.2.12-VC6.zip"
-		                >SDL-devel-1.2.12-VC6.zip</a> (Visual C++ 6.0)<br>
-		<a href="release/SDL-devel-1.2.12-VC8.zip"
-		                >SDL-devel-1.2.12-VC8.zip</a> (Visual C++ 2005 Service Pack 1)<br>
-		<a href="release/SDL-devel-1.2.12-mingw32.tar.gz"
-		                >SDL-devel-1.2.12-mingw32.tar.gz</a> (Mingw32)<br>
+		<a href="release/SDL-devel-1.2.13-VC6.zip"
+		                >SDL-devel-1.2.13-VC6.zip</a> (Visual C++ 6.0)<br>
+		<a href="release/SDL-devel-1.2.13-VC8.zip"
+		                >SDL-devel-1.2.13-VC8.zip</a> (Visual C++ 2005 Service Pack 1)<br>
+		<a href="release/SDL-devel-1.2.13-mingw32.tar.gz"
+		                >SDL-devel-1.2.13-mingw32.tar.gz</a> (Mingw32)<br>
 	</p>
 	<p><span class="title">
 		MacOS (Classic):
 		</span><br>
-		<a href="release/SDL-devel-1.2.12-PPC.sea.bin"
-		                >SDL-devel-1.2.12-PPC.sea.bin</a> (MPW + CodeWarrior)<br>
+		<a href="release/SDL-devel-1.2.13-PPC.sea.bin"
+		                >SDL-devel-1.2.13-PPC.sea.bin</a> (MPW + CodeWarrior)<br>
 	</p>
 	<p><span class="title">
 		MacOS X:
 		</span><br>
-		<a href="release/SDL-devel-1.2.12-extras.dmg"
-		                >SDL-devel-1.2.12-extras.dmg</a> (templates and documentation)<br>
+		<a href="release/SDL-devel-1.2.13-extras.dmg"
+		                >SDL-devel-1.2.13-extras.dmg</a> (templates and documentation)<br>
 	</p>
 </blockquote>
 

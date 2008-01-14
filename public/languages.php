@@ -92,6 +92,10 @@ and special purpose programming languages.
      HSDL -
         <a href="http://sourceforge.net/projects/hsdl/"
                 >http://sourceforge.net/projects/hsdl/</a>
+     <br>
+     Hackage -
+        <a href="http://hackage.haskell.org/cgi-bin/hackage-scripts/package/SDL"
+                >http://hackage.haskell.org/cgi-bin/hackage-scripts/package/SDL</a>
 </li>
 <li> <strong>
      Java
@@ -216,6 +220,18 @@ and special purpose programming languages.
      SDLSmalltalk -
         <a href="http://members.lycos.co.uk/oxidized/SDLSmalltalk/"
                 >http://members.lycos.co.uk/oxidized/SDLSmalltalk/</a>
+</li>
+<li> <strong>
+     Tcl
+     </strong>
+     <br>
+     SDL Tcl Bindings -
+        <a href="http://wiki.tcl.tk/4607"
+                >http://wiki.tcl.tk/4607</a>
+     <br>
+     tclsdl -
+        <a href="http://code.google.com/p/tclsdl/"
+                >http://code.google.com/p/tclsdl/</a>
 </li>
 </ul>
 
