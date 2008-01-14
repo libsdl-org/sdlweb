@@ -13,6 +13,18 @@ have contributed online tutorials on using various parts of SDL.
 <p><font color="#414141"><strong>
 <ul>
 <li>
+<a href="http://gpwiki.org/index.php/Category:All_SDL_articles"
+        >The Game Programming Wiki: SDL Tutorials</a>
+<br>
+Covers: A large number of tutorials covering SDL topics
+</li>
+<li>
+<a href="http://devhub.lostfish.org/category/c-tutorials/sdl-tutorials/"
+        >Dev Hub Game Tutorials</a>
+<br>
+Covers: Introction to SDL, using CodeBlocks
+</li>
+<li>
 <a href="http://www.gamedev.net/reference/articles/article2249.asp"
         >Direct3D 9.0 with SDL</a>
 <br>

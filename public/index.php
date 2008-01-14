@@ -65,7 +65,7 @@ EOT;
 		SDL supports Linux, Windows, Windows CE, BeOS, MacOS, Mac OS X, FreeBSD, NetBSD, OpenBSD, BSD/OS, Solaris, IRIX, and QNX.  The code contains support for AmigaOS, Dreamcast, Atari, AIX, OSF/Tru64, RISC OS, SymbianOS, and OS/2, but these are not officially supported.
 		</p>
 		<p>
-		SDL is written in C, but works with C++ natively, and has bindings to several other languages, including Ada, C#, Eiffel, Erlang, Euphoria, Guile, Haskell, Java, Lisp, Lua, ML, Objective C, Pascal, Perl, PHP, Pike, Pliant, Python, Ruby, and Smalltalk.
+		SDL is written in C, but works with C++ natively, and has bindings to several other languages, including Ada, C#, Eiffel, Erlang, Euphoria, Guile, Haskell, Java, Lisp, Lua, ML, Objective C, Pascal, Perl, PHP, Pike, Pliant, Python, Ruby, Smalltalk, and Tcl.
 		</p>
 		<p>
 		SDL is distributed under GNU LGPL version 2.  This license allows you to use SDL freely in commercial programs as long as you link with the dynamic library.
