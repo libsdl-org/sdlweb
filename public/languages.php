@@ -28,14 +28,26 @@ and special purpose programming languages.
      SDL.Net -
         <a href="http://cs-sdl.sourceforge.net/"
                 >http://cs-sdl.sourceforge.net/</a>
+     <br>
+     Tao.Sdl -
+        <a href="http://docs.taoframework.com/Tao.Sdl/"
+                >http://docs.taoframework.com/Tao.Sdl/</a>
 </li>
 <li> <strong>
      Ch
      </strong>
      <br>
      Ch SDL -
-<a href="http://chsdl.sourceforge.net/"
+	<a href="http://chsdl.sourceforge.net/"
                 >http://chsdl.sourceforge.net/</a>
+</li>
+<li> <strong>
+     D
+     </strong>
+     <br>
+     Derelict -
+	<a href="http://svn.dsource.org/projects/derelict/trunk/docs/index.html"
+                >http://svn.dsource.org/projects/derelict/trunk/docs/index.html</a>
 </li>
 <li> <strong>
      Eiffel

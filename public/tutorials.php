@@ -13,6 +13,12 @@ have contributed online tutorials on using various parts of SDL.
 <p><font color="#414141"><strong>
 <ul>
 <li>
+<a href="http://www.darkspellgames.com/~david/tutorial1.html"
+        >Tutorial SDL - Primera parte</a>
+<br>
+Covers: Basics of using SDL in Spanish
+</li>
+<li>
 <a href="http://gpwiki.org/index.php/Category:All_SDL_articles"
         >The Game Programming Wiki: SDL Tutorials</a>
 <br>

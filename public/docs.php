@@ -15,6 +15,10 @@ or downloadable as archives from the links on this page.
                       >SDL-1.0-chinese-intro.tar.gz</a><br>
      <a href="archives/SDL-1.0-chinese-intro.zip"
                       >SDL-1.0-chinese-intro.zip</a><br>
+     <a href="archives/SDL-1.0-czech-intro.tar.gz"
+                      >SDL-1.0-czech-intro.tar.gz</a><br>
+     <a href="archives/SDL-1.0-czech-intro.zip"
+                      >SDL-1.0-czech-intro.zip</a><br>
      <a href="archives/SDL-1.0-english-intro.tar.gz"
                       >SDL-1.0-english-intro.tar.gz</a><br>
      <a href="archives/SDL-1.0-english-intro.zip"
