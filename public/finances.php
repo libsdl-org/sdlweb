@@ -5,7 +5,7 @@
 <h1>SDL Finances</h1>
 
 <p class="intro">
-Ben Galbraith and William Menninger
+Cesar Botana and <a href="http://www.nighsoft.net">Nighsoft</a>
 have made generous donations toward SDL development! (<a href="#note">*</a>)<br>
 <!--
 has made a generous donation toward SDL development! (<a href="#note">*</a>)<br>
@@ -459,11 +459,21 @@ You can also make a contribution using <a href="https://www.paypal.com">PayPal</
     <td>William Menninger</td>
     <td>$96.80</td>
     <td><font color="red">-2157.68</font></td>
+<tr><td>Donation:</td>
+    <td>Feb 6, 2008</td>
+    <td>Cesar Botana</td>
+    <td>$207.39</td>
+    <td><font color="red">-1950.29</font></td>
+<tr><td>Donation:</td>
+    <td>Mar 7, 2008</td>
+    <td><a href="http://www.nighsoft.net">Nighsoft</a></td>
+    <td>$23.97</td>
+    <td><font color="red">-1926.32</font></td>
 <tr><td>Total:</td>
     <td></td>
     <td></td>
     <td></td>
-    <td><font color="red">-2157.68</font></td>
+    <td><font color="red">-1926.32</font></td>
 </tr>
 </table>
 

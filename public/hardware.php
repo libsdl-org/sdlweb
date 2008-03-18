@@ -13,6 +13,7 @@ Hardware donations are listed with credit on the
 </p>
 
 <ul>
+<li> iPod touch (need: high)
 <li> GP2X (need: medium)
 <li> PS3 (need: low)
 <li> XBox 360 (need: low)
