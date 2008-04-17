@@ -66,7 +66,7 @@
 	<li><a href="/tutorials.php">Tutorials</a></li>
 	<li><a href="/articles.php">Articles</a></li>
 	<li><a href="/books.php">Books</a></li>
-	<li><a href="http://www.libsdl.org/cgi/docwiki.cgi/">Doc Wiki</a></li>
+	<li><a href="/cgi/docwiki.cgi/">Doc Wiki</a></li>
 	<li class="unavailable">FAQs</li>
 	<li><a href="/opengl/index.php">OpenGL</a></li>
 	<li><a href="/mailing-list.php">Mailing Lists</a></li>
