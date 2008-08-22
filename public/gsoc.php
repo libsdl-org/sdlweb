@@ -82,6 +82,17 @@ The following projects were selected for the Google Summer of Code:
 </ul>
 
 <p>
+Important Dates:
+<ul>
+<li> April 21 - May 26: Students get to know the community, start researching
+<li> May 26: Students begin coding, working with mentors for guidance
+<li> July 7: Mid-term evaluation - we'll be doing evaluations of students and asking for feedback to help improve the program
+<li> August 11: Wrap up coding, finish documentation, final polish
+<li> August 18: Final evaluation, again, we'll be doing this both ways
+</ul>
+</p>
+
+<p>
 Feel free to check out the <a href="gsoc-ideas.php">GSoC 2008 ideas list</a> if you would like to help out!
 </p>
 
