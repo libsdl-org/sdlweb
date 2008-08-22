@@ -1,0 +1,24 @@
+Options -Indexes
+DirectoryIndex awstats.libsdl.org.html
+
+AuthUserFile /home/sdlweb/web/statistics/.htpasswd
+AuthGroupFile /dev/null
+AuthName "libsdl.org web statistics"
+AuthType Basic
+require valid-user
+
+<Files .htaccess>
+    order allow,deny
+    deny from all
+</Files>
+
+<Files .htpasswd>
+    order allow,deny
+    deny from all
+</Files>
+
+<Files .svn>
+    order allow,deny
+    deny from all
+</Files>
+
