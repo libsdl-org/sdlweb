@@ -74,7 +74,8 @@ The following projects were selected for the Google Summer of Code:
  </a>
  </div>
  <div>
- <small>by Szymon Wilczek, mentored by Ryan C. Gordon</small>
+ <small>by Szymon Wilczek, mentored by Ryan C. Gordon<br>
+        Wiki available: <a href="http://wilku.ravenlord.ws/doku.php?id=start">http://wilku.ravenlord.ws/doku.php?id=start</a></small>
  </div>
  </div>
 </li>
