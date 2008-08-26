@@ -5,12 +5,19 @@
 <h1>SDL Finances</h1>
 
 <p class="intro">
-Cesar Botana and <a href="http://www.nighsoft.net">Nighsoft</a>
+Chris Peterson, James Michels,
+<a href="http://www.3dconnexion.com/">3Dconnexion</a>,
+Sebastian Posch, Christopher Ogden,
+Cesar Rodriguez Moreno, Ellert van Koperen, Lars Brubaker, and
+<a href="http://www.logitech.com">Logitech</a>
 have made generous donations toward SDL development! (<a href="#note">*</a>)<br>
 <!--
 has made a generous donation toward SDL development! (<a href="#note">*</a>)<br>
 -->
 Thank you everybody for showing your support and furthering SDL!
+</p>
+<p>
+I would like to give special thanks to <a href="http://www.logitech.com">Logitech</a> for their hardware donations which allowed me to do testing and provide useful feedback for the Google Summer of Code multi-mouse and force feedback projects for SDL 1.3.
 </p>
 
 <p class="intro">
@@ -469,11 +476,91 @@ You can also make a contribution using <a href="https://www.paypal.com">PayPal</
     <td><a href="http://www.nighsoft.net">Nighsoft</a></td>
     <td>$23.97</td>
     <td><font color="red">-1926.32</font></td>
+<tr><td>Donation:</td>
+    <td>Apr 1, 2008</td>
+    <td>Chris Peterson</td>
+    <td>$9.41</td>
+    <td><font color="red">-1916.91</font></td>
+<tr><td>Donation:</td>
+    <td>Apr 5, 2008</td>
+    <td>James Michels</td>
+    <td>$485.20</td>
+    <td><font color="red">-1431.71</font></td>
+<tr><td>Donation:</td>
+    <td>May 6, 2008</td>
+    <td><a href="http://www.3dconnexion.com/">3Dconnexion</a></td>
+    <td>SpaceNavigator</td>
+    <td><font color="red">-1431.71</font></td>
+<tr><td>Donation:</td>
+    <td>May 6, 2008</td>
+    <td><a href="http://www.3dconnexion.com/">3Dconnexion</a></td>
+    <td>SpaceExplorer</td>
+    <td><font color="red">-1431.71</font></td>
+<tr><td>Donation:</td>
+    <td>May 12, 2008</td>
+    <td>Sebastian Posch</td>
+    <td>$71.95</td>
+    <td><font color="red">-1359.76</font></td>
+<tr><td>Donation:</td>
+    <td>May 22, 2008</td>
+    <td>Christopher Ogden</td>
+    <td>$19.12</td>
+    <td><font color="red">-1340.64</font></td>
+<tr><td>Donation:</td>
+    <td>May 22, 2008</td>
+    <td>Cesar Rodriguez Moreno</td>
+    <td>$71.39</td>
+    <td><font color="red">-1269.25</font></td>
+<tr><td>Donation:</td>
+    <td>Jun 20, 2008</td>
+    <td>Ellert van Koperen</td>
+    <td>$47.75</td>
+    <td><font color="red">-1221.50</font></td>
+<tr><td>Donation:</td>
+    <td>Jun 20, 2008</td>
+    <td>Lars Brubaker</td>
+    <td>$19.12</td>
+    <td><font color="red">-1202.38</font></td>
+<tr><td>Donation:</td>
+    <td>Aug 7, 2008</td>
+    <td><a href="http://www.logitech.com">Logitech</a></td>
+    <td>Wireless Mouse</td>
+    <td><font color="red">-1202.38</font></td>
+<tr><td>Donation:</td>
+    <td>Aug 7, 2008</td>
+    <td><a href="http://www.logitech.com">Logitech</a></td>
+    <td>G5 Mouse</td>
+    <td><font color="red">-1202.38</font></td>
+<tr><td>Donation:</td>
+    <td>Aug 7, 2008</td>
+    <td><a href="http://www.logitech.com">Logitech</a></td>
+    <td>G15 Keyboard</td>
+    <td><font color="red">-1202.38</font></td>
+<tr><td>Donation:</td>
+    <td>Aug 7, 2008</td>
+    <td><a href="http://www.logitech.com">Logitech</a></td>
+    <td>Z10 USB Speakers</td>
+    <td><font color="red">-1202.38</font></td>
+<tr><td>Donation:</td>
+    <td>Aug 7, 2008</td>
+    <td><a href="http://www.logitech.com">Logitech</a></td>
+    <td>Rumblepad 2</td>
+    <td><font color="red">-1202.38</font></td>
+<tr><td>Donation:</td>
+    <td>Aug 7, 2008</td>
+    <td><a href="http://www.logitech.com">Logitech</a></td>
+    <td>Force 3D Pro Joystick</td>
+    <td><font color="red">-1202.38</font></td>
+<tr><td>Donation:</td>
+    <td>Aug 7, 2008</td>
+    <td><a href="http://www.logitech.com">Logitech</a></td>
+    <td>MOMO Racing Wheel</td>
+    <td><font color="red">-1202.38</font></td>
 <tr><td>Total:</td>
     <td></td>
     <td></td>
     <td></td>
-    <td><font color="red">-1926.32</font></td>
+    <td><font color="red">-1202.38</font></td>
 </tr>
 </table>
 
