@@ -13,12 +13,16 @@ Hardware donations are listed with credit on the
 </p>
 
 <ul>
-<li> iPod touch (need: high)
+<li> PS3 (need: high)
 <li> GP2X (need: medium)
-<li> PS3 (need: low)
 <li> XBox 360 (need: low)
 <li> Wii (need: low)
 </ul>
+
+<p>
+Thanks to Logitech for donating a number of mice and force feeback
+input devices.  SDL 1.3 now has a cross-platform force feedback API!
+</p>
 
 <p>
 Thanks to Peter Lawler for donating a Nintendo DS, and Alec Dun for
