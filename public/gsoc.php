@@ -11,7 +11,7 @@ I'd like to thank everybody who applied, and congratulate everyone who was selec
 </p>
 
 <p>
-The following projects were selected for the Google Summer of Code: 
+The following projects were implemented during the Google Summer of Code: 
 <ul>
 
 <li>
@@ -83,18 +83,18 @@ The following projects were selected for the Google Summer of Code:
 </ul>
 
 <p>
-Important Dates:
-<ul>
-<li> April 21 - May 26: Students get to know the community, start researching
-<li> May 26: Students begin coding, working with mentors for guidance
-<li> July 7: Mid-term evaluation - we'll be doing evaluations of students and asking for feedback to help improve the program
-<li> August 11: Wrap up coding, finish documentation, final polish
-<li> August 18: Final evaluation, again, we'll be doing this both ways
-</ul>
-</p>
-
-<p>
-Feel free to check out the <a href="gsoc-ideas.php">GSoC 2008 ideas list</a> if you would like to help out!
+The Google Summer of Code is complete!  Our applicants did a fantastic job
+with their projects, and we've made available a special SDL 1.3 PRERELEASE
+snapshot featuring their work:
+<br>
+<a href="http://www.libsdl.org/tmp/SDL-gsoc2008.zip">
+http://www.libsdl.org/tmp/SDL-gsoc2008.zip</a>
+<br>
+<a href="http://www.libsdl.org/tmp/SDL-gsoc2008.tar.gz">
+http://www.libsdl.org/tmp/SDL-gsoc2008.tar.gz</a>
+<br>
+Note: Due to Apple's NDA, the full iPhone port is not available, but the
+OpenGL ES driver has been split out and is available in this snapshot.
 </p>
 
 </blockquote>
