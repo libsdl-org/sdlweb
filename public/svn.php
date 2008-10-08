@@ -61,7 +61,7 @@ Mon Dec 31
 
 <p><font color="#414141">
 Source snapshot for SDL 1.3 (Updated
-Fri Aug 10
+Sat Sep 20
 )</p>
 <b>WARNING: UNDER CONSTRUCTION</b>
 <blockquote>
