@@ -1,0 +1,16 @@
+#<Directory viewvc>
+#SetEnv PYTHONPATH /home/sdlweb
+#</Directory>
+ErrorDocument 404 /missing.php
+
+
+<Files logs>
+Order deny,allow
+Deny from all
+</Files>
+
+<Files .htaccess>
+Order deny,allow
+Deny from all
+</Files>
+
