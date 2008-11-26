@@ -5,18 +5,12 @@
 <h1>SDL Finances</h1>
 
 <p class="intro">
-I would like to thank Google, Inc. and all the students who applied for the
-Google Summer of Code.  It has been an amazingly rewarding experience, both
-for the SDL project and for the students.  <em>Thank you!</em>
-<!--
+Vincent Vansuyt and Matthew Kuiken
 have made generous donations toward SDL development! (<a href="#note">*</a>)<br>
+<!--
 has made a generous donation toward SDL development! (<a href="#note">*</a>)<br>
-Thank you everybody for showing your support and furthering SDL!
 -->
-</p>
-<p>
-You can find out more about the Google Summer of Code and the student projects
-at <a href="http://www.libsdl.org/gsoc.php">http://www.libsdl.org/gsoc.php</a>.
+Thank you everybody for showing your support and furthering SDL!
 </p>
 
 <p class="intro">
@@ -35,6 +29,16 @@ You can also make a contribution using <a href="https://www.paypal.com">PayPal</
     <th align="left"></th>
     <th align="left">Amount</th>
     <th align="left">Total</th>
+<tr><td>Donation:</td>
+    <td>Nov 15, 2008</td>
+    <td>Matthew Kuiken</td>
+    <td>GP2X</td>
+    <td>$929.82</td>
+<tr><td>Donation:</td>
+    <td>Oct 23, 2008</td>
+    <td>Vincent Vansuyt</td>
+    <td>$35.53</td>
+    <td>$929.82</td>
 <tr><td>Payment:</td>
     <td>Oct 7, 2008</td>
     <td>Google, Inc.</td>
