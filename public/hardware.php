@@ -14,8 +14,6 @@ Hardware donations are listed with credit on the
 
 <ul>
 <li> PS3 (need: high)
-<li> GP2X (need: medium)
-<li> XBox 360 (need: low)
 <li> Wii (need: low)
 </ul>
 
