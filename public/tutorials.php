@@ -49,13 +49,13 @@ Covers: Using SDL and OpenGL on Mac OS X
 Covers: A series of tutorials on game concepts geared for SDL developers
 </li>
 <li>
-<a href="http://osdl.sourceforge.net/OSDL/OSDL-0.3/src/doc/web/main/documentation/rendering/SDL-audio.html"
+<a href="http://osdl.sourceforge.net/main/documentation/rendering/SDL-audio.html"
         >SDL corner - Audio with SDL</a>
 <br>
 Covers: Lots of advanced information on using SDL's audio support
 </li>
 <li>
-<a href="http://osdl.sourceforge.net/OSDL/OSDL-0.3/src/doc/web/main/documentation/rendering/SDL-openGL.html"
+<a href="http://osdl.sourceforge.net/main/documentation/rendering/SDL-openGL.html"
         >SDL corner - Using OpenGL with SDL</a>
 <br>
 Covers: Lots of advanced information on using SDL with OpenGL
