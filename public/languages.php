@@ -90,6 +90,14 @@ and special purpose programming languages.
                 >http://www.rapideuphoria.com/sdl_wrap.zip</a>
 </li>
 <li> <strong>
+     Falcon
+     </strong>
+     <br>
+     Falcon SDL module -
+        <a href="http://www.falconpl.org/index.ftd?page_id=prjs&prj_id=sdl"
+                >http://www.falconpl.org/index.ftd?page_id=prjs&prj_id=sdl</a>
+</li>
+<li> <strong>
      Guile
      </strong>
      <br>
