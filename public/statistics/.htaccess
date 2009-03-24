@@ -1,7 +1,7 @@
 Options -Indexes
 DirectoryIndex awstats.libsdl.org.html
 
-AuthUserFile /home/sdlweb/web/statistics/.htpasswd
+AuthUserFile /home/slouken/libsdl.org/statistics/.htpasswd
 AuthGroupFile /dev/null
 AuthName "libsdl.org web statistics"
 AuthType Basic
