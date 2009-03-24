@@ -56,6 +56,8 @@ This page is a scratch pad of ideas for the <a href="http://socghop.appspot.com/
 <li> 2D Video Drivers <br>
 	SDL 1.3 is designed to work efficiently on 3D hardware, and OpenGL and Direct3D have been the primary focus for development.  If you love old computers or have a retro bent, you might like to tackle implementing some of the 2D drivers that need love.  You can pick from SVGAlib, Linux framebuffer console, PS/2 framebuffer, Atari framebuffer, etc.
 </li>
+<li> PlayStation 3 SPE Support <br>
+	The Cell CPU has 6 cores, one is a common PowerPC core and the five other cores are special synergetic processing cores (SPE). That means, you can run SDL on the PS3 with the fbdev video driver. But fbdev only uses one core, the  PowerPC core, so it's not using the full power the Cell CPU provides, which is a lot more.  You could create an SDL video driver that uses the SPEs to do bilinear scaling, yuv-to-rgb converting and copying the picture to the framebuffer.
 <br>
 </ul>
 
