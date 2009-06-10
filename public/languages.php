@@ -50,6 +50,14 @@ and special purpose programming languages.
                 >http://svn.dsource.org/projects/derelict/trunk/docs/index.html</a>
 </li>
 <li> <strong>
+     Dao
+     </strong>
+     <br>
+     Native -
+	<a href="http://www.daovm.net"
+                >http://www.daovm.net</a>
+</li>
+<li> <strong>
      Eiffel
      </strong>
      <br>
