@@ -49,6 +49,7 @@
 	<ul class="menu">
 	<li><a href="/index.php">About</a></li>
 	<li><a href="/news.php">News</a></li>
+	<li><a href="http://forums.libsdl.org/viewforum.php?f=2">Jobs</a></li>
 	<li><a href="http://bugzilla.libsdl.org/">Bugs</a></li>
 	<li><a href="/license.php">Licensing</a></li>
 	<li><a href="http://www.cafepress.com/libsdl">Merchandise</a></li>
@@ -68,6 +69,7 @@
 	<li><a href="/cgi/docwiki.cgi">Doc Wiki</a></li>
 	<li><a href="/faq.php">FAQs</a></li>
 	<li><a href="/opengl/index.php">OpenGL</a></li>
+	<li><a href="http://forums.libsdl.org/">Forums</a></li>
 	<li><a href="/mailing-list.php">Mailing Lists</a></li>
 	<li><a href="http://news.gmane.org/thread.php?group=gmane.comp.lib.sdl">Newsgroup</a></li>
 	</ul>
