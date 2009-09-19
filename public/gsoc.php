@@ -113,19 +113,13 @@ You can also use the verbosity flag to see what your system supports as far as r
 Martin was porting the ps3 video driver from SDL 1.2 to SDL 1.3. Basically the ps3 driver in 1.3 provides the same functionality (but improved) as in 1.2, which means:
 <ul>
 <li> All videomodes the ps3 comes with are supported (420p, 720p, 1080p, WXGA, SXGA, WUXGA)
-<li> Scaling (bilinear YV12/IYUV), converting (YV12/IYUV) and copying the frame to the framebuffer are accelerated by SPEs
-<a href="http://en.wikipedia.org/wiki/Cell_%28microprocessor%29">
-http://en.wikipedia.org/wiki/Cell_%28microprocessor%29</a>
+<li> Scaling (bilinear YV12/IYUV), converting (YV12/IYUV) and copying the frame to the framebuffer are accelerated by <a href="http://en.wikipedia.org/wiki/Cell_%28microprocessor%29">SPEs</a>.
 <li> Easy way to build the needed ps3libs by running "make ps3libs"
 </ul>
 <p>
-The API to manage programs running on a SPE is documented and provides an easy way to use different/faster scaler or converter.
-<a href="http://www.libsdl.org/cgi/viewvc.cgi/trunk/SDL/src/video/ps3/SDL_ps3spe_c.h?view=markup">
-http://www.libsdl.org/cgi/viewvc.cgi/trunk/SDL/src/video/ps3/SDL_ps3spe_c.h?view=markup</a>
+The API to manage programs running on a SPE is <a href="http://www.libsdl.org/cgi/viewvc.cgi/trunk/SDL/src/video/ps3/SDL_ps3spe_c.h?view=markup">documented</a> and provides an easy way to use different/faster scaler or converter.
 <p>
-Installation and ideas to extend the ps3 driver are documented:
-<a href="http://www.libsdl.org/cgi/viewvc.cgi/trunk/SDL/README.PS3?view=markup">
-http://www.libsdl.org/cgi/viewvc.cgi/trunk/SDL/README.PS3?view=markup</a>
+Installation and ideas to extend the ps3 driver are <a href="http://www.libsdl.org/cgi/viewvc.cgi/trunk/SDL/README.PS3?view=markup">documented</a>.
 <p>
 
 <h3> IME on Mac OS X </h3>
