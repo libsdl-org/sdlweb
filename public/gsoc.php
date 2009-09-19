@@ -2,83 +2,152 @@
  include ("../include/login.inc.php");
  include ($header_filename);
 ?>
-<h1>SDL Summer of Code Ideas</h1>
+<h1>SDL Summer of Code Projects</h1>
 
 <blockquote style="color: #414141">
 
 <p>
-This page is a scratch pad of ideas for the <a href="http://socghop.appspot.com/program/home/google/gsoc2009">Google Summer of Code</a>.  These ideas are things that would help advance the SDL 1.3 development, but is not an exhaustive list.  If you have an idea you'd like to see that isn't listed, <a href="mailto:slouken@libsdl.org">please let me know</a>!
+I'd like to thank everybody who applied, and congratulate everyone who was selected for the <a href="http://socghop.appspot.com/">Google Summer of Code</a>!
 </p>
 
-<h3> General Ideas </h3>
+<p>
+The following projects were accepted for the Google Summer of Code: 
 <ul>
-<li> New Platforms <br>
-	Do you have a platform or device that you want to see SDL 1.3 ported to?  SDL is widely cross-platform and it's always great to see ports to new systems.
+
+<li>
+ <div class=extern_app>
+ <div>
+ <a href="http://socghop.appspot.com/student_project/show/google/gsoc2009/sdl/t124024853848">
+ International Input (Mac OS X)
+ </a>
+ </div>
+ <div>
+ <small>by Jiang Jiang, mentored by Ryan C. Gordon</small>
+ </div>
+ </div>
+</li> 
+
+<!-- Simeon dropped out at midterm, sadly.
+<li>
+ <div class=extern_app>
+ <div>
+ <a href="http://socghop.appspot.com/student_project/show/google/gsoc2009/sdl/t124024854219">
+ International Input (X11)
+ </a>
+ </div>
+ <div>
+ <small>by Simeon Xenitellis, mentored by Ryan C. Gordon</small>
+ </div>
+ </div>
 </li>
-<br>
-<li> Unit Tests <br>
-	As software becomes more complex it becomes more and more important to create systems for testing them.  A battery of simple tests can be used to catch bugs before they go live and to verify functionality of new ports.  If making perfect software gives you a thrill, this may be the project for you!
+-->
+
+<li>
+ <div class=extern_app>
+ <div>
+ <a href="http://socghop.appspot.com/student_project/show/google/gsoc2009/sdl/t124024854746">
+ Automated Testing Suite for SDL
+ </a>
+ </div>
+ <div>
+ <small>by Edgar Simo, mentored by Sam Lantinga</small>
+ </div>
+ </div>
 </li>
-<br>
+
+<li>
+ <div class=extern_app>
+ <div>
+ <a href="http://socghop.appspot.com/student_project/show/google/gsoc2009/sdl/t124024855295">
+ Playstation3 Port
+ </a>
+ </div>
+ <div>
+ <small>by Martin Lowinski, mentored by Sam Lantinga</small>
+ </div>
+ </div>
+</li>
+
 </ul>
 
-<h3> Input Ideas </h3>
-<ul>
-<li> Touch Input <br>
-	Nothing is as smooth and intuitive as touch input.  For years artists have used pressure sensitive tablets for digital media, and more recently the iPhone has revolutionized the industry with an intuitive multi-touch gesture interface.  If touch excites you, then you can design and implement a touch/gesture API from the ground up.
-</li>
+Presenting the Google Summer of Code 2009 "work complete" snapshot!
+<p>
+<a href="http://www.libsdl.org/tmp/SDL-GSoC-2009.zip">
+http://www.libsdl.org/tmp/SDL-GSoC-2009.zip</a>
+<p>
+I want to thank all of these students for the excellent work they contributed!
+<p>
+Please feel free to download the snapshot and check out their work!
 <br>
-<li> International Input <br>
-	SDL 1.3 has a clean API for receiving Unicode character input, however there is currently no Input Method Editor (IME) support implemented.  If you consider yourself an International Woman of Mystery, you might consider traveling to remote climes and helping them input exotic languages into games.  You could pick any of Windows, XFree86, and Mac OS X and check the status of their IME support and implement the necessary code to convert user input into Unicode characters.
-</li>
+If you run into any bugs, please enter them in the <a href="http://bugzilla.libsdl.org/">SDL bug tracking system</a>.
 <br>
-</ul>
+If you have any questions, please ask on the <a href="http://www.libsdl.org/mailng-list.php">mailing list</a> or the <a href="http://forums.libsdl.org/">forums</a>.
+<p>
+Here is more detailed information on each of the projects:
+<p>
 
-<h3> Audio Ideas </h3>
-<ul>
-<li> Recording <br>
-	SDL 1.3 API has support for recording, but not all implementations support it.  If you like to groove into a mic, you can evaluate the current API to make sure it meets the needs of games and add any necessary audio code to support recording with the various drivers.  <br>
-	A nice capstone for this idea might be a simple example of VOIP (Voice Over IP) that records an audio stream, encodes it in a voice codec, and sends it over the network to be decoded and played back using SDL.
-</li>
+<h3> Automated Tests </h3>
+The initial version of the Automated Testing Framework has been already merged with SDL 1.3:
 <br>
+<a href="http://www.libsdl.org/cgi/viewvc.cgi/trunk/SDL/test/automated/">
+http://www.libsdl.org/cgi/viewvc.cgi/trunk/SDL/test/automated/</a>
+<p>
+Basic functionality it has now serves to test the following subsystems:
+<ul>
+<li> RWops - all the builtin rwops stuff
+<li> platform - endianness and the likes
+<li> surface - surface manipulation
+<li> render - different rendering drivers/renderers (not working 100% since
+<li> the readpixels function isn't implement)
+<li> audio - only in verbose mode
 </ul>
+<p>
+The framework is there and documented to add more functionality or testcases.  There is both <a href="http://www.libsdl.org/cgi/viewvc.cgi/trunk/SDL/test/automated/README?view=markup">user</a> and <a href="http://www.libsdl.org/cgi/viewvc.cgi/trunk/SDL/test/automated/SDL_at.h?view=markup">developer</a> documentation.
+<p>
+The manual testcases weren't implemented due to lack of time and increase complexity the brought (needing to change to autotools, use SDL_ttf [if found] to display text, etc...), so currently they are all automated.
+<p>
+You can also use the verbosity flag to see what your system supports as far as renderers/drivers are concerned. More is explained with the documentation.
+<p>
 
-<h3> Video Ideas </h3>
+<h3> Playstation 3 </h3>
+Martin was porting the ps3 video driver from SDL 1.2 to SDL 1.3. Basically the ps3 driver in 1.3 provides the same functionality (but improved) as in 1.2, which means:
 <ul>
-<li> Multi-Display Support <br>
-	The SDL 1.3 API is designed to allow games that take advantage of multiple monitors, however none of the video drivers currently support it.  If you're a two-headed ogre, or just a cyclops with a broad mind, you might want to pick from Windows, X11 Xinerama, or Mac OS X and add the necessary code to expose multiple monitors to the application level.
-</li>
-<br>
-<li> XRender Support <br>
-	The SDL 1.3 API has been designed with the capabilities of the XRender X11 extension in mind, but they haven't yet been integrated into the SDL X11 video driver.  If you want to bring X11 video capabilities to a whole new level, this is the project for you!
-</li>
-<br>
-<li> 2D Video Drivers <br>
-	SDL 1.3 is designed to work efficiently on 3D hardware, and OpenGL and Direct3D have been the primary focus for development.  If you love old computers or have a retro bent, you might like to tackle implementing some of the 2D drivers that need love.  You can pick from SVGAlib, Linux framebuffer console, PS/2 framebuffer, Atari framebuffer, etc.
-</li>
-<li> PlayStation 3 SPE Support <br>
-	The Cell CPU has 6 cores, one is a common PowerPC core and the five other cores are special synergetic processing cores (SPE). That means, you can run SDL on the PS3 with the fbdev video driver. But fbdev only uses one core, the  PowerPC core, so it's not using the full power the Cell CPU provides, which is a lot more.  You could create an SDL video driver that uses the SPEs to do bilinear scaling, yuv-to-rgb converting and copying the picture to the framebuffer.
-<br>
+<li> All videomodes the ps3 comes with are supported (420p, 720p, 1080p, WXGA, SXGA, WUXGA)
+<li> Scaling (bilinear YV12/IYUV), converting (YV12/IYUV) and copying the frame to the framebuffer are accelerated by SPEs
+<a href="http://en.wikipedia.org/wiki/Cell_%28microprocessor%29">
+http://en.wikipedia.org/wiki/Cell_%28microprocessor%29</a>
+<li> Easy way to build the needed ps3libs by running "make ps3libs"
 </ul>
+<p>
+The API to manage programs running on a SPE is documented and provides an easy way to use different/faster scaler or converter.
+<a href="http://www.libsdl.org/cgi/viewvc.cgi/trunk/SDL/src/video/ps3/SDL_ps3spe_c.h?view=markup">
+http://www.libsdl.org/cgi/viewvc.cgi/trunk/SDL/src/video/ps3/SDL_ps3spe_c.h?view=markup</a>
+<p>
+Installation and ideas to extend the ps3 driver are documented:
+<a href="http://www.libsdl.org/cgi/viewvc.cgi/trunk/SDL/README.PS3?view=markup">
+http://www.libsdl.org/cgi/viewvc.cgi/trunk/SDL/README.PS3?view=markup</a>
+<p>
 
-<h3> Miscellaneous Ideas </h3>
-<ul>
-<li> Desktop Integration <br>
-	There are desktop services that many multimedia applications use, like drag-n-drop support, clipboard access, etc. that can be exposed in the SDL API.  If you love making applications work well in the desktop environment, you can evaluate these technologies and design and implement APIs that allow applications to access these services.
-</li>
+<h3> IME on Mac OS X </h3>
+Jiang added three new API functions to manage text input in SDL 1.3:
 <br>
-<li> Shaped Window Support <br>
-	One of the commonly requested features is the ability to create uniquely shaped and themed windows.  This project would involve researching how to create shaped windows on Linux, Mac OS X and Windows, and then design and implement a clean API for using them.
-</li>
+SDL_StartTextInput() - Enable text input events
 <br>
-<li> Enhanced Cursor Support <br>
-	One of the planned features for SDL 1.3 is support for fully animated color cursors.  This project would involve building new cursor functionality from the ground up on Linux, Mac OS X and Windows, to bring games and applications to life!
-</li>
+SDL_SetTextInputRect() - Set the area where the IME will display
 <br>
-<li>Your Idea Here! <br>
-	You're smart!  What would you like to do?
-</li>
-</ul>
+SDL_StopTextInput() - Disable text input events
+<p>
+There is also a new event that is triggered when partially composed text is available:
+<code><pre>
+struct SDL_TextEditingEvent
+{
+    Uint8 type;             /**< SDL_TEXTEDITING */
+    char text[];            /**< The editing text */
+    int start;              /**< The start cursor of selected editing text */
+    int length;             /**< The length of selected editing text */
+};
+</pre></code>
+<p>
 
 </blockquote>
 
