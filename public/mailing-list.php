@@ -45,6 +45,17 @@ Subscribing to this list automatically subscribes you to the SDL-announce list.
 </p>
 
 <p><font color="#414141"><strong>
+Job Mailing List:
+</strong>
+<br>
+This is a low volume list for employers to post job opportunities and for people who are looking for SDL work to post their resumes:
+<br>
+<a href="http://lists.libsdl.org/listinfo.cgi/jobs-libsdl.org">
+         http://lists.libsdl.org/listinfo.cgi/jobs-libsdl.org</a>
+</font>
+</p>
+
+<p><font color="#414141"><strong>
 SVN Mailing List:
 </strong>
 <br>
