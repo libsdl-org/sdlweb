@@ -84,17 +84,14 @@ The following projects were implemented during the Google Summer of Code:
 
 <p>
 The Google Summer of Code is complete!  Our applicants did a fantastic job
-with their projects, and we've made available a special SDL 1.3 PRERELEASE
-snapshot featuring their work:
+with their projects, and their work is now a part of SDL 1.3.  You can get
+a PRE-RELEASE snapshot of SDL including their work:
 <br>
-<a href="http://www.libsdl.org/tmp/SDL-gsoc2008.zip">
-http://www.libsdl.org/tmp/SDL-gsoc2008.zip</a>
+<a href="http://www.libsdl.org/tmp/SDL-1.3.zip">
+http://www.libsdl.org/tmp/SDL-1.3.zip</a>
 <br>
-<a href="http://www.libsdl.org/tmp/SDL-gsoc2008.tar.gz">
-http://www.libsdl.org/tmp/SDL-gsoc2008.tar.gz</a>
-<br>
-Note: Due to Apple's NDA, the full iPhone port is not available, but the
-OpenGL ES driver has been split out and is available in this snapshot.
+<a href="http://www.libsdl.org/tmp/SDL-1.3.tar.gz">
+http://www.libsdl.org/tmp/SDL-1.3.tar.gz</a>
 </p>
 
 </blockquote>
