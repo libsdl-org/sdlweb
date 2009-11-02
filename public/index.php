@@ -70,6 +70,17 @@ EOT;
 		<p>
 		SDL is distributed under GNU LGPL version 2.  This license allows you to use SDL freely in commercial programs as long as you link with the dynamic library.
 		</p>
+		<hr>
+		<P>Welcome to the last planned release for SDL 1.2!
+		<br>
+		<a href="http://www.libsdl.org/download-1.2.php">http://www.libsdl.org/download-1.2.php</a>
+		</P>
+		<P>
+		This release is intended to clean up the bug list for SDL 1.2 and let us focus on new development for <a href="http://www.galaxygameworks.com">SDL 1.3</a>!
+		</P>
+		<P>
+		I would like to thank everybody who contributed bug reports and fixes for this release!
+		</P>
 		</div>
 		<!-- End Intro -->
 
