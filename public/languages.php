@@ -18,8 +18,12 @@ and special purpose programming languages.
      </strong>
      <br>
      AdaSDL -
-        <a href="http://sourceforge.net/projects/adasdl/"
+       <a href="http://sourceforge.net/projects/adasdl/"
                >http://sourceforge.net/projects/adasdl/</a>
+     <br>
+     sdl-ada -
+       <a href="http://coreland.ath.cx/code/sdl-ada"
+               >http://coreland.ath.cx/code/sdl-ada/</a>
 </li>
 <li> <strong>
      C#
