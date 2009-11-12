@@ -13,7 +13,6 @@ Hardware donations are listed with credit on the
 </p>
 
 <ul>
-<li> PS3 (need: high)
 <li> Wii (need: low)
 </ul>
 
