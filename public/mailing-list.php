@@ -56,13 +56,13 @@ This is a low volume list for employers to post job opportunities and for people
 </p>
 
 <p><font color="#414141"><strong>
-SVN Mailing List:
+Mercurial Mailing List:
 </strong>
 <br>
-This is a moderated list where subversion repository changes are sent:
+This is a moderated list where Mercurial repository changes are sent:
 <br>
-<a href="http://lists.libsdl.org/listinfo.cgi/svn-libsdl.org">
-         http://lists.libsdl.org/listinfo.cgi/svn-libsdl.org</a>
+<a href="http://lists.libsdl.org/listinfo.cgi/hg-libsdl.org">
+         http://lists.libsdl.org/listinfo.cgi/hg-libsdl.org</a>
 </font>
 </p>
 
