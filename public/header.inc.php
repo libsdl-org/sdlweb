@@ -79,7 +79,7 @@
 	<img src="/images/download.png" width="180" height="32" alt="Download"><br>
 	<ul class="menu">
 	<li><a href="/download-1.2.php">SDL 1.2</a></li>
-	<li><a href="/svn.php">SDL SVN</a></li>
+	<li><a href="/hg.php">SDL HG</a></li>
 	<li><a href="/games.php">Games</a></li>
 	<li><a href="/demos.php">Demos</a></li>
 	<li><a href="/applications.php">Applications</a></li>
