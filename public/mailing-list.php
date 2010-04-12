@@ -56,14 +56,14 @@ This is a low volume list for employers to post job opportunities and for people
 </p>
 
 <p><font color="#414141"><strong>
-Mercurial Mailing List:
+Commits Mailing List:
 </strong>
 <br>
-This is a moderated list where Mercurial repository changes are sent:
+This is a moderated list where changes posted to the revision control repository are sent:
 <br>
-<a href="http://lists.libsdl.org/listinfo.cgi/hg-libsdl.org">
-         http://lists.libsdl.org/listinfo.cgi/hg-libsdl.org</a>
-</font>
+<a href="http://lists.libsdl.org/listinfo.cgi/commits-libsdl.org">
+         http://lists.libsdl.org/listinfo.cgi/commits-libsdl.org</a>
+<br>
 </p>
 
 <?PHP
