@@ -13,7 +13,7 @@
     //  $dbpass = 'password';
     //
     // Obviously, those should be a real username and password for the database.
-    require_once '/home/sdlweb/dbpasswd.php';
+    require_once 'dbpasswd.php';
     $DBconnection = mysql_connect('mysql.libsdl.org', $dbuser, $dbpass);
     if (!$DBconnection)
     {
