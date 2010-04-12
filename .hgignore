@@ -1,2 +1,16 @@
 syntax:glob
 include/dbpasswd.php
+public/Xmingw32
+public/archives
+public/docs
+public/docwiki
+public/extras
+public/faq-files
+public/intro.*
+public/opengl
+public/projects
+public/release
+public/rss
+public/statistics/.htpasswd
+public/statistics/awstats.*
+public/tmp
