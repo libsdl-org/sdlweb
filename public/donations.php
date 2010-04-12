@@ -5,7 +5,7 @@
 <h1>SDL Donations</h1>
 
 <p class="intro">
-Vincent Vansuyt and Matthew Kuiken
+Brett Owen and <a href="http://www.imperiumao.com.ar">ImperiumAO</a>
 have made generous donations toward SDL development! (<a href="#note">*</a>)<br>
 <!--
 has made a generous donation toward SDL development! (<a href="#note">*</a>)<br>
@@ -27,6 +27,12 @@ You can also make a contribution using <a href="https://www.paypal.com">PayPal</
 <tr><th align="left">Date</th>
     <th align="left"></th>
     <th align="left">Donation</th>
+<tr><td>Jul 7, 2009</td>
+    <td><a href="http://www.imperiumao.com.ar">ImperiumAO</a></td>
+    <td>PayPal</td>
+<tr><td>May 14, 2009</td>
+    <td>Brett Owen</td>
+    <td>PayPal</td>
 <tr><td>Nov 15, 2008</td>
     <td>Matthew Kuiken</td>
     <td>GP2X</td>
