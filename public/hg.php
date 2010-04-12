@@ -5,13 +5,15 @@
 <h1>SDL source snapshots</h1>
 
 <p>
-The latest development version of SDL is available via Mercurial.
+The latest development version of SDL is available via <a href="http://mercurial.selenic.com/">Mercurial</a>.
+</p>
+<p>
 Mercurial ("hg") allows you to get up-to-the-minute fixes and enhancements;
 as a developer works on a source tree, you can use hg to mirror that
-source tree instead of waiting for an official release. Please look
-at the <a href="http://mercurial.selenic.com/">Mercurial website</a> for more
-information on using hg, where you can also download software for
-Mac OS X, Windows, and Unix systems.
+source tree instead of waiting for an official release.
+</p>
+<p>
+If you're new to Mercurial, check out the great tutorial at <a href="http://hginit.com">hginit.com</a>!
 </p>
 
 <p>
