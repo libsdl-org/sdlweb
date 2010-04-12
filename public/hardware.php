@@ -17,6 +17,10 @@ Hardware donations are listed with credit on the
 </ul>
 
 <p>
+Thanks to Google for donating an Android Ion!
+</p>
+
+<p>
 Thanks to Logitech for donating a number of mice and force feeback
 input devices.  SDL 1.3 now has a cross-platform force feedback API!
 </p>
