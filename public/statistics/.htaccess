@@ -17,3 +17,8 @@ require valid-user
     deny from all
 </Files>
 
+<Files .svn>
+    order allow,deny
+    deny from all
+</Files>
+
