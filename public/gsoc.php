@@ -1,1 +1,1 @@
-gsoc-ideas-2010.php
+gsoc-2010.php
