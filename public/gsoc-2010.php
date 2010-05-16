@@ -24,6 +24,12 @@ Addition of Multi-touch and Gesture Recognition support
  <div>
  <small>by Jim Grandpre, mentored by Ryan C. Gordon</small>
  </div>
+ <div>
+ Source Code: <a href="http://hg.libsdl.org/SDL-gsoc2010_gesture">http://hg.libsdl.org/SDL-gsoc2010_gesture</a>
+ </div>
+ <div>
+ Documentation: <a href="http://wiki.libsdl.org/moin.cgi/SDL-gsoc2010_gesture">http://wiki.libsdl.org/moin.cgi/SDL-gsoc2010_gesture</a>
+ </div>
  </div>
 </li> 
 
@@ -36,6 +42,12 @@ International Input for Windows
  </div>
  <div>
  <small>by Daniel Wyatt, mentored by Sam Lantinga</small>
+ </div>
+ <div>
+ Source Code: <a href="http://hg.libsdl.org/SDL-gsoc2010_IME">http://hg.libsdl.org/SDL-gsoc2010_IME</a>
+ </div>
+ <div>
+ Documentation: <a href="http://wiki.libsdl.org/moin.cgi/SDL-gsoc2010_IME">http://wiki.libsdl.org/moin.cgi/SDL-gsoc2010_IME</a>
  </div>
  </div>
 </li>
@@ -50,6 +62,12 @@ Shaped Windows under Linux, OSX, and Windows
  <div>
  <small>by Eli Gottlieb, mentored by Andreas Schiffler</small>
  </div>
+ <div>
+ Source Code: <a href="http://hg.libsdl.org/SDL-gsoc2010_shaped_windows">http://hg.libsdl.org/SDL-gsoc2010_shaped_windows</a>
+ </div>
+ <div>
+ Documentation: <a href="http://wiki.libsdl.org/moin.cgi/SDL-gsoc2010_shaped_windows">http://wiki.libsdl.org/moin.cgi/SDL-gsoc2010_shaped_windows</a>
+ </div>
  </div>
 </li>
 
@@ -63,6 +81,12 @@ Android Port
  <div>
  <small>by Paul Hunkin, mentored by Sam Lantinga</small>
  </div>
+ <div>
+ Source Code: <a href="http://hg.libsdl.org/SDL-gsoc2010_android">http://hg.libsdl.org/SDL-gsoc2010_android</a>
+ </div>
+ <div>
+ Documentation: <a href="http://wiki.libsdl.org/moin.cgi/SDL-gsoc2010_android">http://wiki.libsdl.org/moin.cgi/SDL-gsoc2010_android</a>
+ </div>
  </div>
 </li>
 
@@ -75,6 +99,12 @@ XRender Support
  </div>
  <div>
  <small>by Sunny Sachanandani mentored by Sam Lantinga</small>
+ </div>
+ <div>
+ Source Code: <a href="http://hg.libsdl.org/SDL-gsoc2010_xrender">http://hg.libsdl.org/SDL-gsoc2010_xrender</a>
+ </div>
+ <div>
+ Documentation: <a href="http://wiki.libsdl.org/moin.cgi/SDL-gsoc2010_xrender">http://wiki.libsdl.org/moin.cgi/SDL-gsoc2010_xrender</a>
  </div>
  </div>
 </li>
