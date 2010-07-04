@@ -63,11 +63,11 @@
 	<ul class="menu">
 	<li><a href="/docs.php">Downloadable</a></li>
 	<li><a href="/intro.php">Introduction</a></li>
-	<li><a href="/tutorials.php">Tutorials</a></li>
-	<li><a href="/articles.php">Articles</a></li>
-	<li><a href="/books.php">Books</a></li>
-	<li><a href="/cgi/docwiki.cgi">Doc Wiki</a></li>
-	<li><a href="/faq.php">FAQs</a></li>
+	<li><a href="http://wiki.libsdl.org/moin.cgi/Tutorials">Tutorials</a></li>
+	<li><a href="http://wiki.libsdl.org/moin.cgi/Articles">Articles</a></li>
+	<li><a href="http://wiki.libsdl.org/moin.cgi/Books">Books</a></li>
+	<li><a href="http://wiki.libsdl.org/moin.cgi/FrontPage">Wiki</a></li>
+	<li><a href="http://wiki.libsdl.org/moin.cgi/FAQs">FAQs</a></li>
 	<li><a href="/opengl/index.php">OpenGL</a></li>
 	<li><a href="http://forums.libsdl.org/">Forums</a></li>
 	<li><a href="/mailing-list.php">Mailing Lists</a></li>
