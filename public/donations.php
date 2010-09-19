@@ -5,7 +5,19 @@
 <h1>SDL Donations</h1>
 
 <p class="intro">
-Brett Owen and <a href="http://www.imperiumao.com.ar">ImperiumAO</a>
+<a href="http://www.onlinegamblingpal.com">Online Gambling Pal</a>,
+Nini Karim,
+Mechislav Yavorovsky,
+Philippe Wartelle,
+Simon Ashdown,
+Szymon Ender,
+Clive Cooper,
+Miguel de Dios Matias,
+Yaroslav Isakov,
+François Serman,
+Jimmy Christensen,
+and
+Allen McBride
 have made generous donations toward SDL development! (<a href="#note">*</a>)<br>
 <!--
 has made a generous donation toward SDL development! (<a href="#note">*</a>)<br>
@@ -27,6 +39,45 @@ You can also make a contribution using <a href="https://www.paypal.com">PayPal</
 <tr><th align="left">Date</th>
     <th align="left"></th>
     <th align="left">Donation</th>
+<tr><td>Sep 9, 2010</td>
+    <td><a href="http://www.onlinegamblingpal.com">Online Gambling Pal</a></td>
+    <td>PayPal</td>
+<tr><td>Aug 26, 2010</td>
+    <td>Nini Karim</td>
+    <td>PayPal</td>
+<tr><td>Aug 20, 2010</td>
+    <td>Mechislav Yavorovsky</td>
+    <td>PayPal</td>
+<tr><td>Jul 25, 2010</td>
+    <td>Philippe Wartelle</td>
+    <td>PayPal</td>
+<tr><td>May 4, 2010</td>
+    <td>Simon Ashdown</td>
+    <td>PayPal</td>
+<tr><td>Apr 11, 2010</td>
+    <td>Szymon Ender</td>
+    <td>PayPal</td>
+<tr><td>Mar 18, 2010</td>
+    <td>Clive Cooper</td>
+    <td>PayPal</td>
+<tr><td>Feb 20, 2010</td>
+    <td>Miguel de Dios Matias</td>
+    <td>PayPal</td>
+<tr><td>Feb 18, 2010</td>
+    <td>Yaroslav Isakov</td>
+    <td>PayPal</td>
+<tr><td>Jan 27, 2010</td>
+    <td>Szymon Ender</td>
+    <td>PayPal</td>
+<tr><td>Jan 1, 2010</td>
+    <td>François Serman</td>
+    <td>PayPal</td>
+<tr><td>Oct 22, 2009</td>
+    <td>Jimmy Christensen</td>
+    <td>PayPal</td>
+<tr><td>Sep 14, 2009</td>
+    <td>Allen McBride</td>
+    <td>PayPal</td>
 <tr><td>Jul 7, 2009</td>
     <td><a href="http://www.imperiumao.com.ar">ImperiumAO</a></td>
     <td>PayPal</td>
