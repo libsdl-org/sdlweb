@@ -111,6 +111,19 @@ XRender Support
 
 </ul>
 
+Presenting the Google Summer of Code 2010 "work complete" snapshot!
+<p>
+<a href="http://www.libsdl.org/tmp/SDL-GSoC-2010.zip">
+http://www.libsdl.org/tmp/SDL-GSoC-2010.zip</a>
+<p>
+I want to thank all of these students for the excellent work they contributed!
+<p>
+Please feel free to download the snapshot and check out their work!
+<br>
+If you run into any bugs, please enter them in the <a href="http://bugzilla.libsdl.org/">SDL bug tracking system</a>.
+<br>
+If you have any questions, please ask on the <a href="http://www.libsdl.org/mailng-list.php">mailing list</a> or the <a href="http://forums.libsdl.org/">forums</a>.
+
 </blockquote>
 
 <?PHP
