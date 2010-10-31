@@ -13,7 +13,7 @@ GNU LGPL license </a>.
 
 <p>
 SDL 1.3 and newer are available either under the <a href="license-lgpl.php">
-GNU LGPL license </a>, or under an alternative <a href="license-commercial.php">
+GNU LGPL license </a>, or under an alternative <a href="http://www.galaxygameworks.com/license-FAQ.html">
 commercial license </a>.
 </p>
 
