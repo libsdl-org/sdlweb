@@ -53,7 +53,7 @@ There is a web interface to the Mercurial repository at:<br>
 
 <p><font color="#414141">
 Source snapshot for SDL 1.2 (Updated
-<!-- SDL 1.2 DATE --> Sat Jun 26
+<!-- SDL 1.2 DATE --> Sun Jul 18
 )</p>
 <blockquote>
 <a href="tmp/SDL-1.2.tar.gz">SDL-1.2.tar.gz</a><br/>
@@ -62,7 +62,7 @@ Source snapshot for SDL 1.2 (Updated
 
 <p><font color="#414141">
 Source snapshot for SDL 1.3 (Updated
-<!-- SDL 1.3 DATE --> Sat Jun 26
+<!-- SDL 1.3 DATE --> Sun Oct 10
 )</p>
 <b>WARNING: UNDER CONSTRUCTION</b>
 <blockquote>
