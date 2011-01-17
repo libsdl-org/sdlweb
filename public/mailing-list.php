@@ -11,23 +11,9 @@ Announcement Mailing List:
 This mailing list is very low volume, and is used for announcing news and
 new versions of SDL:
 <br>
-<!-- Details found here:
-     http://wiki.dreamhost.com/index.php/KB_/_Web_Programming_/_CGI%2C_PHP_%26_Databases_/_Announcement_Mailing_List
--->
-<form method="post" action="http://scripts.dreamhost.com/add_list.cgi">
-<input type="hidden" name="list" value="sdl-announce" />
-<input type="hidden" name="domain" value="libsdl.org" />
-<input type="hidden" name="url" value="" /> 
-<input type="hidden" name="unsuburl" value="" />
-<input type="hidden" name="alreadyonurl" value="" />
-<input type="hidden" name="notonurl" value="" />
-<input type="hidden" name="invalidurl" value="" />
-<input type="hidden" name="emailconfirmurl" value="" />
-Name: <input name="name" /> E-mail: <input name="email" /><br />
-<input type="submit" name="submit" value="Join!" />
-<input type="submit" name="unsub" value="Unsubscribe" />
-</form>
-</font>
+<a href="http://www.libsdl.org/announce-list.php">
+         http://www.libsdl.org/announce-list.php</a>
+<br>
 </p>
 
 <p><font color="#414141"><strong>
@@ -41,6 +27,17 @@ related to SDL:
          http://lists.libsdl.org/listinfo.cgi/sdl-libsdl.org</a>
 <br>
 Subscribing to this list automatically subscribes you to the SDL-announce list.
+</font>
+</p>
+
+<p><font color="#414141"><strong>
+Documentation Mailing List:
+</strong>
+<br>
+This is a low volume list for discussing the SDL documentation.  It is used for requesting access to contribute, reporting errata, sharing documentation tips, etc.
+<br>
+<a href="http://lists.libsdl.org/listinfo.cgi/docs-libsdl.org">
+         http://lists.libsdl.org/listinfo.cgi/docs-libsdl.org</a>
 </font>
 </p>
 
