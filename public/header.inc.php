@@ -31,7 +31,7 @@
 
 <!-- Top Bar -->
 <tr>
-	<td style="background-image: url(/images/topbarbg.png)" width="100%"><a href="http://www.libsdl.de/"><img src="/images/germanbutton.png" alt="German Site" width="82" height="20"></a></td>
+	<td style="background-image: url(/images/topbarbg.png)" width="100%"><a href="http://www.libsdl.de/"><img src="/images/germanbutton.png" alt="German Site" width="82" height="20"></a><a href="http://community.qnx.com/sf/projects/qnx_community_sdl_project"><img src="/images/qnxwebsite.png" alt="QNX Community Site" width="82" height="20"></a></td>
 	<td style="background-image: url(/images/topbarbg.png)" align="right"><img src="/images/searchsite.png" alt="Search Site:" width="58" height="20"></td>
 </tr>
 </table>
@@ -100,6 +100,7 @@ include ("siteactions.php");
 	<ul class="menu">
 	<li><a href="/donations.php">SDL Donations</a></li>
 	<li><a href="/hardware.php">Hardware Wishlist</a></li>
+	<li><a href="http://www.searchperience.com"><font color="orange">Search</font><font color="grey">perience</font></a></li>
 	</ul>
 	<!-- End Other -->
 
