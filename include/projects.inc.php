@@ -104,7 +104,7 @@
 			$result = mysql_query($query, $DBconnection)
 				or die ("Could not execute query !");
 
-            while ($row = mysql_fetch_array($result, MYSQL_ASSOC)) {
+			while ($row = mysql_fetch_array($result, MYSQL_ASSOC)) {
 				OPTION($row['id'],$category,$row['name']);
 			}
 
@@ -130,7 +130,7 @@
 
 			$ratinglist = array(0, 25, 50, 75, 100);
 
-            while ($row = mysql_fetch_array($result, MYSQL_ASSOC)) {
+			while ($row = mysql_fetch_array($result, MYSQL_ASSOC)) {
 				print "<p>{$row['name']} status<br>\n";
 				print "<select name=\"{$row['shortname']}status\">";
 				reset($ratinglist);
@@ -204,7 +204,7 @@
 			# --- add project's status to the database ---
 
 			mysql_data_seek($oslist, 0);
-            while ($row = mysql_fetch_array($oslist, MYSQL_ASSOC)) {
+			while ($row = mysql_fetch_array($oslist, MYSQL_ASSOC)) {
 				$value = $input["{$row['shortname']}status"];
 				$query = "insert into projectstatus (project,os,status) values($projectid, {$row['id']}, $value)";
 				mysql_query($query, $DBconnection)
@@ -375,7 +375,7 @@ EOT;
 			# --- update project status in the database ---
 
 			mysql_data_seek($oslist, 0);
-            while ($row = mysql_fetch_array($oslist, MYSQL_ASSOC)) {
+			while ($row = mysql_fetch_array($oslist, MYSQL_ASSOC)) {
 				$value = $input["{$row['shortname']}status"];
 				$query = "update projectstatus set status=$value where project=$id and os={$row['id']}";
 				mysql_query($query, $DBconnection)
@@ -447,7 +447,7 @@ EOT;
 			$result = mysql_query($query, $DBconnection)
 				or die ("Could not execute query !");
 
-            while ($categ = mysql_fetch_array($result, MYSQL_ASSOC)) {
+			while ($categ = mysql_fetch_array($result, MYSQL_ASSOC)) {
 				OPTION($categ['id'],$row['category'],$categ['name']);
 			}
 
@@ -490,7 +490,7 @@ EOT;
 
 			$ratinglist = array(0, 25, 50, 75, 100);
 
-            while ($row = mysql_fetch_array($result, MYSQL_ASSOC)) {
+			while ($row = mysql_fetch_array($result, MYSQL_ASSOC)) {
 				print "<p>{$row['name']} status<br>\n";
 				print "<select name={$row['shortname']}"."status>";
 				reset($ratinglist);
@@ -830,7 +830,7 @@ EOT;
 
 			print "<table cellpadding=5>\n";
 
-            while ($row = mysql_fetch_array($result, MYSQL_ASSOC)) {
+			while ($row = mysql_fetch_array($result, MYSQL_ASSOC)) {
 				print "<tr>";
 				print "<td><b>{$row['name']}</b></td>";
 				print "<td>{$row['description']}</td>";
@@ -886,7 +886,7 @@ EOT;
 			$match_id = $input['match_id'];
 			$os = isset($input['os']) ? $input['os'] : '-1';
 			$completed = isset($input['completed']) ? $input['completed'] : 0;
-			$perpage = isset($input['perpage']) ? $input['perpage'] : 50;
+			$perpage = isset($input['perpage']) ? $input['perpage'] : 25;
 			$start = isset($input['start']) ? $input['start'] : 0;
 			$order = isset($input['order']) ? $input['order'] : 'name';
 			$match_userid = $input['match_userid'];
@@ -920,7 +920,7 @@ EOT;
 			$result = mysql_query($query, $DBconnection)
 				or die ("Could not execute query !");
 
-            while ($row = mysql_fetch_array($result, MYSQL_ASSOC)) {
+			while ($row = mysql_fetch_array($result, MYSQL_ASSOC)) {
 				OPTION($row['id'], $category, $row['name']);
 			}
 			print "</select>\n";
@@ -954,7 +954,7 @@ EOT;
 			print " on ";
 			print "<select name=os>";
 			OPTION(-1, $os, "Any OS");
-            while ($row = mysql_fetch_array($oslist, MYSQL_ASSOC)) {
+			while ($row = mysql_fetch_array($oslist, MYSQL_ASSOC)) {
 				OPTION($row['id'], $os, $row['name']);
 			}
 			print "</select>\n";
@@ -964,7 +964,7 @@ EOT;
 			print "<tr>\n";
 			print "<td>Named: ";
 			print "<td>";
-			print "<input type=text name=match_name value=\"$match_name\" size=8>\n";
+			print "<input type=text name=match_name value=\"$match_name\" size=25>\n";
 
 			# --- limit to ... per page ---
 
@@ -1045,6 +1045,46 @@ EOT;
 
 			$number = mysql_num_rows($result);
 
+			# --- show the "previous page"/"next page" links if needed ---
+			$next = $start + $perpage;
+
+			if (($perpage != -1) && (($start > 0) || ($next < $total))) {
+				echo <<<EOT
+			<!-- Next / Prev Buttons -->
+			<table cellpadding="0" cellspacing="0" border="0" width="100%" align="center">
+			<tr>
+				<td style="background-image: url(images/newsbarbg.png)" align="left">
+
+EOT;
+
+				$match_infos .= "order=$order&amp;category=$category&amp;completed=$completed&amp;os=$os&amp;match_name=$match_name&amp;perpage=$perpage";
+
+				if ($start > 0) {
+					$prev = $start - $perpage; 
+
+					if ($prev < 0)		// this can only happen if the user went manually to a start not dividable by step 
+						$prev = 0;
+
+					print "<a href=\"{$_SERVER['PHP_SELF']}?start=$prev&amp;$match_infos\"><img src=\"images/prev.png\" border=\"0\" alt=\"Previous\"></a>";
+				}
+
+				echo <<<EOT
+				</td>
+				<td style="background-image: url(images/newsbarbg.png)" align="right">
+
+EOT;
+				if ($next < $total)
+					print "<a href=\"{$_SERVER['PHP_SELF']}?start=$next&amp;$match_infos\"><img src=\"images/next.png\" border=\"0\" alt=\"Next\"</a>";
+
+				echo <<<EOT
+				</td>
+			</tr>
+			</table>
+			<!-- End Next / Prev Buttons -->
+
+EOT;
+			}
+
 			# --- print infos ---
 
 			if ($number == $total) {
@@ -1064,7 +1104,7 @@ EOT;
 
 			$ratingstring = array(25=>"work in progress", 50=>"work in progress", 75=>"ready for testing", 100=>"fully functional");
 
-            while ($row = mysql_fetch_array($result, MYSQL_ASSOC)) {
+			while ($row = mysql_fetch_array($result, MYSQL_ASSOC)) {
 				print "<p>\n";
 				print "<b><a name={$row['id']}>{$row['name']}</a></b> - {$row['description']}<br>\n";
 
@@ -1152,13 +1192,14 @@ EOT;
 			}
 
 			# --- show the "previous page"/"next page" links if needed ---
-
-			$next = $start + $perpage;
-
 			if (($perpage != -1) && (($start > 0) || ($next < $total))) {
-				print "<p>\n";
+				echo <<<EOT
+			<!-- Next / Prev Buttons -->
+			<table cellpadding="0" cellspacing="0" border="0" width="100%" align="center">
+			<tr>
+				<td style="background-image: url(images/newsbarbg.png)" align="left">
 
-				$match_infos .= "order=$order&amp;category=$category&amp;completed=$completed&amp;os=$os&amp;match_name=$match_name&amp;perpage=$perpage";
+EOT;
 
 				if ($start > 0) {
 					$prev = $start - $perpage; 
@@ -1166,13 +1207,24 @@ EOT;
 					if ($prev < 0)		// this can only happen if the user went manually to a start not dividable by step 
 						$prev = 0;
 
-					print "<a href=\"{$_SERVER['PHP_SELF']}?start=$prev&amp;$match_infos\">previous page</a>&nbsp";
+					print "<a href=\"{$_SERVER['PHP_SELF']}?start=$prev&amp;$match_infos\"><img src=\"images/prev.png\" border=\"0\" alt=\"Previous\"></a>";
 				}
 
-				if ($next < $total)
-					print "<a href=\"{$_SERVER['PHP_SELF']}?start=$next&amp;$match_infos\">next page</a>";
+				echo <<<EOT
+				</td>
+				<td style="background-image: url(images/newsbarbg.png)" align="right">
 
-				print "</p>\n";
+EOT;
+				if ($next < $total)
+					print "<a href=\"{$_SERVER['PHP_SELF']}?start=$next&amp;$match_infos\"><img src=\"images/next.png\" border=\"0\" alt=\"Next\"</a>";
+
+				echo <<<EOT
+				</td>
+			</tr>
+			</table>
+			<!-- End Next / Prev Buttons -->
+
+EOT;
 			}
 
 			# --- add the add project button ---
@@ -1183,9 +1235,6 @@ EOT;
 				print "</form>\n";
 			}
 
-			# --- add the list project categories link ---
-
-			print "<a href=\"{$_SERVER['PHP_SELF']}?action=listcategories\">list ".PROJECTTYPETEXTS." categories</a>\n";
 	}
 ?>
 
