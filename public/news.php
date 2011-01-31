@@ -347,22 +347,6 @@ EOT;
 		}
 
 		//-------------------------------------------------------------------------------------------------
-
-		//--- add the submit news button ---//
-
-		if ($userprivileges['addnews']) {
-			echo <<<EOT
-			<br>
-			<form method="post" action="{$_SERVER['PHP_SELF']}?action=addnews">
-			<input type="submit" value="submit news">
-			</form>
-
-EOT;
-		}
-	
-		include ("../include/jokes.inc.php");
-
-		//-------------------------------------------------------------------------------------------------
 		// prev/next page links
 
 		echo <<<EOT
@@ -406,6 +390,20 @@ EOT;
 			<!-- End Next / Prev Buttons -->
 
 EOT;
+
+		//-------------------------------------------------------------------------------------------------
+
+		//--- add the submit news button ---//
+
+		if ($userprivileges['addnews']) {
+			echo <<<EOT
+			<p>
+			<form method="post" action="{$_SERVER['PHP_SELF']}?action=addnews">
+			<input type="submit" value="submit news">
+			</form>
+
+EOT;
+		}
 
 }
 
