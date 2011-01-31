@@ -367,6 +367,7 @@ EOT;
 
 		echo <<<EOT
 			<!-- Next / Prev Buttons -->
+			<p/>
 			<table cellpadding="0" cellspacing="0" border="0" width="100%" align="center">
 			<tr>
 				<td style="background-image: url(images/newsbarbg.png)" align="left">
