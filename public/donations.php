@@ -5,19 +5,11 @@
 <h1>SDL Donations</h1>
 
 <p class="intro">
-<a href="http://www.onlinegamblingpal.com">Online Gambling Pal</a>,
-Nini Karim,
-Mechislav Yavorovsky,
-Philippe Wartelle,
-Simon Ashdown,
-Szymon Ender,
-Clive Cooper,
-Miguel de Dios Matias,
-Yaroslav Isakov,
-François Serman,
-Jimmy Christensen,
+Andriana Hadisurya,
+Evan Balster,
+Andrew Smirnoff,
 and
-Allen McBride
+Giovanni Viglianti
 have made generous donations toward SDL development! (<a href="#note">*</a>)<br>
 <!--
 has made a generous donation toward SDL development! (<a href="#note">*</a>)<br>
@@ -39,6 +31,21 @@ You can also make a contribution using <a href="https://www.paypal.com">PayPal</
 <tr><th align="left">Date</th>
     <th align="left"></th>
     <th align="left">Donation</th>
+<tr><td>Jan 23, 2011</td>
+    <td>Andriana Hadisurya</td>
+    <td>PayPal</td>
+<tr><td>Jan 21, 2011</td>
+    <td>Evan Balster</td>
+    <td>PayPal</td>
+<tr><td>Jan 18, 2011</td>
+    <td>Andrew Smirnoff</td>
+    <td>PayPal</td>
+<tr><td>Jan 1, 2011</td>
+    <td>Giovanni Viglianti</td>
+    <td>PayPal</td>
+<tr><td>Nov 8, 2010</td>
+    <td>Patrick Hogan</td>
+    <td>PayPal</td>
 <tr><td>Sep 9, 2010</td>
     <td><a href="http://www.onlinegamblingpal.com">Online Gambling Pal</a></td>
     <td>PayPal</td>
@@ -135,6 +142,9 @@ You can also make a contribution using <a href="https://www.paypal.com">PayPal</
 <tr><td>May 6, 2008</td>
     <td><a href="http://www.3dconnexion.com/">3Dconnexion</a></td>
     <td>SpaceNavigator</td>
+<tr><td>May 6, 2008</td>
+    <td>Arcane Silicon Starlight</td>
+    <td>GameCube USB Converter</td>
 <tr><td>Apr 5, 2008</td>
     <td>James Michels</td>
     <td>PayPal</td>
