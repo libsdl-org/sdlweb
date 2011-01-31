@@ -1230,7 +1230,7 @@ EOT;
 			# --- add the add project button ---
 
 			if ($userprivileges['addproject']) {
-				print "<form method=post action=\"{$_SERVER['PHP_SELF']}?action=addproject\">\n";
+				print "<p>\n<form method=post action=\"{$_SERVER['PHP_SELF']}?action=addproject\">\n";
 				print "<input type=submit value=\"submit ".PROJECTTYPETEXTS."\">\n";
 				print "</form>\n";
 			}
