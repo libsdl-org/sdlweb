@@ -110,6 +110,14 @@ and special purpose programming languages.
                 >http://www.falconpl.org/index.ftd?page_id=prjs&prj_id=sdl</a>
 </li>
 <li> <strong>
+     Go
+     </strong>
+     <br>
+     Go-SDL -
+        <a href="https://github.com/banthar/Go-SDL"
+                >https://github.com/banthar/Go-SDL</a>
+</li>
+<li> <strong>
      Guile
      </strong>
      <br>
