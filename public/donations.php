@@ -5,11 +5,11 @@
 <h1>SDL Donations</h1>
 
 <p class="intro">
-Andriana Hadisurya,
-Evan Balster,
-Andrew Smirnoff,
+<a href="http://www.pokereleven.com">Pokereleven</a>,
+<a href="http://www.comobajardepeso.cl">como bajar de peso</a>,
+<a href="http://www.btlsearch.cl">Posicionamiento web</a>,
 and
-Giovanni Viglianti
+Josef Vanzura
 have made generous donations toward SDL development! (<a href="#note">*</a>)<br>
 <!--
 has made a generous donation toward SDL development! (<a href="#note">*</a>)<br>
@@ -31,6 +31,18 @@ You can also make a contribution using <a href="https://www.paypal.com">PayPal</
 <tr><th align="left">Date</th>
     <th align="left"></th>
     <th align="left">Donation</th>
+<tr><td>Mar 23, 2011</td>
+    <td><a href="http://www.pokereleven.com">Pokereleven</a></td>
+    <td>PayPal</td>
+<tr><td>Mar 23, 2011</td>
+    <td><a href="http://www.comobajardepeso.cl">como bajar de peso</a></td>
+    <td>PayPal</td>
+<tr><td>Mar 23, 2011</td>
+    <td><a href="http://www.btlsearch.cl">Posicionamiento web</a></td>
+    <td>PayPal</td>
+<tr><td>Feb 1, 2011</td>
+    <td>Josef Vanzura</td>
+    <td>PayPal</td>
 <tr><td>Jan 23, 2011</td>
     <td>Andriana Hadisurya</td>
     <td>PayPal</td>
