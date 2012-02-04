@@ -95,15 +95,6 @@ include ("siteactions.php");
 ?>
 <!-- THE END OF THE COMMENT HACK -->
 
-	<!-- Other -->
-	<img src="/images/other.png" width="180" height="32" alt="Other"><br>
-	<ul class="menu">
-	<li><a href="/donations.php">SDL Donations</a></li>
-	<li><a href="/hardware.php">Hardware Wishlist</a></li>
-	<li><a href="http://www.searchperience.com"><font color="orange">Search</font><font color="grey">perience</font></a></li>
-	</ul>
-	<!-- End Other -->
-
 	</td>
 	<!-- End Side Bar -->
 
