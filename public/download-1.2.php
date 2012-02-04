@@ -2,7 +2,7 @@
  include ("../include/login.inc.php");
  include ($header_filename);
 ?>
-<h1>SDL version 1.2.14 (stable)</h1>
+<h1>SDL version 1.2.15 (stable)</h1>
 <a href="release/changes-1.2.html">ChangeLog</a>
 
 <h2>GPG Signature:</h2>
@@ -11,8 +11,8 @@ The source code to this release has been signed by Sam Lantinga.
 <br>
 You can get the public key from any keyserver with the key id 0xA7763BE6,
 or directly from Sam's home page:
-<a href="http://www.devolution.com/~slouken/slouken-pubkey.asc"
-                                           >slouken-pubkey.asc</a>
+<a href="http://slouken.libsdl.org/slouken-pubkey.asc"
+                                  >slouken-pubkey.asc</a>
 <br>
 The public key fingerprint should be:
 </p>
@@ -27,15 +27,15 @@ For more information about public key signatures, see
 
 <h2>Source Code:</h2>
 <blockquote>
-     <a href="release/SDL-1.2.14.tar.gz"
-                     >SDL-1.2.14.tar.gz</a>
-     - <a href="release/SDL-1.2.14.tar.gz.sig">GPG signed</a><br>
-     <a href="release/SDL-1.2.14-1.src.rpm"
-                     >SDL-1.2.14-1.src.rpm</a>
-     - <a href="release/SDL-1.2.14-1.src.rpm.sig">GPG signed</a><br>
-     <a href="release/SDL-1.2.14.zip"
-                     >SDL-1.2.14.zip</a>
-     - <a href="release/SDL-1.2.14.zip.sig">GPG signed</a><br>
+     <a href="release/SDL-1.2.15.tar.gz"
+                     >SDL-1.2.15.tar.gz</a>
+     - <a href="release/SDL-1.2.15.tar.gz.sig">GPG signed</a><br>
+     <a href="release/SDL-1.2.15-1.src.rpm"
+                     >SDL-1.2.15-1.src.rpm</a>
+     - <a href="release/SDL-1.2.15-1.src.rpm.sig">GPG signed</a><br>
+     <a href="release/SDL-1.2.15.zip"
+                     >SDL-1.2.15.zip</a>
+     - <a href="release/SDL-1.2.15.zip.sig">GPG signed</a><br>
 </blockquote>
 
 <h2>Runtime Libraries:</h2>
@@ -43,24 +43,26 @@ For more information about public key signatures, see
 	<p><span class="title">
 		Linux:
 		</span><br>
-		<a href="release/SDL-1.2.14-1.i586.rpm"
-		                >SDL-1.2.14-1.i586.rpm</a><br>
-		<a href="release/SDL-1.2.14-1.x86_64.rpm"
-		                >SDL-1.2.14-1.x86_64.rpm</a><br>
-		<a href="http://packages.debian.org/stable/libs/"
-		        >http://packages.debian.org/stable/libs/</a><br>
+		<a href="release/SDL-1.2.15-1.i386.rpm"
+		                >SDL-1.2.15-1.i386.rpm</a><br>
+		<a href="release/SDL-1.2.15-1.x86_64.rpm"
+		                >SDL-1.2.15-1.x86_64.rpm</a><br>
 	</p>
 	<p><span class="title">
 		Win32:
 		</span><br>
-		<a href="release/SDL-1.2.14-win32.zip"
-		                >SDL-1.2.14-win32.zip</a><br>
+		<a href="release/SDL-1.2.15-win32.zip"
+		                >SDL-1.2.15-win32.zip</a><br>
+		<a href="release/SDL-1.2.15-win32-x64.zip"
+		                >SDL-1.2.15-win32-x64.zip</a> (64-bit Windows)<br>
 	</p>
 	<p><span class="title">
 		Mac OS X:
 		</span><br>
-		<a href="release/SDL-1.2.14.dmg"
-		                >SDL-1.2.14.dmg</a><br>
+		<a href="release/SDL-1.2.15.dmg"
+		                >SDL-1.2.15.dmg</a> (Intel 10.5+)<br>
+		<a href="release/SDL-1.2.15-OSX10.4.dmg"
+		                >SDL-1.2.15-OSX10.4.dmg</a> (Intel/PPC 10.4)<br>
 	</p>
 </blockquote>
 
@@ -69,32 +71,18 @@ For more information about public key signatures, see
 	<p><span class="title">
 		Linux:
 		</span><br>
-		<a href="release/SDL-devel-1.2.14-1.i586.rpm"
-		                >SDL-devel-1.2.14-1.i586.rpm</a><br>
-		<a href="release/SDL-debuginfo-1.2.14-1.i586.rpm"
-		                >SDL-debuginfo-1.2.14-1.i586.rpm</a><br>
-		<a href="release/SDL-devel-1.2.14-1.x86_64.rpm"
-		                >SDL-devel-1.2.14-1.x86_64.rpm</a><br>
-		<a href="release/SDL-debuginfo-1.2.14-1.x86_64.rpm"
-		                >SDL-debuginfo-1.2.14-1.x86_64.rpm</a><br>
-		<a href="http://packages.debian.org/stable/libdevel/"
-		        >http://packages.debian.org/stable/libdevel/</a><br>
+		<a href="release/SDL-devel-1.2.15-1.i386.rpm"
+		                >SDL-devel-1.2.15-1.i386.rpm</a><br>
+		<a href="release/SDL-devel-1.2.15-1.x86_64.rpm"
+		                >SDL-devel-1.2.15-1.x86_64.rpm</a><br>
 	</p>
 	<p><span class="title">
 		Win32:
 		</span><br>
-		<a href="release/SDL-devel-1.2.14-VC6.zip"
-		                >SDL-devel-1.2.14-VC6.zip</a> (Visual C++ 6.0)<br>
-		<a href="release/SDL-devel-1.2.14-VC8.zip"
-		                >SDL-devel-1.2.14-VC8.zip</a> (Visual C++ 2005 Service Pack 1)<br>
-		<a href="release/SDL-devel-1.2.14-mingw32.tar.gz"
-		                >SDL-devel-1.2.14-mingw32.tar.gz</a> (Mingw32)<br>
-	</p>
-	<p><span class="title">
-		Mac OS X:
-		</span><br>
-		<a href="release/SDL-devel-1.2.14-extras.dmg"
-		                >SDL-devel-1.2.14-extras.dmg</a> (templates and documentation)<br>
+		<a href="release/SDL-devel-1.2.15-VC.zip"
+		                >SDL-devel-1.2.15-VC.zip</a> (Visual C++)<br>
+		<a href="release/SDL-devel-1.2.15-mingw32.tar.gz"
+		                >SDL-devel-1.2.15-mingw32.tar.gz</a> (Mingw32)<br>
 	</p>
 </blockquote>
 
