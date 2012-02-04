@@ -12,7 +12,7 @@ GNU LGPL license </a>.
 </p>
 
 <p>
-SDL 1.3 and newer are available under the <a href="http://www.gzip.org/zlib/zlib_license.html">
+SDL 2.0 and newer are available under the <a href="http://www.gzip.org/zlib/zlib_license.html">
 zlib license </a>.
 </p>
 

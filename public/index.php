@@ -76,7 +76,7 @@ EOT;
 		<a href="http://www.libsdl.org/download-1.2.php">http://www.libsdl.org/download-1.2.php</a>
 		</P>
 		<P>
-		This release is intended to clean up the bug list for SDL 1.2 and let us focus on new development for <a href="http://www.galaxygameworks.com">SDL 1.3</a>!
+		This release is intended to clean up the bug list for SDL 1.2 and let us focus on new development for SDL 2.0!
 		</P>
 		<P>
 		I would like to thank everybody who contributed bug reports and fixes for this release!

@@ -25,15 +25,7 @@ hg clone -u SDL-1.2 http://hg.libsdl.org/SDL SDL-1.2
 </blockquote>
 </p>
 
-<p>
-SDL 1.3 (<b>WARNING: UNDER CONSTRUCTION</b>):
 <blockquote>
-<pre>
-hg clone http://hg.libsdl.org/SDL
-</pre>
-</blockquote>
-</p>
-
 <p>
 If you are building SDL with an IDE, you will need to copy the file
 include/SDL_config.h.default to include/SDL_config.h before building.
@@ -43,6 +35,22 @@ include/SDL_config.h.default to include/SDL_config.h before building.
 If you are building SDL via configure, you will need to run autogen.sh
 before running configure.
 </p>
+</blockquote>
+
+<p>
+SDL 2.0 (<b>WARNING: UNDER CONSTRUCTION</b>):
+<blockquote>
+<pre>
+hg clone http://hg.libsdl.org/SDL
+</pre>
+</blockquote>
+</p>
+
+<blockquote>
+<p>
+You can build directly from a fresh clone of SDL 2.0.
+</p>
+</blockquote>
 
 <p>
 There is a web interface to the Mercurial repository at:<br>
@@ -53,7 +61,7 @@ There is a web interface to the Mercurial repository at:<br>
 
 <p><font color="#414141">
 Source snapshot for SDL 1.2 (Updated
-<!-- SDL 1.2 DATE --> Sun Jul 18
+<!-- SDL 1.2 DATE --> Fri Jan 20
 )</p>
 <blockquote>
 <a href="tmp/SDL-1.2.tar.gz">SDL-1.2.tar.gz</a><br/>
@@ -61,13 +69,13 @@ Source snapshot for SDL 1.2 (Updated
 </blockquote>
 
 <p><font color="#414141">
-Source snapshot for SDL 1.3 (Updated
-<!-- SDL 1.3 DATE --> Sun Oct 10
+Source snapshot for SDL 2.0 (Updated
+<!-- SDL 2.0 DATE --> Fri Feb  3
 )</p>
 <b>WARNING: UNDER CONSTRUCTION</b>
 <blockquote>
-<a href="tmp/SDL-1.3.tar.gz">SDL-1.3.tar.gz</a><br/>
-<a href="tmp/SDL-1.3.zip">SDL-1.3.zip</a>
+<a href="tmp/SDL-2.0.tar.gz">SDL-2.0.tar.gz</a><br/>
+<a href="tmp/SDL-2.0.zip">SDL-2.0.zip</a>
 </blockquote>
 
 <strong>Note: These are not official releases and may be unstable!</strong>
