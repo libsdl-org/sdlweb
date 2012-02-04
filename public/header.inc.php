@@ -52,7 +52,6 @@
 	<li><a href="http://forums.libsdl.org/viewforum.php?f=2">Jobs</a></li>
 	<li><a href="http://bugzilla.libsdl.org/">Bugs</a></li>
 	<li><a href="/license.php">Licensing</a></li>
-	<li><a href="http://www.cafepress.com/libsdl">Merchandise</a></li>
 	<li><a href="/credits.php">Credits</a></li>
 	<li><a href="mailto:slouken@libsdl.org">Feedback</a></li>
 	</ul>
