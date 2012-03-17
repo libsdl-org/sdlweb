@@ -182,6 +182,14 @@ and special purpose programming languages.
                 >http://ocamlsdl.sourceforge.net/</a>
 </li>
 <li> <strong>
+     Oberon (Oberon-2, Active Oberon, Component Pascal)
+     </strong>
+     <br>
+     SDL for Oberon -
+	<a href="https://sourceforge.net/projects/sdl-for-oberon"
+		>https://sourceforge.net/projects/sdl-for-oberon</a>
+</li>
+<li> <strong>
      Objective C
      </strong>
      <br>
