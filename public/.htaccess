@@ -19,3 +19,7 @@ Deny from all
     deny from all
 </Files>
 
+# Force everyone to the FastCGI version.
+RewriteEngine On
+RewriteRule ^cgi/docwiki\.cgi  http://www.libsdl.org/cgi/docwiki.fcg [R,L]
+RewriteRule ^cgi/docwiki\.cgi/(.*)  http://www.libsdl.org/cgi/docwiki.fcg/$1 [R,L]
