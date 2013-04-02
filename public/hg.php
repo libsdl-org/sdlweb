@@ -70,7 +70,7 @@ Source snapshot for SDL 1.2 (Updated
 
 <p><font color="#414141">
 Source snapshot for SDL 2.0 (Updated
-<!-- SDL 2.0 DATE --> Fri Feb  3
+<!-- SDL 2.0 DATE --> Sun Mar 24
 )</p>
 <b>WARNING: UNDER CONSTRUCTION</b>
 <blockquote>
