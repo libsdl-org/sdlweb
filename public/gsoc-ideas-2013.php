@@ -19,8 +19,8 @@ Project Idea #1: Interactive and Visual Test Automation for SDL 2.0
 <p>
 Did you know that testsprite2 has 26 commandline parameters with thousands of valid combination?
 Hey, and you thought we check them all before releasing SDL onto the world ...
-We need a great student to fully automate this puppy. Write some test code that will be running through
-<strong>all</strong> of the command line options and interactive command sequences of testsprite2
+We need a <strong>test hero</strong> to fully automate this puppy. Write some test code that will be running through
+<i>all</i> of the command line options and interactive command sequences of testsprite2
 while verifying the resulting behavior.
 This could be on any platform chosen by the student, but success would require complete automated
 testing and verification on at least one platform.
@@ -45,8 +45,8 @@ This project will expose you to:
 Programming skills needed:
 <ul>
 <li>Student should have medium to expert experience in C/C++, and
-<li>experience in a scripting language like Python, perl or lua.
-<li>Previous experience with user interface testing or test-frameworks would definitely help as well.
+<li>experience in a scripting language like <a href="http://www.python.org">Python</a>, <a href="http://www.perl.org">perl</a> or <a href="http://www.lua.org">lua</a>.
+<li>Previous experience with <a href="http://en.wikipedia.org/wiki/Graphical_user_interface_testing">user interface testing</a> or test-frameworks would definitely help as well.
 </ul>
 
 Difficulty level:
@@ -57,7 +57,7 @@ Difficulty level:
 
 Potential mentors:
 <ul>
-<li>Andreas Schiffler
+<li><a href="http://www.ferzkopp.net/joomla/">Andreas Schiffler</a>
 <li>Gabriel Jacobo (backup)
 </ul>
 
@@ -87,17 +87,17 @@ We are interested in researching the following alternatives in order to accompli
 
 This project will expose you to:
 <ul>
-<li>Auto tools based build systems (as in configure;make;make install), Visual Studio, XCode.
+<li><a href="http://en.wikipedia.org/wiki/GNU_build_system">Autotools-based build systems</a> (as in: configure && make && make install), <a href="http://www.microsoft.com/visualstudio/eng/downloads">Visual Studio</a>, <a href="https://developer.apple.com/xcode/">XCode</a>.
 <li>Cross platform builds (Windows, Linux, OS X, Android, iOS).
-<li>Scripting languages (possibly Lua or Python).
+<li>Scripting languages (possibly <a href="http://www.lua.org">Lua</a> or Python).
 </ul>
 
 Programming skills needed:
 <ul>
 <li>Student should have medium to expert experience in C/C++, and
-<li>Python (buildbot), and
+<li><a href="http://www.python.org">Python</a> (for <a href="http://trac.buildbot.net/">buildbot</a>), and
 <li>the scripting language used by the target framework.
-<li>Previous experience with cross-platform builds would definitely help as well.
+<li>Previous experience with <a href="http://en.wikipedia.org/wiki/List_of_build_automation_software">build tools</a> would definitely help as well.
 </ul>
 
 Difficulty level:
@@ -108,7 +108,7 @@ Difficulty level:
 
 Potential mentors:
 <ul>
-<li>Gabriel Jacobo
+<li><a href="http://mdqinc.com">Gabriel Jacobo</a>
 <li>Andreas Schiffler (backup)
 </ul>
 
