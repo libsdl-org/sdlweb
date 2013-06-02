@@ -2,28 +2,8 @@
  include ("../include/login.inc.php");
  include ($header_filename);
 ?>
-<h1>SDL version 1.2.15 (stable)</h1>
+<h1>SDL version 1.2.15 (historic)</h1>
 <a href="release/changes-1.2.html">ChangeLog</a>
-
-<h2>GPG Signature:</h2>
-<p>
-The source code to this release has been signed by Sam Lantinga.
-<br>
-You can get the public key from any keyserver with the key id 0xA7763BE6,
-or directly from Sam's home page:
-<a href="http://slouken.libsdl.org/slouken-pubkey.asc"
-                                  >slouken-pubkey.asc</a>
-<br>
-The public key fingerprint should be:
-</p>
-<pre>
-pub  1024D/A7763BE6 2001-01-05 Sam Lantinga &lt;slouken@libsdl.org&gt;
-     Key fingerprint = 1528 635D 8053 A57F 77D1  E086 30A5 9377 A776 3BE6
-</pre>
-<p>
-For more information about public key signatures, see
-<a href="http://www.gnupg.org/">http://www.gnupg.org/</a>
-</p>
 
 <h2>Source Code:</h2>
 <blockquote>
@@ -85,6 +65,28 @@ For more information about public key signatures, see
 		                >SDL-devel-1.2.15-mingw32.tar.gz</a> (Mingw32)<br>
 	</p>
 </blockquote>
+
+<hr/>
+
+<h2>GPG Signature:</h2>
+<p>
+The source code to this release has been signed by Sam Lantinga.
+<br>
+You can get the public key from any keyserver with the key id 0xA7763BE6,
+or directly from Sam's home page:
+<a href="http://slouken.libsdl.org/slouken-pubkey.asc"
+                                  >slouken-pubkey.asc</a>
+<br>
+The public key fingerprint should be:
+</p>
+<pre>
+pub  1024D/A7763BE6 2001-01-05 Sam Lantinga &lt;slouken@libsdl.org&gt;
+     Key fingerprint = 1528 635D 8053 A57F 77D1  E086 30A5 9377 A776 3BE6
+</pre>
+<p>
+For more information about public key signatures, see
+<a href="http://www.gnupg.org/">http://www.gnupg.org/</a>
+</p>
 
 <?PHP
  include ("footer.inc.php");
