@@ -34,12 +34,12 @@ There is a web interface to the Mercurial repository at:<br>
 
 <p><font color="#414141">
 Source snapshot for SDL 2.0 (Updated
-<!-- SDL 2.0 DATE --> Sat Jun  1
+<!-- SDL 2.0 DATE --> Wed Aug  7
 )</p>
 <blockquote>
-<!-- SDL 2.0 ZIP --><a href="tmp/SDL-2.0.0-7250.zip">SDL-2.0.0-7250.zip</a><!-- -->
+<!-- SDL 2.0 ZIP --><a href="tmp/SDL-2.0.0-7598.zip">SDL-2.0.0-7598.zip</a><!-- -->
 <br/>
-<!-- SDL 2.0 TGZ --><a href="tmp/SDL-2.0.0-7250.tar.gz">SDL-2.0.0-7250.tar.gz</a><!-- -->
+<!-- SDL 2.0 TGZ --><a href="tmp/SDL-2.0.0-7598.tar.gz">SDL-2.0.0-7598.tar.gz</a><!-- -->
 </blockquote>
 
 <strong>Note: These are not official releases and may be unstable!</strong>

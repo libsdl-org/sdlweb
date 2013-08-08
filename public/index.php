@@ -58,6 +58,11 @@ EOT;
 		<img src="images/$logo" alt="SDL" width="457" height="266">
 		<br><br>
 		<div style="font-family: Verdana, Tahoma, Arial, Helvetica, sans-serif">
+		<P>SDL 2.0 is now in <strong>Release Candidate</strong> status!
+		<br>
+		Please download the <a href="tmp/download-2.0.php">SDL</a>, <a href="tmp/SDL_image/">SDL_image</a>, <a href="tmp/SDL_mixer/">SDL_mixer</a> libraries and report bugs at our <a href="http://bugzilla.libsdl.org/">bug tracker</a>.
+		</P>
+		<hr>
 		<p>
 		Simple DirectMedia Layer is a cross-platform multimedia library designed to provide low level access to audio, keyboard, mouse, joystick, 3D hardware via OpenGL, and 2D video framebuffer. It is used by MPEG playback software, emulators, and many popular games, including the award winning Linux port of "Civilization: Call To Power."
 		</p>
@@ -70,17 +75,6 @@ EOT;
 		<p>
 		SDL is distributed under GNU LGPL version 2.  This license allows you to use SDL freely in commercial programs as long as you link with the dynamic library.
 		</p>
-		<hr>
-		<P>Welcome to the last planned release for SDL 1.2!
-		<br>
-		<a href="http://www.libsdl.org/download-1.2.php">http://www.libsdl.org/download-1.2.php</a>
-		</P>
-		<P>
-		This release is intended to clean up the bug list for SDL 1.2 and let us focus on new development for SDL 2.0!
-		</P>
-		<P>
-		I would like to thank everybody who contributed bug reports and fixes for this release!
-		</P>
 		</div>
 		<!-- End Intro -->
 
