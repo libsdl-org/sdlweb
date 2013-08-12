@@ -1,100 +1,77 @@
-<?PHP
- include ("../include/login.inc.php");
- include ($header_filename);
-?>
-<h1>SDL Credits</h1>
+<!DOCTYPE html>
+<html>
+    <head>        
+        <title>Simple DirectMedia Layer - Credits</title>
+        <?php require_once("include/meta.inc.php"); ?><?php $current_page = basename(__FILE__, '.php'); ?>
+    </head>
+    <body>        
+        <div id="wrapper">
+            <?php require_once("include/header.inc.php"); ?>
+            <div id="left">
+                <?php require_once("include/sidebar.inc.php"); ?>
+            </div>
+            <div id="content">
+                <h1>SDL Credits</h1>
+                    <p>
+                        It's impossible to list the hundreds of people who have contributed
+                        directly and indirectly to the Simple DirectMedia Layer project.
+                        Many thanks to everybody who has contributed over the years... you guys rock!
+                    </p>
 
-<p>
-It's impossible to list the hundreds of people who have contributed
-directly and indirectly to the Simple DirectMedia Layer project.
-Many thanks to everybody who has contributed over the years... you guys rock!
-</p>
+                    <p>
+                        <strong>Special thanks go out to:</strong>
+                    </p>
+                <div class="col left">
 
-<p>
-Special thanks go out to:
-</p>
-<ul>
-<li>Cliff Matthews, for giving me a reason to start this project. :)
-<br>-- Executor rocks!  *grin*
-</li>
-<li>Scott Call, for making a home for SDL on the 'Net... Thanks! :)
-</li>
-<li>The Linux Fund, C Magazine, Educational Technology Resources Inc.,
-  Gareth Noyce, Jesse Pavel, Keith Kitchin, Jeremy Horvath, Thomas Nicholson,
-  Hans-Peter Gygax, the Eternal Lands Development Team, Lars Brubaker,
-  and Phoenix Kokido for financial contributions
-</li>
-<li>Gaëtan de Menten for writing the PHP and SQL behind the SDL website
-</li>
-<li>Tim Jones for the new look of the SDL website
-</li>
-<li>Marco Kraus for setting up SDL merchandise
-</li>
-<li>Martin Donlon for his work on the SDL Documentation Project
-</li>
-<li>Ryan Gordon for helping everybody out and keeping the dream alive. :)
-</li>
-<li>Mattias Engdegård, for help with the Solaris port and lots of other help
-</li>
-<li>Max Watson, Matt Slot, and Kyle for help with the MacOS Classic port
-</li>
-<li>Stan Shebs, for the initial Mac OS X port
-</li>
-<li>Max Horn and Darrell Walisser for unflagging work on the Mac OS X port
-</li>
-<li>Patrick Trainor, Jim Boucher, and Mike Gorchak for the QNX Neutrino port
-</li>
-<li>Carsten Griwodz for the AIX port
-</li>
-<li>Gabriele Greco, for the Amiga port
-</li>
-<li>Patrice Mandin, for the Atari port
-</li>
-<li>Hannu Viitala for the EPOC port
-</li>
-<li>Peter Valchev for nagging me about the OpenBSD port until I got it right. :)
-</li>
-<li>Kent B Mein, for a place to do the IRIX port
-</li>
-<li>Ash, for a place to do the OSF/1 Alpha port
-</li>
-<li>David Sowsy, for help with the BeOS port
-</li>
-<li>Eugenia Loli, for endless work on porting SDL games to BeOS
-</li>
-<li>Jon Taylor for the GGI front-end
-</li>
-<li>Paulus Esterhazy, for the Visual C++ testing and libraries
-</li>
-<li>Brenda Tantzen, for Metrowerks CodeWarrior on MacOS
-</li>
-<li>Chris Nentwich, for the Hermes assembly blitters
-</li>
-<li>Michael Vance and Jim Kutter for the X11 OpenGL support
-</li>
-<li>Stephane Peter, for the AAlib front-end and multi-threaded timer idea.
-</li>
-<li>Jon Atkins for SDL_image, SDL_mixer and SDL_net documentation
-</li>
-<li>Peter Wiklund, for the 1998 winning SDL logo,
-  and Arto Hamara, Steven Wong, and Kent Mein for other logo entries.
-</li>
-<li>Arne Claus, for the 2004 winning SDL logo,
-  and Shandy Brown, Jac, Alex Lyman, Mikkel Gjoel, #Guy, Jonas Hartmann,
-  Daniel Liljeberg,  Ronald Sowa, DocD, Pekka Jaervinen, Patrick Avella,
-  Erkki Kontilla, Levon Gavalian, Hal Emerich, David Wiktorsson,
-  S. Schury and F. Hufsky, Ciska de Ruyver, Shredweat, Tyler Montbriand,
-  Martin Andersson, Merlyn Wysard, Fernando Ibanez, David Miller,
-  Andre Bommele, lovesby.com, Francisco Camenforte Torres, and David Igreja
-  for other logo entries.
-</li>
-<li>Bob Pendleton and David Olofson for being long time contributors to
-  the SDL mailing list.
-</li>
-<li>Everybody at Loki Software, Inc. for their great contributions!
-</li>
-</ul>
+                    <ul>
+                        <li>Cliff Matthews, for giving me a reason to start this project. :)
+                        </li>
+                        <li>Ryan Gordon for helping everybody out and keeping the dream alive. :)
+                        </li>
+                        <li>Gabriel Jacobo for his work on the Android port and generally helping out all around.
+                        </li>
+                        <li>Philipp Wiesemann for his attention to detail reviewing the entire SDL code base and proposes patches.
+                        </li>
+                        <li>Andreas Schiffler for his dedication to unit tests, Visual Studio projects, and managing the Google Summer of Code.
+                        </li>
+                        <li>Mike Sartain for incorporating SDL into Team Fortress 2 and cheering me on at Valve.
+                        </li>
+                        <li>Alfred Reynolds for the game controller API and general (in)sanity.
+                        </li>
+                        <li>JÃ¸rgen TjernÃ¸ for numerous magical Mac OS X fixes.
+                        </li>
+                        <li>Pierre-Loup Griffais for his deep knowledge of OpenGL drivers.
+                        </li>
+                    </ul>
+                </div>   
 
-<?PHP
- include ("footer.inc.php");
-?>
+                <div class="col right">
+                    <ul>
+                        <li>Julian Winter for the SDL 2.0 website.
+                        </li>
+                        <li>Sheena Smith for many months of great work on the SDL wiki creating the API documentation and style guides.
+                        </li>
+                        <li>Paul Hunkin for his port of SDL to Android during the Google Summer of Code 2010.
+                        </li>
+                        <li>Eli Gottlieb for his work on shaped windows during the Google Summer of Code 2010.
+                        </li>
+                        <li>Jim Grandpre for his work on multi-touch and gesture recognition during the Google Summer of Code 2010.
+                        </li>
+                        <li>Edgar "bobbens" Simo for his force feedback API development during the Google Summer of Code 2008.
+                        </li>
+                        <li>Aaron Wishnick for his work on audio resampling and pitch shifting during the Google Summer of Code 2008.
+                        </li>
+                        <li>Holmes Futrell for port of SDL to the iPhone and iPod Touch during the Google Summer of Code 2008.
+                        </li>
+                        <li>Jon Atkins for SDL_image, SDL_mixer and SDL_net documentation.
+                        </li>
+                        <li>Everybody at Loki Software, Inc. for their great contributions!
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="clearer"></div>            
+        </div>
+        <?php require_once("include/footer.inc.php"); ?>      
+    </body>
+</html>
