@@ -1,85 +1,327 @@
-<?PHP
-	include ("../include/login.inc.php");
-	include ($header_filename);
-
-//-------------------------------------------------------------------------------------------------
-	if ($wrong_login_or_password)
-		$action = "showloginform";
-
-	if (!$DBconnection)
-		echo "<p class='warning'>Warning: Could not connect to the database ! All dynamic features of the site are unavailable!</p>\n";
-
-	//---------------------------------------------------------------------------------------------
-	switch ($action) {
-		case "showloginform":
-			if ($wrong_login_or_password)
-				echo "<p class='warning'>Wrong Login / Password!</p>\n";
-
-			// not logged in yet -- getting user login & pass
-			if ($userid == 0) { 	
-				echo <<<EOT
-					<form method="post" action="{$_SERVER['PHP_SELF']}?action=login">
-					<p>Login<br><input type="text" name="userlogin" size="16" maxlength="20"></p>
-					<p>Password<br><input type="password" name="userpassword" size="16" maxlength="50"></p>
-					<p><input type="checkbox" name="userpersist" value="yes">remember me</p>
-					<input type="submit" value="login">
-					</form>
-					<a href="{$_SERVER['PHP_SELF']}?action=showresetform">Recover Password</a><br>
-					<a href="users.php?action=createuser">Create new Account</a>
-
-EOT;
-			} else {
-				echo <<<EOT
-					<p class="warning">You are already logged in as $userlogin</p>
-					<p><a href="index.php">Back to main page.</a></p>
-
-EOT;
-			}
-			break;
-
-		case "showresetform":
-			echo <<<EOT
-				<form method="post" action="users.php?action=resetpwd">
-				<p>Login or e-mail address<br><input type="text" name="reset" size="50" maxlength="64"></p>
-				<input type="submit" value="Reset">
-				</form>
-EOT;
-			break;
-
-		default:
-			// Stupid Internet Explorer...
-			if (eregi("MSIE.[56]", $_SERVER["HTTP_USER_AGENT"])) {
-				$logo = "SDL_logo.gif";
-			} else {
-				$logo = "SDL_logo.png";
-			}
-			echo <<<EOT
-		<!-- Intro -->
-		<img src="images/$logo" alt="SDL" width="457" height="266">
-		<br><br>
-		<div style="font-family: Verdana, Tahoma, Arial, Helvetica, sans-serif">
-		<P>SDL 2.0 is now in <strong>Release Candidate</strong> status!
-		<br>
-		Please download the <a href="tmp/download-2.0.php">SDL</a>, <a href="tmp/SDL_image/">SDL_image</a>, <a href="tmp/SDL_mixer/">SDL_mixer</a> libraries and report bugs at our <a href="http://bugzilla.libsdl.org/">bug tracker</a>.
-		</P>
-		<hr>
-		<p>
-		Simple DirectMedia Layer is a cross-platform multimedia library designed to provide low level access to audio, keyboard, mouse, joystick, 3D hardware via OpenGL, and 2D video framebuffer. It is used by MPEG playback software, emulators, and many popular games, including the award winning Linux port of "Civilization: Call To Power."
-		</p>
-		<p>
-		SDL supports Linux, Windows, Windows CE, BeOS, MacOS, Mac OS X, FreeBSD, NetBSD, OpenBSD, BSD/OS, Solaris, IRIX, and QNX.  The code contains support for AmigaOS, Dreamcast, Atari, AIX, OSF/Tru64, RISC OS, SymbianOS, and OS/2, but these are not officially supported.
-		</p>
-		<p>
-		SDL is written in C, but works with C++ natively, and has bindings to several other languages, including Ada, C#, D, Eiffel, Erlang, Euphoria, Go, Guile, Haskell, Java, Lisp, Lua, ML, Oberon/Component Pascal, Objective C, Pascal, Perl, PHP, Pike, Pliant, Python, Ruby, Smalltalk, and Tcl.
-		</p>
-		<p>
-		SDL is distributed under GNU LGPL version 2.  This license allows you to use SDL freely in commercial programs as long as you link with the dynamic library.
-		</p>
-		</div>
-		<!-- End Intro -->
-
-EOT;
-	}
-	
-	include ("footer.inc.php");
-?>
+<!DOCTYPE html>
+<html>
+    <head>        
+        <title>Simple DirectMedia Layer - Homepage</title>
+       <?php require_once("include/meta.inc.php"); ?><?php $current_page = basename(__FILE__, '.php'); ?>
+    </head>
+    <body class="home">        
+        <div id="wrapper">
+            <?php require_once("include/header.inc.php"); ?>
+            <div id="left">
+                <?php require_once("include/sidebar.inc.php"); ?>
+            </div>
+            <div id="content">
+                <h1>About SDL</h1>
+                <div class="col left">
+                    <p> Simple DirectMedia Layer is a cross-platform development library designed to provide low level access to audio, keyboard, mouse, joystick, and graphics hardware via OpenGL and Direct3D. It is used by video playback software, emulators, and popular games including <a href="http://valvesoftware.com">Valve</a>'s award winning catalog and many <a href="https://www.humblebundle.com/">Humble Bundle</a> games.
+                    </p><p>
+			SDL officially supports Windows, Mac OS X, Linux, iOS, and Android.  Support for other platforms may be found in the source code.
+                    </p><p>
+                        SDL is written in C, works natively with C++, and there are <a href="languages.php">bindings available</a> for several other languages, including C# and Python.
+                    </p><p>
+                        SDL 2.0 is distributed under the <a href="http://www.gzip.org/zlib/zlib_license.html">zlib license</a>. This license allows you to use SDL freely in any software. </p>
+                </div>
+                <?php
+// FIXME: This should go into a database soon.
+$games = array(
+    array("EDGE",
+        "http://store.steampowered.com/app/38740",
+        "http://cdn.steampowered.com/v/gfx/apps/38740/header.jpg"),
+    array("RUSH",
+        "http://store.steampowered.com/app/38720",
+        "http://cdn.steampowered.com/v/gfx/apps/38720/header.jpg"),
+    array("Toki Tori",
+        "http://store.steampowered.com/app/38700",
+        "http://cdn.steampowered.com/v/gfx/apps/38700/header.jpg"),
+    array("Aquaria",
+        "http://store.steampowered.com/app/24420",
+        "http://cdn.steampowered.com/v/gfx/apps/24420/header.jpg"),
+    array("Psychonauts",
+        "http://store.steampowered.com/app/3830",
+        "http://cdn.steampowered.com/v/gfx/apps/3830/header.jpg"),
+    array("Stacking",
+        "http://store.steampowered.com/app/115110",
+        "http://cdn.steampowered.com/v/gfx/apps/115110/header.jpg"),
+    array("Costume Quest",
+        "http://store.steampowered.com/app/115100",
+        "http://cdn.steampowered.com/v/gfx/apps/115100/header.jpg"),
+    array("Brutal Legend",
+        "http://store.steampowered.com/app/225260",
+        "http://cdn.steampowered.com/v/gfx/apps/225260/header.jpg"),
+    array("Shatter",
+        "http://store.steampowered.com/app/20820",
+        "http://cdn.steampowered.com/v/gfx/apps/20820/header.jpg"),
+    array("1000 Amps",
+        "http://store.steampowered.com/app/205690",
+        "http://cdn.steampowered.com/v/gfx/apps/205690/header.jpg"),
+    array("Waking Mars",
+        "http://store.steampowered.com/app/227200",
+        "http://cdn.steampowered.com/v/gfx/apps/227200/header.jpg"),
+    array("Mayhem Intergalactic",
+        "http://store.steampowered.com/app/18600",
+        "http://cdn.steampowered.com/v/gfx/apps/18600/header.jpg"),
+    array("Musaic Box",
+        "http://store.steampowered.com/app/29130",
+        "http://cdn.steampowered.com/v/gfx/apps/29130/header.jpg"),
+    array("Poker Superstars II",
+        "http://store.steampowered.com/app/4100",
+        "http://cdn.steampowered.com/v/gfx/apps/4100/header.jpg"),
+    array("Steel Storm: Burning Retribution",
+        "http://store.steampowered.com/app/96200",
+        "http://cdn.steampowered.com/v/gfx/apps/96200/header.jpg"),
+    array("SolForge",
+        "http://store.steampowered.com/app/232450",
+        "http://cdn.steampowered.com/v/gfx/apps/232450/header.jpg"),
+    array("Analogue: A Hate Story",
+        "http://store.steampowered.com/app/209370",
+        "http://cdn.steampowered.com/v/gfx/apps/209370/header.jpg"),
+    array("VVVVVV",
+        "http://store.steampowered.com/app/70300",
+        "http://cdn.steampowered.com/v/gfx/apps/70300/header.jpg"),
+    array("Waveform",
+        "http://store.steampowered.com/app/204180",
+        "http://cdn.steampowered.com/v/gfx/apps/204180/header.jpg"),
+    array("Jack Keane",
+        "http://store.steampowered.com/app/12340",
+        "http://cdn.steampowered.com/v/gfx/apps/12340/header.jpg"),
+    array("Jack Keane",
+        "http://store.steampowered.com/app/12440",
+        "http://cdn.steampowered.com/v/gfx/apps/12440/header.jpg"),
+    array("Ankh 2: Heart of Osiris",
+        "http://store.steampowered.com/app/12440",
+        "http://cdn.steampowered.com/v/gfx/apps/12440/header.jpg"),
+    array("Ankh 3: Battle of the Gods",
+        "http://store.steampowered.com/app/12450",
+        "http://cdn.steampowered.com/v/gfx/apps/12450/header.jpg"),
+    array("Vertex Dispenser",
+        "http://store.steampowered.com/app/102400",
+        "http://cdn.steampowered.com/v/gfx/apps/102400/header.jpg"),
+    array("Xenonauts",
+        "http://store.steampowered.com/app/223830",
+        "http://cdn.steampowered.com/v/gfx/apps/223830/header.jpg"),
+    array("Eversion",
+        "http://store.steampowered.com/app/33680",
+        "http://cdn.steampowered.com/v/gfx/apps/33680/header.jpg"),
+    array("Closure",
+        "http://store.steampowered.com/app/72000",
+        "http://cdn.steampowered.com/v/gfx/apps/72000/header.jpg"),
+    array("Professor Fizzwizzle",
+        "http://store.steampowered.com/app/50900",
+        "http://cdn.steampowered.com/v/gfx/apps/50900/header.jpg"),
+    array("Professor Fizzwizzle and the Molten Mystery",
+        "http://store.steampowered.com/app/50910",
+        "http://cdn.steampowered.com/v/gfx/apps/50910/header.jpg"),
+    array("My Tribe",
+        "http://store.steampowered.com/app/51010",
+        "http://cdn.steampowered.com/v/gfx/apps/51010/header.jpg"),
+    array("Drawn: The Painted Tower",
+        "http://store.steampowered.com/app/51060",
+        "http://cdn.steampowered.com/v/gfx/apps/51060/header.jpg"),
+    array("Azada",
+        "http://store.steampowered.com/app/7340",
+        "http://cdn.steampowered.com/v/gfx/apps/7340/header.jpg"),
+    array("Postal",
+        "http://store.steampowered.com/app/232770",
+        "http://cdn.steampowered.com/v/gfx/apps/232770/header.jpg"),
+    array("Postal 2 Complete",
+        "http://store.steampowered.com/app/223470",
+        "http://cdn.steampowered.com/v/gfx/apps/223470/header.jpg"),
+    array("SpaceChem",
+        "http://store.steampowered.com/app/92800",
+        "http://cdn.steampowered.com/v/gfx/apps/92800/header.jpg"),
+    array("World of Goo",
+        "http://store.steampowered.com/app/22000",
+        "http://cdn.steampowered.com/v/gfx/apps/22000/header.jpg"),
+    array("Dungeons of Dredmor",
+        "http://store.steampowered.com/app/98800",
+        "http://cdn.steampowered.com/v/gfx/apps/98800/header.jpg"),
+    array("Magical Diary",
+        "http://store.steampowered.com/app/211340",
+        "http://cdn.steampowered.com/v/gfx/apps/211340/header.jpg"),
+    array("Inside a Star-filled Sky",
+        "http://store.steampowered.com/app/104100",
+        "http://cdn.steampowered.com/v/gfx/apps/104100/header.jpg"),
+    array("Arcadia",
+        "http://store.steampowered.com/app/72500",
+        "http://cdn.steampowered.com/v/gfx/apps/72500/header.jpg"),
+    array("Infested Planet",
+        "http://store.steampowered.com/app/204530",
+        "http://cdn.steampowered.com/v/gfx/apps/204530/header.jpg"),
+    array("FTL: Faster Than Light",
+        "http://store.steampowered.com/app/212680",
+        "http://cdn.steampowered.com/v/gfx/apps/212680/header.jpg"),
+    array("Proteus",
+        "http://store.steampowered.com/app/219680",
+        "http://cdn.steampowered.com/v/gfx/apps/219680/header.jpg"),
+    array("Dangerous High School Girls in Trouble",
+        "http://www.mousechief.com/dhsg",
+        "http://cdn.steampowered.com/v/gfx/apps/27400/header.jpg"),
+    array("7 Grand Steps",
+        "http://www.7grandsteps.com",
+        "http://cdn.steampowered.com/v/gfx/apps/238930/header.jpg"),
+    array("Penumbra Overture",
+        "http://penumbragame.com",
+        "http://cdn.steampowered.com/v/gfx/apps/22180/header.jpg"),
+    array("Amnesia: The Dark Descent",
+        "http://amnesiagame.com",
+        "http://cdn.steampowered.com/v/gfx/apps/57300/header.jpg"),
+    array("Digital Combat Simulator: Black Shark",
+        "http://store.steampowered.com/app/61000",
+        "http://cdn.steampowered.com/v/gfx/apps/61000/header.jpg"),
+    array("Broken Sword 2: The Smoking Mirror",
+        "http://store.steampowered.com/app/33600",
+        "http://cdn.steampowered.com/v/gfx/apps/33600/header.jpg"),
+    array("Prison Architect",
+        "http://store.steampowered.com/app/233450",
+        "http://cdn.steampowered.com/v/gfx/apps/233450/header.jpg"),
+    array("Uplink",
+        "http://store.steampowered.com/app/1510",
+        "http://cdn.steampowered.com/v/gfx/apps/1510/header.jpg"),
+    array("Death Rally",
+        "http://store.steampowered.com/app/108700",
+        "http://cdn.steampowered.com/v/gfx/apps/108700/header.jpg"),
+    array("Trials 2: Second Edition",
+        "http://store.steampowered.com/app/16600",
+        "http://cdn.steampowered.com/v/gfx/apps/16600/header.jpg"),
+    array("Tiny and Big: Grandpa's Leftovers",
+        "http://store.steampowered.com/app/205910",
+        "http://cdn.steampowered.com/v/gfx/apps/205910/header.jpg"),
+    array("Conquest Of Elysium 3",
+        "http://store.steampowered.com/app/211900",
+        "http://cdn.steampowered.com/v/gfx/apps/211900/header.jpg"),
+    array("Zen Bound 2",
+        "http://store.steampowered.com/app/61600",
+        "http://cdn.steampowered.com/v/gfx/apps/61600/header.jpg"),
+// This game isn't ready yet
+//    array("Future Unfolding",
+//        "http://www.futureunfolding.com/",
+//        "images/teaser-future-unfolding.jpg"),
+    array("Spirits",
+        "http://store.steampowered.com/app/210170",
+        "http://cdn.steampowered.com/v/gfx/apps/210170/header.jpg"),
+    array("Swords and Soldiers HD",
+        "http://store.steampowered.com/app/63500",
+        "http://cdn.steampowered.com/v/gfx/apps/63500/header.jpg"),
+    array("Awesomenauts",
+        "http://store.steampowered.com/app/204300",
+        "http://cdn.steampowered.com/v/gfx/apps/204300/header.jpg"),
+    array("Natural Selection 2",
+        "http://store.steampowered.com/app/4920",
+        "http://cdn.steampowered.com/v/gfx/apps/4920/header.jpg"),
+    array("Syberia",
+        "http://store.steampowered.com/app/46500",
+        "http://cdn.steampowered.com/v/gfx/apps/46500/header.jpg"),
+    array("Syberia II",
+        "http://store.steampowered.com/app/46510",
+        "http://cdn.steampowered.com/v/gfx/apps/46510/header.jpg"),
+    array("Still Life",
+        "http://store.steampowered.com/app/46480",
+        "http://cdn.steampowered.com/v/gfx/apps/46480/header.jpg"),
+    array("Still Life 2",
+        "http://store.steampowered.com/app/46490",
+        "http://cdn.steampowered.com/v/gfx/apps/46490/header.jpg"),
+    array("Robin Hood: The Legend of Sherwood",
+        "http://store.steampowered.com/app/46560",
+        "http://cdn.steampowered.com/v/gfx/apps/46560/header.jpg"),
+    array("The Whispered World",
+        "http://store.steampowered.com/app/18490",
+        "http://cdn.steampowered.com/v/gfx/apps/18490/header.jpg"),
+    array("The Dark Eye: Chains of Satinav",
+        "http://store.steampowered.com/app/203830",
+        "http://cdn.steampowered.com/v/gfx/apps/203830/header.jpg"),
+    array("The Night of the Rabbit",
+        "http://store.steampowered.com/app/230820",
+        "http://cdn.steampowered.com/v/gfx/apps/230820/header.jpg"),
+    array("Edna &amp; Harvey: Harvey's New Eyes",
+        "http://store.steampowered.com/app/219910",
+        "http://cdn.steampowered.com/v/gfx/apps/219910/header.jpg"),
+    array("Deponia",
+        "http://store.steampowered.com/app/214340",
+        "http://cdn.steampowered.com/v/gfx/apps/214340/header.jpg"),
+    array("Chaos on Deponia",
+        "http://store.steampowered.com/app/220740",
+        "http://cdn.steampowered.com/v/gfx/apps/220740/header.jpg"),
+    array("A New Beginning - Final Cut",
+        "http://store.steampowered.com/app/105000",
+        "http://cdn.steampowered.com/v/gfx/apps/105000/header.jpg"),
+    array("Galcon Fusion",
+        "http://www.galcon.com/fusion/",
+        "http://cdn.steampowered.com/v/gfx/apps/44200/header.jpg"),
+    array("Dynamite Jack",
+        "http://www.galcon.com/dynamitejack",
+        "http://cdn.steampowered.com/v/gfx/apps/202730/header.jpg"),
+    array("Caster",
+        "http://store.steampowered.com/app/29800",
+        "http://cdn.steampowered.com/v/gfx/apps/29800/header.jpg"),
+    array("Dyad",
+        "http://store.steampowered.com/app/223450",
+        "http://cdn.steampowered.com/v/gfx/apps/223450/header.jpg"),
+    array("Cave Story+",
+        "http://store.steampowered.com/app/200900",
+        "http://cdn.steampowered.com/v/gfx/apps/200900/header.jpg"),
+    array("X-COM: UFO Defense",
+        "http://store.steampowered.com/app/7760",
+        "http://cdn.steampowered.com/v/gfx/apps/7760/header.jpg"),
+    array("X-COM: Terror from the Deep",
+        "http://store.steampowered.com/app/7650",
+        "http://cdn.steampowered.com/v/gfx/apps/7650/header.jpg"),
+    array("X-COM: Apocalypse",
+        "http://store.steampowered.com/app/7660",
+        "http://cdn.steampowered.com/v/gfx/apps/7660/header.jpg"),
+    array("Superbrothers: Sword & Sworcery EP",
+        "http://store.steampowered.com/app/204060",
+        "http://cdn.steampowered.com/v/gfx/apps/204060/header.jpg"),
+    array("Weird Worlds: Return to Infinite Space",
+        "http://store.steampowered.com/app/226120",
+        "http://cdn.steampowered.com/v/gfx/apps/226120/header.jpg"),
+    array("Data Jammers: FastForward",
+        "http://store.steampowered.com/app/110500",
+        "http://cdn.steampowered.com/v/gfx/apps/110500/header.jpg"),
+    array("BRAINPIPE: A Plunge to Unhumanity",
+        "http://store.steampowered.com/app/35800",
+        "http://cdn.steampowered.com/v/gfx/apps/35800/header.jpg"),
+    array("Precipice of Darkness, Episode Two",
+        "http://store.steampowered.com/app/18020",
+        "http://cdn.steampowered.com/v/gfx/apps/18020/header.jpg"),
+    array("Snapshot",
+        "http://store.steampowered.com/app/204220",
+        "http://cdn.steampowered.com/v/gfx/apps/204220/header.jpg"),
+    array("Everyday Shooter",
+        "http://store.steampowered.com/app/16300",
+        "http://cdn.steampowered.com/v/gfx/apps/16300/header.jpg"),
+    array("Gish",
+        "http://store.steampowered.com/app/9500",
+        "http://cdn.steampowered.com/v/gfx/apps/9500/header.jpg"),
+    array("Hacker Evolution Duality",
+        "http://store.steampowered.com/app/70120",
+        "http://cdn.steampowered.com/v/gfx/apps/70120/header.jpg"),
+);
+$key1 = mt_rand(0, count($games) - 1);
+$key2 = $key1;
+while ($key2 == $key1) {
+    $key2 = mt_rand(0, count($games) - 1);
+}
+$game1 = $games[$key1];
+$game2 = $games[$key2];
+                ?>        
+                <div class="col right image">
+                    <div class="imagebox">
+                        <a href="<?php echo $game1[1]; ?>">
+                        <img src="<?php echo $game1[2]; ?>" alt="" />
+                        <h5>Made with SDL: <?php echo $game1[0]; ?></h5>
+                        </a>
+                    </div>
+                    <div class="imagebox">
+                        <a href="<?php echo $game2[1]; ?>">
+                        <img src="<?php echo $game2[2]; ?>" alt="" />
+                        <h5>Made with SDL: <?php echo $game2[0]; ?></h5>
+                        </a>
+                    </div>
+                </div>
+                <div class="clearer"></div>
+            </div>
+            <div class="clearer"></div>            
+        </div>
+        <?php require_once("include/footer.inc.php"); ?>       
+    </body>
+</html>

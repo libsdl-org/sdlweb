@@ -1,51 +1,61 @@
-<?PHP
- include ("../include/login.inc.php");
- include ($header_filename);
-?>
-<h1>SDL source snapshots</h1>
+<!DOCTYPE html>
+<html>
+    <head>        
+        <title>Simple DirectMedia Layer - SDL source snapshots</title>
+        <?php require_once("include/meta.inc.php"); ?><?php $current_page = basename(__FILE__, '.php'); ?>
+    </head>
+    <body>        
+        <div id="wrapper">
+            <?php require_once("include/header.inc.php"); ?>
+            <div id="left">
+                <?php require_once("include/sidebar.inc.php"); ?>
+            </div>
+            <div id="content">
+                <h1>SDL source snapshots</h1>
+                <div>
 
-<p>
-The latest development version of SDL is available via <a href="http://mercurial.selenic.com/">Mercurial</a>.
-</p>
-<p>
-Mercurial ("hg") allows you to get up-to-the-minute fixes and enhancements;
-as a developer works on a source tree, you can use hg to mirror that
-source tree instead of waiting for an official release.
-</p>
-<p>
-If you're new to Mercurial, check out the great tutorial at <a href="http://hginit.com">hginit.com</a>!
-</p>
+                    <p>
+                        The latest development version of SDL is available via <a href="http://mercurial.selenic.com/">Mercurial</a>.
+                    </p>
+                    <p>
+                        Mercurial allows you to get up-to-the-minute fixes and enhancements;
+                        as a developer works on a source tree, you can mirror it instead of waiting
+                        for an official release.
+                    </p>
+                    <p>
+                        If you're new to Mercurial, check out the great tutorial at <a href="http://hginit.com">hginit.com</a>!
+                    </p>
+		</div>
 
-<p>
-SDL 2.0:
+                <div class="col left">
+<h2>SDL 2.0</h2>
 <blockquote>
 <pre>
-hg clone http://hg.libsdl.org/SDL
+hg clone <a href="http://hg.libsdl.org/SDL">http://hg.libsdl.org/SDL</a>
 </pre>
 </blockquote>
-</p>
-
-<p>
-There is a web interface to the Mercurial repository at:<br>
-<a href="http://hg.libsdl.org/">http://hg.libsdl.org/</a>
 </p>
 
 <hr/>
 
 <p><font color="#414141">
 Source snapshot for SDL 2.0 (Updated
-<!-- SDL 2.0 DATE --> Thu Aug  8
+<!-- SDL 2.0 DATE --> Sat Jul  6
 )</p>
 <blockquote>
-<!-- SDL 2.0 ZIP --><a href="tmp/SDL-2.0.0-7602.zip">SDL-2.0.0-7602.zip</a><!-- -->
+<!-- SDL 2.0 ZIP --><a href="tmp/SDL-2.0.0-7353.zip">SDL-2.0.0-7353.zip</a><!-- -->
 <br/>
-<!-- SDL 2.0 TGZ --><a href="tmp/SDL-2.0.0-7602.tar.gz">SDL-2.0.0-7602.tar.gz</a><!-- -->
+<!-- SDL 2.0 TGZ --><a href="tmp/SDL-2.0.0-7353.tar.gz">SDL-2.0.0-7353.tar.gz</a><!-- -->
 </blockquote>
-
+                  </div>
+                <div class="clearer"></div>            
+                <div>
 <strong>Note: These are not official releases and may be unstable!</strong>
+                </div>
+            </div>
+            <div class="clearer"></div>            
+        </div>
+        <?php require_once("include/footer.inc.php"); ?> 
 
-<hr/>
-
-<?PHP
- include ("footer.inc.php");
-?>
+    </body>
+</html>
