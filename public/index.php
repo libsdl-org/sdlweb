@@ -24,6 +24,9 @@
                 <?php
 // FIXME: This should go into a database soon.
 $games = array(
+    array("UnEpic",
+        "http://store.steampowered.com/app/233980",
+        "http://cdn.steampowered.com/v/gfx/apps/233980/header.jpg"),
     array("EDGE",
         "http://store.steampowered.com/app/38740",
         "http://cdn.steampowered.com/v/gfx/apps/38740/header.jpg"),
