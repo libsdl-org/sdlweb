@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
     <head>        
-        <title>Simple DirectMedia Layer - SDL version 2.0.0 (historic)</title>
+        <title>Simple DirectMedia Layer - SDL version 2.0.0 (stable)</title>
         <?php require_once("include/meta.inc.php"); ?><?php $current_page = basename(__FILE__, '.php'); ?>
     </head>
     <body>        
