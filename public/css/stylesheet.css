@@ -36,9 +36,9 @@ ul, ol, dl {display:block; list-style-type:none; padding:0; width:auto; height:a
 p {padding:0 0 1em; margin:0; display:block;}					
 
 img, fieldset {border:0 none; padding:0; margin:0;} 
-div#wrapper {min-width:600px; max-width: 1140px; width:90%; height:auto; position:relative; margin:0px auto 0; padding:59px 5% 59px; background: url(../media/header_default.png) no-repeat center 0; background-color:white; box-shadow: 0 1px 6px rgba(0,0,0,0.20); border-radius: 0 0 2px 2px; border-bottom: 5px solid black; }
+div#wrapper {     background :  url(../media/header_default.png) no-repeat center 0 white ;       box-shadow :  0 1px 6px rgba(0, 0, 0, 0.2) ;     height :  auto ;     margin :  0 auto ;     max-width :  1140px ;     min-width :  600px ;     padding :  59px 5% ;     position :  relative ;     width :  90% ;}
 
-div#footer {height: auto; min-width:600px; max-width: 1267px; width:100%; height:auto; text-align: right; position:relative; margin:0px auto 0; padding:2px 0% 1em;}
+div#footer {     clear :  both ;     height :  auto ;     margin :  0 auto ;     max-width :  1267px ;     min-width :  600px ;     overflow :  hidden ;     padding :  1% ;     position :  relative ;     text-align :  right ;     width :  98% ; }
 div#footer .button.theme {float:left; border-radius: 3px; background:#132B48; color:white; text-align: center; padding: 1px 6px 0px; cursor: pointer; margin: 0 1em 0 0; font-size: 9px;}
 div#footer .button.theme.active {background:#777; cursor:default;}
 
