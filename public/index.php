@@ -24,6 +24,12 @@
                 <?php
 // FIXME: This should go into a database soon.
 $games = array(
+    array("Mahjong Quest Collection",
+        "http://store.steampowered.com/app/38000",
+        "http://cdn.steampowered.com/v/gfx/apps/38000/header.jpg"),
+    array("Jewel Quest Pack",
+        "http://store.steampowered.com/app/37960",
+        "http://cdn.steampowered.com/v/gfx/apps/37960/header.jpg"),
     array("UnEpic",
         "http://store.steampowered.com/app/233980",
         "http://cdn.steampowered.com/v/gfx/apps/233980/header.jpg"),
