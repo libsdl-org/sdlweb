@@ -47,7 +47,7 @@
 
                 <div class="col right">
                     <ul>
-                        <li>Julian Winter for the SDL 2.0 website.
+                        <li><a href="http://julianwinter.de">Julian Winter</a> for the SDL 2.0 website.
                         </li>
                         <li>Sheena Smith for many months of great work on the SDL wiki creating the API documentation and style guides.
                         </li>
