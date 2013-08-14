@@ -34,6 +34,13 @@
                                 <a href="https://github.com/flibitijibibo/SDL2-CS">https://github.com/flibitijibibo/SDL2-CS</a>
                             </li>
                             <li> <strong>
+                                    Pascal
+                                </strong>
+                                <br>
+                                Bare Game -
+                                <a href="https://github.com/sysrpl/Bare.Game/blob/master/source/bare.interop.sdl2.pas">https://github.com/sysrpl/Bare.Game/blob/master/source/bare.interop.sdl2.pas</a>
+                            </li>
+                            <li> <strong>
                                     Python
                                 </strong>
                                 <br>
