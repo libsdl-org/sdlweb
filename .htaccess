@@ -1,13 +1,4 @@
-#<Directory viewvc>
-#SetEnv PYTHONPATH /home/sdlweb
-#</Directory>
 ErrorDocument 404 /missing.php
-
-
-<Files logs>
-Order deny,allow
-Deny from all
-</Files>
 
 <Files .htaccess>
 Order deny,allow
@@ -18,8 +9,3 @@ Deny from all
     order allow,deny
     deny from all
 </Files>
-
-# Force everyone to the FastCGI version.
-RewriteEngine On
-RewriteRule ^cgi/docwiki\.cgi  http://www.libsdl.org/cgi/docwiki.fcg [R,L]
-RewriteRule ^cgi/docwiki\.cgi/(.*)  http://www.libsdl.org/cgi/docwiki.fcg/$1 [R,L]
