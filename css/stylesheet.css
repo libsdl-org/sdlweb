@@ -47,7 +47,7 @@ div#content {float:left; width:73%; padding:122px 0 0 8%; }
 
 div#header .box{  background:#132B48; color:white;  border-radius: 0 0 3px 3px;    box-shadow: 0 2px 3px rgba(0, 0, 0, 0.2);    padding: 17px 20px;    position: absolute;    right: 46px;    top: 0;    width: 252px; font-size:97%;} 
 
-blockquote {   background: #FCFCFC;   border-radius: 2px;    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.06);    display: block;    margin: 0 0 1em;    padding: 1em 1.5em; }
+blockquote {   background: #FCFCFC;   border-radius: 2px;    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.06);    display: block;    margin: 0 0 2.5em;    padding: 1em 1.5em; }
 blockquote ul li {margin-bottom:1em;}
 
 div#left ul {padding:0 0 14px;}
