@@ -24,6 +24,9 @@
                 <?php
 // FIXME: This should go into a database soon.
 $games = array(
+    array("Memoria",
+        "http://store.steampowered.com/app/243200",
+        "http://cdn.steampowered.com/v/gfx/apps/243200/header.jpg"),
     array("Mahjong Quest Collection",
         "http://store.steampowered.com/app/38000",
         "http://cdn.steampowered.com/v/gfx/apps/38000/header.jpg"),
