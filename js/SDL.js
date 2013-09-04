@@ -3,7 +3,6 @@ var host = location.hostname;
 var myLocalStorage = localStorage; 
 
 function init() {   
-    setLightTheme();
     var rL = readLocal();    
     if(rL!=null){
         if(rL.length>1) setDarkTheme();        
