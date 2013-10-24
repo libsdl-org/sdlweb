@@ -24,6 +24,9 @@
                 <?php
 // FIXME: This should go into a database soon.
 $games = array(
+    array("Painkiller Hell &amp; Damnation",
+        "http://store.steampowered.com/app/214870",
+        "http://cdn.steampowered.com/v/gfx/apps/214870/header.jpg"),
     array("Left 4 Dead 2",
         "http://store.steampowered.com/app/550",
         "http://cdn.steampowered.com/v/gfx/apps/550/header.jpg"),
