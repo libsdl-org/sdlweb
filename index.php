@@ -24,6 +24,12 @@
                 <?php
 // FIXME: This should go into a database soon.
 $games = array(
+    array("FlapMMO",
+        "https://play.google.com/store/apps/details?id=com.flapmmo.android",
+        "media/games/flapmmo.png"),
+    array("Poppy Kart",
+        "http://apps.webrox.fr/?page_id=8Change",
+        "media/games/poppykart-sdl.png"),
     array("Painkiller Hell &amp; Damnation",
         "http://store.steampowered.com/app/214870",
         "http://cdn.steampowered.com/v/gfx/apps/214870/header.jpg"),
