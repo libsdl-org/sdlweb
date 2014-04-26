@@ -33,6 +33,13 @@
                                 <a href="https://github.com/flibitijibibo/SDL2-CS">https://github.com/flibitijibibo/SDL2-CS</a>
                             </li>
                             <li> <strong>
+                                    Lua
+                                </strong>
+                                <br>
+                                Lua-SDL2 -
+                                <a href="https://redmine.malikania.fr/projects/luasdl2/wiki">https://redmine.malikania.fr/projects/luasdl2/wiki</a>
+                            </li>
+                            <li> <strong>
                                     Pascal
                                 </strong>
                                 <br>
