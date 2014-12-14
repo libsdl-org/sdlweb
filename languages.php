@@ -28,30 +28,43 @@
                             <li> <strong>
                                     C#
                                 </strong>
-                                <br>
+                                <br/>
                                 SDL2# -
                                 <a href="https://github.com/flibitijibibo/SDL2-CS">https://github.com/flibitijibibo/SDL2-CS</a>
                             </li>
                             <li> <strong>
                                     Lua
                                 </strong>
-                                <br>
+                                <br/>
                                 Lua-SDL2 -
                                 <a href="https://redmine.malikania.fr/projects/luasdl2/wiki">https://redmine.malikania.fr/projects/luasdl2/wiki</a>
                             </li>
                             <li> <strong>
+                                    OCaml
+                                </strong>
+                                <br/>
+                                Tsdl -
+                                <a href="http://erratique.ch/software/tsdl">http://erratique.ch/software/tsdl</a>
+                            </li>
+                            <li> <strong>
                                     Pascal
                                 </strong>
-                                <br>
+                                <br/>
                                 Bare Game -
                                 <a href="https://github.com/sysrpl/Bare.Game/blob/master/source/bare.interop.sdl2.pas">https://github.com/sysrpl/Bare.Game/blob/master/source/bare.interop.sdl2.pas</a>
+                                <br/>
+                                Pascal SDL 2 -
+                                <a href="https://github.com/ev1313/Pascal-SDL-2-Headers">https://github.com/ev1313/Pascal-SDL-2-Headers</a>
                             </li>
                             <li> <strong>
                                     Python
                                 </strong>
-                                <br>
+                                <br/>
                                 Py-SDL2 -
                                 <a href="https://bitbucket.org/marcusva/py-sdl2">https://bitbucket.org/marcusva/py-sdl2</a>
+				<br/>
+                                pysdl2-cffi -
+                                <a href="https://pythonhosted.org/pysdl2-cffi">https://pythonhosted.org/pysdl2-cffi</a>
                             </li>
                         </ul>
                     </blockquote>
