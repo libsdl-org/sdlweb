@@ -26,6 +26,13 @@
                     <blockquote>
                         <ul>
                             <li> <strong>
+                                    Ada
+                                </strong>
+                                <br/>
+                                SDLAda -
+                                <a href="https://github.com/Lucretia/sdlada">https://github.com/Lucretia/sdlada</a>
+                            </li>
+                            <li> <strong>
                                     C#
                                 </strong>
                                 <br/>
@@ -37,7 +44,7 @@
                                 </strong>
                                 <br/>
                                 Lua-SDL2 -
-                                <a href="https://redmine.malikania.fr/projects/luasdl2/wiki">https://redmine.malikania.fr/projects/luasdl2/wiki</a>
+                                <a href="https://github.com/Tangent128/luasdl2">https://github.com/Tangent128/luasdl2</a>
                             </li>
                             <li> <strong>
                                     OCaml
@@ -60,6 +67,9 @@
                                     Python
                                 </strong>
                                 <br/>
+                                pygame_sdl2 -
+                                <a href="https://github.com/renpy/pygame_sdl2">https://github.com/renpy/pygame_sdl2</a>
+				<br/>
                                 Py-SDL2 -
                                 <a href="https://bitbucket.org/marcusva/py-sdl2">https://bitbucket.org/marcusva/py-sdl2</a>
 				<br/>
