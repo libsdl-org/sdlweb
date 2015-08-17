@@ -338,24 +338,42 @@ $games = array(
         "http://store.steampowered.com/app/70120",
         "http://cdn.steampowered.com/v/gfx/apps/70120/header.jpg"),
 );
+
 $key1 = mt_rand(0, count($games) - 1);
-$key2 = $key1;
-while ($key2 == $key1) {
+do {
     $key2 = mt_rand(0, count($games) - 1);
-}
+} while ($key2 == $key1);
 $game1 = $games[$key1];
 $game2 = $games[$key2];
+
+// we can't serve unencrypted content from an external website if we're using
+//  SSL, or the browser will complain and warn that our site isn't 100% safe
+//  to visit. But I'd rather Valve's content servers handle this bandwidth
+//  for unencrypted connnections, so we'll only serve the images if we're
+//  serving over SSL.
+$using_ssl = (!empty($_SERVER['HTTPS']) && $_SERVER['HTTPS'] !== 'off') || ($_SERVER['SERVER_PORT'] == 443);
+if (1) {//($using_ssl) {
+    $baseurl = 'http://cdn.steampowered.com/v/gfx/apps/';
+    if (strncmp($game1[2], $baseurl, strlen($baseurl)) == 0) {
+        $game1[2] = preg_replace("/http:\/\/cdn.steampowered.com\/v\/gfx\/apps\/(\d+)\/header.(.*)/", "steam_images/$1.$2", $game1[2]);
+    }
+
+    if (strncmp($game2[2], $baseurl, strlen($baseurl)) == 0) {
+        $game2[2] = preg_replace("/http:\/\/cdn.steampowered.com\/v\/gfx\/apps\/(\d+)\/header.(.*)/", "steam_images/$1.$2", $game2[2]);
+    }
+}
+
                 ?>        
                 <div class="col right image">
                     <div class="imagebox">
                         <a href="<?php echo $game1[1]; ?>">
-                        <img src="<?php echo $game1[2]; ?>" alt="" />
+                        <img src="<?php echo $game1[2]; ?>" alt="<?php echo $game1[0]; ?>" />
                         <h5>Made with SDL: <?php echo $game1[0]; ?></h5>
                         </a>
                     </div>
                     <div class="imagebox">
                         <a href="<?php echo $game2[1]; ?>">
-                        <img src="<?php echo $game2[2]; ?>" alt="" />
+                        <img src="<?php echo $game2[2]; ?>" alt="<?php echo $game2[0]; ?>" />
                         <h5>Made with SDL: <?php echo $game2[0]; ?></h5>
                         </a>
                     </div>
