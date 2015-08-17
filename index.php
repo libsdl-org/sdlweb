@@ -352,7 +352,7 @@ $game2 = $games[$key2];
 //  for unencrypted connnections, so we'll only serve the images if we're
 //  serving over SSL.
 $using_ssl = (!empty($_SERVER['HTTPS']) && $_SERVER['HTTPS'] !== 'off') || ($_SERVER['SERVER_PORT'] == 443);
-if (1) {//($using_ssl) {
+if ($using_ssl) {
     $baseurl = 'http://cdn.steampowered.com/v/gfx/apps/';
     if (strncmp($game1[2], $baseurl, strlen($baseurl)) == 0) {
         $game1[2] = preg_replace("/http:\/\/cdn.steampowered.com\/v\/gfx\/apps\/(\d+)\/header.(.*)/", "steam_images/$1.$2", $game1[2]);
