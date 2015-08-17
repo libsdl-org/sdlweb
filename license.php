@@ -37,7 +37,7 @@ freely, subject to the following restrictions:
 </pre>
                         </p>
                         <p>
-                            SDL 1.2 and older are available under the <a href="license-lgpl.php">
+                            SDL 1.2 and older are available under the <a href="http://www.gnu.org/licenses/old-licenses/lgpl-2.1.en.html">
                                 GNU LGPL license </a>.
                         </p>
                     </blockquote>
