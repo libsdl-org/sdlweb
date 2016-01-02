@@ -1,17 +1,17 @@
 <!DOCTYPE html>
 <html>
     <head>        
-        <title>Simple DirectMedia Layer - SDL version 2.0.3 (stable)</title>
-        <?php require_once("include/meta.inc.php"); ?><?php $current_page = basename(__FILE__, '.php'); ?>
+        <title>Simple DirectMedia Layer - SDL version 2.0.4 (stable)</title>
+        <?php require_once("../include/meta.inc.php"); ?><?php $current_page = basename(__FILE__, '.php'); ?>
     </head>
     <body>        
         <div id="wrapper">
-            <?php require_once("include/header.inc.php"); ?>
+            <?php require_once("../include/header.inc.php"); ?>
             <div id="left">
-                <?php require_once("include/sidebar.inc.php"); ?>
+                <?php require_once("../include/sidebar.inc.php"); ?>
             </div>
             <div id="content">
-               <h1>SDL version 2.0.3 (stable)</h1>
+               <h1>SDL version 2.0.4 (stable)</h1>
                 <div class="col left">
                   
                     <a name="source"></a>
@@ -21,12 +21,12 @@
                     	<a href="release/changes-2.0.html">What's New</a></br>
 -->
 
-                        <a href="release/SDL2-2.0.3.zip"
-                           >SDL2-2.0.3.zip</a>
-                        - <a href="release/SDL2-2.0.3.zip.sig">GPG signed</a><br>
-                        <a href="release/SDL2-2.0.3.tar.gz"
-                           >SDL2-2.0.3.tar.gz</a>
-                        - <a href="release/SDL2-2.0.3.tar.gz.sig">GPG signed</a><br>
+                        <a href="release/SDL2-2.0.4.zip"
+                           >SDL2-2.0.4.zip</a>
+                        - <a href="release/SDL2-2.0.4.zip.sig">GPG signed</a><br>
+                        <a href="release/SDL2-2.0.4.tar.gz"
+                           >SDL2-2.0.4.tar.gz</a>
+                        - <a href="release/SDL2-2.0.4.tar.gz.sig">GPG signed</a><br>
                     </blockquote>
 
                     <h2>Runtime Binaries:</h2>
@@ -34,16 +34,16 @@
                         <p><span class="title">
                                 Windows:
                             </span><br>
-                            <a href="release/SDL2-2.0.3-win32-x86.zip"
-                               >SDL2-2.0.3-win32-x86.zip</a> (32-bit Windows)<br>
-                            <a href="release/SDL2-2.0.3-win32-x64.zip"
-                               >SDL2-2.0.3-win32-x64.zip</a> (64-bit Windows)<br>
+                            <a href="release/SDL2-2.0.4-win32-x86.zip"
+                               >SDL2-2.0.4-win32-x86.zip</a> (32-bit Windows)<br>
+                            <a href="release/SDL2-2.0.4-win32-x64.zip"
+                               >SDL2-2.0.4-win32-x64.zip</a> (64-bit Windows)<br>
                         </p>
                         <p><span class="title">
                                 Mac OS X:
                             </span><br>
-                            <a href="release/SDL2-2.0.3.dmg"
-                               >SDL2-2.0.3.dmg</a> (Intel 10.5+)<br>
+                            <a href="release/SDL2-2.0.4.dmg"
+                               >SDL2-2.0.4.dmg</a> (Intel 10.5+)<br>
                         </p>
                         <p><span class="title">
                                 Linux:
@@ -57,16 +57,16 @@
 	                    <p><span class="title">
 		                    Windows:
 		                    </span><br>
-		                    <a href="release/SDL2-devel-2.0.3-VC.zip"
-		                                    >SDL2-devel-2.0.3-VC.zip</a> (Visual C++ 32/64-bit)<br>
-		                    <a href="release/SDL2-devel-2.0.3-mingw.tar.gz"
-		                                    >SDL2-devel-2.0.3-mingw.tar.gz</a> (<a href="http://mingw-w64.sourceforge.net/">MinGW</a> 32/64-bit)<br>
+		                    <a href="release/SDL2-devel-2.0.4-VC.zip"
+		                                    >SDL2-devel-2.0.4-VC.zip</a> (Visual C++ 32/64-bit)<br>
+		                    <a href="release/SDL2-devel-2.0.4-mingw.tar.gz"
+		                                    >SDL2-devel-2.0.4-mingw.tar.gz</a> (<a href="http://mingw-w64.sourceforge.net/">MinGW</a> 32/64-bit)<br>
 	                    </p>
 	                    <p><span class="title">
 		                    Mac OS X:
 		                    </span><br>
-		                    <a href="release/SDL2-2.0.3.dmg"
-		                                    >SDL2-2.0.3.dmg</a> (Intel 10.5+)<br>
+		                    <a href="release/SDL2-2.0.4.dmg"
+		                                    >SDL2-2.0.4.dmg</a> (Intel 10.5+)<br>
 	                    </p>
 	                    <p><span class="title">
 		                    Linux:
@@ -104,7 +104,7 @@ pub  1024D/A7763BE6 2001-01-05 Sam Lantinga &lt;slouken@libsdl.org&gt;
             </div>
             <div class="clearer"></div>            
         </div>
-        <?php require_once("include/footer.inc.php"); ?> 
+        <?php require_once("../include/footer.inc.php"); ?> 
 
     </body>
 </html>
