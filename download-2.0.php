@@ -2,13 +2,13 @@
 <html>
     <head>        
         <title>Simple DirectMedia Layer - SDL version 2.0.4 (stable)</title>
-        <?php require_once("../include/meta.inc.php"); ?><?php $current_page = basename(__FILE__, '.php'); ?>
+        <?php require_once("include/meta.inc.php"); ?><?php $current_page = basename(__FILE__, '.php'); ?>
     </head>
     <body>        
         <div id="wrapper">
-            <?php require_once("../include/header.inc.php"); ?>
+            <?php require_once("include/header.inc.php"); ?>
             <div id="left">
-                <?php require_once("../include/sidebar.inc.php"); ?>
+                <?php require_once("include/sidebar.inc.php"); ?>
             </div>
             <div id="content">
                <h1>SDL version 2.0.4 (stable)</h1>
@@ -104,7 +104,7 @@ pub  1024D/A7763BE6 2001-01-05 Sam Lantinga &lt;slouken@libsdl.org&gt;
             </div>
             <div class="clearer"></div>            
         </div>
-        <?php require_once("../include/footer.inc.php"); ?> 
+        <?php require_once("include/footer.inc.php"); ?> 
 
     </body>
 </html>
