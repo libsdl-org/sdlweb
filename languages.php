@@ -76,6 +76,13 @@
                                 pysdl2-cffi -
                                 <a href="https://pythonhosted.org/pysdl2-cffi">https://pythonhosted.org/pysdl2-cffi</a>
                             </li>
+                            <li> <strong>
+                                    Rust
+                                </strong>
+                                <br/>
+                                Rust-SDL2 -
+                                <a href="https://github.com/AngryLawyer/rust-sdl2">https://github.com/AngryLawyer/rust-sdl2</a>
+                            </li>
                         </ul>
                     </blockquote>
 
