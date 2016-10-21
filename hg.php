@@ -40,12 +40,12 @@ hg clone <a href="http://hg.libsdl.org/SDL">http://hg.libsdl.org/SDL</a>
 
 <p><font color="#414141">
 Source snapshot for SDL 2.0 (Updated
-<!-- SDL 2.0 DATE --> Sat Jan  2
+<!-- SDL 2.0 DATE --> Thu Oct 20
 )</p>
 <blockquote>
-<!-- SDL 2.0 ZIP --><a href="tmp/SDL-2.0.4-10002.zip">SDL-2.0.4-10002.zip</a><!-- -->
+<!-- SDL 2.0 ZIP --><a href="tmp/SDL-2.0.5-10556.zip">SDL-2.0.5-10556.zip</a><!-- -->
 <br/>
-<!-- SDL 2.0 TGZ --><a href="tmp/SDL-2.0.4-10002.tar.gz">SDL-2.0.4-10002.tar.gz</a><!-- -->
+<!-- SDL 2.0 TGZ --><a href="tmp/SDL-2.0.5-10556.tar.gz">SDL-2.0.5-10556.tar.gz</a><!-- -->
 </blockquote>
                   </div>
                 <div class="clearer"></div>            
