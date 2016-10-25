@@ -40,6 +40,13 @@
                                 <a href="https://github.com/flibitijibibo/SDL2-CS">https://github.com/flibitijibibo/SDL2-CS</a>
                             </li>
                             <li> <strong>
+                                    Go
+                                </strong>
+                                <br/>
+                                go-sdl2 -
+                                <a href="https://github.com/veandco/go-sdl2">https://github.com/veandco/go-sdl2</a>
+                            </li>
+                            <li> <strong>
                                     Lua
                                 </strong>
                                 <br/>
