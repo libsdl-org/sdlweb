@@ -337,6 +337,9 @@ $games = array(
     array("Hacker Evolution Duality",
         "http://store.steampowered.com/app/70120",
         "http://cdn.steampowered.com/v/gfx/apps/70120/header.jpg"),
+    array("Day of the Tentacle Remastered",
+        "http://store.steampowered.com/app/388210",
+        "http://cdn.steampowered.com/v/gfx/apps/388210/header.jpg"),
 );
 
 $key1 = mt_rand(0, count($games) - 1);
