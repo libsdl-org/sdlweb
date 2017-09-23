@@ -40,6 +40,13 @@
                                 <a href="https://github.com/flibitijibibo/SDL2-CS">https://github.com/flibitijibibo/SDL2-CS</a>
                             </li>
                             <li> <strong>
+                                    D
+                                </strong>
+                                <br/>
+                                DerelictSDL2 -
+                                <a href="http://derelictorg.github.io/packages/sdl2/">http://derelictorg.github.io/packages/sdl2/</a>
+                            </li>
+                            <li> <strong>
                                     Go
                                 </strong>
                                 <br/>
