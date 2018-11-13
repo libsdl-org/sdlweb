@@ -340,6 +340,9 @@ $games = array(
     array("Day of the Tentacle Remastered",
         "http://store.steampowered.com/app/388210",
         "http://cdn.akamai.steamstatic.com/steam/apps/388210/header.jpg"),
+    array("Fugl",
+        "https://store.steampowered.com/app/643810/Fugl/",
+        "http://cdn.akamai.steamstatic.com/steam/apps/643810/header.jpg"),
 );
 
 $key1 = mt_rand(0, count($games) - 1);
