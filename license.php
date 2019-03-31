@@ -16,7 +16,7 @@
                     
                     <blockquote class="graytext">
                         <p>
-                            SDL 2.0 and newer are available under the <a href="http://www.gzip.org/zlib/zlib_license.html">
+                            SDL 2.0 and newer are available under the <a href="https://www.zlib.net/zlib_license.html">
                                 zlib license </a>:
 			<pre>
 This software is provided 'as-is', without any express or implied
