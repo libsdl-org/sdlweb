@@ -19,7 +19,7 @@
                     </p><p>
                         SDL is written in C, works natively with C++, and there are <a href="languages.php">bindings available</a> for several other languages, including C# and Python.
                     </p><p>
-                        SDL 2.0 is distributed under the <a href="http://www.gzip.org/zlib/zlib_license.html">zlib license</a>. This license allows you to use SDL freely in any software. </p>
+                        SDL 2.0 is distributed under the <a href="license.php">zlib license</a>. This license allows you to use SDL freely in any software. </p>
                 </div>
                 <?php
 // FIXME: This should go into a database soon.
