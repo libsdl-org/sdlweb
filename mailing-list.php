@@ -27,17 +27,14 @@
                     </p>
 
                     <p><strong>
-                            Development Mailing List:
+                            Development Discussion:
                         </strong>
                         <br />
-                        This is a high volume list for discussion of SDL development and issues
-                        related to SDL:
+                        This is a discussion forum for SDL development and issues related to SDL:
                         <br />
-                        <a href="http://lists.libsdl.org/listinfo.cgi/sdl-libsdl.org">
-                            http://lists.libsdl.org/listinfo.cgi/sdl-libsdl.org</a>
+                        <a href="https://discourse.libsdl.org/c/sdl-development">
+                            https://discourse.libsdl.org/c/sdl-development</a>
                         <br />
-                        Subscribing to this list automatically subscribes you to the SDL-announce list.
-
                     </p>
 
                     <p><strong>
