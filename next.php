@@ -62,7 +62,7 @@
                     hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
                     minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
                     seconds = Math.floor((distance % (1000 * 60)) / 1000);
-                    elem.innerHTML = "<font color='#FF0000'>PAST DUE BY " + days + "d " + hours + "h " + minutes + "m " + seconds + "s!"</font>";
+                    elem.innerHTML = "<font color='#FF0000'>PAST DUE BY " + days + "d " + hours + "h " + minutes + "m " + seconds + "s!</font>";
                 } else {
                     elem.innerHTML = days + "d " + hours + "h " + minutes + "m " + seconds + "s";
                 }
