@@ -5,7 +5,6 @@
             require_once('include/nextver.inc.php');
         ?>
         <title>Simple DirectMedia Layer - Next release's TODO list!</title>
-        <meta http-equiv="Refresh" content="0; url=<?php print($url)?>">
         <?php require_once("include/meta.inc.php"); ?><?php $current_page = basename(__FILE__, '.php'); ?>
     </head>
     <body>        
