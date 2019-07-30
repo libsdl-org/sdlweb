@@ -68,7 +68,8 @@
                     elem.innerHTML = days + " days, " + hours + " hours, " + minutes + " minutes, and " + seconds + " seconds!";
                 }
             }
-            setInterval(countdown_function, 1000);
+            countdown_function();  // run it right away...
+            setInterval(countdown_function, 1000);  // ...and then every second thereafter.
         </script>
 
         <?php require_once("include/footer.inc.php"); ?>      
