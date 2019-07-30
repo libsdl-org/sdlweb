@@ -22,7 +22,10 @@
 
                     <p>
                         Our personal deadline for the release is:
-                        <strong><div id="countdown"/>coming soon!</strong>
+                    </p>
+
+                    <p>
+                        <h1><strong><div id="countdown"/>coming soon!</div></strong></h1>
                     </p>
 
                     <p>
@@ -62,9 +65,9 @@
                     hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
                     minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
                     seconds = Math.floor((distance % (1000 * 60)) / 1000);
-                    elem.innerHTML = "<font color='#FF0000'>PAST DUE BY " + days + "d " + hours + "h " + minutes + "m " + seconds + "s!</font>";
+                    elem.innerHTML = "<font color='#FF0000'>PAST DUE BY " + days + " days, " + hours + " hours, " + minutes + " minutes, and " + seconds + " seconds!</font>";
                 } else {
-                    elem.innerHTML = days + "d " + hours + "h " + minutes + "m " + seconds + "s";
+                    elem.innerHTML = days + " days, " + hours + " hours, " + minutes + " minutes, and " + seconds + " seconds!";
                 }
             }
             countdown_interval = setInterval(countdown_function, 1000);
