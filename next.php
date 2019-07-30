@@ -33,7 +33,7 @@
             <div class="clearer"></div>            
         </div>
 
-        <!-- this code was originally from https://www.w3schools.com/howto/howto_js_countdown.asp
+        <!-- this code was originally from https://www.w3schools.com/howto/howto_js_countdown.asp -->
         <script type="application/javascript">
             var duedate = "<?php print($next_sdl_version_duedate) ?>";
             var countDownDate = new Date(duedate).getTime();
