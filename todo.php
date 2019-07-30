@@ -5,7 +5,9 @@
 <html><head><title>Next SDL release's TODO list!</title>
 <meta http-equiv="Refresh" content="0; url=<?php print($url)?>">
 </head><body><center>
-The next release of SDL is <?php print($nextver) ?> and you can see what's
-left on the TODO list <a href="<?php print($url); ?>">here</a>.
+<p>The next release of SDL is <b><?php print($nextver) ?>.</b></p>
+<p>We are redirecting you to the TODO buglist for this version now. If you
+aren't sent there automtically, you can
+click <a href="<?php print($url); ?>">here</a> instead.</p>
 </center></body></html>
 
