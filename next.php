@@ -25,7 +25,7 @@
                     </p>
 
                     <p>
-                        <h1><strong><div id="countdown"/>coming soon!</div></strong></h1>
+                        <h1><strong><div id="countdown"/></div></strong></h1>
                     </p>
 
                     <p>
@@ -42,7 +42,6 @@
             var countDownDate = new Date(duedate).getTime();
 
             // Update the count down every 1 second
-            var countdown_interval;
             var countdown_function = function() {
                 // Get today's date and time
                 var now = new Date().getTime();
@@ -59,7 +58,6 @@
                 // Display the result in the element with id="countdown"
                 var elem = document.getElementById("countdown");
                 if (distance < 0) {
-                    clearInterval(countdown_interval);
                     distance = now - countDownDate;
                     days = Math.floor(distance / (1000 * 60 * 60 * 24));
                     hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
@@ -70,7 +68,7 @@
                     elem.innerHTML = days + " days, " + hours + " hours, " + minutes + " minutes, and " + seconds + " seconds!";
                 }
             }
-            countdown_interval = setInterval(countdown_function, 1000);
+            setInterval(countdown_function, 1000);
         </script>
 
         <?php require_once("include/footer.inc.php"); ?>      
