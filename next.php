@@ -15,11 +15,6 @@
             </div>
             <div id="content">
                 <h1>SDL <?php print($sdl_next_version); ?> release schedule</h1>
-                    <p> 2.0.EVEN versions are public releases. After a public release,
-                        we immediately move to the next 2.0.ODD version to start work
-                        on the next 2.0.EVEN release.
-                    </p>
-
                     <p>
                         The next release of SDL is
                         <strong><?php print($next_sdl_version) ?></strong>.
