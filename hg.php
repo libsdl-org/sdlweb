@@ -34,18 +34,19 @@
 hg clone <a href="http://hg.libsdl.org/SDL">http://hg.libsdl.org/SDL</a>
 </pre>
 </blockquote>
+The TODO list for the next release is available <a href="todo.php">here</a>.
 </p>
 
 <hr/>
 
 <p><font color="#414141">
 Source snapshot for SDL 2.0 (Updated
-<!-- SDL 2.0 DATE --> Thu Jul 25
+<!-- SDL 2.0 DATE --> Sun Sep 22
 )</p>
 <blockquote>
-<!-- SDL 2.0 ZIP --><a href="tmp/SDL-2.0.10-12951.zip">SDL-2.0.10-12951.zip</a><!-- -->
+<!-- SDL 2.0 ZIP --><a href="tmp/SDL-2.0.11-13079.zip">SDL-2.0.11-13079.zip</a><!-- -->
 <br/>
-<!-- SDL 2.0 TGZ --><a href="tmp/SDL-2.0.10-12951.tar.gz">SDL-2.0.10-12951.tar.gz</a><!-- -->
+<!-- SDL 2.0 TGZ --><a href="tmp/SDL-2.0.11-13079.tar.gz">SDL-2.0.11-13079.tar.gz</a><!-- -->
 </blockquote>
                   </div>
                 <div class="clearer"></div>            
