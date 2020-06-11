@@ -84,6 +84,7 @@ $games = array(
     array("Hacker Evolution Duality", "http://store.steampowered.com/app/70120", "http://cdn.akamai.steamstatic.com/steam/apps/70120/header.jpg"),
     array("Half-Life 2", "http://store.steampowered.com/app/220", "http://cdn.akamai.steamstatic.com/steam/apps/220/header.jpg"),
     array("Half-Life", "http://store.steampowered.com/app/70", "http://cdn.akamai.steamstatic.com/steam/apps/70/header.jpg"),
+    array("Half-Life: Alyx", "http://store.steampowered.com/app/546560", "http://cdn.akamai.steamstatic.com/steam/apps/546560/header.jpg"),
     array("Heroes of Might &amp; Magic III", "http://store.steampowered.com/app/297000", "http://cdn.akamai.steamstatic.com/steam/apps/297000/header.jpg"),
     array("Infested Planet", "http://store.steampowered.com/app/204530", "http://cdn.akamai.steamstatic.com/steam/apps/204530/header.jpg"),
     array("Inside a Star-filled Sky", "http://store.steampowered.com/app/104100", "http://cdn.akamai.steamstatic.com/steam/apps/104100/header.jpg"),
