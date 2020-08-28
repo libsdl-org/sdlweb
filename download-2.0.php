@@ -79,6 +79,11 @@
 		                    Projects for these platforms are included with the <a href="#source">source</a>.
 	                    </p>
                     </blockquote>
+
+                    <p>
+                        Older versions of SDL are available <a href="release/">here</a>.
+                    </p>
+
                 </div>
 
                 <div class="col right">
@@ -103,6 +108,7 @@ pub  1024D/A7763BE6 2001-01-05 Sam Lantinga &lt;slouken@libsdl.org&gt;
                 </div>                
             </div>
             <div class="clearer"></div>            
+
         </div>
         <?php require_once("include/footer.inc.php"); ?> 
 
