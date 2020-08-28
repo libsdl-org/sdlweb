@@ -20,7 +20,7 @@
 <div class="box blue">
     <h4>Download</h4>
     <ul class="menu">
-        <li<?php if($current_page=="download-2.0") echo" class=\"active\"";?>><a href="/download-2.0.php">SDL 2.0</a></li>
+        <li<?php if($current_page=="download-2.0") echo" class=\"active\"";?>><a href="/download-2.0.php">SDL Releases</a></li>
         <!--<li<?php if($current_page=="download-1.2") echo" class=\"active\"";?>><a href="/download-1.2.php">SDL 1.2</a></li>-->
         <li<?php if($current_page=="hg") echo" class=\"active\"";?>><a href="/hg.php">SDL Mercurial</a></li>
         <li<?php if($current_page=="languages") echo" class=\"active\"";?>><a href="/languages.php">Bindings</a></li>
