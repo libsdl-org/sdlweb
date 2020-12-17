@@ -24,6 +24,7 @@
                 <?php
 // FIXME: This should go into a database soon.
 $games = array(
+    array("0 A.D.", "https://play0ad.com", "media/games/0ad.png"),
     array("1000 Amps", "http://store.steampowered.com/app/205690", "http://cdn.akamai.steamstatic.com/steam/apps/205690/header.jpg"),
     array("7 Grand Steps", "http://www.7grandsteps.com", "http://cdn.akamai.steamstatic.com/steam/apps/238930/header.jpg"),
     array("Amnesia: The Dark Descent", "http://amnesiagame.com", "http://cdn.akamai.steamstatic.com/steam/apps/57300/header.jpg"),
@@ -38,6 +39,7 @@ $games = array(
     array("Baba Is You", "http://store.steampowered.com/app/736260", "http://cdn.akamai.steamstatic.com/steam/apps/736260/header.jpg"),
     array("Barotrauma", "http://store.steampowered.com/app/602960", "http://cdn.akamai.steamstatic.com/steam/apps/602960/header.jpg"),
     array("Bastion", "http://store.steampowered.com/app/107100", "http://cdn.akamai.steamstatic.com/steam/apps/107100/header.jpg"),
+    array("The Battle for Wesnoth", "http://store.steampowered.com/app/599390", "http://cdn.akamai.steamstatic.com/steam/apps/599390/header.jpg"),
     array("Braid", "http://store.steampowered.com/app/26800", "http://cdn.akamai.steamstatic.com/steam/apps/26800/header.jpg"),
     array("BRAINPIPE: A Plunge to Unhumanity", "http://store.steampowered.com/app/35800", "http://cdn.akamai.steamstatic.com/steam/apps/35800/header.jpg"),
     array("Broken Age", "http://store.steampowered.com/app/232790", "http://cdn.akamai.steamstatic.com/steam/apps/232790/header.jpg"),
@@ -76,6 +78,7 @@ $games = array(
     array("Factorio", "http://store.steampowered.com/app/427520", "http://cdn.akamai.steamstatic.com/steam/apps/427520/header.jpg"),
     array("Farm Together", "http://store.steampowered.com/app/673950", "http://cdn.akamai.steamstatic.com/steam/apps/673950/header.jpg"),
     array("FlapMMO", "https://play.google.com/store/apps/details?id=com.flapmmo.android", "media/games/flapmmo.png"),
+    array("Freeciv", "http://freeciv.org", "media/games/freeciv.png"),
     array("FTL: Faster Than Light", "http://store.steampowered.com/app/212680", "http://cdn.akamai.steamstatic.com/steam/apps/212680/header.jpg"),
     array("Fugl", "https://store.steampowered.com/app/643810/Fugl/", "http://cdn.akamai.steamstatic.com/steam/apps/643810/header.jpg"),
     array("Future Unfolding", "http://store.steampowered.com/app/539340", "http://cdn.akamai.steamstatic.com/steam/apps/539340/header.jpg"),
@@ -85,6 +88,7 @@ $games = array(
     array("Half-Life 2", "http://store.steampowered.com/app/220", "http://cdn.akamai.steamstatic.com/steam/apps/220/header.jpg"),
     array("Half-Life", "http://store.steampowered.com/app/70", "http://cdn.akamai.steamstatic.com/steam/apps/70/header.jpg"),
     array("Half-Life: Alyx", "http://store.steampowered.com/app/546560", "http://cdn.akamai.steamstatic.com/steam/apps/546560/header.jpg"),
+    array("Hedgewars", "https://hedgewars.org", "media/games/hedgewars.png"),
     array("Heroes of Might &amp; Magic III", "http://store.steampowered.com/app/297000", "http://cdn.akamai.steamstatic.com/steam/apps/297000/header.jpg"),
     array("Infested Planet", "http://store.steampowered.com/app/204530", "http://cdn.akamai.steamstatic.com/steam/apps/204530/header.jpg"),
     array("Inside a Star-filled Sky", "http://store.steampowered.com/app/104100", "http://cdn.akamai.steamstatic.com/steam/apps/104100/header.jpg"),
@@ -102,6 +106,7 @@ $games = array(
     array("Musaic Box", "http://store.steampowered.com/app/29130", "http://cdn.akamai.steamstatic.com/steam/apps/29130/header.jpg"),
     array("My Tribe", "http://store.steampowered.com/app/51010", "http://cdn.akamai.steamstatic.com/steam/apps/51010/header.jpg"),
     array("Natural Selection 2", "http://store.steampowered.com/app/4920", "http://cdn.akamai.steamstatic.com/steam/apps/4920/header.jpg"),
+    array("OpenTTD", "https://www.openttd.org", "media/games/openttd.png"),
     array("Painkiller Hell &amp; Damnation", "http://store.steampowered.com/app/214870", "http://cdn.akamai.steamstatic.com/steam/apps/214870/header.jpg"),
     array("Penumbra Overture", "http://penumbragame.com", "http://cdn.akamai.steamstatic.com/steam/apps/22180/header.jpg"),
     array("Poker Superstars II", "http://store.steampowered.com/app/4100", "http://cdn.akamai.steamstatic.com/steam/apps/4100/header.jpg"),
@@ -132,6 +137,8 @@ $games = array(
     array("Still Life 2", "http://store.steampowered.com/app/46490", "http://cdn.akamai.steamstatic.com/steam/apps/46490/header.jpg"),
     array("Still Life", "http://store.steampowered.com/app/46480", "http://cdn.akamai.steamstatic.com/steam/apps/46480/header.jpg"),
     array("Superbrothers: Sword & Sworcery EP", "http://store.steampowered.com/app/204060", "http://cdn.akamai.steamstatic.com/steam/apps/204060/header.jpg"),
+    array("SuperTux", "https://www.supertux.org", "media/games/supertux.png"),
+    array("SuperTuxKart", "https://supertuxkart.net", "media/games/supertuxkart.png"),
     array("Swords and Soldiers HD", "http://store.steampowered.com/app/63500", "http://cdn.akamai.steamstatic.com/steam/apps/63500/header.jpg"),
     array("Syberia", "http://store.steampowered.com/app/46500", "http://cdn.akamai.steamstatic.com/steam/apps/46500/header.jpg"),
     array("Syberia II", "http://store.steampowered.com/app/46510", "http://cdn.akamai.steamstatic.com/steam/apps/46510/header.jpg"),
@@ -159,6 +166,7 @@ $games = array(
     array("X-COM: Terror from the Deep", "http://store.steampowered.com/app/7650", "http://cdn.akamai.steamstatic.com/steam/apps/7650/header.jpg"),
     array("X-COM: UFO Defense", "http://store.steampowered.com/app/7760", "http://cdn.akamai.steamstatic.com/steam/apps/7760/header.jpg"),
     array("Xenonauts", "http://store.steampowered.com/app/223830", "http://cdn.akamai.steamstatic.com/steam/apps/223830/header.jpg"),
+    array("Xonotic", "https://xonotic.org", "media/games/xonotic.png"),
     array("Zen Bound 2", "http://store.steampowered.com/app/61600", "http://cdn.akamai.steamstatic.com/steam/apps/61600/header.jpg"),
 );
 
