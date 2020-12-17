@@ -41,12 +41,12 @@ The TODO list for the next release is available <a href="todo.php">here</a>.
 
 <p><font color="#414141">
 Source snapshot for SDL 2.0 (Updated
-<!-- SDL 2.0 DATE --> Thu Jun 11
+<!-- SDL 2.0 DATE --> Wed Dec 16
 )</p>
 <blockquote>
-<!-- SDL 2.0 ZIP --><a href="tmp/SDL-2.0.13-13910.zip">SDL-2.0.13-13910.zip</a><!-- -->
+<!-- SDL 2.0 ZIP --><a href="tmp/SDL-2.0.14-14493.zip">SDL-2.0.14-14493.zip</a><!-- -->
 <br/>
-<!-- SDL 2.0 TGZ --><a href="tmp/SDL-2.0.13-13910.tar.gz">SDL-2.0.13-13910.tar.gz</a><!-- -->
+<!-- SDL 2.0 TGZ --><a href="tmp/SDL-2.0.14-14493.tar.gz">SDL-2.0.14-14493.tar.gz</a><!-- -->
 </blockquote>
                   </div>
                 <div class="clearer"></div>            
