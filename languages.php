@@ -84,8 +84,8 @@
                                 pygame_sdl2 -
                                 <a href="https://github.com/renpy/pygame_sdl2">https://github.com/renpy/pygame_sdl2</a>
 				<br/>
-                                Py-SDL2 -
-                                <a href="https://bitbucket.org/marcusva/py-sdl2">https://bitbucket.org/marcusva/py-sdl2</a>
+                                PySDL2 -
+                                <a href="https://pypi.org/project/PySDL2/">https://pypi.org/project/PySDL2/</a>
 				<br/>
                                 pysdl2-cffi -
                                 <a href="https://pythonhosted.org/pysdl2-cffi">https://pythonhosted.org/pysdl2-cffi</a>
