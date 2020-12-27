@@ -120,7 +120,7 @@ $games = array(
     array("Professor Fizzwizzle", "http://store.steampowered.com/app/50900", "http://cdn.akamai.steamstatic.com/steam/apps/50900/header.jpg"),
     array("Proteus", "http://store.steampowered.com/app/219680", "http://cdn.akamai.steamstatic.com/steam/apps/219680/header.jpg"),
     array("Psychonauts", "http://store.steampowered.com/app/3830", "http://cdn.akamai.steamstatic.com/steam/apps/3830/header.jpg"),
-    array("Pyre", "http://store.steampowered.com/app/462770", "http://cdn.akamai.steamstatic.com/steam/apps/2462770/header.jpg"),
+    array("Pyre", "http://store.steampowered.com/app/462770", "http://cdn.akamai.steamstatic.com/steam/apps/462770/header.jpg"),
     array("Robin Hood: The Legend of Sherwood", "http://store.steampowered.com/app/46560", "http://cdn.akamai.steamstatic.com/steam/apps/46560/header.jpg"),
     array("RUSH", "http://store.steampowered.com/app/38720", "http://cdn.akamai.steamstatic.com/steam/apps/38720/header.jpg"),
     array("Seed of Andromeda", "https://www.seedofandromeda.com", "media/games/seedofandromeda.png"),
@@ -171,44 +171,43 @@ $games = array(
     array("Zen Bound 2", "http://store.steampowered.com/app/61600", "http://cdn.akamai.steamstatic.com/steam/apps/61600/header.jpg"),
 );
 
-$key1 = mt_rand(0, count($games) - 1);
-do {
-    $key2 = mt_rand(0, count($games) - 1);
-} while ($key2 == $key1);
-$game1 = $games[$key1];
-$game2 = $games[$key2];
+// Set this to True if you want to see the entire games list
+$show_all_games = False;
 
-// we can't serve unencrypted content from an external website if we're using
-//  SSL, or the browser will complain and warn that our site isn't 100% safe
-//  to visit. But I'd rather Valve's content servers handle this bandwidth
-//  for unencrypted connnections, so we'll only serve the images if we're
-//  serving over SSL.
-$using_ssl = (!empty($_SERVER['HTTPS']) && $_SERVER['HTTPS'] !== 'off') || ($_SERVER['SERVER_PORT'] == 443);
-if ($using_ssl) {
-    $baseurl = 'http://cdn.akamai.steamstatic.com/steam/apps/';
-    if (strncmp($game1[2], $baseurl, strlen($baseurl)) == 0) {
-        $game1[2] = preg_replace("/http:\/\/cdn.akamai.steamstatic.com\/steam\/apps\/(\d+)\/header.(.*)/", "steam_images/$1.$2", $game1[2]);
-    }
+if ( !$show_all_games ) {
+    $key1 = mt_rand(0, count($games) - 1);
+    do {
+        $key2 = mt_rand(0, count($games) - 1);
+    } while ($key2 == $key1);
 
-    if (strncmp($game2[2], $baseurl, strlen($baseurl)) == 0) {
-        $game2[2] = preg_replace("/http:\/\/cdn.akamai.steamstatic.com\/steam\/apps\/(\d+)\/header.(.*)/", "steam_images/$1.$2", $game2[2]);
-    }
+    $games = [$games[$key1], $games[$key2]];
 }
-
                 ?>        
                 <div class="col right image">
-                    <div class="imagebox">
-                        <a href="<?php echo $game1[1]; ?>">
-                        <img src="<?php echo $game1[2]; ?>" alt="<?php echo $game1[0]; ?>" />
-                        <h5>Made with SDL: <?php echo $game1[0]; ?></h5>
-                        </a>
-                    </div>
-                    <div class="imagebox">
-                        <a href="<?php echo $game2[1]; ?>">
-                        <img src="<?php echo $game2[2]; ?>" alt="<?php echo $game2[0]; ?>" />
-                        <h5>Made with SDL: <?php echo $game2[0]; ?></h5>
-                        </a>
-                    </div>
+		<?php for ( $i = 0; $i < count($games); ++$i ) {
+			$game = $games[$i];
+
+			// we can't serve unencrypted content from an external website if we're using
+			//  SSL, or the browser will complain and warn that our site isn't 100% safe
+			//  to visit. But I'd rather Valve's content servers handle this bandwidth
+			//  for unencrypted connnections, so we'll only serve the images if we're
+			//  serving over SSL.
+			$using_ssl = (!empty($_SERVER['HTTPS']) && $_SERVER['HTTPS'] !== 'off') || ($_SERVER['SERVER_PORT'] == 443);
+			if ($using_ssl) {
+			    $baseurl = 'http://cdn.akamai.steamstatic.com/steam/apps/';
+			    if (strncmp($game[2], $baseurl, strlen($baseurl)) == 0) {
+				$game[2] = preg_replace("/http:\/\/cdn.akamai.steamstatic.com\/steam\/apps\/(\d+)\/header.(.*)/", "steam_images/$1.$2", $game[2]);
+			    }
+			}
+			?>
+			<div class="imagebox">
+			    <a href="<?php echo $game[1]; ?>">
+			    <img src="<?php echo $game[2]; ?>" alt="<?php echo $game[0]; ?>" />
+			    <h5>Made with SDL: <?php echo $game[0]; ?></h5>
+			    </a>
+			</div>
+			<?php
+		} ?>
                 </div>
                 <div class="clearer"></div>
             </div>
