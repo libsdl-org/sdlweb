@@ -123,6 +123,7 @@ $games = array(
     array("Pyre", "http://store.steampowered.com/app/462770", "http://cdn.akamai.steamstatic.com/steam/apps/2462770/header.jpg"),
     array("Robin Hood: The Legend of Sherwood", "http://store.steampowered.com/app/46560", "http://cdn.akamai.steamstatic.com/steam/apps/46560/header.jpg"),
     array("RUSH", "http://store.steampowered.com/app/38720", "http://cdn.akamai.steamstatic.com/steam/apps/38720/header.jpg"),
+    array("Seed of Andromeda", "https://www.seedofandromeda.com", "media/games/seedofandromeda.png"),
     array("Shatter", "http://store.steampowered.com/app/20820", "http://cdn.akamai.steamstatic.com/steam/apps/20820/header.jpg"),
     array("Shovel Knight: Specter of Torment", "http://store.steampowered.com/app/589510", "http://cdn.akamai.steamstatic.com/steam/apps/589510/header.jpg"),
     array("Snapshot", "http://store.steampowered.com/app/204220", "http://cdn.akamai.steamstatic.com/steam/apps/204220/header.jpg"),
