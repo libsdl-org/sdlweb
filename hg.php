@@ -15,15 +15,12 @@
                 <div>
 
                     <p>
-                        The latest development version of SDL is available via <a href="https://www.mercurial-scm.org">Mercurial</a>.
+                        The latest development version of SDL is available via <a href="https://git-scm.com/">Git</a>.
                     </p>
                     <p>
-                        Mercurial allows you to get up-to-the-minute fixes and enhancements;
+                        Git allows you to get up-to-the-minute fixes and enhancements;
                         as a developer works on a source tree, you can mirror it instead of waiting
                         for an official release.
-                    </p>
-                    <p>
-                        If you're new to Mercurial, check out the great tutorial at <a href="http://hginit.com">hginit.com</a>!
                     </p>
 		</div>
 
@@ -31,7 +28,7 @@
 <h2>SDL 2.0</h2>
 <blockquote>
 <pre>
-hg clone <a href="http://hg.libsdl.org/SDL">http://hg.libsdl.org/SDL</a>
+git clone <a href="https://github.com/libsdl-org/SDL">https://github.com/libsdl-org/SDL.git</a>
 </pre>
 </blockquote>
 The TODO list for the next release is available <a href="todo.php">here</a>.
