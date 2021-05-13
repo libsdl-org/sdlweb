@@ -11,8 +11,21 @@
                 <?php require_once("include/sidebar.inc.php"); ?>
             </div>
             <div id="content">
-                <h1>SDL Mailing Lists</h1>
+                <h1>SDL Discussion and Mailing Lists</h1>
                 <div class="col left">
+
+                   <p><strong>
+                            Discussion:
+                        </strong>
+                        <br />
+                        This is a discussion forum for SDL, with categories for development,
+                        announcements, games and repository commits.  Sign up at:
+                        <br />
+                        <a href="https://discourse.libsdl.org">
+                            https://discourse.libsdl.org</a>
+                        <br />
+                    </p>
+
 
                     <p><strong>
                             Announcement Mailing List:
@@ -24,41 +37,13 @@
                         <a href="http://www.libsdl.org/announce-list.php">
                             http://www.libsdl.org/announce-list.php</a>
                         <br />
-                    </p>
-
-                    <p><strong>
-                            Development Discussion:
-                        </strong>
+                        Announcements are also posted to the forum:
                         <br />
-                        This is a discussion forum for SDL development and issues related to SDL:
-                        <br />
-                        <a href="https://discourse.libsdl.org/c/sdl-development">
-                            https://discourse.libsdl.org/c/sdl-development</a>
+                        <a href="https://discourse.libsdl.org/c/sdl-announcements/5">
+                            https://discourse.libsdl.org/c/sdl-announcements/5</a>
                         <br />
                     </p>
 
-                    <p><strong>
-                            Documentation Mailing List:
-                        </strong>
-                        <br />
-                        This is a low volume list for discussing the SDL documentation.  It is used for requesting access to contribute, reporting errata, sharing documentation tips, etc.
-                        <br />
-                        <a href="http://lists.libsdl.org/listinfo.cgi/docs-libsdl.org">
-                            http://lists.libsdl.org/listinfo.cgi/docs-libsdl.org</a>
-
-                    </p>
-                </div><div class="col right">
-                    <p><strong>
-                            Commits Mailing List:
-                        </strong>
-                        <br />
-                        This is a moderated list where changes posted to the revision control repository are sent:
-                        <br />
-                        <a href="http://lists.libsdl.org/listinfo.cgi/commits-libsdl.org">
-                            http://lists.libsdl.org/listinfo.cgi/commits-libsdl.org</a>
-                        <br />
-                    </p>
-                </div>   
             </div>
             <div class="clearer"></div>            
         </div>
