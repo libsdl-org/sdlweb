@@ -22,7 +22,7 @@
     <ul class="menu">
         <li<?php if($current_page=="download-2.0") echo" class=\"active\"";?>><a href="/download-2.0.php">SDL Releases</a></li>
         <!--<li<?php if($current_page=="download-1.2") echo" class=\"active\"";?>><a href="/download-1.2.php">SDL 1.2</a></li>-->
-        <li<?php if($current_page=="hg") echo" class=\"active\"";?>><a href="/hg.php">SDL Mercurial</a></li>
+        <li<?php if($current_page=="git") echo" class=\"active\"";?>><a href="/git.php">SDL Git</a></li>
         <li<?php if($current_page=="languages") echo" class=\"active\"";?>><a href="/languages.php">Bindings</a></li>
     </ul>
 </div>
