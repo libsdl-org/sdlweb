@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
     <head>        
-        <title>Simple DirectMedia Layer - SDL version 2.0.14 (stable)</title>
+        <title>Simple DirectMedia Layer - SDL version 2.0.16 (stable)</title>
         <?php require_once("include/meta.inc.php"); ?><?php $current_page = basename(__FILE__, '.php'); ?>
     </head>
     <body>        
@@ -11,7 +11,7 @@
                 <?php require_once("include/sidebar.inc.php"); ?>
             </div>
             <div id="content">
-               <h1>SDL version 2.0.14 (stable)</h1>
+               <h1>SDL version 2.0.16 (stable)</h1>
                 <div class="col left">
                   
                     <a name="source"></a>
@@ -21,12 +21,12 @@
                     	<a href="release/changes-2.0.html">What's New</a></br>
 -->
 
-                        <a href="release/SDL2-2.0.14.zip"
-                           >SDL2-2.0.14.zip</a>
-                        - <a href="release/SDL2-2.0.14.zip.sig">GPG signed</a><br>
-                        <a href="release/SDL2-2.0.14.tar.gz"
-                           >SDL2-2.0.14.tar.gz</a>
-                        - <a href="release/SDL2-2.0.14.tar.gz.sig">GPG signed</a><br>
+                        <a href="release/SDL2-2.0.16.zip"
+                           >SDL2-2.0.16.zip</a>
+                        - <a href="release/SDL2-2.0.16.zip.sig">GPG signed</a><br>
+                        <a href="release/SDL2-2.0.16.tar.gz"
+                           >SDL2-2.0.16.tar.gz</a>
+                        - <a href="release/SDL2-2.0.16.tar.gz.sig">GPG signed</a><br>
                     </blockquote>
 
                     <h2>Runtime Binaries:</h2>
@@ -34,16 +34,16 @@
                         <p><span class="title">
                                 Windows:
                             </span><br>
-                            <a href="release/SDL2-2.0.14-win32-x86.zip"
-                               >SDL2-2.0.14-win32-x86.zip</a> (32-bit Windows)<br>
-                            <a href="release/SDL2-2.0.14-win32-x64.zip"
-                               >SDL2-2.0.14-win32-x64.zip</a> (64-bit Windows)<br>
+                            <a href="release/SDL2-2.0.16-win32-x86.zip"
+                               >SDL2-2.0.16-win32-x86.zip</a> (32-bit Windows)<br>
+                            <a href="release/SDL2-2.0.16-win32-x64.zip"
+                               >SDL2-2.0.16-win32-x64.zip</a> (64-bit Windows)<br>
                         </p>
                         <p><span class="title">
                                 Mac OS X:
                             </span><br>
-                            <a href="release/SDL2-2.0.14.dmg"
-                               >SDL2-2.0.14.dmg</a><br>
+                            <a href="release/SDL2-2.0.16.dmg"
+                               >SDL2-2.0.16.dmg</a><br>
                         </p>
                         <p><span class="title">
                                 Linux:
@@ -57,16 +57,16 @@
 	                    <p><span class="title">
 		                    Windows:
 		                    </span><br>
-		                    <a href="release/SDL2-devel-2.0.14-VC.zip"
-		                                    >SDL2-devel-2.0.14-VC.zip</a> (Visual C++ 32/64-bit)<br>
-		                    <a href="release/SDL2-devel-2.0.14-mingw.tar.gz"
-		                                    >SDL2-devel-2.0.14-mingw.tar.gz</a> (<a href="http://mingw-w64.sourceforge.net/">MinGW</a> 32/64-bit)<br>
+		                    <a href="release/SDL2-devel-2.0.16-VC.zip"
+		                                    >SDL2-devel-2.0.16-VC.zip</a> (Visual C++ 32/64-bit)<br>
+		                    <a href="release/SDL2-devel-2.0.16-mingw.tar.gz"
+		                                    >SDL2-devel-2.0.16-mingw.tar.gz</a> (<a href="http://mingw-w64.sourceforge.net/">MinGW</a> 32/64-bit)<br>
 	                    </p>
 	                    <p><span class="title">
 		                    Mac OS X:
 		                    </span><br>
-		                    <a href="release/SDL2-2.0.14.dmg"
-		                                    >SDL2-2.0.14.dmg</a><br>
+		                    <a href="release/SDL2-2.0.16.dmg"
+		                                    >SDL2-2.0.16.dmg</a><br>
 	                    </p>
 	                    <p><span class="title">
 		                    Linux:
