@@ -95,7 +95,6 @@ $games = array(
     array("Into the Breach", "http://store.steampowered.com/app/590380", "http://cdn.akamai.steamstatic.com/steam/apps/590380/header.jpg"),
     array("Ion Fury", "http://store.steampowered.com/app/562860", "http://cdn.akamai.steamstatic.com/steam/apps/562860/header.jpg"),
     array("Jack Keane", "http://store.steampowered.com/app/12340", "http://cdn.akamai.steamstatic.com/steam/apps/12340/header.jpg"),
-    array("Jack Keane", "http://store.steampowered.com/app/12440", "http://cdn.akamai.steamstatic.com/steam/apps/12440/header.jpg"),
     array("Jewel Quest Pack", "http://store.steampowered.com/app/37960", "http://cdn.akamai.steamstatic.com/steam/apps/37960/header.jpg"),
     array("Left 4 Dead 2", "http://store.steampowered.com/app/550", "http://cdn.akamai.steamstatic.com/steam/apps/550/header.jpg"),
     array("Magical Diary", "http://store.steampowered.com/app/211340", "http://cdn.akamai.steamstatic.com/steam/apps/211340/header.jpg"),
