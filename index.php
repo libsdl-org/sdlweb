@@ -139,6 +139,7 @@ $games = array(
     array("Superbrothers: Sword & Sworcery EP", "http://store.steampowered.com/app/204060", "http://cdn.akamai.steamstatic.com/steam/apps/204060/header.jpg"),
     array("SuperTux", "https://www.supertux.org", "media/games/supertux.png"),
     array("SuperTuxKart", "https://supertuxkart.net", "media/games/supertuxkart.png"),
+    array("Swarmlake", "http://store.steampowered.com/app/793350", "http://cdn.akamai.steamstatic.com/steam/apps/793350/header.jpg"),
     array("Swords and Soldiers HD", "http://store.steampowered.com/app/63500", "http://cdn.akamai.steamstatic.com/steam/apps/63500/header.jpg"),
     array("Syberia", "http://store.steampowered.com/app/46500", "http://cdn.akamai.steamstatic.com/steam/apps/46500/header.jpg"),
     array("Syberia II", "http://store.steampowered.com/app/46510", "http://cdn.akamai.steamstatic.com/steam/apps/46510/header.jpg"),
