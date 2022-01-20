@@ -61,6 +61,13 @@
                                 <a href="https://github.com/veandco/go-sdl2">https://github.com/veandco/go-sdl2</a>
                             </li>
                             <li> <strong>
+                                    Haskell
+                                </strong>
+                                <br/>
+                                sdl2 -
+                                <a href="https://hackage.haskell.org/package/sdl2">https://hackage.haskell.org/package/sdl2</a>
+                            </li>
+                            <li> <strong>
                                     Lua
                                 </strong>
                                 <br/>
