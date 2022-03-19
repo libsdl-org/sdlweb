@@ -90,6 +90,9 @@
                                 <br/>
                                 Pascal SDL 2 -
                                 <a href="https://github.com/ev1313/Pascal-SDL-2-Headers">https://github.com/ev1313/Pascal-SDL-2-Headers</a>
+                                <br/>
+                                SDL2 for Pascal -
+                                <a href="https://github.com/PascalGameDevelopment/SDL2-for-Pascal">https://github.com/PascalGameDevelopment/SDL2-for-Pascal</a>
                             </li>
                             <li> <strong>
                                     Python
