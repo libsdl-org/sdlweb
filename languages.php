@@ -68,6 +68,13 @@
                                 <a href="https://hackage.haskell.org/package/sdl2">https://hackage.haskell.org/package/sdl2</a>
                             </li>
                             <li> <strong>
+                                    Hollywood
+                                </strong>
+                                <br/>
+                                RebelSDL -
+                                <a href="https://www.hollywood-mal.com/docs/html/rebelsdl/">https://www.hollywood-mal.com/docs/html/rebelsdl/</a>
+                            </li>
+                            <li> <strong>
                                     Lua
                                 </strong>
                                 <br/>
