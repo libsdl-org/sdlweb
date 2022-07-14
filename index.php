@@ -121,6 +121,7 @@ $games = array(
     array("Proteus", "http://store.steampowered.com/app/219680", "http://cdn.akamai.steamstatic.com/steam/apps/219680/header.jpg"),
     array("Psychonauts", "http://store.steampowered.com/app/3830", "http://cdn.akamai.steamstatic.com/steam/apps/3830/header.jpg"),
     array("Pyre", "http://store.steampowered.com/app/462770", "http://cdn.akamai.steamstatic.com/steam/apps/462770/header.jpg"),
+    array("QUAKE", "http://store.steampowered.com/app/2310", "http://cdn.akamai.steamstatic.com/steam/apps/2310/header.jpg"),
     array("Robin Hood: The Legend of Sherwood", "http://store.steampowered.com/app/46560", "http://cdn.akamai.steamstatic.com/steam/apps/46560/header.jpg"),
     array("RUSH", "http://store.steampowered.com/app/38720", "http://cdn.akamai.steamstatic.com/steam/apps/38720/header.jpg"),
     array("Seed of Andromeda", "https://www.seedofandromeda.com", "media/games/seedofandromeda.png"),
@@ -171,6 +172,8 @@ $games = array(
     array("Xenonauts", "http://store.steampowered.com/app/223830", "http://cdn.akamai.steamstatic.com/steam/apps/223830/header.jpg"),
     array("Xonotic", "https://xonotic.org", "media/games/xonotic.png"),
     array("Zen Bound 2", "http://store.steampowered.com/app/61600", "http://cdn.akamai.steamstatic.com/steam/apps/61600/header.jpg"),
+    array("Zero Escape: The Nonary Games", "http://store.steampowered.com/app/477740", "http://cdn.akamai.steamstatic.com/steam/apps/477740/header.jpg"),
+    array("Zero Escape: Zero Time Dilemma", "http://store.steampowered.com/app/311240", "http://cdn.akamai.steamstatic.com/steam/apps/311240/header.jpg"),
 );
 
 // Set this to True if you want to see the entire games list
