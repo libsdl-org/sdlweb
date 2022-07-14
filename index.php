@@ -108,6 +108,7 @@ $games = array(
     array("Musaic Box", "http://store.steampowered.com/app/29130", "http://cdn.akamai.steamstatic.com/steam/apps/29130/header.jpg"),
     array("My Tribe", "http://store.steampowered.com/app/51010", "http://cdn.akamai.steamstatic.com/steam/apps/51010/header.jpg"),
     array("Natural Selection 2", "http://store.steampowered.com/app/4920", "http://cdn.akamai.steamstatic.com/steam/apps/4920/header.jpg"),
+    array("Neverwinter Nights: Enhanced Edition", "http://store.steampowered.com/app/704450", "http://cdn.akamai.steamstatic.com/steam/apps/704450/header.jpg"),
     array("OpenTTD", "https://www.openttd.org", "media/games/openttd.png"),
     array("Painkiller Hell &amp; Damnation", "http://store.steampowered.com/app/214870", "http://cdn.akamai.steamstatic.com/steam/apps/214870/header.jpg"),
     array("Penumbra Overture", "http://penumbragame.com", "http://cdn.akamai.steamstatic.com/steam/apps/22180/header.jpg"),
