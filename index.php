@@ -70,6 +70,7 @@ $games = array(
     array("Dungeons of Dredmor", "http://store.steampowered.com/app/98800", "http://cdn.akamai.steamstatic.com/steam/apps/98800/header.jpg"),
     array("Dyad", "http://store.steampowered.com/app/223450", "http://cdn.akamai.steamstatic.com/steam/apps/223450/header.jpg"),
     array("Dying Light", "http://store.steampowered.com/app/239140", "http://cdn.akamai.steamstatic.com/steam/apps/239140/header.jpg"),
+    array("Dying Light 2", "http://store.steampowered.com/app/534380", "http://cdn.akamai.steamstatic.com/steam/apps/534380/header.jpg"),
     array("Dynamite Jack", "http://www.galcon.com/dynamitejack", "http://cdn.akamai.steamstatic.com/steam/apps/202730/header.jpg"),
     array("EDGE", "http://store.steampowered.com/app/38740", "http://cdn.akamai.steamstatic.com/steam/apps/38740/header.jpg"),
     array("Edna &amp; Harvey: Harvey's New Eyes", "http://store.steampowered.com/app/219910", "http://cdn.akamai.steamstatic.com/steam/apps/219910/header.jpg"),
@@ -145,6 +146,7 @@ $games = array(
     array("Syberia II", "http://store.steampowered.com/app/46510", "http://cdn.akamai.steamstatic.com/steam/apps/46510/header.jpg"),
     array("Tales of Berseria", "http://store.steampowered.com/app/429660", "http://cdn.akamai.steamstatic.com/steam/apps/429660/header.jpg"),
     array("Team Fortress 2", "http://store.steampowered.com/app/440", "http://cdn.akamai.steamstatic.com/steam/apps/440/header.jpg"),
+    array("Teenage Mutant Ninja Turtles: Shredder's Revenge", "http://store.steampowered.com/app/1361510", "http://cdn.akamai.steamstatic.com/steam/apps/1361510/header.jpg"),
     array("The Dark Eye: Chains of Satinav", "http://store.steampowered.com/app/203830", "http://cdn.akamai.steamstatic.com/steam/apps/203830/header.jpg"),
     array("The Night of the Rabbit", "http://store.steampowered.com/app/230820", "http://cdn.akamai.steamstatic.com/steam/apps/230820/header.jpg"),
     array("The Whispered World", "http://store.steampowered.com/app/18490", "http://cdn.akamai.steamstatic.com/steam/apps/18490/header.jpg"),
@@ -172,7 +174,7 @@ $games = array(
 );
 
 // Set this to True if you want to see the entire games list
-$show_all_games = False;
+$show_all_games = True;
 
 if ( !$show_all_games ) {
     $key1 = mt_rand(0, count($games) - 1);
