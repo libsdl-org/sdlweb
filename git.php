@@ -29,12 +29,12 @@
 
 <p><font color="#414141">
 Source snapshot for SDL 2.0 (Updated
-<!-- SDL 2.0 DATE --> Tue Jan 11
+<!-- SDL 2.0 DATE --> Mon Jun 13
 )</p>
 <blockquote>
-<!-- SDL 2.0 ZIP --><a href="tmp/SDL-2.0.20-b424665.zip">SDL-2.0.20-b424665.zip</a><!-- -->
+<!-- SDL 2.0 ZIP --><a href="tmp/SDL-2.23.0-6606ab8.zip">SDL-2.23.0-6606ab8.zip</a><!-- -->
 <br/>
-<!-- SDL 2.0 TGZ --><a href="tmp/SDL-2.0.20-b424665.tar.gz">SDL-2.0.20-b424665.tar.gz</a><!-- -->
+<!-- SDL 2.0 TGZ --><a href="tmp/SDL-2.23.0-6606ab8.tar.gz">SDL-2.23.0-6606ab8.tar.gz</a><!-- -->
 </blockquote>
                   </div>
                 <div class="clearer"></div>            
