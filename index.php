@@ -52,6 +52,7 @@ $games = array(
     array("Conquest Of Elysium 3", "http://store.steampowered.com/app/211900", "http://cdn.akamai.steamstatic.com/steam/apps/211900/header.jpg"),
     array("Costume Quest", "http://store.steampowered.com/app/115100", "http://cdn.akamai.steamstatic.com/steam/apps/115100/header.jpg"),
     array("Dangerous High School Girls in Trouble", "http://www.mousechief.com/dhsg", "http://cdn.akamai.steamstatic.com/steam/apps/27400/header.jpg"),
+    array("Darwinia", "http://store.steampowered.com/app/1500", "http://cdn.akamai.steamstatic.com/steam/apps/1500/header.jpg"),
     array("Data Jammers: FastForward", "http://store.steampowered.com/app/110500", "http://cdn.akamai.steamstatic.com/steam/apps/110500/header.jpg"),
     array("Day of Defeat", "http://store.steampowered.com/app/30", "http://cdn.akamai.steamstatic.com/steam/apps/30/header.jpg"),
     array("Day of the Tentacle Remastered", "http://store.steampowered.com/app/388210", "http://cdn.akamai.steamstatic.com/steam/apps/388210/header.jpg"),
@@ -75,6 +76,7 @@ $games = array(
     array("EDGE", "http://store.steampowered.com/app/38740", "http://cdn.akamai.steamstatic.com/steam/apps/38740/header.jpg"),
     array("Edna &amp; Harvey: Harvey's New Eyes", "http://store.steampowered.com/app/219910", "http://cdn.akamai.steamstatic.com/steam/apps/219910/header.jpg"),
     array("Eversion", "http://store.steampowered.com/app/33680", "http://cdn.akamai.steamstatic.com/steam/apps/33680/header.jpg"),
+    array("Eufloria HD", "http://store.steampowered.com/app/221180", "http://cdn.akamai.steamstatic.com/steam/apps/221180/header.jpg"),
     array("Everyday Shooter", "http://store.steampowered.com/app/16300", "http://cdn.akamai.steamstatic.com/steam/apps/16300/header.jpg"),
     array("Factorio", "http://store.steampowered.com/app/427520", "http://cdn.akamai.steamstatic.com/steam/apps/427520/header.jpg"),
     array("Farm Together", "http://store.steampowered.com/app/673950", "http://cdn.akamai.steamstatic.com/steam/apps/673950/header.jpg"),
@@ -155,6 +157,7 @@ $games = array(
     array("Thimbleweed Park™", "http://store.steampowered.com/app/569860", "http://cdn.akamai.steamstatic.com/steam/apps/569860/header.jpg"),
     array("Tiny and Big: Grandpa's Leftovers", "http://store.steampowered.com/app/205910", "http://cdn.akamai.steamstatic.com/steam/apps/205910/header.jpg"),
     array("Toki Tori", "http://store.steampowered.com/app/38700", "http://cdn.akamai.steamstatic.com/steam/apps/38700/header.jpg"),
+    array("Teeworlds", "http://store.steampowered.com/app/380840", "http://cdn.akamai.steamstatic.com/steam/apps/380840/header.jpg"),
     array("Trials 2: Second Edition", "http://store.steampowered.com/app/16600", "http://cdn.akamai.steamstatic.com/steam/apps/16600/header.jpg"),
     array("Umineko When They Cry - Answer Arcs", "http://store.steampowered.com/app/639490", "http://cdn.akamai.steamstatic.com/steam/apps/639490/header.jpg"),
     array("Umineko When They Cry - Question Arcs", "http://store.steampowered.com/app/406550", "http://cdn.akamai.steamstatic.com/steam/apps/406550/header.jpg"),
@@ -177,7 +180,7 @@ $games = array(
 );
 
 // Set this to True if you want to see the entire games list
-$show_all_games = True;
+$show_all_games = False;
 
 if ( !$show_all_games ) {
     $key1 = mt_rand(0, count($games) - 1);
