@@ -20,9 +20,9 @@
 <div class="box blue">
     <h4>Download</h4>
     <ul class="menu">
-        <li<?php if($current_page=="download-2.0") echo" class=\"active\"";?>><a href="/download-2.0.php">SDL Releases</a></li>
+        <li<?php if($current_page=="download-2.0") echo" class=\"active\"";?>><a href="https://github.com/libsdl-org/SDL/releases/latest">SDL Releases</a></li>
         <!--<li<?php if($current_page=="download-1.2") echo" class=\"active\"";?>><a href="/download-1.2.php">SDL 1.2</a></li>-->
-        <li<?php if($current_page=="git") echo" class=\"active\"";?>><a href="/git.php">SDL Git</a></li>
-        <li<?php if($current_page=="languages") echo" class=\"active\"";?>><a href="/languages.php">Bindings</a></li>
+        <li<?php if($current_page=="git") echo" class=\"active\"";?>><a href="https://github.com/libsdl-org/">SDL GitHub</a></li>
+        <li<?php if($current_page=="languages") echo" class=\"active\"";?>><a href="/languages.php">Language Bindings</a></li>
     </ul>
 </div>
