@@ -51,7 +51,7 @@
                                 </strong>
                                 <br/>
                                 DerelictSDL2 -
-                                <a href="http://derelictorg.github.io/packages/sdl2/">http://derelictorg.github.io/packages/sdl2/</a>
+                                <a href="https://derelictorg.github.io/packages/sdl2/">https://derelictorg.github.io/packages/sdl2/</a>
                             </li>
                             <li> <strong>
                                     Go
@@ -86,7 +86,7 @@
                                 </strong>
                                 <br/>
                                 Tsdl -
-                                <a href="http://erratique.ch/software/tsdl">http://erratique.ch/software/tsdl</a>
+                                <a href="https://erratique.ch/software/tsdl">https://erratique.ch/software/tsdl</a>
                             </li>
                             <li> <strong>
                                     Pascal
@@ -112,14 +112,14 @@
                                 <a href="https://pypi.org/project/PySDL2/">https://pypi.org/project/PySDL2/</a>
 				<br/>
                                 pysdl2-cffi -
-                                <a href="https://pythonhosted.org/pysdl2-cffi">https://pythonhosted.org/pysdl2-cffi</a>
+                                <a href="https://pythonhosted.org/pysdl2-cffi/">https://pythonhosted.org/pysdl2-cffi/</a>
                             </li>
                             <li> <strong>
                                     Rust
                                 </strong>
                                 <br/>
                                 Rust-SDL2 -
-                                <a href="https://github.com/AngryLawyer/rust-sdl2">https://github.com/AngryLawyer/rust-sdl2</a>
+                                <a href="https://github.com/Rust-SDL2/rust-sdl2">https://github.com/Rust-SDL2/rust-sdl2</a>
                             </li>
                         </ul>
                     </blockquote>
