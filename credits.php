@@ -38,7 +38,7 @@
                         </li>
                         <li>Alfred Reynolds for the game controller API and general (in)sanity.
                         </li>
-                        <li>Jørgen Tjernø for numerous magical Mac OS X fixes.
+                        <li>Jørgen Tjernø for numerous magical macOS fixes.
                         </li>
                         <li>Pierre-Loup Griffais for his deep knowledge of OpenGL drivers.
                         </li>

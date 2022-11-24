@@ -15,7 +15,7 @@
                 <div class="col left">
                     <p> Simple DirectMedia Layer is a cross-platform development library designed to provide low level access to audio, keyboard, mouse, joystick, and graphics hardware via OpenGL and Direct3D. It is used by video playback software, emulators, and popular games including <a href="http://valvesoftware.com">Valve</a>'s award winning catalog and many <a href="https://www.humblebundle.com/">Humble Bundle</a> games.
                     </p><p>
-			SDL officially supports Windows, Mac OS X, Linux, iOS, and Android.  Support for other platforms may be found in the source code.
+			SDL officially supports Windows, macOS, Linux, iOS, and Android.  Support for other platforms may be found in the source code.
                     </p><p>
                         SDL is written in C, works natively with C++, and there are <a href="languages.php">bindings available</a> for several other languages, including C# and Python.
                     </p><p>
