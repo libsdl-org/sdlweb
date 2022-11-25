@@ -34,8 +34,8 @@
                         This mailing list is very low volume, and is used for announcing news and
                         new versions of SDL:
                         <br />
-                        <a href="http://www.libsdl.org/announce-list.php">
-                            http://www.libsdl.org/announce-list.php</a>
+                        <a href="https://www.libsdl.org/announce-list.php">
+                            https://www.libsdl.org/announce-list.php</a>
                         <br />
                         Announcements are also posted to the forum:
                         <br />
