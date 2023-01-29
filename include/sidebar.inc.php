@@ -3,7 +3,7 @@
     <h4>Main</h4>
     <ul>
         <li<?php if($current_page=="index") echo" class=\"active\"";?>><a href="/index.php">About</a></li>
-        <li><a href="https://bugzilla.libsdl.org/">Bugs <span class="extern">&nbsp;</span></a></li>
+        <li><a href="https://github.com/libsdl-org/SDL/issues">Bugs <span class="extern">&nbsp;</span></a></li>
         <li<?php if($current_page=="license") echo" class=\"active\"";?>><a href="/license.php">Licensing</a></li>
         <li<?php if($current_page=="credits") echo" class=\"active\"";?>><a href="/credits.php">Credits</a></li>
         <li><a href="mailto:slouken@libsdl.org">Feedback</a></li>
