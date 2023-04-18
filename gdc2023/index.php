@@ -13,6 +13,7 @@
             <div id="content">
             <p><h1><a href="https://schedule.gdconf.com/session/open-source-game-development-summit-simple-directmedia-layer-past-present-and-future/892854">SDL at Game Developers Conference 2023</a></h1></p>
             <p><ul>
+	      <li><a href="https://gdcvault.com/play/1029269/Open-Source-Game-Development-Summit">Presentation Video</a></li>
 	      <li><a href="GDC23_Presentation_SDL.pptx">Presentation Slides</a></li>
               <li><a href="https://github.com/libsdl-org/SDL">SDL 3.0 Source Code</a></li>
               <li><a href="https://github.com/libsdl-org/SDL/tree/main/docs/README-migration.md">SDL 3.0 Transition Guide</a></li>
