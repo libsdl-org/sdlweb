@@ -121,6 +121,13 @@
                                 Rust-SDL2 -
                                 <a href="https://github.com/Rust-SDL2/rust-sdl2">https://github.com/Rust-SDL2/rust-sdl2</a>
                             </li>
+                            <li> <strong>
+                                    TypeScript
+                                </strong>
+                                <br/>
+                                SDL_ts -
+                                <a href="https://deno.land/x/sdl_ts@0.0.6">https://deno.land/x/sdl_ts@0.0.6</a>
+                            </li>
                         </ul>
                     </blockquote>
 
