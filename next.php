@@ -16,6 +16,13 @@
             <div id="content">
                 <h1>SDL <?php print($sdl_next_version); ?> release schedule</h1>
                     <p>
+                        SDL 3.0 is currently under development!
+                    </p>
+                    <p>
+                        You can help by trying out the code available on <a href="https://github.com/libsdl-org/SDL">GitHub</a> and <a href="https://github.com/libsdl-org/SDL/issues">reporting</a> any issues you run into.
+                    </p>
+<!--
+                    <p>
                         The next release of SDL is
                         <strong><?php print($next_sdl_version) ?></strong>.
                     </p>
@@ -32,6 +39,7 @@
                         Please help us meet this goal by testing or fixing
                         issues on the <a href="todo.php"><?php print($next_sdl_version) ?> TODO list</a>!
                     </p>
+-->
             </div>
             <div class="clearer"></div>            
         </div>
