@@ -78,7 +78,8 @@ if ($event == 'push') {
             $fnameid++;
         } while (($fp = @fopen($fname, 'x')) === false);  // 'x' so we make sure other hook handlers don't compete for the file name.
 
-        fwrite($fp, $payload);
+        $payloadlen = strlen($payload);
+        $bw = fwrite($fp, $payload, $payloadlen);
         fclose($fp);
 
         if ($lockfp !== false) {
@@ -86,7 +87,11 @@ if ($event == 'push') {
             fclose($lockfp);
         }
 
-        print("PUSH INFO SAVED TO: $fname\n");
+        if (($bw === false) || ($bw != $payloadlen)) {
+             print("FAILED TO WRITE FULLY TO '$fname': (bw=$bw)\n");
+        } else {
+             print("PUSH INFO SAVED TO: $fname\n");
+        }
     }
 
     if ($repo == 'sdlweb') {
