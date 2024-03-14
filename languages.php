@@ -126,7 +126,7 @@
                                 </strong>
                                 <br/>
                                 SDL_ts -
-                                <a href="https://deno.land/x/sdl_ts@0.0.6">https://deno.land/x/sdl_ts@0.0.6</a>
+                                <a href="https://github.com/smack0007/SDL_ts">https://github.com/smack0007/SDL_ts</a>
                             </li>
                         </ul>
                     </blockquote>
