@@ -30,7 +30,7 @@
                                 </strong>
                                 <br/>
                                 SDLAda -
-                                <a href="https://github.com/Lucretia/sdlada">https://github.com/Lucretia/sdlada</a>
+                                <a href="https://github.com/ada-game-framework/sdlada">https://github.com/ada-game-framework/sdlada</a>
                             </li>
 			    <li> <strong>
                                     Beeflang
