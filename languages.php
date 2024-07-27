@@ -128,6 +128,13 @@
                                 SDL_ts -
                                 <a href="https://github.com/smack0007/SDL_ts">https://github.com/smack0007/SDL_ts</a>
                             </li>
+                            <li> <strong>
+                                    Zig
+                                </strong>
+                                <br/>
+                                SDL on Zig -
+                                <a href="https://github.com/pwbh/SDL">https://github.com/pwbh/SDL</a>
+                            </li>
                         </ul>
                     </blockquote>
 
