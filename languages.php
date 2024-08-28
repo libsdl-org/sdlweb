@@ -135,6 +135,13 @@
                                 SDL on Zig -
                                 <a href="https://github.com/pwbh/SDL">https://github.com/pwbh/SDL</a>
                             </li>
+                            <li> <strong>
+                                    V
+                                </strong>
+                                <br/>
+                                SDL for Vlang -
+                                <a href="https://github.com/vlang/sdl">https://github.com/vlang/sdl</a>
+                            </li>
                         </ul>
                     </blockquote>
 
