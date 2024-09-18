@@ -89,6 +89,13 @@
                                 <a href="https://erratique.ch/software/tsdl">https://erratique.ch/software/tsdl</a>
                             </li>
                             <li> <strong>
+                                    Odin
+                                </strong>
+                                <br/>
+                                Odin SDL 2 -
+                                <a href="https://github.com/odin-lang/Odin/tree/master/vendor/sdl2">https://github.com/odin-lang/Odin/tree/master/vendor/sdl2</a>
+                            </li>
+                            <li> <strong>
                                     Pascal
                                 </strong>
                                 <br/>
