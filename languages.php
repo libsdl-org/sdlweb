@@ -52,6 +52,9 @@
                                 <br/>
                                 DerelictSDL2 -
                                 <a href="https://derelictorg.github.io/packages/sdl2/">https://derelictorg.github.io/packages/sdl2/</a>
+                <br/>
+                                BindBC-SDL -
+                                <a href="https://github.com/BindBC/bindbc-sdl">https://github.com/BindBC/bindbc-sdl</a>
                             </li>
                             <li> <strong>
                                     Go
@@ -148,6 +151,20 @@
                                 <br/>
                                 SDL for Vlang -
                                 <a href="https://github.com/vlang/sdl">https://github.com/vlang/sdl</a>
+                            </li>
+                            <li> <strong>
+                                    Nim
+                            </strong>
+                            <br/>
+                                SDL for Nim -
+                                <a href="https://github.com/nim-lang/sdl2">https://github.com/nim-lang/sdl2</a>
+                            </li>
+                            <li> <strong>
+                                Crystal
+                            </strong>
+                            <br/>
+                                SDL for Crystal -
+                                <a href="https://github.com/ysbaddaden/sdl.cr">https://github.com/ysbaddaden/sdl.cr</a>
                             </li>
                         </ul>
                     </blockquote>
