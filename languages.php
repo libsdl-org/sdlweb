@@ -34,6 +34,13 @@
                                 BindBC-SDL -
                                 <a href="https://github.com/BindBC/bindbc-sdl">https://github.com/BindBC/bindbc-sdl</a>
                             </li>
+                            <li> <strong>
+                                    Rust
+                                </strong>
+                                <br/>
+                                sdl3 -
+                                <a href="https://crates.io/crates/sdl3">https://crates.io/crates/sdl3</a>
+                            </li>
                         </ul>
                     </blockquote>
 
