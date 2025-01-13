@@ -28,6 +28,15 @@
                         </li>
                         <li>Ryan Gordon for helping everybody out and keeping the dream alive. :)
                         </li>
+                        <li>Frank Praznik for his Wayland support and general windowing development.
+                        </li>
+                        <li>Ozkan Sezer for sanity checks and make sure the i's are dotted and t's are crossed.
+                        </li>
+                        <li>Anonymous Maarten for CMake support and build system development.
+                        </li>
+                        <li>Evan Hemsley, Caleb Cornett, and Ethan Lee for SDL GPU development.
+                        </li>
+
                         <li>Gabriel Jacobo for his work on the Android port and generally helping out all around.
                         </li>
                         <li>Philipp Wiesemann for his attention to detail reviewing the entire SDL code base and proposes patches.
@@ -65,7 +74,7 @@
                         </li>
                         <li>Jon Atkins for SDL_image, SDL_mixer and SDL_net documentation.
                         </li>
-                        <li>Everybody at Loki Software, Inc. for their great contributions!
+                        <li>Everybody at Loki Software, Inc. and Valve Corporation for their great contributions!
                         </li>
                     </ul>
                 </div>
