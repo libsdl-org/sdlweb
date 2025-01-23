@@ -42,6 +42,13 @@
                                 <a href="https://github.com/BindBC/bindbc-sdl">https://github.com/BindBC/bindbc-sdl</a>
                             </li>
                             <li> <strong>
+                                    Nim
+                                </strong>
+                                <br/>
+                                SDL3 for Nim -
+                                <a href="https://github.com/transmutrix/nim-sdl3">https://github.com/transmutrix/nim-sdl3</a>
+                            </li>
+                            <li> <strong>
                                     Rust
                                 </strong>
                                 <br/>
