@@ -19,7 +19,7 @@
                     </p><p>
                         SDL is written in C, works natively with C++, and there are <a href="languages.php">bindings available</a> for several other languages, including C# and Python.
                     </p><p>
-                        SDL 2.0 is distributed under the <a href="license.php">zlib license</a>. This license allows you to use SDL freely in any software. </p>
+                        SDL is distributed under the <a href="license.php">zlib license</a>. This license allows you to use SDL freely in any software. </p>
                 </div>
                 <?php
 // Steam games can be found at: https://steamdb.info/tech/SDK/SDL
