@@ -27,7 +27,14 @@
                    
                     <blockquote>
                         <ul>
-                          <li> <strong>
+                            <li> <strong>
+                                    Python
+                                </strong>
+                                <br/>
+                                PySDL3
+                                <a href="https://github.com/Aermoss/PySDL3">https://github.com/Aermoss/PySDL3</a>
+                            </li>
+                            <li> <strong>
                                     C#
                                 </strong>
                                 <br/>
