@@ -28,13 +28,6 @@
                     <blockquote>
                         <ul>
                             <li> <strong>
-                                    Python
-                                </strong>
-                                <br/>
-                                PySDL3
-                                <a href="https://github.com/Aermoss/PySDL3">https://github.com/Aermoss/PySDL3</a>
-                            </li>
-                            <li> <strong>
                                     C#
                                 </strong>
                                 <br/>
@@ -54,6 +47,13 @@
                                 <br/>
                                 SDL3 for Nim -
                                 <a href="https://github.com/transmutrix/nim-sdl3">https://github.com/transmutrix/nim-sdl3</a>
+                            </li>
+                            <li> <strong>
+                                    Python
+                                </strong>
+                                <br/>
+                                PySDL3
+                                <a href="https://github.com/Aermoss/PySDL3">https://github.com/Aermoss/PySDL3</a>
                             </li>
                             <li> <strong>
                                     Rust
