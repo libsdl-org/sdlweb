@@ -218,7 +218,8 @@ $games = array(
     array("Sakura Swim Club", "https://store.steampowered.com/app/402180", "https://cdn.akamai.steamstatic.com/steam/apps/402180/header.jpg"),
     array("Sapiens", "https://store.steampowered.com/app/1060230", "https://cdn.akamai.steamstatic.com/steam/apps/1060230/header.jpg"),
     array("SCARLET NEXUS", "https://store.steampowered.com/app/775500", "https://cdn.akamai.steamstatic.com/steam/apps/775500/header.jpg"),
-    array("Seed of Andromeda", "https://www.seedofandromeda.com", "media/games/seedofandromeda.png"),
+    // This website no longer exists
+    //array("Seed of Andromeda", "https://www.seedofandromeda.com", "media/games/seedofandromeda.png"),
     array("Senua’s Saga: Hellblade II", "https://store.steampowered.com/app/2461850", "https://cdn.akamai.steamstatic.com/steam/apps/2461850/header.jpg"),
     array("Shatter", "https://store.steampowered.com/app/20820", "https://cdn.akamai.steamstatic.com/steam/apps/20820/header.jpg"),
     array("SHENZHEN I/O", "https://store.steampowered.com/app/504210", "https://cdn.akamai.steamstatic.com/steam/apps/504210/header.jpg"),
