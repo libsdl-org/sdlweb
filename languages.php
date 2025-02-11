@@ -49,6 +49,13 @@
                                 <a href="https://github.com/transmutrix/nim-sdl3">https://github.com/transmutrix/nim-sdl3</a>
                             </li>
                             <li> <strong>
+                                    Odin
+                                </strong>
+                                <br/>
+                                Odin SDL 3 -
+                                <a href="https://github.com/odin-lang/Odin/tree/master/vendor/sdl3">https://github.com/odin-lang/Odin/tree/master/vendor/sdl3</a>
+                            </li>
+                            <li> <strong>
                                     Python
                                 </strong>
                                 <br/>
