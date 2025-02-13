@@ -69,6 +69,13 @@
                                 sdl3 -
                                 <a href="https://crates.io/crates/sdl3">https://crates.io/crates/sdl3</a>
                             </li>
+                            <li> <strong>
+                                    V
+                                </strong>
+                                <br/>
+                                sdl3 -
+                                <a href="https://github.com/vlang/sdl/tree/3.2.0">https://github.com/vlang/sdl/tree/3.2.0</a>
+                            </li>
                         </ul>
                     </blockquote>
 
