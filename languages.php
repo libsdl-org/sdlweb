@@ -42,6 +42,13 @@
                                 <a href="https://github.com/BindBC/bindbc-sdl">https://github.com/BindBC/bindbc-sdl</a>
                             </li>
                             <li> <strong>
+                                    Delphi
+                                </strong>
+                                <br/>
+                                Neslib.Sdl3 -
+                                <a href="https://github.com/neslib/Neslib.Sdl3">https://github.com/neslib/Neslib.Sdl3</a>
+                            </li>
+                            <li> <strong>
                                     Nim
                                 </strong>
                                 <br/>
