@@ -49,6 +49,13 @@
                                 <a href="https://github.com/neslib/Neslib.Sdl3">https://github.com/neslib/Neslib.Sdl3</a>
                             </li>
                             <li> <strong>
+                                    Go
+                                </strong>
+                                <br/>
+                                purego-sdl3 -
+                                <a href="https://github.com/JupiterRider/purego-sdl3">https://github.com/JupiterRider/purego-sdl3</a>
+                            </li>
+                            <li> <strong>
                                     Nim
                                 </strong>
                                 <br/>
