@@ -27,7 +27,7 @@
                    
                     <blockquote>
                         <ul>
-                          <li> <strong>
+                            <li> <strong>
                                     C#
                                 </strong>
                                 <br/>
@@ -42,11 +42,46 @@
                                 <a href="https://github.com/BindBC/bindbc-sdl">https://github.com/BindBC/bindbc-sdl</a>
                             </li>
                             <li> <strong>
+                                    Delphi
+                                </strong>
+                                <br/>
+                                Neslib.Sdl3 -
+                                <a href="https://github.com/neslib/Neslib.Sdl3">https://github.com/neslib/Neslib.Sdl3</a>
+                            </li>
+                            <li> <strong>
+                                    Nim
+                                </strong>
+                                <br/>
+                                SDL3 for Nim -
+                                <a href="https://github.com/transmutrix/nim-sdl3">https://github.com/transmutrix/nim-sdl3</a>
+                            </li>
+                            <li> <strong>
+                                    Odin
+                                </strong>
+                                <br/>
+                                Odin SDL 3 -
+                                <a href="https://github.com/odin-lang/Odin/tree/master/vendor/sdl3">https://github.com/odin-lang/Odin/tree/master/vendor/sdl3</a>
+                            </li>
+                            <li> <strong>
+                                    Python
+                                </strong>
+                                <br/>
+                                PySDL3
+                                <a href="https://github.com/Aermoss/PySDL3">https://github.com/Aermoss/PySDL3</a>
+                            </li>
+                            <li> <strong>
                                     Rust
                                 </strong>
                                 <br/>
                                 sdl3 -
                                 <a href="https://crates.io/crates/sdl3">https://crates.io/crates/sdl3</a>
+                            </li>
+                            <li> <strong>
+                                    V
+                                </strong>
+                                <br/>
+                                sdl3 -
+                                <a href="https://github.com/vlang/sdl/tree/3.2.0">https://github.com/vlang/sdl/tree/3.2.0</a>
                             </li>
                         </ul>
                     </blockquote>
