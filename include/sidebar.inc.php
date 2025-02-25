@@ -12,7 +12,7 @@
 <div class="box lightblue">
     <h4>Documentation</h4>
     <ul class="menu">
-        <li><a href="https://wiki.libsdl.org/SDL2/FrontPage">Wiki <span class="extern">&nbsp;</span></a></li>
+        <li><a href="https://wiki.libsdl.org/SDL3/FrontPage">Wiki <span class="extern">&nbsp;</span></a></li>
         <li><a href="https://discourse.libsdl.org/">Forums <span class="extern">&nbsp;</span></a></li>
         <li<?php if($current_page=="mailing-list") echo" class=\"active\"";?>><a href="/mailing-list.php">Mailing Lists</a></li>
     </ul>
