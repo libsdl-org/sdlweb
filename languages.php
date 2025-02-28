@@ -83,6 +83,13 @@
                                 sdl3 -
                                 <a href="https://github.com/vlang/sdl/tree/3.2.0">https://github.com/vlang/sdl/tree/3.2.0</a>
                             </li>
+                            <li> <strong>
+                                    Vala
+                                </strong>
+                                <br/>
+                                sdl3-vapi -
+                                <a href="https://github.com/edwood-grant/sdl3-vapi">https://github.com/edwood-grant/sdl3-vapi</a>
+                            </li>
                         </ul>
                     </blockquote>
 
