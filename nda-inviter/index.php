@@ -279,6 +279,7 @@ if (!isset($logins[$user]) || ($pass != $logins[$user])) {
         <input type="submit" name="form_login" value="Login" />
       </form>
     </p>
+    <p>Please do not share logins with people that aren't under the appropriate NDAs.</p>
     <p>A successful login will redirect you to GitHub for authorization,
        then back here, so we'll know your GitHub username. We don't access
        any data other than your GitHub username.</p>
@@ -309,19 +310,19 @@ $_SESSION['password'] = '';
 
 echo <<<EOF
 <html><head><title>$title</title></head><body>
-<p>Okay, you should have invitation(s) waiting for you for the following repositories:</p>
+<p>Okay, you should have invitation(s) waiting for you for the following repositories.</p>
+<p>Click each below to accept your invites, or find the links in your email from GitHub later.</p>
 <p><ul>
 
 EOF;
 
 foreach ($invites as $repo) {
-    print("<li>$repo</li>\n");
+    print("<li><a href='https://github.com/$repo/invitations'>$repo</a></li>\n");
 }
 
 echo <<<EOF
 </ul></p>
 
-<p>Please check wherever GitHub sends you email.</p>
 <p>Once you accept the invitations, you'll have access.</p>
 <p>If you have problems, please <a href="mailto:icculus@icculus.org">ask Ryan for help</a>.</p>
 <p>Otherwise, you can close this browser tab now.</p>
