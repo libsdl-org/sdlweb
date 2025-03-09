@@ -1,0 +1,8 @@
+<Files .htaccess>
+   deny from all
+</Files>
+
+<Files config.php>
+   deny from all
+</Files>
+
