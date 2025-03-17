@@ -201,7 +201,7 @@ $games = array(
     array("Project Wingman", "https://store.steampowered.com/app/895870", "https://cdn.akamai.steamstatic.com/steam/apps/895870/header.jpg"),
     array("Proteus", "https://store.steampowered.com/app/219680", "https://cdn.akamai.steamstatic.com/steam/apps/219680/header.jpg"),
     array("Psychonauts", "https://store.steampowered.com/app/3830", "https://cdn.akamai.steamstatic.com/steam/apps/3830/header.jpg"),
-    array("Pure Rock Crawling", "https://store.steampowered.com/app/824720", "https://cdn.akamai.steamstatic.com/steam/apps/54824720/header.jpg"),
+    array("Pure Rock Crawling", "https://store.steampowered.com/app/824720", "https://cdn.akamai.steamstatic.com/steam/apps/824720/header.jpg"),
     array("Pyre", "https://store.steampowered.com/app/462770", "https://cdn.akamai.steamstatic.com/steam/apps/462770/header.jpg"),
     array("QUAKE", "https://store.steampowered.com/app/2310", "https://cdn.akamai.steamstatic.com/steam/apps/2310/header.jpg"),
     array("Reassembly", "https://store.steampowered.com/app/329130", "https://cdn.akamai.steamstatic.com/steam/apps/329130/header.jpg"),
