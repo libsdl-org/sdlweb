@@ -88,7 +88,7 @@
                                 </strong>
                                 <br/>
                                 sdl3-vapi -
-                                <a href="https://github.com/edwood-grant/sdl3-vapi">https://github.com/edwood-grant/sdl3-vapi</a>
+                                <a href="https://codeberg.org/edwood-grant/sdl3-vapi">https://codeberg.org/edwood-grant/sdl3-vapi</a>
                             </li>
                         </ul>
                     </blockquote>
