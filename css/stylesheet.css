@@ -2,7 +2,7 @@ body {
     margin: 0;
     padding: 0;
     font-family: Poppins, sans-serif;
-    line-height: 137%;
+    line-height: 160%;
     background: #f1f1f1;
 }
 
@@ -27,12 +27,6 @@ h6 {
     display: block;
     font-weight: normal;
 }
-
-h4 {}
-
-h5 {}
-
-h3 {}
 
 h2 {
     margin-bottom: 0.6em;
@@ -148,7 +142,7 @@ div#wrapper {
     box-shadow: 0 1px 6px rgba(0, 0, 0, 0.2);
     height: auto;
     margin: 0 auto;
-    max-width: 1140px;
+    max-width: 1200px;
     min-width: 600px;
     padding: 1em 5%;
     position: relative;
@@ -192,8 +186,8 @@ div#left {
 
 div#content {
     float: left;
-    width: 73%;
-    padding: 122px 0 0 8%;
+    width: 77%;
+    padding: 122px 0 0 4%;
 }
 
 div#header .box {
@@ -276,7 +270,6 @@ div#left div.box.blue h4 {
 div#left div.box.lightblue h4 {
     background: #8BB2D6;
 }
-
 
 div#content div.imagebox {
     float: right;
@@ -384,7 +377,6 @@ table thead th {
     color: #666666;
 }
 
-
 body.black {
     background: #000;
     color: white;
@@ -424,7 +416,6 @@ div#content div.imagebox {
     margin: 0 0 2em;
     max-width: 100%;
 }
-
 
 @media only screen and (max-device-width: 1171px) {
     body {
