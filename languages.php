@@ -42,11 +42,14 @@
                                 <a href="https://github.com/BindBC/bindbc-sdl">https://github.com/BindBC/bindbc-sdl</a>
                             </li>
                             <li> <strong>
-                                    Delphi
+                                    Delphi / Pascal
                                 </strong>
                                 <br/>
                                 Neslib.Sdl3 -
                                 <a href="https://github.com/neslib/Neslib.Sdl3">https://github.com/neslib/Neslib.Sdl3</a>
+                                <br/>
+                                SDL3 for Pascal -
+                                <a href="https://github.com/PascalGameDevelopment/SDL3-for-Pascal">https://github.com/PascalGameDevelopment/SDL3-for-Pascal</a>
                             </li>
                             <li> <strong>
                                     Nim
