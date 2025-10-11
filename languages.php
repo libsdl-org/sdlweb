@@ -40,6 +40,7 @@
                                 <br/>
                                 SDL3-CS
                                 <a href="https://github.com/flibitijibibo/SDL3-CS">https://github.com/flibitijibibo/SDL3-CS</a>
+                                <a href="https://github.com/edwardgushchin/SDL3-CS">https://github.com/edwardgushchin/SDL3-CS</a>
                             </li>
                             <li> <strong>
                                     D
@@ -111,3 +112,4 @@
 
     </body>
 </html>
+
