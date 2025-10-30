@@ -135,6 +135,7 @@ $games = array(
     array("Half-Life 2", "https://store.steampowered.com/app/220", "https://cdn.akamai.steamstatic.com/steam/apps/220/header.jpg"),
     array("Half-Life", "https://store.steampowered.com/app/70", "https://cdn.akamai.steamstatic.com/steam/apps/70/header.jpg"),
     array("Half-Life: Alyx", "https://store.steampowered.com/app/546560", "https://cdn.akamai.steamstatic.com/steam/apps/546560/header.jpg"),
+    array("Hearts of Iron IV", "https://store.steampowered.com/app/394360", "https://cdn.akamai.steamstatic.com/steam/apps/394360/header.jpg"),
     array("Hedgewars", "https://hedgewars.org", "media/games/hedgewars.png"),
     array("Heroes of Hammerwatch", "https://store.steampowered.com/app/677120", "https://cdn.akamai.steamstatic.com/steam/apps/677120/header.jpg"),
     array("Heroes of Might &amp; Magic III - HD Edition", "https://store.steampowered.com/app/297000", "https://cdn.akamai.steamstatic.com/steam/apps/297000/header.jpg"),
