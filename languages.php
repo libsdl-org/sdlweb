@@ -74,6 +74,13 @@
                                 <a href="https://github.com/odin-lang/Odin/tree/master/vendor/sdl3">https://github.com/odin-lang/Odin/tree/master/vendor/sdl3</a>
                             </li>
                             <li> <strong>
+                                    Perl
+                                </strong>
+                                <br/>
+                                SDL3.pm:
+                                <a href="https://github.com/Perl-SDL3/SDL3.pm">https://github.com/Perl-SDL3/SDL3.pm</a>
+                            </li>
+                            <li> <strong>
                                     Python
                                 </strong>
                                 <br/>
