@@ -60,6 +60,13 @@
                                 <a href="https://github.com/PascalGameDevelopment/SDL3-for-Pascal">https://github.com/PascalGameDevelopment/SDL3-for-Pascal</a>
                             </li>
                             <li> <strong>
+                                    Go
+                                </strong>
+                                <br/>
+                                go-sdl3 -
+                                <a href="https://github.com/Zyko0/go-sdl3">https://github.com/Zyko0/go-sdl3</a>
+                            </li>
+                            <li> <strong>
                                     Nim
                                 </strong>
                                 <br/>
