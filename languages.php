@@ -67,6 +67,13 @@
                                 <a href="https://github.com/Zyko0/go-sdl3">https://github.com/Zyko0/go-sdl3</a>
                             </li>
                             <li> <strong>
+                                    Java
+                                </strong>
+                                <br/>
+                                LWJGL -
+                                <a href="https://github.com/LWJGL/lwjgl3">https://github.com/LWJGL/lwjgl3</a>
+                            </li>
+                            <li> <strong>
                                     Nim
                                 </strong>
                                 <br/>
