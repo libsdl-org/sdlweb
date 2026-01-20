@@ -17,7 +17,7 @@
                     </p><p>
 			SDL officially supports Windows, macOS, Linux, iOS, and Android.  Support for other platforms may be found in the source code.
                     </p><p>
-                        SDL is written in C, works natively with C++, and there are <a href="languages.php">bindings available</a> for several other languages, including C# and Python.
+                        SDL is written in C, works natively with C++, and there are <a href="https://wiki.libsdl.org/SDL3/LanguageBindings">bindings available</a> for several other languages, including C# and Python.
                     </p><p>
                         SDL is distributed under the <a href="license.php">zlib license</a>. This license allows you to use SDL freely in any software. </p>
                 </div>
