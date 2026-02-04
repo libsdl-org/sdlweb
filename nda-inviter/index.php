@@ -1,10 +1,40 @@
 <?php
 
+// config.php can override $css if it wants.
+$css =<<<'EOD'
+    <style>
+      /* Text and background color for light mode */
+      body {
+        color: #333;
+        max-width: 900px;
+        margin: 50px;
+        margin-left: auto;
+        margin-right: auto;
+        font-size: 16px;
+        line-height: 1.3;
+        font-weight: 300;
+      }
+
+      /* Text and background color for dark mode */
+      @media (prefers-color-scheme: dark) {
+        body {
+          color: #ddd;
+          background-color: #222;
+        }
+
+        a {
+          color: #809fff;
+        }
+      }
+    </style>
+EOD;
+
 // this is the script that invites people's GitHub accounts to NDA'd forks.
 include('config.php');
 
 //config.php should have this:
 //$title = 'SDL NDA Inviter';
+//$css= '';
 //$user_agent = 'sdl-nda-inviter.php/0.1';
 //$base_url = 'https://libsdl.org/nda-inviter/';
 //$github_oauth_clientid = 'sdfsdfkjsdfksdjf';
@@ -16,14 +46,14 @@ include('config.php');
 // most of this support code is from ghwikipp.
 function fail($response, $msg, $url=NULL)
 {
-    global $title;
+    global $title, $css;
     if ($response != NULL) {
         header("HTTP/1.0 $response");
         header("Content-Type: text/html; charset=utf-8");
         if ($url != NULL) { header("Location: $url"); }
     }
 
-    print("\n<html><head><title>$title</title></head><body>\n<p><h1>$response</h1></p>\n<p>$msg</p>\n</body></html>\n\n");
+    print("\n<html><head><title>$title</title>$css</head><body>\n<p><h1>$response</h1></p>\n<p>$msg</p>\n</body></html>\n\n");
     exit(0);
 }
 
@@ -269,7 +299,7 @@ $pass = isset($_REQUEST['form_pass']) ? $_REQUEST['form_pass'] : ($_SESSION['pas
 
 if (!isset($logins[$user]) || ($pass != $logins[$user])) {
     echo <<<EOF
-    <html><head><title>$title</title></head><body>
+    <html><head><title>$title</title>$css</head><body>
     <center>
     <p><h1>SDL NDA Inviter</h1></p>
     <p>
@@ -309,7 +339,7 @@ $_SESSION['username'] = '';
 $_SESSION['password'] = '';
 
 echo <<<EOF
-<html><head><title>$title</title></head><body>
+<html><head><title>$title</title>$css</head><body>
 <p>Okay, you should have invitation(s) waiting for you for the following repositories.</p>
 <p>Click each below to accept your invites, or find the links in your email from GitHub later.</p>
 <p><ul>
