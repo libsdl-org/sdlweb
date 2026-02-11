@@ -16,7 +16,7 @@
                     
                     <blockquote class="graytext">
                         <p>
-                            The official SDL releases are signed by Sam Lantinga &lt;slouken@libsdl.org&gt; using the following PGP key:
+                            The official SDL releases are signed by Sam Lantinga &lt;slouken@libsdl.org&gt; using the following PGP keys:
 			<pre>
 -----BEGIN PGP PUBLIC KEY BLOCK-----
 
