@@ -24,5 +24,6 @@
         <!--<li<?php if($current_page=="download-1.2") echo" class=\"active\"";?>><a href="/download-1.2.php">SDL 1.2</a></li>-->
         <li<?php if($current_page=="git") echo" class=\"active\"";?>><a href="https://github.com/libsdl-org">SDL GitHub</a></li>
         <li<?php if($current_page=="languages") echo" class=\"active\"";?>><a href="/languages.php">Language Bindings</a></li>
+        <li<?php if($current_page=="signing-keys") echo" class=\"active\"";?>><a href="/signing-keys.php">Signing Keys</a></li>
     </ul>
 </div>
